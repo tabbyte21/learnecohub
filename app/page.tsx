@@ -84,6 +84,34 @@ function Counter({ target, suffix = "" }: { target: number; suffix?: string }) {
 /* ═══════════════════════════════════════
    NAVBAR
    ═══════════════════════════════════════ */
+/* Dropdown for main page navbar (light variant) */
+function MainNavDropdown({ label, href, sub }: {
+  label: string; href: string;
+  sub: { label: string; href: string; icon: React.ElementType; desc: string }[];
+}) {
+  return (
+    <div className="relative group/dd">
+      <a href={href} className="px-4 py-2 text-[0.85rem] font-semibold text-slate-500 hover:text-brand-600 rounded-xl hover:bg-brand-50 transition-all flex items-center gap-1">
+        {label}
+        <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover/dd:rotate-180" />
+      </a>
+      <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover/dd:opacity-100 group-hover/dd:visible transition-all duration-200">
+        <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-2 min-w-[220px]">
+          {sub.map((s) => (
+            <a key={s.label} href={s.href} className="flex items-start gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-colors group/item">
+              <s.icon className="w-4 h-4 text-slate-400 mt-0.5 flex-shrink-0 group-hover/item:text-brand-600 transition-colors" />
+              <div>
+                <span className="block text-[0.82rem] font-semibold text-slate-700 group-hover/item:text-brand-600 transition-colors">{s.label}</span>
+                <span className="block text-[0.72rem] text-slate-400 leading-snug">{s.desc}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -92,23 +120,29 @@ function Navbar() {
     window.addEventListener("scroll", fn, { passive: true });
     return () => window.removeEventListener("scroll", fn);
   }, []);
-  const links = [
-    { label: "Materyaller", href: "#materials" },
-    { label: "Nasıl Çalışır", href: "#steps" },
-    { label: "Kurslarımız", href: "#pricing" },
-    { label: "Referanslar", href: "#testimonials" },
-    { label: "SSS", href: "#faq" },
+  const mobileLinks = [
+    { label: "Hikayemiz", href: "/hikayemiz" },
+    { label: "İş Birlikleri", href: "/is-birlikleri" },
+    { label: "İçeriklerimiz", href: "/iceriklerimiz" },
+    { label: "Kurslarımız", href: "/kurslarimiz" },
+    { label: "Blog", href: "/blog" },
+    { label: "İletişim", href: "/contact" },
   ];
   return (
     <nav className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? "nav-scrolled py-3 opacity-100 translate-y-0" : "bg-transparent py-5 opacity-0 -translate-y-4 pointer-events-none"}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2.5 group">
+        <a href="/" className="flex items-center gap-2.5 group">
           <img src="https://learnecohub.com/wp-content/uploads/2025/03/logo-3-e1749328376385.png" alt="LearnecoHub" className="h-10 w-auto" />
         </a>
         <div className="hidden md:flex items-center gap-1">
-          {links.map((l) => (
-            <a key={l.label} href={l.href} className="px-4 py-2 text-[0.85rem] font-semibold text-slate-500 hover:text-brand-600 rounded-xl hover:bg-brand-50 transition-all">{l.label}</a>
-          ))}
+          <MainNavDropdown label="Hikayemiz" href="/hikayemiz" sub={[
+            { label: "İş Birlikleri", href: "/is-birlikleri", icon: Users, desc: "Kurumsal ortaklıklar" },
+          ]} />
+          <MainNavDropdown label="İçeriklerimiz" href="/iceriklerimiz" sub={[
+            { label: "Kurslarımız", href: "/kurslarimiz", icon: GraduationCap, desc: "Canlı grup dersleri" },
+          ]} />
+          <a href="/blog" className="px-4 py-2 text-[0.85rem] font-semibold text-slate-500 hover:text-brand-600 rounded-xl hover:bg-brand-50 transition-all">Blog</a>
+          <a href="/contact" className="px-4 py-2 text-[0.85rem] font-semibold text-slate-500 hover:text-brand-600 rounded-xl hover:bg-brand-50 transition-all">İletişim</a>
         </div>
         <div className="hidden md:flex items-center gap-3">
           <a href="https://lms.learnecohub.com" className="text-[0.85rem] font-bold text-slate-600 hover:text-brand-600 transition-colors px-4 py-2">Giriş Yap</a>
@@ -121,7 +155,7 @@ function Navbar() {
       {open && (
         <div className="md:hidden absolute top-full inset-x-0 bg-white/95 backdrop-blur-xl border-b border-slate-200 p-6 shadow-lg">
           <div className="flex flex-col gap-1">
-            {links.map((l) => (
+            {mobileLinks.map((l) => (
               <a key={l.label} href={l.href} onClick={() => setOpen(false)} className="px-4 py-3 text-sm font-semibold text-slate-600 rounded-xl hover:bg-brand-50 transition-all">{l.label}</a>
             ))}
             <div className="border-t border-slate-100 pt-4 mt-2 flex flex-col gap-2">
@@ -139,6 +173,7 @@ function Navbar() {
    HERO — Floating rounded tab
    ═══════════════════════════════════════ */
 function Hero() {
+  const [heroMenuOpen, setHeroMenuOpen] = useState(false);
   return (
     <section className="relative min-h-screen flex flex-col p-3 sm:p-4 overflow-hidden bg-[#E8F4FD]">
       {/* Rounded dark-blue tab */}
@@ -152,25 +187,77 @@ function Hero() {
 
         {/* Hero Nav */}
         <div className="relative z-20 max-w-7xl w-full mx-auto px-6 sm:px-8 pt-5 pb-3 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2.5 group">
+          <a href="/" className="flex items-center gap-2.5 group">
             <img src="https://learnecohub.com/wp-content/uploads/2025/03/logo-3-e1749328376385.png" alt="LearnecoHub" className="h-10 w-auto brightness-0 invert" />
           </a>
           <div className="hidden md:flex items-center gap-1">
-            {[
-              { label: "Materyaller", href: "#materials" },
-              { label: "Nasıl Çalışır", href: "#steps" },
-              { label: "Kurslarımız", href: "#pricing" },
-              { label: "SSS", href: "#faq" },
-            ].map((l) => (
-              <a key={l.label} href={l.href} className="px-4 py-2 text-[0.84rem] font-semibold text-white/60 hover:text-white rounded-xl hover:bg-white/8 transition-all">{l.label}</a>
-            ))}
+            {/* Hikayemiz with dropdown */}
+            <div className="relative group/dd">
+              <a href="/hikayemiz" className="px-4 py-2 text-[0.84rem] font-semibold text-white/60 hover:text-white rounded-xl hover:bg-white/8 transition-all flex items-center gap-1">
+                Hikayemiz <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover/dd:rotate-180" />
+              </a>
+              <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover/dd:opacity-100 group-hover/dd:visible transition-all duration-200">
+                <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-2 min-w-[220px]">
+                  <a href="/is-birlikleri" className="flex items-start gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-colors group/item">
+                    <Users className="w-4 h-4 text-slate-400 mt-0.5 flex-shrink-0 group-hover/item:text-brand-600 transition-colors" />
+                    <div>
+                      <span className="block text-[0.82rem] font-semibold text-slate-700 group-hover/item:text-brand-600 transition-colors">İş Birlikleri</span>
+                      <span className="block text-[0.72rem] text-slate-400 leading-snug">Kurumsal ortaklıklar</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            {/* İçeriklerimiz with dropdown */}
+            <div className="relative group/dd2">
+              <a href="/iceriklerimiz" className="px-4 py-2 text-[0.84rem] font-semibold text-white/60 hover:text-white rounded-xl hover:bg-white/8 transition-all flex items-center gap-1">
+                İçeriklerimiz <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover/dd2:rotate-180" />
+              </a>
+              <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover/dd2:opacity-100 group-hover/dd2:visible transition-all duration-200">
+                <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-2 min-w-[220px]">
+                  <a href="/kurslarimiz" className="flex items-start gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-colors group/item">
+                    <GraduationCap className="w-4 h-4 text-slate-400 mt-0.5 flex-shrink-0 group-hover/item:text-brand-600 transition-colors" />
+                    <div>
+                      <span className="block text-[0.82rem] font-semibold text-slate-700 group-hover/item:text-brand-600 transition-colors">Kurslarımız</span>
+                      <span className="block text-[0.72rem] text-slate-400 leading-snug">Canlı grup dersleri</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <a href="/blog" className="px-4 py-2 text-[0.84rem] font-semibold text-white/60 hover:text-white rounded-xl hover:bg-white/8 transition-all">Blog</a>
+            <a href="/contact" className="px-4 py-2 text-[0.84rem] font-semibold text-white/60 hover:text-white rounded-xl hover:bg-white/8 transition-all">İletişim</a>
           </div>
           <div className="flex items-center gap-3">
             <a href="https://lms.learnecohub.com" className="hidden sm:block text-[0.84rem] font-bold text-white/60 hover:text-white transition-colors px-3 py-2">Giriş Yap</a>
-            <a href="#cta" className="btn-3d btn-3d-mint !py-2.5 !px-6 !text-[0.84rem] !rounded-xl !gap-1.5">
+            <a href="#cta" className="hidden sm:inline-flex btn-3d btn-3d-mint !py-2.5 !px-6 !text-[0.84rem] !rounded-xl !gap-1.5">
               Hemen Başla
             </a>
+            <button onClick={() => setHeroMenuOpen(!heroMenuOpen)} className="md:hidden w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-white/70">
+              {heroMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
           </div>
+          {/* Mobile menu overlay */}
+          {heroMenuOpen && (
+            <div className="md:hidden absolute top-full left-0 right-0 bg-[#1B3A7B]/95 backdrop-blur-xl border-t border-white/10 p-5 z-50">
+              <div className="flex flex-col gap-1">
+                {[
+                  { label: "Hikayemiz", href: "/hikayemiz" },
+                  { label: "İş Birlikleri", href: "/is-birlikleri" },
+                  { label: "İçeriklerimiz", href: "/iceriklerimiz" },
+                  { label: "Kurslarımız", href: "/kurslarimiz" },
+                  { label: "Blog", href: "/blog" },
+                  { label: "İletişim", href: "/contact" },
+                ].map((l) => (
+                  <a key={l.label} href={l.href} className="px-4 py-3 text-sm font-semibold text-white/70 rounded-xl hover:bg-white/10 transition-all">{l.label}</a>
+                ))}
+                <div className="border-t border-white/10 pt-3 mt-2 flex flex-col gap-2">
+                  <a href="https://lms.learnecohub.com" className="px-4 py-3 text-sm font-bold text-white/70">Giriş Yap</a>
+                  <a href="#cta" className="btn-3d btn-3d-mint justify-center">Hemen Başla</a>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Hero Content — centered text with balloon-burst cards */}
@@ -306,6 +393,129 @@ function Stats() {
                 <p className="text-[0.78rem] text-slate-500 font-medium leading-snug">{s.label}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+    </Section>
+  );
+}
+
+/* ═══════════════════════════════════════
+   YOUTUBE SHOWCASE — Embedded Video
+   ═══════════════════════════════════════ */
+function YoutubeShowcase() {
+  const [playing, setPlaying] = useState(false);
+
+  return (
+    <Section>
+      <section className="relative py-0 overflow-hidden">
+        {/* Top subtle fade */}
+        <div className="absolute top-0 left-0 right-0 h-8 z-10" style={{ background: "linear-gradient(to bottom, #FFFBEB, transparent)" }} />
+
+        {/* Main background */}
+        <div className="absolute inset-0 bg-[#1B3A7B]" />
+        <div className="absolute inset-0 dots-pattern opacity-[0.05]" />
+
+        {/* Orbs */}
+        <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-[#4D7EC4]/25 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[-15%] left-[-8%] w-[400px] h-[400px] bg-[#2ECC71]/12 rounded-full blur-[100px]" />
+        <div className="absolute top-[30%] left-[40%] w-[300px] h-[300px] bg-[#F5C518]/8 rounded-full blur-[90px]" />
+
+        {/* Bottom subtle fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-8 z-10" style={{ background: "linear-gradient(to top, #ffffff, transparent)" }} />
+
+        <div className="relative z-20 max-w-7xl mx-auto px-6 py-20 sm:py-24">
+          <div className="grid lg:grid-cols-[5fr_7fr] gap-10 lg:gap-12 items-center">
+            {/* Left — Text */}
+            <div>
+              <div className="anim">
+                <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-white text-[0.72rem] font-bold uppercase tracking-wide mb-5">
+                  <Play className="w-3.5 h-3.5" /> TANITIM VİDEOSU
+                </span>
+              </div>
+
+              <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-white mb-5 tracking-tight leading-[1.12]">
+                Çocukları hayata{" "}
+                <span className="text-[#F5C518]">hazırlıyoruz.</span>
+              </h2>
+
+              <p className="anim d2 text-white/60 text-[0.95rem] leading-[1.85] mb-8 max-w-lg">
+                Sosyal-duygusal öğrenme müfredatımızın nasıl çalıştığını, çocuklara ne kazandırdığını ve platformumuzu yakından tanıyın.
+              </p>
+
+              {/* Square stat cards */}
+              <div className="anim d3 grid grid-cols-3 gap-2 sm:gap-3 mb-8">
+                {[
+                  { icon: BookOpen, value: "100+", label: "Beceri", color: "#2ECC71", bg: "rgba(46,204,113,0.12)" },
+                  { icon: Video, value: "200+", label: "Video", color: "#F5C518", bg: "rgba(245,197,24,0.12)" },
+                  { icon: Users, value: "10K+", label: "Öğrenci", color: "#4D7EC4", bg: "rgba(77,126,196,0.15)" },
+                ].map((s, i) => (
+                  <div key={i} className="rounded-xl border border-white/10 p-3 sm:p-4 text-center backdrop-blur-sm" style={{ background: s.bg }}>
+                    <s.icon className="w-4 h-4 sm:w-5 sm:h-5 mx-auto mb-1.5 sm:mb-2" style={{ color: s.color }} />
+                    <p className="font-display text-lg sm:text-xl font-extrabold text-white leading-none mb-0.5">{s.value}</p>
+                    <p className="text-[0.62rem] sm:text-[0.68rem] text-white/50 font-semibold">{s.label}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="anim d4">
+                <a href="#cta" className="btn-3d btn-3d-mint">
+                  <Rocket className="w-5 h-5" /> Hemen Başla
+                </a>
+              </div>
+            </div>
+
+            {/* Right — YouTube Video */}
+            <div className="anim d2 relative">
+              {/* Glow behind video */}
+              <div className="absolute -inset-3 rounded-3xl bg-[#F5C518]/10 blur-2xl" />
+
+              <div
+                className="relative rounded-2xl overflow-hidden border-2 border-white/10"
+                style={{ boxShadow: "0 6px 0 rgba(77,126,196,0.25), 0 20px 50px rgba(0,0,0,0.35)" }}
+              >
+                {/* 16:9 aspect ratio container */}
+                <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                  {!playing ? (
+                    <>
+                      {/* Thumbnail */}
+                      <img
+                        src="https://img.youtube.com/vi/GcjqT6zb1Ts/maxresdefault.jpg"
+                        alt="LearnecoHub Tanıtım Videosu"
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                      {/* Dark overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/15 to-transparent" />
+
+                      {/* Centered play button — large */}
+                      <button
+                        onClick={() => setPlaying(true)}
+                        className="absolute inset-0 z-10 flex items-center justify-center group cursor-pointer"
+                      >
+                        <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#F5C518] flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{ boxShadow: "0 4px 0 #D4A816, 0 8px 30px rgba(245,197,24,0.4)" }}>
+                          <Play className="w-9 h-9 sm:w-11 sm:h-11 text-[#1A1A2E] ml-1" fill="#1A1A2E" />
+                        </div>
+                      </button>
+
+                      {/* Bottom-right "Videoyu İzle" label */}
+                      <div className="absolute bottom-4 right-4 z-10 flex items-center gap-2 px-3.5 py-2 rounded-xl bg-black/40 backdrop-blur-sm">
+                        <Youtube className="w-4 h-4 text-[#FF0000]" />
+                        <span className="font-display font-bold text-white text-[0.78rem]">Videoyu İzle</span>
+                      </div>
+                    </>
+                  ) : (
+                    <iframe
+                      className="absolute inset-0 w-full h-full"
+                      src="https://www.youtube.com/embed/GcjqT6zb1Ts?autoplay=1&rel=0"
+                      title="LearnecoHub Tanıtım Videosu"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                    />
+                  )}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -467,14 +677,17 @@ function FreeBanner() {
 }
 
 /* ═══════════════════════════════════════
-   VIDEO SHOWCASE — 3 Expandable Columns
+   VIDEO SHOWCASE — Notebook Style Cards
    ═══════════════════════════════════════ */
 function VideoShowcase() {
-  const [active, setActive] = useState(0);
+  const [playingIdx, setPlayingIdx] = useState<number | null>(null);
   const videos = [
-    { title: "Tanıtım Videosu", desc: "LearnecoHub platformunun kapsamlı sosyal beceri müfredatını ve öğrenme deneyimini keşfedin.", bg: "bg-[#EBF2FB]", border: "border-brand-200", src: "https://learnecohub.com/wp-content/uploads/2025/07/Tanitim-Videosu-Guncel.mp4" },
-    { title: "Etkileşimli Video", desc: "Hikayeleştirilmiş, animasyon destekli ve oyunlaştırılmış etkileşimli video içeriklerimize göz atın.", bg: "bg-[#ECFBF2]", border: "border-mint-200", src: "https://learnecohub.com/wp-content/uploads/2025/07/Etkilesimli-Video-Tanitim-1.mp4" },
-    { title: "Platform Güvenliği", desc: "Çocuklarınız için güvenli ve kontrollü bir dijital öğrenme ortamı sunuyoruz.", bg: "bg-[#FFFBEB]", border: "border-gold-200", src: "https://learnecohub.com/wp-content/uploads/2025/07/Web-Sitesi-Guvenlik-2.mp4" },
+    { title: "Tanıtım Videosu", desc: "LearnecoHub platformunun kapsamlı sosyal beceri müfredatını ve öğrenme deneyimini keşfedin.", accent: "#1B3A7B", tabColor: "#1B3A7B", src: "https://learnecohub.com/wp-content/uploads/2025/07/Tanitim-Videosu-Guncel.mp4" },
+    { title: "Etkileşimli Video", desc: "Hikayeleştirilmiş, animasyon destekli ve oyunlaştırılmış etkileşimli video içeriklerimize göz atın.", accent: "#2ECC71", tabColor: "#2ECC71", src: "https://learnecohub.com/wp-content/uploads/2025/07/Etkilesimli-Video-Tanitim-1.mp4" },
+    { title: "Platform Güvenliği", desc: "Çocuklarınız için güvenli ve kontrollü bir dijital öğrenme ortamı sunuyoruz.", accent: "#F5C518", tabColor: "#F5C518", src: "https://learnecohub.com/wp-content/uploads/2025/07/Web-Sitesi-Guvenlik-2.mp4" },
+    { title: "Empati Gelişimi", desc: "Çocukların empati becerilerini hikayeler ve interaktif senaryolarla geliştiren video dersler.", accent: "#7F63CB", tabColor: "#7F63CB", src: "https://learnecohub.com/wp-content/uploads/2025/07/Tanitim-Videosu-Guncel.mp4" },
+    { title: "Duygu Yönetimi", desc: "Öfke, kaygı ve üzüntü gibi duyguları tanıma ve yönetme stratejilerini öğreten içerikler.", accent: "#EE7A45", tabColor: "#EE7A45", src: "https://learnecohub.com/wp-content/uploads/2025/07/Etkilesimli-Video-Tanitim-1.mp4" },
+    { title: "Sosyal Beceriler", desc: "Arkadaşlık kurma, iş birliği ve iletişim becerilerini destekleyen animasyonlu dersler.", accent: "#1B3A7B", tabColor: "#1B3A7B", src: "https://learnecohub.com/wp-content/uploads/2025/07/Web-Sitesi-Guvenlik-2.mp4" },
   ];
 
   return (
@@ -494,51 +707,110 @@ function VideoShowcase() {
             </p>
           </div>
 
-          <div className="anim d2 flex gap-3 h-[420px] sm:h-[480px]">
-            {videos.map((v, i) => (
-              <div
-                key={i}
-                onClick={() => setActive(i)}
-                className={`video-col relative rounded-2xl border-2 ${v.border} ${v.bg} overflow-hidden cursor-pointer transition-all duration-500 ease-out ${
-                  active === i ? "flex-[3]" : "flex-[1]"
-                }`}
-              >
-                {/* Video element */}
-                <video
-                  src={v.src}
-                  className="absolute inset-0 w-full h-full object-cover"
-                  muted
-                  loop
-                  playsInline
-                  autoPlay={active === i}
-                  ref={(el) => {
-                    if (el) {
-                      if (active === i) { el.play().catch(() => {}); }
-                      else { el.pause(); el.currentTime = 0; }
-                    }
-                  }}
-                />
-                {/* Overlay */}
-                <div className={`absolute inset-0 transition-all duration-500 ${active === i ? "bg-black/10" : "bg-white/60 backdrop-blur-[2px]"}`} />
-
-                {/* Content */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-4 sm:p-6 z-10">
-                  {active !== i && (
-                    <div className="w-12 h-12 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center shadow-lg mb-3">
-                      <Play className="w-5 h-5 text-slate-700 ml-0.5" />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {videos.map((v, i) => {
+              const isPlaying = playingIdx === i;
+              return (
+                <div key={i} className={`anim d${i <= 2 ? i + 1 : 3} group relative`}>
+                  <div
+                    className="relative bg-white rounded-xl overflow-hidden transition-all duration-300 group-hover:-translate-y-1"
+                    style={{
+                      boxShadow: "0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04)",
+                    }}
+                  >
+                    {/* Top colored tab */}
+                    <div className="relative h-10 flex items-center px-4" style={{ background: v.tabColor }}>
+                      <div className="w-5 h-5 rounded-full border-[2.5px] border-white/60 bg-transparent" />
+                      <div className="ml-auto flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-white/20 backdrop-blur-sm">
+                        <span className="text-[0.65rem] font-bold text-white/90 uppercase tracking-wide">Ders {i + 1}</span>
+                      </div>
                     </div>
-                  )}
-                  <h3 className={`font-display font-extrabold text-center transition-all duration-300 ${active === i ? "text-xl sm:text-2xl mb-3 text-white drop-shadow-lg" : "text-sm writing-vertical sm:writing-horizontal sm:text-base text-slate-800"}`}>
-                    {v.title}
-                  </h3>
-                  {active === i && (
-                    <p className="text-[0.85rem] text-white/90 text-center max-w-md animate-fade-in leading-relaxed drop-shadow">
-                      {v.desc}
-                    </p>
-                  )}
+
+                    {/* Lined paper area with video */}
+                    <div className="relative" style={{
+                      backgroundImage: `repeating-linear-gradient(transparent, transparent 27px, #e8e8e8 27px, #e8e8e8 28px)`,
+                      backgroundPosition: "0 12px",
+                    }}>
+                      <div className="absolute top-0 bottom-0 left-10 w-[1px] bg-red-300/40 z-20 pointer-events-none" />
+
+                      {/* Video */}
+                      <div className="relative mx-4 mt-4 mb-0 rounded-lg overflow-hidden border border-slate-200/60" style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
+                        <div className="relative aspect-video">
+                          <video
+                            src={v.src}
+                            className="w-full h-full object-cover"
+                            muted
+                            loop
+                            playsInline
+                            ref={(el) => {
+                              if (el) {
+                                if (isPlaying) { el.play().catch(() => {}); }
+                                else { el.pause(); el.currentTime = 0; }
+                              }
+                            }}
+                          />
+                          {!isPlaying && (
+                            <button
+                              onClick={() => setPlayingIdx(i)}
+                              className="absolute inset-0 bg-black/20 flex items-center justify-center group/play cursor-pointer transition-colors hover:bg-black/30"
+                              aria-label="Videoyu oynat"
+                              type="button"
+                            >
+                              <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-xl transition-transform group-hover/play:scale-110">
+                                <Play className="w-6 h-6 ml-0.5" style={{ color: v.accent }} />
+                              </div>
+                            </button>
+                          )}
+                          {isPlaying && (
+                            <button
+                              onClick={() => setPlayingIdx(null)}
+                              className="absolute top-2 right-2 w-8 h-8 rounded-full bg-black/40 flex items-center justify-center text-white/80 hover:bg-black/60 transition-colors z-10 cursor-pointer"
+                              aria-label="Durdur"
+                              type="button"
+                            >
+                              <span className="text-xs font-bold">✕</span>
+                            </button>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Title & desc */}
+                      <div className="px-5 pl-14 py-4 h-[96px]">
+                        <h3 className="font-display text-[1rem] font-extrabold text-slate-800 mb-1.5 leading-tight line-clamp-1">
+                          {v.title}
+                        </h3>
+                        <p className="text-[0.82rem] text-slate-400 leading-relaxed line-clamp-2">
+                          {v.desc}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Torn edge */}
+                    <div className="h-3 w-full" style={{
+                      background: `linear-gradient(135deg, white 33.33%, transparent 33.33%) -6px 0, linear-gradient(225deg, white 33.33%, transparent 33.33%) -6px 0`,
+                      backgroundSize: "12px 12px",
+                      backgroundColor: v.tabColor + "18",
+                    }} />
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
+          </div>
+
+          {/* Fade overlay on bottom row */}
+          <div className="relative -mt-44 h-52 z-10 pointer-events-none" style={{
+            background: "linear-gradient(to bottom, transparent 0%, #E8F4FD 75%)",
+          }} />
+
+          {/* Devamını Gör button */}
+          <div className="relative z-20 flex justify-center -mt-10">
+            <a
+              href="/iceriklerimiz"
+              className="btn-3d btn-3d-brand !text-[0.85rem] group"
+            >
+              Tüm Video Dersleri Gör
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </a>
           </div>
         </div>
       </section>
@@ -634,7 +906,8 @@ function LearningMap() {
           </p>
         </div>
 
-        <div className="relative overflow-x-auto pb-4">
+        {/* Desktop: SVG path map */}
+        <div className="hidden md:block relative overflow-x-auto pb-4">
           <div className="relative min-w-[700px] h-[360px] mx-auto max-w-[1000px]">
             <svg viewBox="0 0 1000 320" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid meet">
               <defs>
@@ -683,6 +956,52 @@ function LearningMap() {
                   <p className={`mt-2 text-[0.75rem] font-bold text-center max-w-[90px] leading-tight map-node-enter ${isVisible ? "visible" : ""} ${node.status === "locked" ? "text-slate-300" : "text-slate-600"}`} style={{ transitionDelay: `${delay + 150}ms` }}>
                     {node.title}
                   </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Mobile: Vertical timeline */}
+        <div className="md:hidden relative pl-8">
+          {/* Vertical line */}
+          <div className="absolute left-[22px] top-0 bottom-0 w-[3px] rounded-full bg-slate-200" />
+          <div className="absolute left-[22px] top-0 w-[3px] rounded-full bg-gradient-to-b from-[#1B3A7B] via-[#2ECC71] to-[#4D7EC4] transition-all duration-700" style={{ height: `${Math.min(progress * 130, 100)}%` }} />
+
+          <div className="space-y-6">
+            {nodes.map((node, i) => {
+              const nodeProgress = progress * 1.3;
+              const threshold = i / nodes.length;
+              const isVisible = nodeProgress > threshold;
+              return (
+                <div key={i} className={`relative flex items-start gap-4 transition-all duration-500 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"}`} style={{ transitionDelay: `${i * 100}ms` }}>
+                  {/* Node circle */}
+                  <div
+                    className="relative z-10 w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 -ml-8"
+                    style={{
+                      background: node.bg,
+                      boxShadow: node.status !== "locked" ? `0 0 0 4px ${node.ring}, 0 4px 12px ${node.glow}` : "0 0 0 4px rgba(0,0,0,0.04)",
+                    }}
+                  >
+                    {node.status === "locked" ? <Lock className="w-4.5 h-4.5 text-slate-400" /> : node.status === "completed" ? <CheckCircle2 className="w-5 h-5 text-white" /> : <node.icon className="w-5 h-5 text-white" />}
+                  </div>
+                  {/* Content */}
+                  <div className="flex-1 pt-1.5">
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <h4 className={`font-display font-extrabold text-[0.9rem] ${node.status === "locked" ? "text-slate-300" : "text-slate-700"}`}>{node.title}</h4>
+                      {node.status === "completed" && (
+                        <div className="flex items-center gap-0.5">
+                          {[0, 1, 2].map((s) => (
+                            <Star key={s} className="w-3 h-3 fill-gold-400 text-gold-400" />
+                          ))}
+                        </div>
+                      )}
+                      {node.status === "current" && <Crown className="w-4 h-4 text-gold-400 fill-gold-400" />}
+                    </div>
+                    <p className={`text-[0.78rem] ${node.status === "locked" ? "text-slate-300" : "text-slate-400"}`}>
+                      {node.status === "completed" ? "Tamamlandı" : node.status === "current" ? "Devam ediyor" : "Kilitli"}
+                    </p>
+                  </div>
                 </div>
               );
             })}
@@ -1212,14 +1531,14 @@ function Manifesto() {
           {/* Tabs */}
           <div className="anim d2">
             {/* Tab buttons */}
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">
+            <div className="flex justify-start sm:justify-center gap-2 sm:gap-3 mb-8 overflow-x-auto pb-2 -mx-6 px-6 sm:mx-0 sm:px-0 scrollbar-hide">
               {tabs.map((t, i) => {
                 const active = activeTab === i;
                 return (
                   <button
                     key={i}
                     onClick={() => setActiveTab(i)}
-                    className="manifesto-tab flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl font-display font-bold text-[0.82rem] sm:text-[0.88rem] transition-all duration-400 border-2"
+                    className="manifesto-tab flex items-center gap-2 px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-xl font-display font-bold text-[0.75rem] sm:text-[0.88rem] transition-all duration-400 border-2 flex-shrink-0 whitespace-nowrap"
                     style={{
                       background: active ? t.color : "white",
                       color: active ? "#fff" : "#64748B",
@@ -1309,7 +1628,7 @@ function FinalCTA() {
             <div className="absolute top-0 right-0 w-72 h-72 bg-brand-500/10 rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-56 h-56 bg-mint-500/8 rounded-full blur-3xl" />
             <div className="relative z-10 p-10 sm:p-14 text-center">
-              <div className="w-14 h-14 rounded-2xl bg-[#F5C518]/20 flex items-center justify-center mx-auto mb-6">
+              <div className="flex items-center justify-center mx-auto mb-6">
                 <img src="https://learnecohub.com/wp-content/uploads/2025/03/logo-3-e1749328376385.png" alt="LearnecoHub" className="h-8 w-auto brightness-0 invert" />
               </div>
               <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white mb-4 tracking-tight">
@@ -1349,7 +1668,7 @@ function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <a href="#" className="flex items-center gap-2.5 mb-4">
+            <a href="/" className="flex items-center gap-2.5 mb-4">
               <img src="https://learnecohub.com/wp-content/uploads/2025/03/logo-3-e1749328376385.png" alt="LearnecoHub" className="h-9 w-auto" />
             </a>
             <p className="text-[0.82rem] leading-relaxed max-w-xs mb-5">
@@ -1357,12 +1676,12 @@ function Footer() {
             </p>
             <div className="flex items-center gap-2.5">
               {[
-                { icon: Facebook, label: "Fb" },
-                { icon: Instagram, label: "Ig" },
-                { icon: Youtube, label: "Yt" },
-                { icon: Linkedin, label: "Li" },
+                { icon: Facebook, label: "Fb", href: "https://facebook.com" },
+                { icon: Instagram, label: "Ig", href: "https://instagram.com" },
+                { icon: Youtube, label: "Yt", href: "https://youtube.com" },
+                { icon: Linkedin, label: "Li", href: "https://linkedin.com" },
               ].map((s, i) => (
-                <a key={i} href="#" className="w-8 h-8 rounded-xl bg-white/5 border border-white/8 flex items-center justify-center text-white/30 hover:bg-[#F5C518]/15 hover:text-[#F5C518] hover:border-[#F5C518]/30 transition-all">
+                <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-xl bg-white/5 border border-white/8 flex items-center justify-center text-white/30 hover:bg-[#F5C518]/15 hover:text-[#F5C518] hover:border-[#F5C518]/30 transition-all">
                   <s.icon className="w-3.5 h-3.5" />
                 </a>
               ))}
@@ -1375,10 +1694,12 @@ function Footer() {
             <ul className="space-y-2.5">
               {[
                 { label: "Ana Sayfa", href: "/" },
-                { label: "Hikayemiz", href: "/hikayemiz/" },
-                { label: "Kurslarımız", href: "/kurslarimiz/" },
-                { label: "İş Birlikleri", href: "/is-birlikleri/" },
-                { label: "İletişim", href: "/contact/" },
+                { label: "Hikayemiz", href: "/hikayemiz" },
+                { label: "Kurslarımız", href: "/kurslarimiz" },
+                { label: "İçeriklerimiz", href: "/iceriklerimiz" },
+                { label: "İş Birlikleri", href: "/is-birlikleri" },
+                { label: "Blog", href: "/blog" },
+                { label: "İletişim", href: "/contact" },
               ].map((l, j) => (
                 <li key={j}><a href={l.href} className="text-[0.8rem] hover:text-[#F5C518] transition-colors">{l.label}</a></li>
               ))}
@@ -1389,8 +1710,14 @@ function Footer() {
           <div>
             <h4 className="font-display font-bold text-[0.82rem] text-white mb-4 tracking-wide">Platform</h4>
             <ul className="space-y-2.5">
-              {["Müfredat", "Video Dersler", "Beceri Oyunları", "Çalışma Sayfaları", "Gelişim Portfolyosu"].map((l, j) => (
-                <li key={j}><a href="#" className="text-[0.8rem] hover:text-[#F5C518] transition-colors">{l}</a></li>
+              {[
+                { label: "Müfredat", href: "/iceriklerimiz" },
+                { label: "Video Dersler", href: "/iceriklerimiz" },
+                { label: "Kurslarımız", href: "/kurslarimiz" },
+                { label: "Blog", href: "/blog" },
+                { label: "İş Birlikleri", href: "/is-birlikleri" },
+              ].map((l, j) => (
+                <li key={j}><a href={l.href} className="text-[0.8rem] hover:text-[#F5C518] transition-colors">{l.label}</a></li>
               ))}
             </ul>
           </div>
@@ -1440,6 +1767,7 @@ export default function Page() {
       <Navbar />
       <Hero />
       <Stats />
+      <YoutubeShowcase />
       <Materials />
       <FreeBanner />
       <VideoShowcase />

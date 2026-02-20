@@ -264,6 +264,10 @@ body { background-color: #ffffff; color: #1A1A2E; overflow-x: hidden; }
 ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
 
+/* ─── Hide scrollbar utility ─── */
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
 /* ─── Gradient text ─── */
 .text-gradient {
   color: #1B3A7B;
