@@ -32,11 +32,11 @@ function NedenSection() {
               </span>
             </div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight">
-              Kurumunuz {"\u0130\u00E7"}in{" "}
+              Kurumunuz {"İç"}in{" "}
               <span className="highlight">Neden LearnecoHub?</span>
             </h2>
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
-              {"\u00C7"}al{"\u0131\u015F"}anlar{"\u0131"}n{"\u0131"}z{"\u0131"}n {"\u00E7"}ocuklar{"\u0131"}na yat{"\u0131"}r{"\u0131"}m yapmak, kurumsal de{"\u011F"}erinize yat{"\u0131"}r{"\u0131"}m yapmakt{"\u0131"}r.
+              {"Ç"}al{"ış"}anlar{"ı"}n{"ı"}z{"ı"}n {"ç"}ocuklar{"ı"}na yat{"ı"}r{"ı"}m yapmak, kurumsal de{"ğ"}erinize yat{"ı"}r{"ı"}m yapmakt{"ı"}r.
             </p>
           </div>
 
@@ -61,25 +61,25 @@ function NedenSection() {
                   {/* Badge */}
                   <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-sm mb-6">
                     <Building2 className="w-3.5 h-3.5 text-[#F5C518]" />
-                    <span className="text-[0.72rem] font-bold text-white/90 uppercase tracking-wide">De{"\u011F"}er {"\u00D6"}nerisi</span>
+                    <span className="text-[0.72rem] font-bold text-white/90 uppercase tracking-wide">De{"ğ"}er {"Ö"}nerisi</span>
                   </div>
 
                   <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-white mb-4 leading-tight">
-                    {"\u00C7"}al{"\u0131\u015F"}anlar{"\u0131"}n{"\u0131"}z{"\u0131"}n ailelerine sundu{"\u011F"}unuz{" "}
-                    <span className="text-[#F5C518]">e{"\u015F"}siz bir yan hak</span>
+                    {"Ç"}al{"ış"}anlar{"ı"}n{"ı"}z{"ı"}n ailelerine sundu{"ğ"}unuz{" "}
+                    <span className="text-[#F5C518]">e{"ş"}siz bir yan hak</span>
                   </h3>
 
                   <p className="text-white/70 text-[0.92rem] leading-[1.85] mb-6 max-w-lg">
-                    LearnecoHub, kurumsal {"\u015F"}irketlerle i{"\u015F"} birli{"\u011F"}i yaparak {"\u00E7"}al{"\u0131\u015F"}an {"\u00E7"}ocuklar{"\u0131"}n{"\u0131"}n
-                    sosyal-duygusal geli{"\u015F"}imini destekliyor. Bilimsel y{"\u00F6"}ntemlerle tasarlanm{"\u0131\u015F"}
-                    m{"\u00FC"}fredat{"\u0131"}m{"\u0131"}z, kurumunuzun CSR hedeflerine de{"\u011F"}er katar.
+                    LearnecoHub, kurumsal {"ş"}irketlerle i{"ş"} birli{"ğ"}i yaparak {"ç"}al{"ış"}an {"ç"}ocuklar{"ı"}n{"ı"}n
+                    sosyal-duygusal geli{"ş"}imini destekliyor. Bilimsel y{"ö"}ntemlerle tasarlanm{"ış"}
+                    m{"ü"}fredat{"ı"}m{"ı"}z, kurumunuzun CSR hedeflerine de{"ğ"}er katar.
                   </p>
 
                   {/* Mini stat pills */}
                   <div className="flex flex-wrap gap-3">
                     {[
                       { label: "%92 Memnuniyet", color: "#2ECC71" },
-                      { label: "1000+ Kullan\u0131c\u0131", color: "#F5C518" },
+                      { label: "1000+ Kullanıcı", color: "#F5C518" },
                       { label: "50+ Rapor", color: "#EE7A45" },
                     ].map((s, i) => (
                       <div
@@ -117,13 +117,13 @@ function NedenSection() {
                   Kurumsal Sosyal Sorumluluk
                 </h4>
                 <p className="text-[0.82rem] text-slate-500 leading-relaxed">
-                  {"\u00C7"}al{"\u0131\u015F"}an {"\u00E7"}ocuklar{"\u0131"}na y{"\u00F6"}nelik sosyal-duygusal geli{"\u015F"}im programlar{"\u0131"} ile toplumsal de{"\u011F"}er {"\u00FC"}retimi.
+                  {"Ç"}al{"ış"}an {"ç"}ocuklar{"ı"}na y{"ö"}nelik sosyal-duygusal geli{"ş"}im programlar{"ı"} ile toplumsal de{"ğ"}er {"ü"}retimi.
                 </p>
 
                 {/* Mini progress bar */}
                 <div className="mt-4 pt-4 border-t border-[#2ECC7120]">
                   <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[0.72rem] font-bold text-slate-400">CSR Etki Oran{"\u0131"}</span>
+                    <span className="text-[0.72rem] font-bold text-slate-400">CSR Etki Oran{"ı"}</span>
                     <span className="text-[0.72rem] font-extrabold text-[#2ECC71]">%100</span>
                   </div>
                   <div className="w-full h-1.5 rounded-full bg-[#2ECC7115]">
@@ -151,17 +151,17 @@ function NedenSection() {
                   <Heart className="w-6 h-6 text-[#F5C518]" />
                 </div>
                 <h4 className="font-display text-lg font-extrabold text-[#d4a80e] mb-2 leading-tight">
-                  {"\u00C7"}al{"\u0131\u015F"}an Memnuniyeti
+                  {"Ç"}al{"ış"}an Memnuniyeti
                 </h4>
                 <p className="text-[0.82rem] text-slate-500 leading-relaxed">
-                  Aile dostu kurum k{"\u00FC"}lt{"\u00FC"}r{"\u00FC"}n{"\u00FC"} g{"\u00FC\u00E7"}lendiren, {"\u00E7"}al{"\u0131\u015F"}an ba{"\u011F"}l{"\u0131"}l{"\u0131\u011F\u0131"}n{"\u0131"} art{"\u0131"}ran s{"\u00FC"}rd{"\u00FC"}r{"\u00FC"}lebilir programlar.
+                  Aile dostu kurum k{"ü"}lt{"ü"}r{"ü"}n{"ü"} g{"üç"}lendiren, {"ç"}al{"ış"}an ba{"ğ"}l{"ı"}l{"ığı"}n{"ı"} art{"ı"}ran s{"ü"}rd{"ü"}r{"ü"}lebilir programlar.
                 </p>
 
                 {/* Satisfaction meter */}
                 <div className="mt-4 pt-4 border-t border-[#F5C51820]">
                   <div className="flex items-center gap-2">
                     <TrendingUp className="w-4 h-4 text-[#d4a80e]" />
-                    <span className="text-[0.72rem] font-extrabold text-[#d4a80e]">+%34 Ba{"\u011F"}l{"\u0131"}l{"\u0131"}k Art{"\u0131\u015F\u0131"}</span>
+                    <span className="text-[0.72rem] font-extrabold text-[#d4a80e]">+%34 Ba{"ğ"}l{"ı"}l{"ı"}k Art{"ışı"}</span>
                   </div>
                 </div>
               </div>
@@ -185,10 +185,10 @@ function NedenSection() {
                   <Sparkles className="w-6 h-6 text-[#7F63CB]" />
                 </div>
                 <h4 className="font-display text-lg font-extrabold text-[#7F63CB] mb-2 leading-tight">
-                  {"\u0130\u015F"}veren Markas{"\u0131"}
+                  {"İş"}veren Markas{"ı"}
                 </h4>
                 <p className="text-[0.82rem] text-slate-500 leading-relaxed">
-                  Farkl{"\u0131"}la{"\u015F"}an {"\u00E7"}al{"\u0131\u015F"}an yan haklar{"\u0131"}yla i{"\u015F"}veren markan{"\u0131"}za g{"\u00FC\u00E7"}l{"\u00FC"} katk{"\u0131"} sa{"\u011F"}lay{"\u0131"}n.
+                  Farkl{"ı"}la{"ş"}an {"ç"}al{"ış"}an yan haklar{"ı"}yla i{"ş"}veren markan{"ı"}za g{"üç"}l{"ü"} katk{"ı"} sa{"ğ"}lay{"ı"}n.
                 </p>
 
                 {/* Stars */}
@@ -219,10 +219,10 @@ function NedenSection() {
                   <Leaf className="w-6 h-6 text-[#1B3A7B]" />
                 </div>
                 <h4 className="font-display text-lg font-extrabold text-[#1B3A7B] mb-2 leading-tight">
-                  S{"\u00FC"}rd{"\u00FC"}r{"\u00FC"}lebilirlik
+                  S{"ü"}rd{"ü"}r{"ü"}lebilirlik
                 </h4>
                 <p className="text-[0.82rem] text-slate-500 leading-relaxed">
-                  ESG ve s{"\u00FC"}rd{"\u00FC"}r{"\u00FC"}lebilirlik raporlar{"\u0131"}n{"\u0131"}za somut sosyal etki verileri ekleyin.
+                  ESG ve s{"ü"}rd{"ü"}r{"ü"}lebilirlik raporlar{"ı"}n{"ı"}za somut sosyal etki verileri ekleyin.
                 </p>
               </div>
             </div>
@@ -248,7 +248,7 @@ function NedenSection() {
                   Dijital Raporlama
                 </h4>
                 <p className="text-[0.82rem] text-slate-500 leading-relaxed">
-                  Kurum {"\u00F6"}zelinde detayl{"\u0131"} dijital geli{"\u015F"}im raporlar{"\u0131"} ve {"\u00F6"}l{"\u00E7\u00FC"}lebilir sonu{"\u00E7"}lar.
+                  Kurum {"ö"}zelinde detayl{"ı"} dijital geli{"ş"}im raporlar{"ı"} ve {"ö"}l{"çü"}lebilir sonu{"ç"}lar.
                 </p>
 
                 {/* Mini bar chart */}
@@ -282,15 +282,15 @@ function NedenSection() {
                   <Layers className="w-6 h-6 text-[#2ECC71]" />
                 </div>
                 <h4 className="font-display text-lg font-extrabold text-[#2ECC71] mb-2 leading-tight">
-                  {"\u00D6"}zel M{"\u00FC"}fredat
+                  {"Ö"}zel M{"ü"}fredat
                 </h4>
                 <p className="text-[0.82rem] text-slate-500 leading-relaxed">
-                  Kurumunuzun de{"\u011F"}erlerine uyumlu, {"\u00F6"}zel olarak tasarlanm{"\u0131\u015F"} sosyal-duygusal geli{"\u015F"}im m{"\u00FC"}fredat{"\u0131"}.
+                  Kurumunuzun de{"ğ"}erlerine uyumlu, {"ö"}zel olarak tasarlanm{"ış"} sosyal-duygusal geli{"ş"}im m{"ü"}fredat{"ı"}.
                 </p>
 
                 {/* Check list */}
                 <div className="mt-4 pt-4 border-t border-[#2ECC7120] space-y-1.5">
-                  {["Ya\u015Fa uygun", "Bilimsel temelli", "MEB uyumlu"].map((item, i) => (
+                  {["Yaşa uygun", "Bilimsel temelli", "MEB uyumlu"].map((item, i) => (
                     <div key={i} className="flex items-center gap-2">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#2ECC71]" />
                       <span className="text-[0.72rem] font-semibold text-slate-500">{item}</span>
@@ -646,12 +646,12 @@ export default function KurumlarIcinPage() {
 
       {/* --- Hero --- */}
       <SubpageHero
-        breadcrumb={"Kurumlar \u0130\u00E7in"}
-        tag={"KURUMLAR \u0130\u00C7\u0130N"}
+        breadcrumb={"Kurumlar İçin"}
+        tag={"KURUMLAR İÇİN"}
         tagIcon={Building2}
-        title={"\u00C7al\u0131\u015Fanlar\u0131n\u0131z\u0131n \u00E7ocuklar\u0131na"}
-        titleHighlight={"yat\u0131r\u0131m yap\u0131n."}
-        description={"Kurumsal sosyal sorumluluk projelerinize de\u011Fer katan, \u00E7al\u0131\u015Fan memnuniyetini art\u0131ran bilimsel sosyal-duygusal geli\u015Fim programlar\u0131."}
+        title={"Çalışanlarınızın çocuklarına"}
+        titleHighlight={"yatırım yapın."}
+        description={"Kurumsal sosyal sorumluluk projelerinize değer katan, çalışan memnuniyetini artıran bilimsel sosyal-duygusal gelişim programları."}
         theme="brand"
       >
         {/* Hero video */}

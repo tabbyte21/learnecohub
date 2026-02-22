@@ -13,67 +13,67 @@ import {
    ================================================= */
 const badgeCategories = [
   {
-    category: "Ke\u015Fif Rozetleri",
-    desc: "Platforma ilk ad\u0131mlar\u0131n\u0131 atarak \u00F6\u011Frenme yolculu\u011Funa ba\u015Flayan \u00F6\u011Frencilere verilir.",
+    category: "Keşif Rozetleri",
+    desc: "Platforma ilk adımlarını atarak öğrenme yolculuğuna başlayan öğrencilere verilir.",
     color: "#1B3A7B",
     bg: "#EBF2FB",
     badges: [
-      { name: "Merhaba Ke\u015Fif Yolcusu", desc: "Platforma ilk giri\u015Fini yapt\u0131n!", unlocked: true },
-      { name: "Merakl\u0131 Kahraman", desc: "\u0130lk video dersini tamamlad\u0131n.", unlocked: true },
-      { name: "\u0130lk Ad\u0131m", desc: "Profilini tamamlad\u0131n ve haz\u0131rs\u0131n!", unlocked: true },
+      { name: "Merhaba Keşif Yolcusu", desc: "Platforma ilk girişini yaptın!", unlocked: true },
+      { name: "Meraklı Kahraman", desc: "İlk video dersini tamamladın.", unlocked: true },
+      { name: "İlk Adım", desc: "Profilini tamamladın ve hazırsın!", unlocked: true },
     ],
   },
   {
     category: "Empati Rozetleri",
-    desc: "Empati becerilerini geli\u015Ftiren ve ba\u015Fkalar\u0131n\u0131n duygular\u0131n\u0131 anlayan \u00F6\u011Frenciler i\u00E7in.",
+    desc: "Empati becerilerini geliştiren ve başkalarının duygularını anlayan öğrenciler için.",
     color: "#2ECC71",
     bg: "#ECFBF2",
     badges: [
-      { name: "Duygu Dedektifi", desc: "5 farkl\u0131 duyguyu do\u011Fru tan\u0131mlad\u0131n.", unlocked: true },
-      { name: "Empati Y\u0131ld\u0131z\u0131", desc: "Empati mod\u00FCl\u00FCn\u00FC tamamlad\u0131n.", unlocked: false },
-      { name: "Kalp Kahraman\u0131", desc: "3 arkada\u015F\u0131na yard\u0131m g\u00F6revi tamamlad\u0131n.", unlocked: false },
+      { name: "Duygu Dedektifi", desc: "5 farklı duyguyu doğru tanımladın.", unlocked: true },
+      { name: "Empati Yıldızı", desc: "Empati modülünü tamamladın.", unlocked: false },
+      { name: "Kalp Kahramanı", desc: "3 arkadaşına yardım görevi tamamladın.", unlocked: false },
     ],
   },
   {
-    category: "\u0130leti\u015Fim Rozetleri",
-    desc: "Etkili ileti\u015Fim, dinleme ve kendini ifade etme becerilerini geli\u015Ftiren \u00F6\u011Frencilere.",
+    category: "İletişim Rozetleri",
+    desc: "Etkili iletişim, dinleme ve kendini ifade etme becerilerini geliştiren öğrencilere.",
     color: "#7F63CB",
     bg: "#F0EDF9",
     badges: [
-      { name: "S\u00F6z Ustas\u0131", desc: "Kendini ifade etme g\u00F6revini ba\u015Far\u0131yla tamamlad\u0131n.", unlocked: true },
-      { name: "Dinleme \u015Eampiyonu", desc: "Aktif dinleme mod\u00FCl\u00FCn\u00FC bitirdin.", unlocked: false },
-      { name: "\u0130leti\u015Fim Y\u0131ld\u0131z\u0131", desc: "T\u00FCm ileti\u015Fim becerilerinde ustala\u015Ft\u0131n.", unlocked: false },
+      { name: "Söz Ustası", desc: "Kendini ifade etme görevini başarıyla tamamladın.", unlocked: true },
+      { name: "Dinleme Şampiyonu", desc: "Aktif dinleme modülünü bitirdin.", unlocked: false },
+      { name: "İletişim Yıldızı", desc: "Tüm iletişim becerilerinde ustalaştın.", unlocked: false },
     ],
   },
   {
     category: "Liderlik Rozetleri",
-    desc: "Tak\u0131m \u00E7al\u0131\u015Fmas\u0131, sorumluluk alma ve liderlik becerilerini g\u00F6steren \u00F6\u011Frenciler i\u00E7in.",
+    desc: "Takım çalışması, sorumluluk alma ve liderlik becerilerini gösteren öğrenciler için.",
     color: "#F5C518",
     bg: "#FFFBEB",
     badges: [
-      { name: "Tak\u0131m Kaptan\u0131", desc: "\u0130lk grup aktivitesinde liderlik yapt\u0131n.", unlocked: false },
-      { name: "Sorumluluk Y\u0131ld\u0131z\u0131", desc: "3 g\u00F6revi zaman\u0131nda tamamlad\u0131n.", unlocked: false },
-      { name: "Gen\u00E7 Lider", desc: "Liderlik mod\u00FCl\u00FCn\u00FC ba\u015Far\u0131yla bitirdin.", unlocked: false },
+      { name: "Takım Kaptanı", desc: "İlk grup aktivitesinde liderlik yaptın.", unlocked: false },
+      { name: "Sorumluluk Yıldızı", desc: "3 görevi zamanında tamamladın.", unlocked: false },
+      { name: "Genç Lider", desc: "Liderlik modülünü başarıyla bitirdin.", unlocked: false },
     ],
   },
   {
-    category: "Duygu Y\u00F6netimi Rozetleri",
-    desc: "\u00D6fke, kayg\u0131 ve stres gibi duygular\u0131 tan\u0131y\u0131p y\u00F6netmeyi \u00F6\u011Frenen \u00F6\u011Frencilere.",
+    category: "Duygu Yönetimi Rozetleri",
+    desc: "Öfke, kaygı ve stres gibi duyguları tanıyıp yönetmeyi öğrenen öğrencilere.",
     color: "#EE7A45",
     bg: "#FEF5F0",
     badges: [
-      { name: "Sakin Kahraman", desc: "Stres y\u00F6netimi tekniklerini \u00F6\u011Frendin.", unlocked: false },
-      { name: "Duygu Ninjas\u0131", desc: "5 farkl\u0131 duygu y\u00F6netimi stratejisi kazand\u0131n.", unlocked: false },
-      { name: "\u0130\u00E7 Huzur Ustas\u0131", desc: "T\u00FCm duygu y\u00F6netimi mod\u00FCl\u00FCn\u00FC tamamlad\u0131n.", unlocked: false },
+      { name: "Sakin Kahraman", desc: "Stres yönetimi tekniklerini öğrendin.", unlocked: false },
+      { name: "Duygu Ninjası", desc: "5 farklı duygu yönetimi stratejisi kazandın.", unlocked: false },
+      { name: "İç Huzur Ustası", desc: "Tüm duygu yönetimi modülünü tamamladın.", unlocked: false },
     ],
   },
 ];
 
 const stats = [
   { icon: Trophy, value: "50+", label: "Rozet", color: "#1B3A7B" },
-  { icon: Target, value: "100+", label: "G\u00F6rev", color: "#2ECC71" },
+  { icon: Target, value: "100+", label: "Görev", color: "#2ECC71" },
   { icon: Star, value: "6", label: "Kategori", color: "#F5C518" },
-  { icon: Zap, value: "\u221E", label: "Motivasyon", color: "#EE7A45" },
+  { icon: Zap, value: "∞", label: "Motivasyon", color: "#EE7A45" },
 ];
 
 /* =================================================
@@ -116,14 +116,14 @@ function BadgeShowcase() {
           <div className="text-center max-w-3xl mx-auto mb-6">
             <div className="anim">
               <span className="tag bg-gold-100 text-gold-700 mb-4">
-                <Award className="w-3.5 h-3.5" /> ROZET GALER{"\u0130"}S{"\u0130"}
+                <Award className="w-3.5 h-3.5" /> ROZET GALER{"İ"}S{"İ"}
               </span>
             </div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight">
               Her beceri bir <span className="highlight">rozet</span>, her rozet bir gurur
             </h2>
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
-              {"\u00D6\u011F"}renciler g{"\u00F6"}revleri tamamlad{"\u0131"}k{"\u00E7"}a dijital rozetler kazan{"\u0131"}r. Her rozet, geli{"\u015F"}im portfoly{"\u00F6"}s{"\u00FC"}ne eklenir.
+              {"Öğ"}renciler g{"ö"}revleri tamamlad{"ı"}k{"ç"}a dijital rozetler kazan{"ı"}r. Her rozet, geli{"ş"}im portfoly{"ö"}s{"ü"}ne eklenir.
             </p>
           </div>
 
@@ -138,17 +138,17 @@ function BadgeShowcase() {
               </div>
               <div className="px-8 py-8 flex flex-col sm:flex-row items-center gap-8">
                 <div className="w-36 h-36 flex-shrink-0">
-                  <img src="/rozet1.png" alt="Merhaba Ke\u015Fif Yolcusu Rozeti" className="w-full h-full object-contain drop-shadow-lg" />
+                  <img src="/rozet1.png" alt="Merhaba Keşif Yolcusu Rozeti" className="w-full h-full object-contain drop-shadow-lg" />
                 </div>
                 <div>
                   <span className="inline-block px-3 py-1 rounded-full text-[0.7rem] font-bold uppercase tracking-wider bg-[#EBF2FB] text-[#1B3A7B] mb-3">
-                    {"\u00D6"}ne {"\u00C7\u0131"}kan Rozet
+                    {"Ö"}ne {"Çı"}kan Rozet
                   </span>
                   <h3 className="font-display text-xl font-extrabold text-slate-800 mb-2">
-                    Merhaba Ke{"\u015F"}if Yolcusu
+                    Merhaba Ke{"ş"}if Yolcusu
                   </h3>
                   <p className="text-[0.9rem] text-slate-500 leading-relaxed">
-                    Platforma ilk ad{"\u0131"}m{"\u0131"}n{"\u0131"} atan her {"\u00F6\u011F"}renciye verilen ilk rozet. {"\u00D6\u011F"}renme yolculu{"\u011F"}unun ba{"\u015F"}lang{"\u0131"}c{"\u0131"}n{"\u0131"} simgeler.
+                    Platforma ilk ad{"ı"}m{"ı"}n{"ı"} atan her {"öğ"}renciye verilen ilk rozet. {"Öğ"}renme yolculu{"ğ"}unun ba{"ş"}lang{"ı"}c{"ı"}n{"ı"} simgeler.
                   </p>
                 </div>
               </div>
@@ -236,7 +236,7 @@ function BadgeShowcase() {
                             {/* Status */}
                             {b.unlocked && (
                               <span className="mt-auto pt-3 text-[0.68rem] font-bold uppercase tracking-wider" style={{ color: cat.color }}>
-                                Kazan{"\u0131"}ld{"\u0131"}
+                                Kazan{"ı"}ld{"ı"}
                               </span>
                             )}
                           </div>
@@ -259,10 +259,10 @@ function BadgeShowcase() {
    ================================================= */
 function HowBadgesWork() {
   const steps = [
-    { icon: BookOpen, color: "#1B3A7B", bg: "#EBF2FB", title: "G\u00F6rev Tamamla", desc: "Video dersleri izle, etkinliklere kat\u0131l ve g\u00F6revlerini yerine getir.", rotate: "-1.5deg" },
-    { icon: Award, color: "#2ECC71", bg: "#ECFBF2", title: "Rozet Kazan", desc: "Her tamamlanan beceri i\u00E7in dijital rozet kazanarak koleksiyonunu b\u00FCy\u00FCt.", rotate: "2deg" },
-    { icon: Shield, color: "#7F63CB", bg: "#F0EDF9", title: "Portfoly\u00F6ne Ekle", desc: "Kazan\u0131lan rozetler otomatik olarak dijital geli\u015Fim portfoly\u00F6ne eklenir.", rotate: "-1deg" },
-    { icon: Sparkles, color: "#F5C518", bg: "#FFFBEB", title: "Geli\u015Fimini Payla\u015F", desc: "Portfoly\u00F6n\u00FC ailene ve \u00F6\u011Fretmenlerine g\u00F6stererek ba\u015Far\u0131lar\u0131n\u0131 kutla.", rotate: "1.5deg" },
+    { icon: BookOpen, color: "#1B3A7B", bg: "#EBF2FB", title: "Görev Tamamla", desc: "Video dersleri izle, etkinliklere katıl ve görevlerini yerine getir.", rotate: "-1.5deg" },
+    { icon: Award, color: "#2ECC71", bg: "#ECFBF2", title: "Rozet Kazan", desc: "Her tamamlanan beceri için dijital rozet kazanarak koleksiyonunu büyüt.", rotate: "2deg" },
+    { icon: Shield, color: "#7F63CB", bg: "#F0EDF9", title: "Portfolyöne Ekle", desc: "Kazanılan rozetler otomatik olarak dijital gelişim portfolyöne eklenir.", rotate: "-1deg" },
+    { icon: Sparkles, color: "#F5C518", bg: "#FFFBEB", title: "Gelişimini Paylaş", desc: "Portfolyönü ailene ve öğretmenlerine göstererek başarılarını kutla.", rotate: "1.5deg" },
   ];
 
   return (
@@ -275,11 +275,11 @@ function HowBadgesWork() {
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="anim">
               <span className="tag bg-mint-100 text-mint-700 mb-4">
-                <Zap className="w-3.5 h-3.5" /> NASIL {"\u00C7"}ALI{"\u015E"}IR
+                <Zap className="w-3.5 h-3.5" /> NASIL {"Ç"}ALI{"Ş"}IR
               </span>
             </div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight">
-              Rozetler nas{"\u0131"}l <span className="text-gradient">kazan{"\u0131"}l{"\u0131"}r?</span>
+              Rozetler nas{"ı"}l <span className="text-gradient">kazan{"ı"}l{"ı"}r?</span>
             </h2>
           </div>
 
@@ -338,15 +338,15 @@ function HowBadgesWork() {
 export default function BasarilarPage() {
   return (
     <main>
-      <SubpageNavbar active="Ba\u015Far\u0131lar" />
+      <SubpageNavbar active="Başarılar" />
 
       <SubpageHero
-        breadcrumb="Ba\u015Far\u0131lar"
-        tag="BA\u015EARILAR"
+        breadcrumb="Başarılar"
+        tag="BAŞARILAR"
         tagIcon={Trophy}
-        title="Her ad\u0131m bir ba\u015Far\u0131,"
+        title="Her adım bir başarı,"
         titleHighlight="her rozet bir gurur."
-        description="\u00D6\u011Frencilerimiz g\u00F6revleri tamamlad\u0131k\u00E7a dijital rozetler kazan\u0131r. Bu rozetler, geli\u015Fim portfoly\u00F6s\u00FCne eklenerek ki\u015Fisel ba\u015Far\u0131 hikayesini olu\u015Fturur."
+        description="Öğrencilerimiz görevleri tamamladıkça dijital rozetler kazanır. Bu rozetler, gelişim portfolyösüne eklenerek kişisel başarı hikayesini oluşturur."
         theme="brand"
       >
         {/* Hero video + badge */}
@@ -361,7 +361,7 @@ export default function BasarilarPage() {
             <img src="/rozet1.png" alt="Rozet" className="w-10 h-10 object-contain drop-shadow-md" />
             <div>
               <p className="text-[0.78rem] font-extrabold text-white leading-tight">50+ Rozet</p>
-              <p className="text-[0.65rem] text-white/50 font-semibold">Koleksiyonunu b{"\u00FC"}y{"\u00FC"}t!</p>
+              <p className="text-[0.65rem] text-white/50 font-semibold">Koleksiyonunu b{"ü"}y{"ü"}t!</p>
             </div>
           </div>
         </div>

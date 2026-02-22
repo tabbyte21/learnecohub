@@ -16,42 +16,42 @@ import {
 const generalFaqs = [
   {
     q: "LearnecoHub nedir?",
-    a: "LearnecoHub, \u00E7ocuklar ve gen\u00E7ler i\u00E7in geli\u015Ftirilmi\u015F dijital bir sosyal-duygusal \u00F6\u011Frenme platformudur. Bilimsel y\u00F6ntemlerle haz\u0131rlanm\u0131\u015F m\u00FCfredat\u0131m\u0131z; empati, ileti\u015Fim, \u00F6zg\u00FCven, liderlik ve stres y\u00F6netimi gibi temel ya\u015Fam becerilerini \u00E7ocuklara e\u011Flenceli bir \u015Fekilde kazand\u0131r\u0131r. Animasyonlu videolar, etkile\u015Fimli oyunlar, dijital rozetler ve canl\u0131 grup seanslar\u0131 ile \u00F6\u011Frenme deneyimini zenginle\u015Ftiriyoruz.",
+    a: "LearnecoHub, çocuklar ve gençler için geliştirilmiş dijital bir sosyal-duygusal öğrenme platformudur. Bilimsel yöntemlerle hazırlanmış müfredatımız; empati, iletişim, özgüven, liderlik ve stres yönetimi gibi temel yaşam becerilerini çocuklara eğlenceli bir şekilde kazandırır. Animasyonlu videolar, etkileşimli oyunlar, dijital rozetler ve canlı grup seansları ile öğrenme deneyimini zenginleştiriyoruz.",
     icon: BookOpen,
     color: "#1B3A7B",
     tabColor: "#1B3A7B",
   },
   {
-    q: "Hangi ya\u015F gruplar\u0131na hitap ediyor?",
-    a: "Platformumuz 6-17 ya\u015F aral\u0131\u011F\u0131ndaki \u00E7ocuk ve gen\u00E7lere y\u00F6nelik i\u00E7erikler sunmaktad\u0131r. \u0130\u00E7erikler ya\u015F grubuna uygun olarak \u00FC\u00E7 farkl\u0131 seviyede haz\u0131rlanm\u0131\u015Ft\u0131r: 6-9 ya\u015F (ke\u015Fif d\u00F6nemi), 10-13 ya\u015F (geli\u015Fim d\u00F6nemi) ve 14-17 ya\u015F (gen\u00E7lik d\u00F6nemi). Her ya\u015F grubuna \u00F6zel senaryolar, aktiviteler ve etkile\u015Fim y\u00F6ntemleri kullan\u0131lmaktad\u0131r.",
+    q: "Hangi yaş gruplarına hitap ediyor?",
+    a: "Platformumuz 6-17 yaş aralığındaki çocuk ve gençlere yönelik içerikler sunmaktadır. İçerikler yaş grubuna uygun olarak üç farklı seviyede hazırlanmıştır: 6-9 yaş (keşif dönemi), 10-13 yaş (gelişim dönemi) ve 14-17 yaş (gençlik dönemi). Her yaş grubuna özel senaryolar, aktiviteler ve etkileşim yöntemleri kullanılmaktadır.",
     icon: Users,
     color: "#2ECC71",
     tabColor: "#2ECC71",
   },
   {
-    q: "Platform g\u00FCvenli mi?",
-    a: "Evet, \u00E7ocuk g\u00FCvenli\u011Fi bizim en \u00F6ncelikli konumuzdur. T\u00FCm i\u00E7erikler uzman psikologlar ve e\u011Fitimciler taraf\u0131ndan denetlenmektedir. KVKK uyumlu veri koruma politikalar\u0131 uygulan\u0131r, \u00E7ocuklar\u0131n ki\u015Fisel verileri en y\u00FCksek g\u00FCvenlik standartlar\u0131yla korunur. Canl\u0131 oturumlarda her zaman uzman bir e\u011Fitimci bulunur ve ebeveyn eri\u015Fim paneli ile t\u00FCm aktiviteler takip edilebilir.",
+    q: "Platform güvenli mi?",
+    a: "Evet, çocuk güvenliği bizim en öncelikli konumuzdur. Tüm içerikler uzman psikologlar ve eğitimciler tarafından denetlenmektedir. KVKK uyumlu veri koruma politikaları uygulanır, çocukların kişisel verileri en yüksek güvenlik standartlarıyla korunur. Canlı oturumlarda her zaman uzman bir eğitimci bulunur ve ebeveyn erişim paneli ile tüm aktiviteler takip edilebilir.",
     icon: Shield,
     color: "#7F63CB",
     tabColor: "#7F63CB",
   },
   {
-    q: "Nas\u0131l kay\u0131t olunur?",
-    a: "Kay\u0131t i\u015Flemi olduk\u00E7a basittir. Web sitemizden veya mobil uygulamamızdan 'Hemen Ba\u015Fla' butonuna t\u0131klayarak \u00FCcretsiz deneme hesab\u0131 olu\u015Fturabilirsiniz. Kay\u0131t i\u00E7in yaln\u0131zca ebeveyn e-posta adresi, \u00E7ocu\u011Fun ad\u0131 ve ya\u015F bilgisi yeterlidir. Kay\u0131t sonras\u0131 hemen platforma eri\u015Fim sa\u011Flan\u0131r ve ilk mod\u00FCle ba\u015Flayabilirsiniz.",
+    q: "Nasıl kayıt olunur?",
+    a: "Kayıt işlemi oldukça basittir. Web sitemizden veya mobil uygulamamızdan 'Hemen Başla' butonuna tıklayarak ücretsiz deneme hesabı oluşturabilirsiniz. Kayıt için yalnızca ebeveyn e-posta adresi, çocuğun adı ve yaş bilgisi yeterlidir. Kayıt sonrası hemen platforma erişim sağlanır ve ilk modüle başlayabilirsiniz.",
     icon: UserPlus,
     color: "#F5C518",
     tabColor: "#F5C518",
   },
   {
-    q: "\u00DCcretlendirme nas\u0131l?",
-    a: "\u00DCcretsiz ba\u015Flang\u0131\u00E7 paketi ile platformumuzu deneyebilirsiniz. Ayl\u0131k ve y\u0131ll\u0131k abonelik se\u00E7eneklerimiz mevcuttur. Y\u0131ll\u0131k planlarda %30&apos;a varan indirimler sunulmaktad\u0131r. Karde\u015F indirimi, \u00E7oklu \u00E7ocuk paketleri ve kurumsal fiyatland\u0131rma se\u00E7enekleri de bulunmaktad\u0131r. Detayl\u0131 fiyat bilgisi i\u00E7in bizimle ileti\u015Fime ge\u00E7ebilirsiniz.",
+    q: "Ücretlendirme nasıl?",
+    a: "Ücretsiz başlangıç paketi ile platformumuzu deneyebilirsiniz. Aylık ve yıllık abonelik seçeneklerimiz mevcuttur. Yıllık planlarda %30&apos;a varan indirimler sunulmaktadır. Kardeş indirimi, çoklu çocuk paketleri ve kurumsal fiyatlandırma seçenekleri de bulunmaktadır. Detaylı fiyat bilgisi için bizimle iletişime geçebilirsiniz.",
     icon: CreditCard,
     color: "#EE7A45",
     tabColor: "#EE7A45",
   },
   {
-    q: "Canl\u0131 dersler nas\u0131l i\u015Fliyor?",
-    a: "Canl\u0131 dersler, 10-12 ki\u015Filik k\u00FC\u00E7\u00FCk gruplar halinde uzman psikolog veya e\u011Fitimci e\u015Fli\u011Finde ger\u00E7ekle\u015Ftirilir. Haftada 1-2 seans olarak planlan\u0131r ve her seans yakla\u015F\u0131k 45-60 dakika s\u00FCrer. Canl\u0131 derslerde rol yapma, grup tart\u0131\u015Fmas\u0131, senaryo \u00E7\u00F6z\u00FCmleme ve etkile\u015Fimli aktiviteler yap\u0131l\u0131r. Dersler kaydedilmez, b\u00F6ylece \u00E7ocuklar rahat\u00E7a kat\u0131l\u0131m sa\u011Flayabilir.",
+    q: "Canlı dersler nasıl işliyor?",
+    a: "Canlı dersler, 10-12 kişilik küçük gruplar halinde uzman psikolog veya eğitimci eşliğinde gerçekleştirilir. Haftada 1-2 seans olarak planlanır ve her seans yaklaşık 45-60 dakika sürer. Canlı derslerde rol yapma, grup tartışması, senaryo çözümleme ve etkileşimli aktiviteler yapılır. Dersler kaydedilmez, böylece çocuklar rahatça katılım sağlayabilir.",
     icon: Video,
     color: "#1B3A7B",
     tabColor: "#1B3A7B",
@@ -60,29 +60,29 @@ const generalFaqs = [
 
 const parentFaqs = [
   {
-    q: "\u00C7ocu\u011Fumun geli\u015Fimini nas\u0131l takip ederim?",
-    a: "Ebeveyn paneli \u00FCzerinden \u00E7ocu\u011Funuzun t\u00FCm geli\u015Fim s\u00FCreci detayl\u0131 olarak takip edilebilir. Haftal\u0131k ilerleme raporlar\u0131, tamamlanan mod\u00FCller, kazan\u0131lan rozetler ve beceri puan\u0131 grafikleri ebeveyn panelinizde g\u00F6r\u00FCnt\u00FClenir. Ayr\u0131ca d\u00FCzenli olarak e-posta ile \u00F6zet raporlar g\u00F6nderilmektedir.",
+    q: "Çocuğumun gelişimini nasıl takip ederim?",
+    a: "Ebeveyn paneli üzerinden çocuğunuzun tüm gelişim süreci detaylı olarak takip edilebilir. Haftalık ilerleme raporları, tamamlanan modüller, kazanılan rozetler ve beceri puanı grafikleri ebeveyn panelinizde görüntülenir. Ayrıca düzenli olarak e-posta ile özet raporlar gönderilmektedir.",
     color: "#F5C518",
     bg: "#FFFBEB",
     rotate: "-1.5deg",
   },
   {
-    q: "Aile olarak ne yapmal\u0131y\u0131z?",
-    a: "Platformda \u00F6\u011Frenilen becerilerin g\u00FCnl\u00FCk hayata aktar\u0131lmas\u0131 i\u00E7in aile kat\u0131l\u0131m\u0131 \u00E7ok \u00F6nemlidir. Her mod\u00FCl sonunda aileler i\u00E7in \u00F6nerilen ev aktiviteleri payla\u015F\u0131l\u0131r. \u00C7ocu\u011Funuzla birlikte yapabilece\u011Finiz empati oyunlar\u0131, ileti\u015Fim egzersizleri ve aile s\u00F6zle\u015Fmeleri gibi kaynaklara eri\u015Febilirsiniz.",
+    q: "Aile olarak ne yapmalıyız?",
+    a: "Platformda öğrenilen becerilerin günlük hayata aktarılması için aile katılımı çok önemlidir. Her modül sonunda aileler için önerilen ev aktiviteleri paylaşılır. Çocuğunuzla birlikte yapabileceğiniz empati oyunları, iletişim egzersizleri ve aile sözleşmeleri gibi kaynaklara erişebilirsiniz.",
     color: "#EE7A45",
     bg: "#FEF5F0",
     rotate: "2deg",
   },
   {
-    q: "Rozetler ve \u00F6d\u00FCller nas\u0131l \u00E7al\u0131\u015F\u0131yor?",
-    a: "Rozet sistemi, \u00E7ocuklar\u0131n motivasyonunu art\u0131rmak i\u00E7in tasarlanm\u0131\u015F bir oyunla\u015Ft\u0131rma mekanizmas\u0131d\u0131r. Her tamamlanan g\u00F6rev, mod\u00FCl veya beceri alan\u0131 i\u00E7in dijital rozetler kazan\u0131l\u0131r. Rozetler dijital portfoly\u00F6ye eklenir ve aile ile payla\u015F\u0131labilir. Rozet toplama s\u00FCreci, \u00E7ocu\u011Fun \u00F6z de\u011Ferlendirme yapmas\u0131n\u0131 ve ba\u015Far\u0131 hissini deneyimlemesini sa\u011Flar.",
+    q: "Rozetler ve ödüller nasıl çalışıyor?",
+    a: "Rozet sistemi, çocukların motivasyonunu artırmak için tasarlanmış bir oyunlaştırma mekanizmasıdır. Her tamamlanan görev, modül veya beceri alanı için dijital rozetler kazanılır. Rozetler dijital portfolyöye eklenir ve aile ile paylaşılabilir. Rozet toplama süreci, çocuğun öz değerlendirme yapmasını ve başarı hissini deneyimlemesini sağlar.",
     color: "#7F63CB",
     bg: "#F0EDF9",
     rotate: "-1deg",
   },
   {
-    q: "Hangi cihazlardan eri\u015Febiliriz?",
-    a: "LearnecoHub, t\u00FCm modern cihazlardan eri\u015Filebilir. Bilgisayar, tablet ve ak\u0131ll\u0131 telefonlardan web taray\u0131c\u0131 \u00FCzerinden kullan\u0131labilir. iOS ve Android uygulamalar\u0131m\u0131z da mevcuttur. Tek hesapla birden fazla cihazdan giri\u015F yap\u0131labilir. Canl\u0131 derslere kat\u0131l\u0131m i\u00E7in kamera ve mikrofon bulunan bir cihaz \u00F6nerilmektedir.",
+    q: "Hangi cihazlardan erişebiliriz?",
+    a: "LearnecoHub, tüm modern cihazlardan erişilebilir. Bilgisayar, tablet ve akıllı telefonlardan web tarayıcı üzerinden kullanılabilir. iOS ve Android uygulamalarımız da mevcuttur. Tek hesapla birden fazla cihazdan giriş yapılabilir. Canlı derslere katılım için kamera ve mikrofon bulunan bir cihaz önerilmektedir.",
     color: "#1B3A7B",
     bg: "#EBF2FB",
     rotate: "1.5deg",
@@ -91,26 +91,26 @@ const parentFaqs = [
 
 const corporateFaqs = [
   {
-    q: "Kurumsal programlar nas\u0131l ba\u015Fl\u0131yor?",
-    a: "Kurumsal programlar\u0131m\u0131z, okulunuzun veya kurumunuzun ihtiya\u00E7lar\u0131na \u00F6zel olarak tasarlan\u0131r. \u0130lk ad\u0131m olarak \u00FCcretsiz bir ke\u015Fif g\u00F6r\u00FC\u015Fmesi ger\u00E7ekle\u015Ftiriyoruz. Ard\u0131ndan ihtiya\u00E7 analizi yap\u0131l\u0131r, \u00F6zel m\u00FCfredat plan\u0131 haz\u0131rlan\u0131r ve pilot uygulama ba\u015Flat\u0131l\u0131r. T\u00FCm s\u00FCre\u00E7 boyunca size \u00F6zel bir proje y\u00F6neticisi atanmaktad\u0131r.",
+    q: "Kurumsal programlar nasıl başlıyor?",
+    a: "Kurumsal programlarımız, okulunuzun veya kurumunuzun ihtiyaçlarına özel olarak tasarlanır. İlk adım olarak ücretsiz bir keşif görüşmesi gerçekleştiriyoruz. Ardından ihtiyaç analizi yapılır, özel müfredat planı hazırlanır ve pilot uygulama başlatılır. Tüm süreç boyunca size özel bir proje yöneticisi atanmaktadır.",
     icon: Building2,
     color: "#1B3A7B",
   },
   {
-    q: "\u00D6\u011Fretmen e\u011Fitimi sa\u011Fl\u0131yor musunuz?",
-    a: "Evet, kurumsal paketlerimizin t\u00FCm\u00FCnde \u00F6\u011Fretmen e\u011Fitimi dahildir. Platformun etkili kullan\u0131m\u0131, m\u00FCfredat entegrasyonu ve s\u0131n\u0131f i\u00E7i uygulama teknikleri konular\u0131nda kapsaml\u0131 e\u011Fitimler sunuyoruz. E\u011Fitimler hem \u00E7evrim i\u00E7i hem de y\u00FCz y\u00FCze olarak d\u00FCzenlenebilir. Ayr\u0131ca d\u00FCzenli olarak geli\u015Ftirme at\u00F6lyeleri de sa\u011Fl\u0131yoruz.",
+    q: "Öğretmen eğitimi sağlıyor musunuz?",
+    a: "Evet, kurumsal paketlerimizin tümünde öğretmen eğitimi dahildir. Platformun etkili kullanımı, müfredat entegrasyonu ve sınıf içi uygulama teknikleri konularında kapsamlı eğitimler sunuyoruz. Eğitimler hem çevrim içi hem de yüz yüze olarak düzenlenebilir. Ayrıca düzenli olarak geliştirme atölyeleri de sağlıyoruz.",
     icon: GraduationCap,
     color: "#2ECC71",
   },
   {
-    q: "Raporlama sistemi nas\u0131l \u00E7al\u0131\u015F\u0131yor?",
-    a: "Kurumsal raporlama panelimiz, t\u00FCm \u00F6\u011Frenci verilerini detayl\u0131 olarak analiz etmenizi sa\u011Flar. S\u0131n\u0131f baz\u0131nda ilerleme raporlar\u0131, bireysel \u00F6\u011Frenci geli\u015Fim grafikleri, beceri alan\u0131 baz\u0131nda kar\u015F\u0131la\u015Ft\u0131rmalar ve d\u00F6nemsel \u00F6zet raporlar sunulmaktad\u0131r. Raporlar PDF ve Excel format\u0131nda indirilebilir, veli toplant\u0131lar\u0131nda kullan\u0131labilir.",
+    q: "Raporlama sistemi nasıl çalışıyor?",
+    a: "Kurumsal raporlama panelimiz, tüm öğrenci verilerini detaylı olarak analiz etmenizi sağlar. Sınıf bazında ilerleme raporları, bireysel öğrenci gelişim grafikleri, beceri alanı bazında karşılaştırmalar ve dönemsel özet raporlar sunulmaktadır. Raporlar PDF ve Excel formatında indirilebilir, veli toplantılarında kullanılabilir.",
     icon: FileText,
     color: "#7F63CB",
   },
   {
-    q: "Toplu fiyatland\u0131rma var m\u0131?",
-    a: "Evet, okullar ve kurumlar i\u00E7in \u00F6zel toplu fiyatland\u0131rma se\u00E7eneklerimiz mevcuttur. \u00D6\u011Frenci say\u0131s\u0131na g\u00F6re kademeli indirimler uygulanmaktad\u0131r. 50+ \u00F6\u011Frenci i\u00E7in %25, 100+ \u00F6\u011Frenci i\u00E7in %35 ve 500+ \u00F6\u011Frenci i\u00E7in %50&apos;ye varan indirimler sunulmaktad\u0131r. \u00D6zel fiyat teklifi almak i\u00E7in bizimle ileti\u015Fime ge\u00E7ebilirsiniz.",
+    q: "Toplu fiyatlandırma var mı?",
+    a: "Evet, okullar ve kurumlar için özel toplu fiyatlandırma seçeneklerimiz mevcuttur. Öğrenci sayısına göre kademeli indirimler uygulanmaktadır. 50+ öğrenci için %25, 100+ öğrenci için %35 ve 500+ öğrenci için %50&apos;ye varan indirimler sunulmaktadır. Özel fiyat teklifi almak için bizimle iletişime geçebilirsiniz.",
     icon: Layers,
     color: "#F5C518",
   },
@@ -140,10 +140,10 @@ function GeneralFAQ() {
               </span>
             </div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight">
-              En {"\u00E7"}ok sorulan <span className="highlight">sorular</span>
+              En {"ç"}ok sorulan <span className="highlight">sorular</span>
             </h2>
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
-              LearnecoHub hakk{"\u0131"}nda merak etti{"\u011F"}iniz her {"\u015F"}eyin cevab{"\u0131"} burada. Sorular{"\u0131"}n{"\u0131"}za yan{"\u0131"}t bulamad{"\u0131"}ysan{"\u0131"}z bizimle ileti{"\u015F"}ime ge{"\u00E7"}ebilirsiniz.
+              LearnecoHub hakk{"ı"}nda merak etti{"ğ"}iniz her {"ş"}eyin cevab{"ı"} burada. Sorular{"ı"}n{"ı"}za yan{"ı"}t bulamad{"ı"}ysan{"ı"}z bizimle ileti{"ş"}ime ge{"ç"}ebilirsiniz.
             </p>
           </div>
 
@@ -268,14 +268,14 @@ function ParentFAQ() {
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="anim">
               <span className="tag bg-gold-100 text-gold-700 mb-4">
-                <Users className="w-3.5 h-3.5" /> EBEVEYNLER {"\u0130\u00C7\u0130"}N
+                <Users className="w-3.5 h-3.5" /> EBEVEYNLER {"İÇİ"}N
               </span>
             </div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight">
-              Aileler i{"\u00E7"}in <span className="highlight">rehber</span>
+              Aileler i{"ç"}in <span className="highlight">rehber</span>
             </h2>
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
-              {"\u00C7"}ocu{"\u011F"}unuzun {"\u00F6\u011F"}renme s{"\u00FC"}recinde ailelerin en {"\u00E7"}ok merak etti{"\u011F"}i konular ve cevaplar{"\u0131"}.
+              {"Ç"}ocu{"ğ"}unuzun {"öğ"}renme s{"ü"}recinde ailelerin en {"ç"}ok merak etti{"ğ"}i konular ve cevaplar{"ı"}.
             </p>
           </div>
 
@@ -371,7 +371,7 @@ function ParentFAQ() {
                       {/* Click hint */}
                       {!isOpen && (
                         <span className="inline-block mt-3 text-[0.7rem] font-bold uppercase tracking-wider" style={{ color: faq.color + "90" }}>
-                          Devam{"\u0131"}n{"\u0131"} oku
+                          Devam{"ı"}n{"ı"} oku
                         </span>
                       )}
                     </div>
@@ -413,7 +413,7 @@ function CorporateFAQ() {
               Kurumsal <span className="highlight">sorular</span>
             </h2>
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
-              Okullar ve kurumlar i{"\u00E7"}in {"\u00F6"}zel {"\u00E7\u00F6"}z{"\u00FC"}mlerimiz hakk{"\u0131"}nda s{"\u0131"}k{"\u00E7"}a sorulan sorular.
+              Okullar ve kurumlar i{"ç"}in {"ö"}zel {"çö"}z{"ü"}mlerimiz hakk{"ı"}nda s{"ı"}k{"ç"}a sorulan sorular.
             </p>
           </div>
 
@@ -516,9 +516,9 @@ export default function SSSPage() {
         tagIcon={HelpCircle}
         tag="SSS"
         breadcrumb="SSS"
-        title="S\u0131k\u00E7a Sorulan"
+        title="Sıkça Sorulan"
         titleHighlight="Sorular"
-        description="LearnecoHub hakk\u0131nda merak etti\u011Finiz her \u015Feyin cevab\u0131n\u0131 burada bulabilirsiniz. Platformumuz, i\u00E7eriklerimiz ve hizmetlerimiz hakk\u0131nda detayl\u0131 bilgilere ula\u015F\u0131n."
+        description="LearnecoHub hakkında merak ettiğiniz her şeyin cevabını burada bulabilirsiniz. Platformumuz, içeriklerimiz ve hizmetlerimiz hakkında detaylı bilgilere ulaşın."
       />
 
       <GeneralFAQ />

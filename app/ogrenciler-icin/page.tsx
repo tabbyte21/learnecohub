@@ -24,8 +24,8 @@ const studentFeatures: {
 }[] = [
   {
     icon: Video,
-    title: "Animasyonlu Hikaye Videolar\u0131",
-    desc: "E\u011Flenceli karakterlerle dolu, hikayele\u015Ftirilmi\u015F animasyon videolarla sosyal becerileri ke\u015Ffet.",
+    title: "Animasyonlu Hikaye Videoları",
+    desc: "Eğlenceli karakterlerle dolu, hikayeleştirilmiş animasyon videolarla sosyal becerileri keşfet.",
     color: "#1B3A7B",
     bg: "#EBF2FB",
     rotate: "-1.5deg",
@@ -33,8 +33,8 @@ const studentFeatures: {
   },
   {
     icon: Gamepad2,
-    title: "Etkile\u015Fimli Oyunlar",
-    desc: "\u00D6\u011Frendiklerini e\u011Flenceli oyunlarla peki\u015Ftir, puanlar topla ve s\u0131ralamada y\u00FCksel.",
+    title: "Etkileşimli Oyunlar",
+    desc: "Öğrendiklerini eğlenceli oyunlarla pekiştir, puanlar topla ve sıralamada yüksel.",
     color: "#2ECC71",
     bg: "#ECFBF2",
     rotate: "2deg",
@@ -43,7 +43,7 @@ const studentFeatures: {
   {
     icon: Award,
     title: "Dijital Rozetler",
-    desc: "Her tamamlad\u0131\u011F\u0131n g\u00F6rev i\u00E7in \u00F6zel rozetler kazan ve koleksiyonunu b\u00FCy\u00FCt!",
+    desc: "Her tamamladığın görev için özel rozetler kazan ve koleksiyonunu büyüt!",
     color: "#F5C518",
     bg: "#FFFBEB",
     rotate: "-1deg",
@@ -51,8 +51,8 @@ const studentFeatures: {
   },
   {
     icon: Users,
-    title: "Canl\u0131 Grup Seanslar\u0131",
-    desc: "10-12 ki\u015Filik k\u00FC\u00E7\u00FCk gruplarda psikolog e\u015Fli\u011Finde canl\u0131 derslerle pratik yap.",
+    title: "Canlı Grup Seansları",
+    desc: "10-12 kişilik küçük gruplarda psikolog eşliğinde canlı derslerle pratik yap.",
     color: "#7F63CB",
     bg: "#F0EDF9",
     rotate: "1.5deg",
@@ -60,8 +60,8 @@ const studentFeatures: {
   },
   {
     icon: Flame,
-    title: "G\u00FCnl\u00FCk G\u00F6revler",
-    desc: "Her g\u00FCn yeni bir macera! G\u00FCnl\u00FCk g\u00F6revlerle becerilerini g\u00FCnl\u00FCk hayata ta\u015F\u0131.",
+    title: "Günlük Görevler",
+    desc: "Her gün yeni bir macera! Günlük görevlerle becerilerini günlük hayata taşı.",
     color: "#EE7A45",
     bg: "#FEF5F0",
     rotate: "-2deg",
@@ -69,8 +69,8 @@ const studentFeatures: {
   },
   {
     icon: Briefcase,
-    title: "Ki\u015Fisel Geli\u015Fim Portfoly\u00F6s\u00FC",
-    desc: "T\u00FCm ba\u015Far\u0131lar\u0131n ve rozetlerin dijital portfoly\u00F6nde birikiyor. Ailene g\u00F6ster!",
+    title: "Kişisel Gelişim Portfolyösü",
+    desc: "Tüm başarıların ve rozetlerin dijital portfolyönde birikiyor. Ailene göster!",
     color: "#1B3A7B",
     bg: "#EBF2FB",
     rotate: "1deg",
@@ -92,23 +92,23 @@ const skillAreas: {
   {
     icon: Heart,
     title: "Empati",
-    desc: "Ba\u015Fkalar\u0131n\u0131n duygular\u0131n\u0131 anlamay\u0131, onlar\u0131n yerine kendini koymay\u0131 \u00F6\u011Fren.",
+    desc: "Başkalarının duygularını anlamayı, onların yerine kendini koymayı öğren.",
     color: "#1B3A7B",
     bg: "#EBF2FB",
     tabColor: "#1B3A7B",
   },
   {
     icon: MessageCircle,
-    title: "\u0130leti\u015Fim",
-    desc: "Duygular\u0131n\u0131 do\u011Fru ifade etmeyi, etkili dinlemeyi ve konu\u015Fmay\u0131 ke\u015Ffet.",
+    title: "İletişim",
+    desc: "Duygularını doğru ifade etmeyi, etkili dinlemeyi ve konuşmayı keşfet.",
     color: "#2ECC71",
     bg: "#ECFBF2",
     tabColor: "#2ECC71",
   },
   {
     icon: Shield,
-    title: "Stres Y\u00F6netimi",
-    desc: "Zor anlarla ba\u015Fa \u00E7\u0131kma, sakin kalma ve nefes egzersizlerini \u00F6\u011Fren.",
+    title: "Stres Yönetimi",
+    desc: "Zor anlarla başa çıkma, sakin kalma ve nefes egzersizlerini öğren.",
     color: "#EE7A45",
     bg: "#FEF5F0",
     tabColor: "#EE7A45",
@@ -116,23 +116,23 @@ const skillAreas: {
   {
     icon: Crown,
     title: "Liderlik",
-    desc: "Tak\u0131m\u0131na \u00F6nc\u00FCl\u00FCk etmeyi, sorumluluk almay\u0131 ve kararlar vermeyi ke\u015Ffet.",
+    desc: "Takımına öncülük etmeyi, sorumluluk almayı ve kararlar vermeyi keşfet.",
     color: "#F5C518",
     bg: "#FFFBEB",
     tabColor: "#F5C518",
   },
   {
     icon: Smile,
-    title: "\u00D6zg\u00FCven",
-    desc: "Kendine g\u00FCvenmeyi, g\u00FC\u00E7l\u00FC y\u00F6nlerini ke\u015Ffetmeyi ve cesur olmay\u0131 \u00F6\u011Fren.",
+    title: "Özgüven",
+    desc: "Kendine güvenmeyi, güçlü yönlerini keşfetmeyi ve cesur olmayı öğren.",
     color: "#7F63CB",
     bg: "#F0EDF9",
     tabColor: "#7F63CB",
   },
   {
     icon: Handshake,
-    title: "Tak\u0131m \u00C7al\u0131\u015Fmas\u0131",
-    desc: "Birlikte \u00E7al\u0131\u015Fmay\u0131, payla\u015Fmay\u0131 ve ortak hedefler i\u00E7in i\u015F birli\u011Fi yapmay\u0131 \u00F6\u011Fren.",
+    title: "Takım Çalışması",
+    desc: "Birlikte çalışmayı, paylaşmayı ve ortak hedefler için iş birliği yapmayı öğren.",
     color: "#1B3A7B",
     bg: "#EBF2FB",
     tabColor: "#1B3A7B",
@@ -150,29 +150,29 @@ const badgeExamples: {
   rotate: string;
 }[] = [
   {
-    name: "Ke\u015Fif Yolcusu",
-    desc: "Platforma ilk ad\u0131m\u0131n\u0131 att\u0131n ve \u00F6\u011Frenme macerana ba\u015Flad\u0131n!",
+    name: "Keşif Yolcusu",
+    desc: "Platforma ilk adımını attın ve öğrenme macerana başladın!",
     color: "#1B3A7B",
     bg: "#EBF2FB",
     rotate: "-1.5deg",
   },
   {
-    name: "Empati Y\u0131ld\u0131z\u0131",
-    desc: "Empati becerilerini geli\u015Ftirdin ve ba\u015Fkalar\u0131n\u0131n duygular\u0131n\u0131 anlad\u0131n.",
+    name: "Empati Yıldızı",
+    desc: "Empati becerilerini geliştirdin ve başkalarının duygularını anladın.",
     color: "#2ECC71",
     bg: "#ECFBF2",
     rotate: "2deg",
   },
   {
-    name: "\u0130leti\u015Fim Ustas\u0131",
-    desc: "Etkili ileti\u015Fim becerilerini kazand\u0131n ve kendini ifade etmeyi \u00F6\u011Frendin.",
+    name: "İletişim Ustası",
+    desc: "Etkili iletişim becerilerini kazandın ve kendini ifade etmeyi öğrendin.",
     color: "#7F63CB",
     bg: "#F0EDF9",
     rotate: "-1deg",
   },
   {
     name: "Liderlik Rozeti",
-    desc: "Tak\u0131m\u0131na liderlik yapt\u0131n, sorumluluk ald\u0131n ve \u00F6nc\u00FC oldun.",
+    desc: "Takımına liderlik yaptın, sorumluluk aldın ve öncü oldun.",
     color: "#F5C518",
     bg: "#FFFBEB",
     rotate: "1.5deg",
@@ -186,7 +186,7 @@ const statsData = [
   { icon: BookOpen, value: 100, suffix: "+", label: "Beceri" },
   { icon: Award, value: 50, suffix: "+", label: "Rozet" },
   { icon: Zap, value: 500, suffix: "+", label: "Aktivite" },
-  { icon: Star, value: 0, suffix: "", label: "E\u011Flenceli \u00D6\u011Frenme", displayText: "\u221E" },
+  { icon: Star, value: 0, suffix: "", label: "Eğlenceli Öğrenme", displayText: "∞" },
 ];
 
 /* =================================================
@@ -208,14 +208,14 @@ function LearningAdventure() {
           <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="anim">
               <span className="tag bg-mint-100 text-mint-700 mb-4">
-                <Sparkles className="w-3.5 h-3.5" /> MACERAYA BA{"\u015E"}LA
+                <Sparkles className="w-3.5 h-3.5" /> MACERAYA BA{"Ş"}LA
               </span>
             </div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight">
-              {"\u00D6\u011F"}renme <span className="highlight">Maceras{"\u0131"}</span>
+              {"Öğ"}renme <span className="highlight">Maceras{"ı"}</span>
             </h2>
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
-              Hikayeler, oyunlar ve rozetlerle dolu bir d{"\u00FC"}nyada sosyal-duygusal becerilerini geli{"\u015F"}tir!
+              Hikayeler, oyunlar ve rozetlerle dolu bir d{"ü"}nyada sosyal-duygusal becerilerini geli{"ş"}tir!
             </p>
           </div>
 
@@ -230,13 +230,13 @@ function LearningAdventure() {
               </div>
               <div className="px-8 py-6 space-y-4">
                 <p className="text-[0.95rem] text-slate-600 leading-[1.85]">
-                  LearnecoHub&apos;da seni e{"\u011F"}lenceli bir {"\u00F6\u011F"}renme maceras{"\u0131"} bekliyor! Animasyonlu hikaye videolar{"\u0131"} izleyecek,
-                  e{"\u011F"}lenceli oyunlar oynayacak, rozetler kazanacak ve arkada{"\u015F"}lar{"\u0131"}nla birlikte canl{"\u0131"} derslere kat{"\u0131"}lacaks{"\u0131"}n.
+                  LearnecoHub&apos;da seni e{"ğ"}lenceli bir {"öğ"}renme maceras{"ı"} bekliyor! Animasyonlu hikaye videolar{"ı"} izleyecek,
+                  e{"ğ"}lenceli oyunlar oynayacak, rozetler kazanacak ve arkada{"ş"}lar{"ı"}nla birlikte canl{"ı"} derslere kat{"ı"}lacaks{"ı"}n.
                 </p>
                 <p className="text-[0.95rem] text-slate-600 leading-[1.85]">
-                  Her g{"\u00FC"}n yeni bir g{"\u00F6"}rev, her hafta yeni bir beceri!{" "}
-                  <span className="font-bold text-slate-800">Empati, ileti{"\u015F"}im, {"\u00F6"}zg{"\u00FC"}ven ve liderlik</span> gibi
-                  s{"\u00FC"}per g{"\u00FC\u00E7"}leri ke{"\u015F"}fetmeye haz{"\u0131"}r m{"\u0131"}s{"\u0131"}n?
+                  Her g{"ü"}n yeni bir g{"ö"}rev, her hafta yeni bir beceri!{" "}
+                  <span className="font-bold text-slate-800">Empati, ileti{"ş"}im, {"ö"}zg{"ü"}ven ve liderlik</span> gibi
+                  s{"ü"}per g{"üç"}leri ke{"ş"}fetmeye haz{"ı"}r m{"ı"}s{"ı"}n?
                 </p>
               </div>
             </div>
@@ -346,14 +346,14 @@ function SkillWorld() {
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="anim">
               <span className="tag bg-gold-100 text-gold-700 mb-4">
-                <Target className="w-3.5 h-3.5" /> BECER{"\u0130"} D{"\u00DC"}NYASI
+                <Target className="w-3.5 h-3.5" /> BECER{"İ"} D{"Ü"}NYASI
               </span>
             </div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight">
-              S{"\u00FC"}per <span className="text-gradient">G{"\u00FC\u00E7"}lerini</span> Ke{"\u015F"}fet
+              S{"ü"}per <span className="text-gradient">G{"üç"}lerini</span> Ke{"ş"}fet
             </h2>
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
-              6 farkl{"\u0131"} beceri alan{"\u0131"}nda kendini geli{"\u015F"}tir, her birinde birer s{"\u00FC"}per kahraman ol!
+              6 farkl{"ı"} beceri alan{"ı"}nda kendini geli{"ş"}tir, her birinde birer s{"ü"}per kahraman ol!
             </p>
           </div>
 
@@ -450,14 +450,14 @@ function BadgeCollection() {
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="anim">
               <span className="tag bg-brand-100 text-brand-700 mb-4">
-                <Award className="w-3.5 h-3.5" /> ROZET KOLEKS{"\u0130"}YONU
+                <Award className="w-3.5 h-3.5" /> ROZET KOLEKS{"İ"}YONU
               </span>
             </div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight">
-              Rozetlerini <span className="highlight">topla</span>, ba{"\u015F"}ar{"\u0131"}lar{"\u0131"}n{"\u0131"} kutla!
+              Rozetlerini <span className="highlight">topla</span>, ba{"ş"}ar{"ı"}lar{"ı"}n{"ı"} kutla!
             </h2>
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
-              Her tamamlad{"\u0131\u011F\u0131"}n g{"\u00F6"}rev sana yeni bir rozet kazand{"\u0131"}r{"\u0131"}r. {"\u0130\u015F"}te baz{"\u0131"} rozetler!
+              Her tamamlad{"ığı"}n g{"ö"}rev sana yeni bir rozet kazand{"ı"}r{"ı"}r. {"İş"}te baz{"ı"} rozetler!
             </p>
           </div>
 
@@ -483,7 +483,7 @@ function BadgeCollection() {
               <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white shadow-sm border border-slate-200">
                 <Trophy className="w-4 h-4 text-[#F5C518]" />
                 <span className="text-[0.78rem] font-bold text-slate-600 uppercase tracking-wider">
-                  Koleksiyon Alb{"\u00FC"}m{"\u00FC"}
+                  Koleksiyon Alb{"ü"}m{"ü"}
                 </span>
                 <Trophy className="w-4 h-4 text-[#F5C518]" />
               </div>
@@ -577,7 +577,7 @@ function StatsBanner() {
               Seni neler bekliyor?
             </h3>
             <p className="anim d1 text-[#1A1A2E]/60 text-[0.88rem] leading-relaxed max-w-lg mx-auto">
-              E{"\u011F"}lenerek {"\u00F6\u011F"}ren, oynayarak geli{"\u015F"}, rozetlerini toplayarak ba{"\u015F"}ar{"\u0131"}lar{"\u0131"}n{"\u0131"} kutla!
+              E{"ğ"}lenerek {"öğ"}ren, oynayarak geli{"ş"}, rozetlerini toplayarak ba{"ş"}ar{"ı"}lar{"ı"}n{"ı"} kutla!
             </p>
           </div>
 
@@ -614,15 +614,15 @@ function StatsBanner() {
 export default function OgrencilerIcinPage() {
   return (
     <main>
-      <SubpageNavbar active={"\u00D6\u011Frenciler \u0130\u00E7in"} />
+      <SubpageNavbar active={"Öğrenciler İçin"} />
 
       <SubpageHero
-        breadcrumb={"\u00D6\u011Frenciler \u0130\u00E7in"}
-        tag={"\u00D6\u011ERENC\u0130LER \u0130\u00C7\u0130N"}
+        breadcrumb={"Öğrenciler İçin"}
+        tag={"ÖĞRENCİLER İÇİN"}
         tagIcon={Sparkles}
-        title={"E\u011Flenerek \u00F6\u011Fren,"}
-        titleHighlight={"oynayarak geli\u015F!"}
-        description={"Hikayeler, oyunlar, rozetler ve canl\u0131 derslerle sosyal-duygusal becerilerini geli\u015Ftir. Her g\u00FCn yeni bir macera seni bekliyor!"}
+        title={"Eğlenerek öğren,"}
+        titleHighlight={"oynayarak geliş!"}
+        description={"Hikayeler, oyunlar, rozetler ve canlı derslerle sosyal-duygusal becerilerini geliştir. Her gün yeni bir macera seni bekliyor!"}
         theme="mint"
       >
         {/* Right side - video + badge */}

@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 
 /* =================================================================
-   CUSTOM HERO \u2014 Scrapbook style (NOT using SubpageHero)
+   CUSTOM HERO — Scrapbook style (NOT using SubpageHero)
    ================================================================= */
 function CustomHero() {
   return (
@@ -41,7 +41,7 @@ function CustomHero() {
         >
           <a href="/" className="transition-colors hover:opacity-80">Ana Sayfa</a>
           <ChevronRight className="w-3.5 h-3.5" />
-          <span style={{ color: "rgba(255,255,255,0.9)" }}>Aileler {"\u0130\u00E7"}in</span>
+          <span style={{ color: "rgba(255,255,255,0.9)" }}>Aileler {"İç"}in</span>
         </div>
 
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
@@ -57,14 +57,14 @@ function CustomHero() {
                   backdropFilter: "blur(8px)",
                 }}
               >
-                <Heart className="w-3.5 h-3.5" /> A{"\u0130"}LELER {"\u0130\u00C7\u0130"}N
+                <Heart className="w-3.5 h-3.5" /> A{"İ"}LELER {"İÇİ"}N
               </span>
             </div>
 
             {/* Title */}
             <h1 className="font-display text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-extrabold leading-[1.08] tracking-tight mb-4 text-white">
-              {"\u00C7"}ocu{"\u011F"}unuzun gelece{"\u011F"}ine{" "}
-              <span style={{ color: "#F5C518" }}>birlikte yat{"\u0131"}r{"\u0131"}m yap{"\u0131"}n.</span>
+              {"Ç"}ocu{"ğ"}unuzun gelece{"ğ"}ine{" "}
+              <span style={{ color: "#F5C518" }}>birlikte yat{"ı"}r{"ı"}m yap{"ı"}n.</span>
             </h1>
 
             {/* Description */}
@@ -72,8 +72,8 @@ function CustomHero() {
               className="text-[0.95rem] leading-relaxed max-w-lg mb-6"
               style={{ color: "rgba(255,255,255,0.7)" }}
             >
-              Sosyal-duygusal geli{"\u015F"}im alan{"\u0131"}nda bilimsel y{"\u00F6"}ntemlerle tasarlanm{"\u0131\u015F"} m{"\u00FC"}fredat,
-              uzman rehberli{"\u011F"}i ve aile kat{"\u0131"}l{"\u0131"}ml{"\u0131"} programlarla {"\u00E7"}ocu{"\u011F"}unuzun yan{"\u0131"}nday{"\u0131"}z.
+              Sosyal-duygusal geli{"ş"}im alan{"ı"}nda bilimsel y{"ö"}ntemlerle tasarlanm{"ış"} m{"ü"}fredat,
+              uzman rehberli{"ğ"}i ve aile kat{"ı"}l{"ı"}ml{"ı"} programlarla {"ç"}ocu{"ğ"}unuzun yan{"ı"}nday{"ı"}z.
             </p>
 
             {/* Mini highlights */}
@@ -148,7 +148,7 @@ function CustomHero() {
                   <div className="w-full h-20 rounded-sm bg-[#ECFBF2] flex items-center justify-center">
                     <Smile className="w-8 h-8 text-[#2ECC71]/30" />
                   </div>
-                  <p className="text-[0.6rem] text-center text-slate-400 mt-1.5 font-semibold">{"\u00D6"}z G{"\u00FC"}ven</p>
+                  <p className="text-[0.6rem] text-center text-slate-400 mt-1.5 font-semibold">{"Ö"}z G{"ü"}ven</p>
                 </div>
 
                 {/* Polaroid 3 - spanning full width */}
@@ -169,7 +169,7 @@ function CustomHero() {
                 className="absolute -bottom-3 -right-3 w-16 h-16 rounded-full border-2 border-dashed border-[#2ECC71]/40 flex items-center justify-center bg-white/80"
                 style={{ transform: "rotate(-15deg)" }}
               >
-                <span className="text-[0.55rem] font-extrabold text-[#2ECC71]/60 uppercase">Onayl{"\u0131"}</span>
+                <span className="text-[0.55rem] font-extrabold text-[#2ECC71]/60 uppercase">Onayl{"ı"}</span>
               </div>
 
               {/* Photo corner top-left */}
@@ -198,15 +198,15 @@ function CustomHero() {
 }
 
 /* =================================================================
-   SECTION 1 \u2014 Aileniz \u0130\u00E7in Ne Sunuyoruz?
+   SECTION 1 — Aileniz İçin Ne Sunuyoruz?
    Polaroid-style scattered cards on cream scrapbook background
    ================================================================= */
 function SunuyoruzSection() {
   const items = [
     {
       icon: Shield,
-      title: "G\u00FCvenli Ortam",
-      desc: "Uzmanlar taraf\u0131ndan denetlenen, ya\u015Fa uygun i\u00E7eriklerle \u00E7ocu\u011Funuz g\u00FCvende.",
+      title: "Güvenli Ortam",
+      desc: "Uzmanlar tarafından denetlenen, yaşa uygun içeriklerle çocuğunuz güvende.",
       imgBg: "#EBF2FB",
       color: "#1B3A7B",
       rotate: "-2deg",
@@ -214,8 +214,8 @@ function SunuyoruzSection() {
     },
     {
       icon: BarChart3,
-      title: "Aile Raporlar\u0131",
-      desc: "\u00C7ocu\u011Funuzun geli\u015Fimini haftal\u0131k ve ayl\u0131k detayl\u0131 raporlarla takip edin.",
+      title: "Aile Raporları",
+      desc: "Çocuğunuzun gelişimini haftalık ve aylık detaylı raporlarla takip edin.",
       imgBg: "#ECFBF2",
       color: "#2ECC71",
       rotate: "1.5deg",
@@ -224,7 +224,7 @@ function SunuyoruzSection() {
     {
       icon: UserCheck,
       title: "Uzman Rehberlik",
-      desc: "Psikolog ve pedagog deste\u011Fiyle \u00E7ocu\u011Funuzun sosyal-duygusal geli\u015Fimini y\u00F6nlendirin.",
+      desc: "Psikolog ve pedagog desteğiyle çocuğunuzun sosyal-duygusal gelişimini yönlendirin.",
       imgBg: "#F0EDF9",
       color: "#7F63CB",
       rotate: "-1deg",
@@ -232,8 +232,8 @@ function SunuyoruzSection() {
     },
     {
       icon: FileText,
-      title: "Dijital Portfoly\u00F6",
-      desc: "\u00C7ocu\u011Funuzun t\u00FCm ba\u015Far\u0131lar\u0131, rozetleri ve geli\u015Fimi tek bir dijital dosyada.",
+      title: "Dijital Portfolyö",
+      desc: "Çocuğunuzun tüm başarıları, rozetleri ve gelişimi tek bir dijital dosyada.",
       imgBg: "#FEF5F0",
       color: "#EE7A45",
       rotate: "2.5deg",
@@ -241,8 +241,8 @@ function SunuyoruzSection() {
     },
     {
       icon: Video,
-      title: "Canl\u0131 Seanslar",
-      desc: "K\u00FC\u00E7\u00FCk gruplarla uzman e\u015Fli\u011Finde canl\u0131 oturumlar ve aile kat\u0131l\u0131ml\u0131 etkinlikler.",
+      title: "Canlı Seanslar",
+      desc: "Küçük gruplarla uzman eşliğinde canlı oturumlar ve aile katılımlı etkinlikler.",
       imgBg: "#FFFBEB",
       color: "#F5C518",
       rotate: "-3deg",
@@ -250,8 +250,8 @@ function SunuyoruzSection() {
     },
     {
       icon: Users,
-      title: "Uygun Ya\u015F Gruplar\u0131",
-      desc: "4-17 ya\u015F aral\u0131\u011F\u0131nda, geli\u015Fim d\u00F6nemine \u00F6zel i\u00E7erikler ve etkinlikler.",
+      title: "Uygun Yaş Grupları",
+      desc: "4-17 yaş aralığında, gelişim dönemine özel içerikler ve etkinlikler.",
       imgBg: "#EBF2FB",
       color: "#1B3A7B",
       rotate: "1deg",
@@ -277,12 +277,12 @@ function SunuyoruzSection() {
               </span>
             </div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight">
-              Aileniz {"\u0130\u00E7"}in Ne{" "}
+              Aileniz {"İç"}in Ne{" "}
               <span className="highlight">Sunuyoruz?</span>
             </h2>
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
-              {"\u00C7"}ocu{"\u011F"}unuzun sosyal-duygusal geli{"\u015F"}imini bilimsel y{"\u00F6"}ntemlerle destekleyin,
-              her ad{"\u0131"}m{"\u0131"}n{"\u0131"} birlikte takip edin.
+              {"Ç"}ocu{"ğ"}unuzun sosyal-duygusal geli{"ş"}imini bilimsel y{"ö"}ntemlerle destekleyin,
+              her ad{"ı"}m{"ı"}n{"ı"} birlikte takip edin.
             </p>
           </div>
 
@@ -386,7 +386,7 @@ function SunuyoruzSection() {
               style={{ borderColor: "#EE7A45" + "50", transform: "rotate(12deg)" }}
             >
               <div className="text-center">
-                <span className="block text-[0.5rem] font-extrabold uppercase" style={{ color: "#EE7A45" + "70" }}>G{"\u00FC"}venli</span>
+                <span className="block text-[0.5rem] font-extrabold uppercase" style={{ color: "#EE7A45" + "70" }}>G{"ü"}venli</span>
                 <span className="block text-[0.45rem] font-bold" style={{ color: "#EE7A45" + "50" }}>2025</span>
               </div>
             </div>
@@ -398,7 +398,7 @@ function SunuyoruzSection() {
 }
 
 /* =================================================================
-   SECTION 2 \u2014 Aile Rehberlik Program\u0131
+   SECTION 2 — Aile Rehberlik Programı
    Dotted-line timeline path with polaroid step cards
    ================================================================= */
 function RehberlikSection() {
@@ -406,28 +406,28 @@ function RehberlikSection() {
     {
       icon: Target,
       step: "01",
-      title: "De\u011Ferlendirme",
-      text: "\u00C7ocu\u011Funuzun geli\u015Fim d\u00FCzeyini ve ailenizin beklentilerini anlamak i\u00E7in kapsaml\u0131 bir de\u011Ferlendirme s\u00FCreci ba\u015Flat\u0131yoruz.",
+      title: "Değerlendirme",
+      text: "Çocuğunuzun gelişim düzeyini ve ailenizin beklentilerini anlamak için kapsamlı bir değerlendirme süreci başlatıyoruz.",
       color: "#EE7A45",
       imgBg: "#FEF5F0",
       rotate: "-2deg",
-      stampLabel: "Ba\u015Flang\u0131\u00E7",
+      stampLabel: "Başlangıç",
     },
     {
       icon: Fingerprint,
       step: "02",
       title: "Bireysel Plan",
-      text: "\u00C7ocu\u011Funuzun ya\u015F\u0131na, ilgi alanlar\u0131na ve geli\u015Fim ihtiya\u00E7lar\u0131na \u00F6zel ki\u015Fiselle\u015Ftirilmi\u015F bir \u00F6\u011Frenme plan\u0131 olu\u015Fturuyoruz.",
+      text: "Çocuğunuzun yaşına, ilgi alanlarına ve gelişim ihtiyaçlarına özel kişiselleştirilmiş bir öğrenme planı oluşturuyoruz.",
       color: "#7F63CB",
       imgBg: "#F0EDF9",
       rotate: "1.5deg",
-      stampLabel: "Ki\u015Fisel",
+      stampLabel: "Kişisel",
     },
     {
       icon: Calendar,
       step: "03",
-      title: "Haftal\u0131k Takip",
-      text: "Uzman psikologlar ve pedagoglar e\u015Fli\u011Finde haftal\u0131k seanslar ve d\u00FCzenli geri bildirimlerle s\u00FCreci y\u00F6netiyoruz.",
+      title: "Haftalık Takip",
+      text: "Uzman psikologlar ve pedagoglar eşliğinde haftalık seanslar ve düzenli geri bildirimlerle süreci yönetiyoruz.",
       color: "#2ECC71",
       imgBg: "#ECFBF2",
       rotate: "-1deg",
@@ -436,12 +436,12 @@ function RehberlikSection() {
     {
       icon: TrendingUp,
       step: "04",
-      title: "Geli\u015Fim Raporu",
-      text: "Ayl\u0131k detayl\u0131 geli\u015Fim raporlar\u0131, dijital portfoly\u00F6 ve aile g\u00F6r\u00FC\u015Fmeleriyle ilerlemeyi birlikte de\u011Ferlendiriyoruz.",
+      title: "Gelişim Raporu",
+      text: "Aylık detaylı gelişim raporları, dijital portfolyö ve aile görüşmeleriyle ilerlemeyi birlikte değerlendiriyoruz.",
       color: "#F5C518",
       imgBg: "#FFFBEB",
       rotate: "2deg",
-      stampLabel: "Sonu\u00E7",
+      stampLabel: "Sonuç",
     },
   ];
 
@@ -457,15 +457,15 @@ function RehberlikSection() {
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="anim">
               <span className="tag bg-gold-100 text-gold-700 mb-4">
-                <BookOpen className="w-3.5 h-3.5" /> REHBERL{"\u0130"}K PROGRAMI
+                <BookOpen className="w-3.5 h-3.5" /> REHBERL{"İ"}K PROGRAMI
               </span>
             </div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight">
               Aile Rehberlik{" "}
-              <span className="highlight">Program{"\u0131"}</span>
+              <span className="highlight">Program{"ı"}</span>
             </h2>
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
-              D{"\u00F6"}rt ad{"\u0131"}mda {"\u00E7"}ocu{"\u011F"}unuzun geli{"\u015F"}imini birlikte planl{"\u0131"}yor, uyguluyoruz ve {"\u00F6"}l{"\u00E7\u00FC"}yoruz.
+              D{"ö"}rt ad{"ı"}mda {"ç"}ocu{"ğ"}unuzun geli{"ş"}imini birlikte planl{"ı"}yor, uyguluyoruz ve {"ö"}l{"çü"}yoruz.
             </p>
           </div>
 
@@ -559,16 +559,16 @@ function RehberlikSection() {
 }
 
 /* =================================================================
-   SECTION 3 \u2014 Aileler Ne Diyor?
+   SECTION 3 — Aileler Ne Diyor?
    Polaroid testimonials on scrapbook page
    ================================================================= */
 function TestimonialsSection() {
   const testimonials = [
     {
       quote:
-        "O\u011Flumun \u00F6z g\u00FCveninde inan\u0131lmaz bir de\u011Fi\u015Fim ya\u015Fand\u0131. Art\u0131k arkada\u015Flar\u0131yla \u00E7ok daha sa\u011Fl\u0131kl\u0131 ili\u015Fkiler kuruyor. Haftal\u0131k raporlar sayesinde geli\u015Fimini ad\u0131m ad\u0131m takip edebiliyorum.",
-      name: "Ay\u015Fe K.",
-      role: "2 \u00E7ocuk annesi, \u0130stanbul",
+        "Oğlumun öz güveninde inanılmaz bir değişim yaşandı. Artık arkadaşlarıyla çok daha sağlıklı ilişkiler kuruyor. Haftalık raporlar sayesinde gelişimini adım adım takip edebiliyorum.",
+      name: "Ayşe K.",
+      role: "2 çocuk annesi, İstanbul",
       color: "#1B3A7B",
       photoBg: "#EBF2FB",
       rotate: "-2.5deg",
@@ -577,9 +577,9 @@ function TestimonialsSection() {
     },
     {
       quote:
-        "K\u0131z\u0131m canl\u0131 seanslar\u0131 \u00E7ok seviyor. Grup i\u00E7inde konu\u015Fmaktan \u00E7ekinen bir \u00E7ocuktu; \u015Fimdi fikirlerini rahatl\u0131kla ifade edebiliyor. LearnecoHub ger\u00E7ekten hayat\u0131m\u0131z\u0131 de\u011Fi\u015Ftirdi.",
+        "Kızım canlı seansları çok seviyor. Grup içinde konuşmaktan çekinen bir çocuktu; şimdi fikirlerini rahatlıkla ifade edebiliyor. LearnecoHub gerçekten hayatımızı değiştirdi.",
       name: "Mehmet T.",
-      role: "1 \u00E7ocuk babas\u0131, Ankara",
+      role: "1 çocuk babası, Ankara",
       color: "#EE7A45",
       photoBg: "#FEF5F0",
       rotate: "2deg",
@@ -588,9 +588,9 @@ function TestimonialsSection() {
     },
     {
       quote:
-        "Dijital portfoly\u00F6 \u00F6zelli\u011Fi harika! \u00C7ocu\u011Fumun kazand\u0131\u011F\u0131 rozetleri ve geli\u015Fim grafiklerini g\u00F6rmek bizi \u00E7ok motive ediyor. Uzmanlarla birebir g\u00F6r\u00FC\u015Fme imkan\u0131 da \u00E7ok de\u011Ferli.",
+        "Dijital portfolyö özelliği harika! Çocuğumun kazandığı rozetleri ve gelişim grafiklerini görmek bizi çok motive ediyor. Uzmanlarla birebir görüşme imkanı da çok değerli.",
       name: "Zeynep A.",
-      role: "3 \u00E7ocuk annesi, Bursa",
+      role: "3 çocuk annesi, Bursa",
       color: "#7F63CB",
       photoBg: "#F0EDF9",
       rotate: "-1deg",
@@ -611,15 +611,15 @@ function TestimonialsSection() {
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="anim">
               <span className="tag bg-blue-100 text-blue-700 mb-4">
-                <Star className="w-3.5 h-3.5" /> A{"\u0130"}LELER NE D{"\u0130"}YOR?
+                <Star className="w-3.5 h-3.5" /> A{"İ"}LELER NE D{"İ"}YOR?
               </span>
             </div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight">
               Ailelerden{" "}
-              <span className="text-gradient">Ger{"\u00E7"}ek Yorumlar</span>
+              <span className="text-gradient">Ger{"ç"}ek Yorumlar</span>
             </h2>
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
-              LearnecoHub ailesinin {"\u00FC"}yelerinden ilham verici deneyimler.
+              LearnecoHub ailesinin {"ü"}yelerinden ilham verici deneyimler.
             </p>
           </div>
 
@@ -736,7 +736,7 @@ function TestimonialsSection() {
               style={{ borderColor: "#F5C518" + "40", transform: "rotate(-10deg)" }}
             >
               <span className="text-[0.5rem] font-extrabold uppercase" style={{ color: "#F5C518" + "70" }}>
-                5 Y{"\u0131"}ld{"\u0131"}z
+                5 Y{"ı"}ld{"ı"}z
               </span>
             </div>
           </div>
@@ -747,7 +747,7 @@ function TestimonialsSection() {
 }
 
 /* =================================================================
-   SECTION 4 \u2014 Rakamlarla LearnecoHub
+   SECTION 4 — Rakamlarla LearnecoHub
    Stamp/postmark style stat cards
    ================================================================= */
 function RakamlarSection() {
@@ -757,7 +757,7 @@ function RakamlarSection() {
       value: 5000,
       suffix: "+",
       label: "Aile",
-      text: "LearnecoHub ailesine kat\u0131lan ve \u00E7ocuklar\u0131n\u0131n geli\u015Fimini destekleyen aile say\u0131s\u0131.",
+      text: "LearnecoHub ailesine katılan ve çocuklarının gelişimini destekleyen aile sayısı.",
       color: "#EE7A45",
       stampLines: 3,
     },
@@ -766,7 +766,7 @@ function RakamlarSection() {
       value: 96,
       suffix: "%",
       label: "Memnuniyet",
-      text: "Ailelerin programa verdikleri genel memnuniyet puan\u0131.",
+      text: "Ailelerin programa verdikleri genel memnuniyet puanı.",
       color: "#2ECC71",
       stampLines: 4,
     },
@@ -775,7 +775,7 @@ function RakamlarSection() {
       value: 200,
       suffix: "+",
       label: "Uzman",
-      text: "Psikolog, pedagog ve e\u011Fitim uzmanlar\u0131ndan olu\u015Fan deneyimli kadromuz.",
+      text: "Psikolog, pedagog ve eğitim uzmanlarından oluşan deneyimli kadromuz.",
       color: "#7F63CB",
       stampLines: 3,
     },
@@ -783,8 +783,8 @@ function RakamlarSection() {
       icon: MapPin,
       value: 50,
       suffix: "+",
-      label: "\u0130l\u00E7e",
-      text: "T\u00FCrkiye genelinde hizmet verdi\u011Fimiz il\u00E7e say\u0131s\u0131.",
+      label: "İlçe",
+      text: "Türkiye genelinde hizmet verdiğimiz ilçe sayısı.",
       color: "#1B3A7B",
       stampLines: 4,
     },
@@ -811,7 +811,7 @@ function RakamlarSection() {
               <span className="highlight">LearnecoHub</span>
             </h2>
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
-              Binlerce ailenin g{"\u00FC"}vendi{"\u011F"}i, uzmanlar taraf{"\u0131"}ndan desteklenen bir platform.
+              Binlerce ailenin g{"ü"}vendi{"ğ"}i, uzmanlar taraf{"ı"}ndan desteklenen bir platform.
             </p>
           </div>
 
@@ -898,7 +898,7 @@ export default function AilelerIcinPage() {
   return (
     <main>
       {/* --- Navbar --- */}
-      <SubpageNavbar active={"Aileler \u0130\u00E7in"} />
+      <SubpageNavbar active={"Aileler İçin"} />
 
       {/* --- Custom Hero (Scrapbook style) --- */}
       <CustomHero />

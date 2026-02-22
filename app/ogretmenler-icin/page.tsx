@@ -16,12 +16,12 @@ import {
 function Hero() {
   return (
     <SubpageHero
-      breadcrumb={"\u00D6\u011Fretmenler \u0130\u00E7in"}
-      tag={"\u00D6\u011FRETMENLER \u0130\u00C7\u0130N"}
+      breadcrumb={"Öğretmenler İçin"}
+      tag={"ÖğRETMENLER İÇİN"}
       tagIcon={GraduationCap}
-      title={"\u00D6\u011Fretmenler i\u00E7in haz\u0131r"}
-      titleHighlight={"dijital m\u00FCfredat."}
-      description={"S\u0131n\u0131f i\u00E7i ve rehberlik uygulamalar\u0131n\u0131z i\u00E7in s\u0131f\u0131r haz\u0131rl\u0131kla kullanabilece\u011Finiz sosyal-duygusal beceri m\u00FCfredat\u0131. Ders planlar\u0131, etkinlik materyalleri ve \u00F6l\u00E7me ara\u00E7lar\u0131 haz\u0131r."}
+      title={"Öğretmenler için hazır"}
+      titleHighlight={"dijital müfredat."}
+      description={"Sınıf içi ve rehberlik uygulamalarınız için sıfır hazırlıkla kullanabileceğiniz sosyal-duygusal beceri müfredatı. Ders planları, etkinlik materyalleri ve ölçme araçları hazır."}
       theme="lavender"
     >
       {/* Right side - video + stat pills */}
@@ -64,12 +64,12 @@ function Hero() {
    =============================================== */
 function SifirHazirlik() {
   const benefits = [
-    { icon: ClipboardList, title: "Haz\u0131r Ders Planlar\u0131", desc: "Her ders i\u00E7in ad\u0131m ad\u0131m haz\u0131rlanm\u0131\u015F, an\u0131nda uygulanabilir ders planlar\u0131.", tabColor: "#1B3A7B" },
-    { icon: PenTool, title: "Etkinlik Materyalleri", desc: "S\u0131n\u0131f i\u00E7i ve bireysel uygulamalar i\u00E7in tasarlanm\u0131\u015F zengin etkinlik seti.", tabColor: "#2ECC71" },
-    { icon: BarChart3, title: "\u00D6l\u00E7me Ara\u00E7lar\u0131", desc: "\u00D6\u011Frenci geli\u015Fimini takip eden de\u011Ferlendirme formlar\u0131 ve rubrikler.", tabColor: "#7F63CB" },
-    { icon: Monitor, title: "\u00D6\u011Frenci Takip Paneli", desc: "Her \u00F6\u011Frencinin geli\u015Fimini anl\u0131k izleyebilece\u011Finiz dijital panel.", tabColor: "#EE7A45" },
-    { icon: Printer, title: "500+ Yazd\u0131r\u0131labilir Sayfa", desc: "Dijital ve bask\u0131ya haz\u0131r \u00E7al\u0131\u015Fma sayfalar\u0131, g\u00F6zlem formlar\u0131.", tabColor: "#F5C518" },
-    { icon: Compass, title: "Uygulama K\u0131lavuzlar\u0131", desc: "Her mod\u00FCl i\u00E7in detayl\u0131 \u00F6\u011Fretmen rehberi ve uygulama \u00F6nerileri.", tabColor: "#1B3A7B" },
+    { icon: ClipboardList, title: "Hazır Ders Planları", desc: "Her ders için adım adım hazırlanmış, anında uygulanabilir ders planları.", tabColor: "#1B3A7B" },
+    { icon: PenTool, title: "Etkinlik Materyalleri", desc: "Sınıf içi ve bireysel uygulamalar için tasarlanmış zengin etkinlik seti.", tabColor: "#2ECC71" },
+    { icon: BarChart3, title: "Ölçme Araçları", desc: "Öğrenci gelişimini takip eden değerlendirme formları ve rubrikler.", tabColor: "#7F63CB" },
+    { icon: Monitor, title: "Öğrenci Takip Paneli", desc: "Her öğrencinin gelişimini anlık izleyebileceğiniz dijital panel.", tabColor: "#EE7A45" },
+    { icon: Printer, title: "500+ Yazdırılabilir Sayfa", desc: "Dijital ve baskıya hazır çalışma sayfaları, gözlem formları.", tabColor: "#F5C518" },
+    { icon: Compass, title: "Uygulama Kılavuzları", desc: "Her modül için detaylı öğretmen rehberi ve uygulama önerileri.", tabColor: "#1B3A7B" },
   ];
 
   return (
@@ -89,11 +89,11 @@ function SifirHazirlik() {
               </span>
             </div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight">
-              S{"\u0131"}f{"\u0131"}r haz{"\u0131"}rl{"\u0131"}kla{" "}
-              <span className="highlight">{"\u00F6\u011F"}retin</span>
+              S{"ı"}f{"ı"}r haz{"ı"}rl{"ı"}kla{" "}
+              <span className="highlight">{"öğ"}retin</span>
             </h2>
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
-              T{"\u00FC"}m ders planlar{"\u0131"}, materyaller ve {"\u00F6"}l{"\u00E7"}me ara{"\u00E7"}lar{"\u0131"} haz{"\u0131"}r. Sadece a{"\u00E7"}{"\u0131"}n ve {"\u00F6\u011F"}retmeye ba{"\u015F"}lay{"\u0131"}n.
+              T{"ü"}m ders planlar{"ı"}, materyaller ve {"ö"}l{"ç"}me ara{"ç"}lar{"ı"} haz{"ı"}r. Sadece a{"ç"}{"ı"}n ve {"öğ"}retmeye ba{"ş"}lay{"ı"}n.
             </p>
           </div>
 
@@ -108,16 +108,16 @@ function SifirHazirlik() {
               </div>
               <div className="px-8 py-6 space-y-4">
                 <p className="text-[0.95rem] text-slate-600 leading-[1.85]">
-                  {"\u00D6\u011F"}retmenler ve okul rehber dan{"\u0131\u015F"}manlar{"\u0131"} (PDR) i{"\u00E7"}in{" "}
-                  <span className="font-bold text-slate-800 underline decoration-[#F5C518] decoration-2 underline-offset-2">kullan{"\u0131"}ma haz{"\u0131"}r dijital m{"\u00FC"}fredat</span> sunuyoruz.
-                  Ders plan{"\u0131"} haz{"\u0131"}rlamaya, materyal aramaya, i{"\u00E7"}erik {"\u00FC"}retmeye son.
-                  T{"\u00FC"}m i{"\u00E7"}eriklerimiz bilimsel temelli, ya{"\u015F"} grubuna uygun ve MEB m{"\u00FC"}fredat{"\u0131"}yla uyumludur.
+                  {"Öğ"}retmenler ve okul rehber dan{"ış"}manlar{"ı"} (PDR) i{"ç"}in{" "}
+                  <span className="font-bold text-slate-800 underline decoration-[#F5C518] decoration-2 underline-offset-2">kullan{"ı"}ma haz{"ı"}r dijital m{"ü"}fredat</span> sunuyoruz.
+                  Ders plan{"ı"} haz{"ı"}rlamaya, materyal aramaya, i{"ç"}erik {"ü"}retmeye son.
+                  T{"ü"}m i{"ç"}eriklerimiz bilimsel temelli, ya{"ş"} grubuna uygun ve MEB m{"ü"}fredat{"ı"}yla uyumludur.
                 </p>
                 <p className="text-[0.95rem] text-slate-600 leading-[1.85]">
-                  Her mod{"\u00FC"}l{" "}
-                  <span className="font-bold text-slate-800 underline decoration-[#7F63CB] decoration-2 underline-offset-2">animasyonlu video, etkile{"\u015F"}imli oyun, etkinlik ve {"\u00F6"}l{"\u00E7"}me arac{"\u0131"}</span>{" "}
-                  i{"\u00E7"}erir. {"\u00D6\u011F"}retmen panelinizden {"\u00F6\u011F"}renci geli{"\u015F"}imini takip edebilir,
-                  s{"\u0131"}n{"\u0131"}f raporlar{"\u0131"} olu{"\u015F"}turabilir ve velilerle payla{"\u015F"}abilirsiniz.
+                  Her mod{"ü"}l{" "}
+                  <span className="font-bold text-slate-800 underline decoration-[#7F63CB] decoration-2 underline-offset-2">animasyonlu video, etkile{"ş"}imli oyun, etkinlik ve {"ö"}l{"ç"}me arac{"ı"}</span>{" "}
+                  i{"ç"}erir. {"Öğ"}retmen panelinizden {"öğ"}renci geli{"ş"}imini takip edebilir,
+                  s{"ı"}n{"ı"}f raporlar{"ı"} olu{"ş"}turabilir ve velilerle payla{"ş"}abilirsiniz.
                 </p>
               </div>
             </div>
@@ -173,7 +173,7 @@ function ModulerMufredat() {
       icon: Video,
       num: "01",
       title: "Animasyon Video",
-      desc: "Hikayele\u015Ftirilmi\u015F, ya\u015F grubuna uygun animasyonlu videolarla beceriyi tan\u0131t\u0131n. \u00D6\u011Frenciler izlerken ke\u015Ffeder.",
+      desc: "Hikayeleştirilmiş, yaş grubuna uygun animasyonlu videolarla beceriyi tanıtın. Öğrenciler izlerken keşfeder.",
       color: "#1B3A7B",
       bg: "#EBF2FB",
       rotate: "-2deg",
@@ -181,8 +181,8 @@ function ModulerMufredat() {
     {
       icon: Gamepad2,
       num: "02",
-      title: "Etkile\u015Fimli Oyun",
-      desc: "Karar oyunlar\u0131, empati sim\u00FClasyonlar\u0131 ve tak\u0131m g\u00F6revleriyle \u00F6\u011Frenileni peki\u015Ftirin.",
+      title: "Etkileşimli Oyun",
+      desc: "Karar oyunları, empati simülasyonları ve takım görevleriyle öğrenileni pekiştirin.",
       color: "#2ECC71",
       bg: "#ECFBF2",
       rotate: "1.5deg",
@@ -191,7 +191,7 @@ function ModulerMufredat() {
       icon: PenTool,
       num: "03",
       title: "Etkinlik & Uygulama",
-      desc: "\u00C7al\u0131\u015Fma sayfalar\u0131, grup etkinlikleri ve bireysel uygulamalarla beceriyi hayata ge\u00E7irin.",
+      desc: "Çalışma sayfaları, grup etkinlikleri ve bireysel uygulamalarla beceriyi hayata geçirin.",
       color: "#EE7A45",
       bg: "#FEF5F0",
       rotate: "-1deg",
@@ -199,8 +199,8 @@ function ModulerMufredat() {
     {
       icon: BarChart3,
       num: "04",
-      title: "De\u011Ferlendirme",
-      desc: "Rubrikler, g\u00F6zlem formlar\u0131 ve dijital de\u011Ferlendirme ara\u00E7lar\u0131yla ilerlemeyi \u00F6l\u00E7\u00FCn.",
+      title: "Değerlendirme",
+      desc: "Rubrikler, gözlem formları ve dijital değerlendirme araçlarıyla ilerlemeyi ölçün.",
       color: "#7F63CB",
       bg: "#F0EDF9",
       rotate: "2deg",
@@ -219,15 +219,15 @@ function ModulerMufredat() {
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="anim">
               <span className="tag bg-gold-100 text-gold-700 mb-4">
-                <Layers className="w-3.5 h-3.5" /> MOD{"\u00DC"}LER S{"\u0130"}STEM
+                <Layers className="w-3.5 h-3.5" /> MOD{"Ü"}LER S{"İ"}STEM
               </span>
             </div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight">
-              Mod{"\u00FC"}ler{" "}
-              <span className="highlight">m{"\u00FC"}fredat sistemi</span>
+              Mod{"ü"}ler{" "}
+              <span className="highlight">m{"ü"}fredat sistemi</span>
             </h2>
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
-              Her beceri mod{"\u00FC"}l{"\u00FC"} 4 a{"\u015F"}amal{"\u0131"} {"\u00F6\u011F"}renme d{"\u00F6"}ng{"\u00FC"}s{"\u00FC"}yle tasarlanm{"\u0131\u015F"}t{"\u0131"}r.
+              Her beceri mod{"ü"}l{"ü"} 4 a{"ş"}amal{"ı"} {"öğ"}renme d{"ö"}ng{"ü"}s{"ü"}yle tasarlanm{"ış"}t{"ı"}r.
             </p>
           </div>
 
@@ -299,7 +299,7 @@ function ModulerMufredat() {
 
             {/* Arrow flow connectors for desktop */}
             <div className="hidden lg:flex items-center justify-center mt-8 gap-2">
-              {["Video", "Oyun", "Etkinlik", "De\u011Ferlendirme"].map((step, i) => (
+              {["Video", "Oyun", "Etkinlik", "Değerlendirme"].map((step, i) => (
                 <div key={i} className="flex items-center gap-2">
                   <span
                     className="text-[0.78rem] font-bold px-3 py-1 rounded-full"
@@ -328,10 +328,10 @@ function ModulerMufredat() {
    =============================================== */
 function OgretmenPaneli() {
   const capabilities = [
-    { icon: TrendingUp, title: "\u00D6\u011Frenci Geli\u015Fimi", desc: "Her \u00F6\u011Frencinin beceri geli\u015Fimini anl\u0131k takip edin, bireysel geli\u015Fim grafikleri olu\u015Fturun.", tabColor: "#1B3A7B" },
-    { icon: Users, title: "Grup Raporlar\u0131", desc: "S\u0131n\u0131f ve grup baz\u0131nda kar\u015F\u0131la\u015Ft\u0131rmal\u0131 raporlar haz\u0131rlay\u0131n, g\u00FC\u00E7l\u00FC ve geli\u015Fim alanlar\u0131n\u0131 belirleyin.", tabColor: "#2ECC71" },
-    { icon: BookOpen, title: "Ders Planlama", desc: "Haftal\u0131k ve ayl\u0131k ders planlar\u0131n\u0131z\u0131 olu\u015Fturun, i\u00E7erikleri takvime ekleyin.", tabColor: "#F5C518" },
-    { icon: MessageCircle, title: "Veli \u0130leti\u015Fimi", desc: "Geli\u015Fim raporlar\u0131n\u0131 velilerle payla\u015F\u0131n, \u00F6neriler ve geri bildirimler g\u00F6nderin.", tabColor: "#7F63CB" },
+    { icon: TrendingUp, title: "Öğrenci Gelişimi", desc: "Her öğrencinin beceri gelişimini anlık takip edin, bireysel gelişim grafikleri oluşturun.", tabColor: "#1B3A7B" },
+    { icon: Users, title: "Grup Raporları", desc: "Sınıf ve grup bazında karşılaştırmalı raporlar hazırlayın, güçlü ve gelişim alanlarını belirleyin.", tabColor: "#2ECC71" },
+    { icon: BookOpen, title: "Ders Planlama", desc: "Haftalık ve aylık ders planlarınızı oluşturun, içerikleri takvime ekleyin.", tabColor: "#F5C518" },
+    { icon: MessageCircle, title: "Veli İletişimi", desc: "Gelişim raporlarını velilerle paylaşın, öneriler ve geri bildirimler gönderin.", tabColor: "#7F63CB" },
   ];
 
   const stats = [
@@ -353,15 +353,15 @@ function OgretmenPaneli() {
           <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="anim">
               <span className="tag bg-brand-100 text-brand-700 mb-4">
-                <Monitor className="w-3.5 h-3.5" /> {"\u00D6\u011F"}RETMEN PANEL{"\u0130"}
+                <Monitor className="w-3.5 h-3.5" /> {"Öğ"}RETMEN PANEL{"İ"}
               </span>
             </div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight">
-              G{"\u00FC\u00E7"}l{"\u00FC"}{" "}
-              <span className="text-gradient">{"\u00F6\u011F"}retmen paneli</span>
+              G{"üç"}l{"ü"}{" "}
+              <span className="text-gradient">{"öğ"}retmen paneli</span>
             </h2>
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
-              {"\u00D6\u011F"}renci geli{"\u015F"}imini takip edin, raporlar olu{"\u015F"}turun, ders planlar{"\u0131"}n{"\u0131"}z{"\u0131"} y{"\u00F6"}netin.
+              {"Öğ"}renci geli{"ş"}imini takip edin, raporlar olu{"ş"}turun, ders planlar{"ı"}n{"ı"}z{"ı"} y{"ö"}netin.
             </p>
           </div>
 
@@ -376,15 +376,15 @@ function OgretmenPaneli() {
               </div>
               <div className="px-8 py-6 space-y-4">
                 <p className="text-[0.95rem] text-slate-600 leading-[1.85]">
-                  {"\u00D6\u011F"}retmen paneliniz, t{"\u00FC"}m s{"\u0131"}n{"\u0131"}f{"\u0131"}n{"\u0131"}z{"\u0131"} tek bir ekrandan y{"\u00F6"}netmenizi sa{"\u011F"}lar.{" "}
-                  <span className="font-bold text-slate-800 underline decoration-[#1B3A7B] decoration-2 underline-offset-2">Her {"\u00F6\u011F"}rencinin hangi beceri mod{"\u00FC"}l{"\u00FC"}nde oldu{"\u011F"}unu, tamamlama oranlar{"\u0131"}n{"\u0131"} ve de{"\u011F"}erlendirme sonu{"\u00E7"}lar{"\u0131"}n{"\u0131"}</span>{" "}
-                  anl{"\u0131"}k olarak g{"\u00F6"}rebilirsiniz.
+                  {"Öğ"}retmen paneliniz, t{"ü"}m s{"ı"}n{"ı"}f{"ı"}n{"ı"}z{"ı"} tek bir ekrandan y{"ö"}netmenizi sa{"ğ"}lar.{" "}
+                  <span className="font-bold text-slate-800 underline decoration-[#1B3A7B] decoration-2 underline-offset-2">Her {"öğ"}rencinin hangi beceri mod{"ü"}l{"ü"}nde oldu{"ğ"}unu, tamamlama oranlar{"ı"}n{"ı"} ve de{"ğ"}erlendirme sonu{"ç"}lar{"ı"}n{"ı"}</span>{" "}
+                  anl{"ı"}k olarak g{"ö"}rebilirsiniz.
                 </p>
                 <p className="text-[0.95rem] text-slate-600 leading-[1.85]">
-                  Haftal{"\u0131"}k ve ayl{"\u0131"}k{" "}
+                  Haftal{"ı"}k ve ayl{"ı"}k{" "}
                   <span className="font-bold text-slate-800 underline decoration-[#F5C518] decoration-2 underline-offset-2">otomatik raporlar</span>{" "}
-                  sayesinde PDR uzmanlar{"\u0131"} ve okul y{"\u00F6"}neticileriyle kolayca bilgi payla{"\u015F"}abilir,
-                  velilere d{"\u00FC"}zenli geli{"\u015F"}im bildirimleri g{"\u00F6"}nderebilirsiniz.
+                  sayesinde PDR uzmanlar{"ı"} ve okul y{"ö"}neticileriyle kolayca bilgi payla{"ş"}abilir,
+                  velilere d{"ü"}zenli geli{"ş"}im bildirimleri g{"ö"}nderebilirsiniz.
                 </p>
               </div>
             </div>
@@ -458,25 +458,25 @@ function OgretmenPaneli() {
 function GeriBildirimler() {
   const testimonials = [
     {
-      quote: "LearnecoHub sayesinde ders haz\u0131rl\u0131\u011F\u0131na harcad\u0131\u011F\u0131m s\u00FCre yar\u0131 yar\u0131ya azald\u0131. Haz\u0131r ders planlar\u0131 ve materyaller hayat\u0131m\u0131 kolayla\u015Ft\u0131rd\u0131.",
-      name: "Ay\u015Fe K.",
-      role: "S\u0131n\u0131f \u00D6\u011Fretmeni, \u0130stanbul",
+      quote: "LearnecoHub sayesinde ders hazırlığına harcadığım süre yarı yarıya azaldı. Hazır ders planları ve materyaller hayatımı kolaylaştırdı.",
+      name: "Ayşe K.",
+      role: "Sınıf Öğretmeni, İstanbul",
       color: "#1B3A7B",
       bg: "#EBF2FB",
       rotate: "-1.5deg",
     },
     {
-      quote: "PDR \u00E7al\u0131\u015Fmalar\u0131m\u0131zda kullan\u0131yoruz. \u00D6\u011Frencilerin sosyal-duygusal geli\u015Fimini \u00F6l\u00E7\u00FClebilir hale getirmemize b\u00FCy\u00FCk katk\u0131 sa\u011Flad\u0131.",
+      quote: "PDR çalışmalarımızda kullanıyoruz. Öğrencilerin sosyal-duygusal gelişimini ölçülebilir hale getirmemize büyük katkı sağladı.",
       name: "Mehmet Y.",
-      role: "Rehber Dan\u0131\u015Fman, Ankara",
+      role: "Rehber Danışman, Ankara",
       color: "#2ECC71",
       bg: "#ECFBF2",
       rotate: "2deg",
     },
     {
-      quote: "Animasyonlu videolar \u00F6\u011Frencilerin ilgisini hemen \u00E7ekiyor. De\u011Ferlendirme ara\u00E7lar\u0131 ile geli\u015Fimi somut olarak g\u00F6rebiliyoruz.",
+      quote: "Animasyonlu videolar öğrencilerin ilgisini hemen çekiyor. Değerlendirme araçları ile gelişimi somut olarak görebiliyoruz.",
       name: "Zeynep T.",
-      role: "Okul \u00D6ncesi \u00D6\u011Fretmeni, \u0130zmir",
+      role: "Okul Öncesi Öğretmeni, İzmir",
       color: "#7F63CB",
       bg: "#F0EDF9",
       rotate: "-1deg",
@@ -495,15 +495,15 @@ function GeriBildirimler() {
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="anim">
               <span className="tag bg-mint-100 text-mint-700 mb-4">
-                <Star className="w-3.5 h-3.5" /> GER{"\u0130"} B{"\u0130"}LD{"\u0130"}R{"\u0130"}MLER
+                <Star className="w-3.5 h-3.5" /> GER{"İ"} B{"İ"}LD{"İ"}R{"İ"}MLER
               </span>
             </div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight">
-              {"\u00D6\u011F"}retmenlerden{" "}
+              {"Öğ"}retmenlerden{" "}
               <span className="highlight">geri bildirimler</span>
             </h2>
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
-              LearnecoHub kullanan {"\u00F6\u011F"}retmen ve uzmanlar{"\u0131"}n deneyimleri.
+              LearnecoHub kullanan {"öğ"}retmen ve uzmanlar{"ı"}n deneyimleri.
             </p>
           </div>
 
@@ -584,7 +584,7 @@ function GeriBildirimler() {
 export default function OgretmenlerIcinPage() {
   return (
     <main>
-      <SubpageNavbar active={"\u00D6\u011Fretmenler \u0130\u00E7in"} />
+      <SubpageNavbar active={"Öğretmenler İçin"} />
       <Hero />
       <SifirHazirlik />
       <ModulerMufredat />
