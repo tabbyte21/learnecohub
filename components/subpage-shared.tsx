@@ -120,11 +120,17 @@ export function SubpageNavbar({ active }: { active: string }) {
   const mobileLinks = [
     { label: "Ana Sayfa", href: "/" },
     { label: "Hikayemiz", href: "/hikayemiz" },
-    { label: "İş Birlikleri", href: "/is-birlikleri" },
-    { label: "İçeriklerimiz", href: "/iceriklerimiz" },
-    { label: "Kurslarımız", href: "/kurslarimiz" },
+    { label: "\u0130\u015F Birlikleri", href: "/is-birlikleri" },
+    { label: "Ba\u015Far\u0131lar", href: "/basarilar" },
+    { label: "Kurslar\u0131m\u0131z", href: "/kurslarimiz" },
+    { label: "\u00D6\u011Frenciler \u0130\u00E7in", href: "/ogrenciler-icin" },
+    { label: "\u00D6\u011Fretmenler \u0130\u00E7in", href: "/ogretmenler-icin" },
+    { label: "Kurumlar \u0130\u00E7in", href: "/kurumlar-icin" },
+    { label: "Aileler \u0130\u00E7in", href: "/aileler-icin" },
+    { label: "Ar\u015Fiv", href: "/arsiv" },
+    { label: "SSS", href: "/sss" },
     { label: "Blog", href: "/blog" },
-    { label: "İletişim", href: "/contact" },
+    { label: "\u0130leti\u015Fim", href: "/contact" },
   ];
   return (
     <nav className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? "nav-scrolled py-3" : "bg-white/90 backdrop-blur-xl border-b border-slate-200 py-3"}`}>
@@ -135,10 +141,16 @@ export function SubpageNavbar({ active }: { active: string }) {
         <div className="hidden md:flex items-center gap-1">
           <a href="/" className={`px-4 py-2 text-[0.85rem] font-semibold rounded-xl transition-all ${active === "Ana Sayfa" ? "text-brand-600 bg-brand-50" : "text-slate-500 hover:text-brand-600 hover:bg-brand-50"}`}>Ana Sayfa</a>
           <NavDropdown label="Hikayemiz" href="/hikayemiz" active={active} sub={[
-            { label: "İş Birlikleri", href: "/is-birlikleri", icon: Users, desc: "Kurumsal ortaklıklar" },
+            { label: "\u0130\u015F Birlikleri", href: "/is-birlikleri", icon: Users, desc: "Kurumsal ortakl\u0131klar" },
+            { label: "Ba\u015Far\u0131lar", href: "/basarilar", icon: Trophy, desc: "Rozet ve ba\u015Far\u0131 sistemi" },
+            { label: "Ar\u015Fiv", href: "/arsiv", icon: Layers, desc: "Kaynak k\u00FCt\u00FCphanesi" },
           ]} />
-          <NavDropdown label="İçeriklerimiz" href="/iceriklerimiz" active={active} sub={[
-            { label: "Kurslarımız", href: "/kurslarimiz", icon: GraduationCap, desc: "Canlı grup dersleri" },
+          <NavDropdown label="Hizmetlerimiz" href="/iceriklerimiz" active={active} sub={[
+            { label: "Kurslar\u0131m\u0131z", href: "/kurslarimiz", icon: GraduationCap, desc: "Canl\u0131 grup dersleri" },
+            { label: "\u00D6\u011Frenciler \u0130\u00E7in", href: "/ogrenciler-icin", icon: Sparkles, desc: "E\u011Flenceli \u00F6\u011Frenme deneyimi" },
+            { label: "\u00D6\u011Fretmenler \u0130\u00E7in", href: "/ogretmenler-icin", icon: BookOpen, desc: "Haz\u0131r m\u00FCfredat ve ara\u00E7lar" },
+            { label: "Kurumlar \u0130\u00E7in", href: "/kurumlar-icin", icon: Globe, desc: "Kurumsal \u00E7\u00F6z\u00FCmler" },
+            { label: "Aileler \u0130\u00E7in", href: "/aileler-icin", icon: Heart, desc: "Aile rehberli\u011Fi" },
           ]} />
           <a href="/blog" className={`px-4 py-2 text-[0.85rem] font-semibold rounded-xl transition-all ${active === "Blog" ? "text-brand-600 bg-brand-50" : "text-slate-500 hover:text-brand-600 hover:bg-brand-50"}`}>Blog</a>
           <a href="/contact" className={`px-4 py-2 text-[0.85rem] font-semibold rounded-xl transition-all ${active === "İletişim" ? "text-brand-600 bg-brand-50" : "text-slate-500 hover:text-brand-600 hover:bg-brand-50"}`}>İletişim</a>
@@ -354,11 +366,13 @@ export function SubpageFooter() {
               {[
                 { label: "Ana Sayfa", href: "/" },
                 { label: "Hikayemiz", href: "/hikayemiz" },
-                { label: "Kurslarımız", href: "/kurslarimiz" },
-                { label: "İçeriklerimiz", href: "/iceriklerimiz" },
-                { label: "İş Birlikleri", href: "/is-birlikleri" },
+                { label: "Kurslar\u0131m\u0131z", href: "/kurslarimiz" },
+                { label: "\u0130\u015F Birlikleri", href: "/is-birlikleri" },
+                { label: "Ba\u015Far\u0131lar", href: "/basarilar" },
+                { label: "Ar\u015Fiv", href: "/arsiv" },
+                { label: "SSS", href: "/sss" },
                 { label: "Blog", href: "/blog" },
-                { label: "İletişim", href: "/contact" },
+                { label: "\u0130leti\u015Fim", href: "/contact" },
               ].map((l, j) => (
                 <li key={j}><a href={l.href} className="text-[0.8rem] hover:text-[#F5C518] transition-colors">{l.label}</a></li>
               ))}
@@ -368,11 +382,11 @@ export function SubpageFooter() {
             <h4 className="font-display font-bold text-[0.82rem] text-white mb-4 tracking-wide">Platform</h4>
             <ul className="space-y-2.5">
               {[
-                { label: "Müfredat", href: "/iceriklerimiz" },
-                { label: "Video Dersler", href: "/iceriklerimiz" },
-                { label: "Kurslarımız", href: "/kurslarimiz" },
-                { label: "Blog", href: "/blog" },
-                { label: "İş Birlikleri", href: "/is-birlikleri" },
+                { label: "\u00D6\u011Frenciler \u0130\u00E7in", href: "/ogrenciler-icin" },
+                { label: "\u00D6\u011Fretmenler \u0130\u00E7in", href: "/ogretmenler-icin" },
+                { label: "Kurumlar \u0130\u00E7in", href: "/kurumlar-icin" },
+                { label: "Aileler \u0130\u00E7in", href: "/aileler-icin" },
+                { label: "\u0130\u015F Birlikleri", href: "/is-birlikleri" },
               ].map((l, j) => (
                 <li key={j}><a href={l.href} className="text-[0.8rem] hover:text-[#F5C518] transition-colors">{l.label}</a></li>
               ))}

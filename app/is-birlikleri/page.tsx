@@ -13,12 +13,12 @@ import {
    SCHOOLS SEGMENT
    ═══════════════════════════════════════ */
 function SchoolsSegment() {
-  const features = [
-    { icon: BookOpen, color: "#1B3A7B", bg: "#EBF2FB", text: "Ya\u015Fa \u00F6zel yap\u0131land\u0131r\u0131lm\u0131\u015F, 100+ beceriyi kapsayan haz\u0131r m\u00FCfredat" },
-    { icon: Layers, color: "#2ECC71", bg: "#ECFBF2", text: "Her beceri i\u00E7in video + oyun + etkinlik + \u00F6l\u00E7me arac\u0131 i\u00E7eren mod\u00FCler sistem" },
-    { icon: GraduationCap, color: "#7F63CB", bg: "#F0EDF9", text: "\u00D6\u011Fretmen ve psikolojik dan\u0131\u015Fmanlar i\u00E7in uygulama rehberleri" },
-    { icon: Award, color: "#F5C518", bg: "#FFFBEB", text: "Dijital geli\u015Fim portf\u00F6y\u00FC ve rozet sistemi + kurumsal raporlama" },
-    { icon: Monitor, color: "#EE7A45", bg: "#FEF5F0", text: "\u00D6\u011Frencilerin geli\u015Fimini anl\u0131k takip edebilece\u011Finiz y\u00F6netici ve \u00F6\u011Fretmen paneli" },
+  const notes = [
+    { icon: BookOpen, color: "#1B3A7B", bg: "#EBF2FB", title: "Hazır Müfredat", text: "Yaşa özel yapılandırılmış, 100+ beceriyi kapsayan hazır müfredat. Sıfır hazırlıkla hemen uygulayın.", rotate: "-2deg" },
+    { icon: Layers, color: "#2ECC71", bg: "#ECFBF2", title: "Modüler Sistem", text: "Her beceri için video + oyun + etkinlik + ölçme aracı içeren kapsamlı modüler yapı.", rotate: "1.5deg" },
+    { icon: GraduationCap, color: "#7F63CB", bg: "#F0EDF9", title: "Uygulama Rehberleri", text: "Öğretmen ve psikolojik danışmanlar için adım adım uygulama rehberleri.", rotate: "-1deg" },
+    { icon: Award, color: "#F5C518", bg: "#FFFBEB", title: "Dijital Portfolyo", text: "Dijital gelişim portfolyösü ve rozet sistemi ile kurumsal raporlama imkanı.", rotate: "2deg" },
+    { icon: Monitor, color: "#EE7A45", bg: "#FEF5F0", title: "Yönetici Paneli", text: "Öğrencilerin gelişimini anlık takip edebileceğiniz yönetici ve öğretmen paneli.", rotate: "-1.5deg" },
   ];
 
   return (
@@ -28,7 +28,8 @@ function SchoolsSegment() {
         <div className="absolute bottom-10 right-[8%] w-56 h-56 bg-mint-200/15 rounded-full blur-3xl" />
         <div className="absolute inset-0 grid-overlay" />
         <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-14">
+          {/* Header */}
+          <div className="text-center max-w-3xl mx-auto mb-6">
             <div className="anim">
               <span className="tag bg-brand-100 text-brand-700 mb-4">
                 <GraduationCap className="w-3.5 h-3.5" /> OKULLAR İÇİN
@@ -38,33 +39,98 @@ function SchoolsSegment() {
               Fark Yaratmak İsteyen{" "}
               <span className="text-gradient">Okullar İçin</span>
             </h2>
+            <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
+              Bugünün öğrencileri sadece bilgiye değil; duygularını tanımaya, ilişki kurmaya ve zor anlarda çözüm üretmeye de ihtiyaç duyuyor.
+            </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-10 items-start">
-            {/* Left — Description */}
-            <div className="anim d2 space-y-5">
-              <p className="text-[0.95rem] text-slate-600 leading-[1.85]">
-                {"Bug\u00FCn\u00FCn \u00F6\u011Frencileri sadece bilgiye de\u011Fil; duygular\u0131n\u0131 tan\u0131maya, ili\u015Fki kurmaya ve zor anlarda \u00E7\u00F6z\u00FCm \u00FCretmeye de ihtiya\u00E7 duyuyor. Ancak mevcut akademik m\u00FCfredatlar bu beceriler i\u00E7in yeterli de\u011Fil."}
-              </p>
-              <p className="text-[0.95rem] text-slate-600 leading-[1.85]">
-                {"Hi\u00E7bir haz\u0131rl\u0131k gerektirmeden hemen uygulayabilece\u011Finiz m\u00FCfredat\u0131m\u0131zla, 100\u2019den fazla sosyal-duygusal beceriyi \u00F6\u011Frencilerinizde ad\u0131m ad\u0131m geli\u015Ftirin."}
-              </p>
-              <a href="/contact" className="btn-3d btn-3d-brand inline-flex">
-                Okulunuz İçin Bilgi Alın <ArrowRight className="w-5 h-5" />
-              </a>
+          {/* Big description card — clipboard style */}
+          <div className="anim d2 max-w-2xl mx-auto mb-16">
+            <div className="relative bg-[#FAFAF8] rounded-2xl border border-slate-200 shadow-md pt-0 overflow-visible">
+              {/* Clipboard clip */}
+              <div className="flex justify-center -mt-4 relative z-20">
+                <div className="w-20 h-8 rounded-b-xl bg-slate-400 border-2 border-slate-500 shadow-sm flex items-end justify-center pb-1">
+                  <div className="w-10 h-1.5 rounded-full bg-slate-300" />
+                </div>
+              </div>
+              <div className="px-8 py-6">
+                <p className="text-[0.95rem] text-slate-600 leading-[1.85] mb-2">
+                  Hiçbir hazırlık gerektirmeden hemen uygulayabileceğiniz müfredatımızla, <span className="font-bold text-slate-800">100&apos;den fazla sosyal-duygusal beceriyi</span> öğrencilerinizde adım adım geliştirin.
+                </p>
+              </div>
             </div>
+          </div>
 
-            {/* Right — Feature cards */}
-            <div className="space-y-3">
-              {features.map((f, i) => (
-                <div key={i} className="anim card-3d card-3d-white p-4 flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: f.bg }}>
-                    <f.icon className="w-5 h-5" style={{ color: f.color }} />
+          {/* Sticky notes board */}
+          <div
+            className="relative rounded-3xl p-8 sm:p-10 lg:p-12"
+            style={{
+              background: "linear-gradient(145deg, #f5f0e8 0%, #ebe4d8 100%)",
+              boxShadow: "inset 0 2px 8px rgba(0,0,0,0.06), 0 4px 20px rgba(0,0,0,0.05)",
+            }}
+          >
+            {/* Subtle cork texture dots */}
+            <div className="absolute inset-0 rounded-3xl opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle, #000 0.5px, transparent 0.5px)", backgroundSize: "12px 12px" }} />
+
+            <div className="relative z-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+              {notes.map((n, i) => (
+                <div
+                  key={i}
+                  className={`anim d${Math.min(i + 1, 5)} transition-all duration-300 hover:scale-[1.03] hover:rotate-0`}
+                  style={{ transform: `rotate(${n.rotate})` }}
+                >
+                  <div
+                    className="relative rounded-sm p-6 min-h-[180px]"
+                    style={{
+                      background: n.bg,
+                      boxShadow: "3px 4px 12px rgba(0,0,0,0.1), 1px 1px 3px rgba(0,0,0,0.05)",
+                    }}
+                  >
+                    {/* Tape strip at top */}
+                    <div
+                      className="absolute -top-2.5 left-1/2 -translate-x-1/2 w-16 h-5 rounded-sm opacity-60"
+                      style={{
+                        background: "linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(240,235,220,0.5) 100%)",
+                        border: "1px solid rgba(0,0,0,0.06)",
+                        boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
+                      }}
+                    />
+
+                    {/* Folded corner */}
+                    <div
+                      className="absolute bottom-0 right-0 w-6 h-6"
+                      style={{
+                        background: `linear-gradient(135deg, ${n.bg} 50%, transparent 50%)`,
+                        filter: "brightness(0.92)",
+                        borderTopLeftRadius: "4px",
+                      }}
+                    />
+
+                    {/* Icon */}
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3" style={{ background: n.color + "18" }}>
+                      <n.icon className="w-5 h-5" style={{ color: n.color }} />
+                    </div>
+
+                    {/* Title */}
+                    <h4 className="font-display text-[0.95rem] font-extrabold mb-2 leading-tight" style={{ color: n.color }}>
+                      {n.title}
+                    </h4>
+
+                    {/* Text */}
+                    <p className="text-[0.82rem] text-slate-500 leading-relaxed">
+                      {n.text}
+                    </p>
                   </div>
-                  <p className="text-[0.85rem] text-slate-600 font-medium leading-snug">{f.text}</p>
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-12">
+            <a href="/contact" className="anim d6 btn-3d btn-3d-brand inline-flex">
+              Okulunuz İçin Bilgi Alın <ArrowRight className="w-5 h-5" />
+            </a>
           </div>
         </div>
       </section>
@@ -108,20 +174,47 @@ function FamiliesSegment() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {features.map((f, j) => (
-              <div key={j} className={`anim d${Math.min(j + 1, 6)} card-3d card-3d-white p-5`}>
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-3" style={{ background: f.bg }}>
-                  <f.icon className="w-5 h-5" style={{ color: f.color }} />
-                </div>
-                <p className="text-[0.85rem] text-slate-600 font-medium leading-relaxed">{f.text}</p>
-              </div>
-            ))}
+          {/* Sticky notes board */}
+          <div
+            className="relative rounded-3xl p-8 sm:p-10 lg:p-12"
+            style={{
+              background: "linear-gradient(145deg, #f5f0e8 0%, #ebe4d8 100%)",
+              boxShadow: "inset 0 2px 8px rgba(0,0,0,0.06), 0 4px 20px rgba(0,0,0,0.05)",
+            }}
+          >
+            <div className="absolute inset-0 rounded-3xl opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle, #000 0.5px, transparent 0.5px)", backgroundSize: "12px 12px" }} />
+            <div className="relative z-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+              {features.map((f, j) => {
+                const rotations = ["-1.5deg", "2deg", "-1deg", "1.5deg", "-2deg", "1deg", "-1.5deg"];
+                return (
+                  <div
+                    key={j}
+                    className={`anim d${Math.min(j + 1, 6)} transition-all duration-300 hover:scale-[1.03] hover:rotate-0`}
+                    style={{ transform: `rotate(${rotations[j]})` }}
+                  >
+                    <div
+                      className="relative rounded-sm p-6 min-h-[140px]"
+                      style={{
+                        background: f.bg,
+                        boxShadow: "3px 4px 12px rgba(0,0,0,0.1), 1px 1px 3px rgba(0,0,0,0.05)",
+                      }}
+                    >
+                      <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 w-16 h-5 rounded-sm opacity-60" style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(240,235,220,0.5) 100%)", border: "1px solid rgba(0,0,0,0.06)" }} />
+                      <div className="absolute bottom-0 right-0 w-6 h-6" style={{ background: `linear-gradient(135deg, ${f.bg} 50%, transparent 50%)`, filter: "brightness(0.92)" }} />
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3" style={{ background: f.color + "18" }}>
+                        <f.icon className="w-5 h-5" style={{ color: f.color }} />
+                      </div>
+                      <p className="text-[0.84rem] text-slate-600 font-medium leading-relaxed">{f.text}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
           <div className="text-center mt-10">
             <a href="/contact" className="btn-3d btn-3d-mint inline-flex">
-              Aileniz İçin Başlayın <ArrowRight className="w-5 h-5" />
+              Aileniz {"\u0130\u00E7"}in Ba{"\u015F"}lay{"\u0131"}n <ArrowRight className="w-5 h-5" />
             </a>
           </div>
         </div>
@@ -134,16 +227,13 @@ function FamiliesSegment() {
    CORPORATE SEGMENT
    ═══════════════════════════════════════ */
 function CorporateSegment() {
-  const leftFeatures = [
-    { icon: Shield, color: "#1B3A7B", text: "Kuruma özel uyarlanmış, çalışan çocuklarına yönelik sosyal-duygusal gelişim müfredatları" },
-    { icon: Heart, color: "#2ECC71", text: "Aile dostu kurum kültürünü destekleyen sürdürülebilir içerikler" },
-    { icon: Globe, color: "#7F63CB", text: "Sosyal sorumluluk ve sürdürülebilirlik hedeflerine hizmet eden projeler" },
-  ];
-
-  const rightFeatures = [
-    { icon: Award, color: "#F5C518", text: "Kurum çalışan çocuklarına özel dijital gelişim raporları ve rozet sistemi" },
-    { icon: TrendingUp, color: "#EE7A45", text: "Çalışan memnuniyeti ve bağlılığında artış" },
-    { icon: Sparkles, color: "#1B3A7B", text: "İşveren markasına güçlü katkı sağlayan projeler" },
+  const allFeatures = [
+    { icon: Shield, color: "#1B3A7B", bg: "#EBF2FB", text: "Kuruma \u00F6zel uyarlanm\u0131\u015F, \u00E7al\u0131\u015Fan \u00E7ocuklar\u0131na y\u00F6nelik sosyal-duygusal geli\u015Fim m\u00FCfredatlar\u0131", rotate: "-1.5deg" },
+    { icon: Heart, color: "#2ECC71", bg: "#ECFBF2", text: "Aile dostu kurum k\u00FClt\u00FCr\u00FCn\u00FC destekleyen s\u00FCrd\u00FCr\u00FClebilir i\u00E7erikler", rotate: "2deg" },
+    { icon: Globe, color: "#7F63CB", bg: "#F0EDF9", text: "Sosyal sorumluluk ve s\u00FCrd\u00FCr\u00FClebilirlik hedeflerine hizmet eden projeler", rotate: "-1deg" },
+    { icon: Award, color: "#F5C518", bg: "#FFFBEB", text: "Kurum \u00E7al\u0131\u015Fan \u00E7ocuklar\u0131na \u00F6zel dijital geli\u015Fim raporlar\u0131 ve rozet sistemi", rotate: "1.5deg" },
+    { icon: TrendingUp, color: "#EE7A45", bg: "#FEF5F0", text: "\u00C7al\u0131\u015Fan memnuniyeti ve ba\u011Fl\u0131l\u0131\u011F\u0131nda art\u0131\u015F", rotate: "-2deg" },
+    { icon: Sparkles, color: "#1B3A7B", bg: "#EBF2FB", text: "\u0130\u015Fveren markas\u0131na g\u00FC\u00E7l\u00FC katk\u0131 sa\u011Flayan projeler", rotate: "1deg" },
   ];
 
   return (
@@ -156,39 +246,48 @@ function CorporateSegment() {
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="anim">
               <span className="tag bg-peach-100 text-peach-700 mb-4">
-                <Globe className="w-3.5 h-3.5" /> KURUMLAR İÇİN
+                <Globe className="w-3.5 h-3.5" /> KURUMLAR {"\u0130\u00C7\u0130"}N
               </span>
             </div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight">
               Toplumsal Etki Yaratan{" "}
-              <span className="text-gradient">Kurumlar İçin</span>
+              <span className="text-gradient">Kurumlar {"\u0130\u00E7"}in</span>
             </h2>
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed max-w-2xl mx-auto">
-              LearnecoHub olarak, kurumsal şirketlerle iş birliği yapıyor; hem çalışanların çocuklarının sosyal-duygusal gelişimini destekliyor, hem de markaların sürdürülebilirlik hedeflerine değer katıyoruz.
+              LearnecoHub olarak, kurumsal {"\u015F"}irketlerle i{"\u015F"} birli{"\u011F"}i yap{"\u0131"}yor; hem {"\u00E7"}al{"\u0131\u015F"}anlar{"\u0131"}n {"\u00E7"}ocuklar{"\u0131"}n{"\u0131"}n sosyal-duygusal geli{"\u015F"}imini destekliyor, hem de markalar{"\u0131"}n s{"\u00FC"}rd{"\u00FC"}r{"\u00FC"}lebilirlik hedeflerine de{"\u011F"}er kat{"\u0131"}yoruz.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-5">
-            {/* Left column */}
-            <div className="space-y-4">
-              {leftFeatures.map((f, i) => (
-                <div key={i} className={`anim d${i + 1} rounded-xl bg-white border border-slate-200 p-4 flex items-start gap-3`}>
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: f.color + "12" }}>
-                    <f.icon className="w-5 h-5" style={{ color: f.color }} />
+          {/* Sticky notes board */}
+          <div
+            className="relative rounded-3xl p-8 sm:p-10 lg:p-12"
+            style={{
+              background: "linear-gradient(145deg, #f5f0e8 0%, #ebe4d8 100%)",
+              boxShadow: "inset 0 2px 8px rgba(0,0,0,0.06), 0 4px 20px rgba(0,0,0,0.05)",
+            }}
+          >
+            <div className="absolute inset-0 rounded-3xl opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle, #000 0.5px, transparent 0.5px)", backgroundSize: "12px 12px" }} />
+            <div className="relative z-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+              {allFeatures.map((f, i) => (
+                <div
+                  key={i}
+                  className={`anim d${Math.min(i + 1, 6)} transition-all duration-300 hover:scale-[1.03] hover:rotate-0`}
+                  style={{ transform: `rotate(${f.rotate})` }}
+                >
+                  <div
+                    className="relative rounded-sm p-6 min-h-[140px]"
+                    style={{
+                      background: f.bg,
+                      boxShadow: "3px 4px 12px rgba(0,0,0,0.1), 1px 1px 3px rgba(0,0,0,0.05)",
+                    }}
+                  >
+                    <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 w-16 h-5 rounded-sm opacity-60" style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(240,235,220,0.5) 100%)", border: "1px solid rgba(0,0,0,0.06)" }} />
+                    <div className="absolute bottom-0 right-0 w-6 h-6" style={{ background: `linear-gradient(135deg, ${f.bg} 50%, transparent 50%)`, filter: "brightness(0.92)" }} />
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3" style={{ background: f.color + "18" }}>
+                      <f.icon className="w-5 h-5" style={{ color: f.color }} />
+                    </div>
+                    <p className="text-[0.84rem] text-slate-600 font-medium leading-relaxed">{f.text}</p>
                   </div>
-                  <p className="text-[0.85rem] text-slate-600 font-medium leading-snug">{f.text}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Right column */}
-            <div className="space-y-4">
-              {rightFeatures.map((f, i) => (
-                <div key={i} className={`anim d${i + 4} rounded-xl bg-white border border-slate-200 p-4 flex items-start gap-3`}>
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: f.color + "12" }}>
-                    <f.icon className="w-5 h-5" style={{ color: f.color }} />
-                  </div>
-                  <p className="text-[0.85rem] text-slate-600 font-medium leading-snug">{f.text}</p>
                 </div>
               ))}
             </div>
@@ -196,7 +295,7 @@ function CorporateSegment() {
 
           <div className="text-center mt-10">
             <a href="/contact" className="btn-3d btn-3d-brand inline-flex">
-              Kurumsal İş Birliği İçin İletişime Geçin <ArrowRight className="w-5 h-5" />
+              Kurumsal {"\u0130\u015F"} Birli{"\u011F"}i {"\u0130\u00E7"}in {"\u0130"}leti{"\u015F"}ime Ge{"\u00E7"}in <ArrowRight className="w-5 h-5" />
             </a>
           </div>
         </div>

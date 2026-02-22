@@ -122,11 +122,17 @@ function Navbar() {
   }, []);
   const mobileLinks = [
     { label: "Hikayemiz", href: "/hikayemiz" },
-    { label: "İş Birlikleri", href: "/is-birlikleri" },
-    { label: "İçeriklerimiz", href: "/iceriklerimiz" },
-    { label: "Kurslarımız", href: "/kurslarimiz" },
+    { label: "\u0130\u015F Birlikleri", href: "/is-birlikleri" },
+    { label: "Ba\u015Far\u0131lar", href: "/basarilar" },
+    { label: "Ar\u015Fiv", href: "/arsiv" },
+    { label: "Kurslar\u0131m\u0131z", href: "/kurslarimiz" },
+    { label: "\u00D6\u011Frenciler \u0130\u00E7in", href: "/ogrenciler-icin" },
+    { label: "\u00D6\u011Fretmenler \u0130\u00E7in", href: "/ogretmenler-icin" },
+    { label: "Kurumlar \u0130\u00E7in", href: "/kurumlar-icin" },
+    { label: "Aileler \u0130\u00E7in", href: "/aileler-icin" },
+    { label: "SSS", href: "/sss" },
     { label: "Blog", href: "/blog" },
-    { label: "İletişim", href: "/contact" },
+    { label: "\u0130leti\u015Fim", href: "/contact" },
   ];
   return (
     <nav className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? "nav-scrolled py-3 opacity-100 translate-y-0" : "bg-transparent py-5 opacity-0 -translate-y-4 pointer-events-none"}`}>
@@ -136,10 +142,16 @@ function Navbar() {
         </a>
         <div className="hidden md:flex items-center gap-1">
           <MainNavDropdown label="Hikayemiz" href="/hikayemiz" sub={[
-            { label: "İş Birlikleri", href: "/is-birlikleri", icon: Users, desc: "Kurumsal ortaklıklar" },
+            { label: "\u0130\u015F Birlikleri", href: "/is-birlikleri", icon: Users, desc: "Kurumsal ortakl\u0131klar" },
+            { label: "Ba\u015Far\u0131lar", href: "/basarilar", icon: Trophy, desc: "Rozet ve ba\u015Far\u0131 sistemi" },
+            { label: "Ar\u015Fiv", href: "/arsiv", icon: Layers, desc: "Kaynak k\u00FCt\u00FCphanesi" },
           ]} />
-          <MainNavDropdown label="İçeriklerimiz" href="/iceriklerimiz" sub={[
-            { label: "Kurslarımız", href: "/kurslarimiz", icon: GraduationCap, desc: "Canlı grup dersleri" },
+          <MainNavDropdown label="Hizmetlerimiz" href="/iceriklerimiz" sub={[
+            { label: "Kurslar\u0131m\u0131z", href: "/kurslarimiz", icon: GraduationCap, desc: "Canl\u0131 grup dersleri" },
+            { label: "\u00D6\u011Frenciler \u0130\u00E7in", href: "/ogrenciler-icin", icon: Sparkles, desc: "E\u011Flenceli \u00F6\u011Frenme" },
+            { label: "\u00D6\u011Fretmenler \u0130\u00E7in", href: "/ogretmenler-icin", icon: BookOpen, desc: "Haz\u0131r m\u00FCfredat" },
+            { label: "Kurumlar \u0130\u00E7in", href: "/kurumlar-icin", icon: Globe, desc: "Kurumsal \u00E7\u00F6z\u00FCmler" },
+            { label: "Aileler \u0130\u00E7in", href: "/aileler-icin", icon: Heart, desc: "Aile rehberli\u011Fi" },
           ]} />
           <a href="/blog" className="px-4 py-2 text-[0.85rem] font-semibold text-slate-500 hover:text-brand-600 rounded-xl hover:bg-brand-50 transition-all">Blog</a>
           <a href="/contact" className="px-4 py-2 text-[0.85rem] font-semibold text-slate-500 hover:text-brand-600 rounded-xl hover:bg-brand-50 transition-all">İletişim</a>
@@ -198,30 +210,44 @@ function Hero() {
               </a>
               <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover/dd:opacity-100 group-hover/dd:visible transition-all duration-200">
                 <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-2 min-w-[220px]">
-                  <a href="/is-birlikleri" className="flex items-start gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-colors group/item">
-                    <Users className="w-4 h-4 text-slate-400 mt-0.5 flex-shrink-0 group-hover/item:text-brand-600 transition-colors" />
-                    <div>
-                      <span className="block text-[0.82rem] font-semibold text-slate-700 group-hover/item:text-brand-600 transition-colors">İş Birlikleri</span>
-                      <span className="block text-[0.72rem] text-slate-400 leading-snug">Kurumsal ortaklıklar</span>
-                    </div>
-                  </a>
+                  {[
+                    { href: "/is-birlikleri", icon: Users, label: "\u0130\u015F Birlikleri", desc: "Kurumsal ortakl\u0131klar" },
+                    { href: "/basarilar", icon: Trophy, label: "Ba\u015Far\u0131lar", desc: "Rozet ve ba\u015Far\u0131 sistemi" },
+                    { href: "/arsiv", icon: Layers, label: "Ar\u015Fiv", desc: "Kaynak k\u00FCt\u00FCphanesi" },
+                  ].map((s) => (
+                    <a key={s.label} href={s.href} className="flex items-start gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-colors group/item">
+                      <s.icon className="w-4 h-4 text-slate-400 mt-0.5 flex-shrink-0 group-hover/item:text-brand-600 transition-colors" />
+                      <div>
+                        <span className="block text-[0.82rem] font-semibold text-slate-700 group-hover/item:text-brand-600 transition-colors">{s.label}</span>
+                        <span className="block text-[0.72rem] text-slate-400 leading-snug">{s.desc}</span>
+                      </div>
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>
-            {/* İçeriklerimiz with dropdown */}
+            {/* Hizmetlerimiz with dropdown */}
             <div className="relative group/dd2">
               <a href="/iceriklerimiz" className="px-4 py-2 text-[0.84rem] font-semibold text-white/60 hover:text-white rounded-xl hover:bg-white/8 transition-all flex items-center gap-1">
-                İçeriklerimiz <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover/dd2:rotate-180" />
+                Hizmetlerimiz <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover/dd2:rotate-180" />
               </a>
               <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover/dd2:opacity-100 group-hover/dd2:visible transition-all duration-200">
                 <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-2 min-w-[220px]">
-                  <a href="/kurslarimiz" className="flex items-start gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-colors group/item">
-                    <GraduationCap className="w-4 h-4 text-slate-400 mt-0.5 flex-shrink-0 group-hover/item:text-brand-600 transition-colors" />
-                    <div>
-                      <span className="block text-[0.82rem] font-semibold text-slate-700 group-hover/item:text-brand-600 transition-colors">Kurslarımız</span>
-                      <span className="block text-[0.72rem] text-slate-400 leading-snug">Canlı grup dersleri</span>
-                    </div>
-                  </a>
+                  {[
+                    { href: "/kurslarimiz", icon: GraduationCap, label: "Kurslar\u0131m\u0131z", desc: "Canl\u0131 grup dersleri" },
+                    { href: "/ogrenciler-icin", icon: Sparkles, label: "\u00D6\u011Frenciler \u0130\u00E7in", desc: "E\u011Flenceli \u00F6\u011Frenme" },
+                    { href: "/ogretmenler-icin", icon: BookOpen, label: "\u00D6\u011Fretmenler \u0130\u00E7in", desc: "Haz\u0131r m\u00FCfredat" },
+                    { href: "/kurumlar-icin", icon: Globe, label: "Kurumlar \u0130\u00E7in", desc: "Kurumsal \u00E7\u00F6z\u00FCmler" },
+                    { href: "/aileler-icin", icon: Heart, label: "Aileler \u0130\u00E7in", desc: "Aile rehberli\u011Fi" },
+                  ].map((s) => (
+                    <a key={s.label} href={s.href} className="flex items-start gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-colors group/item">
+                      <s.icon className="w-4 h-4 text-slate-400 mt-0.5 flex-shrink-0 group-hover/item:text-brand-600 transition-colors" />
+                      <div>
+                        <span className="block text-[0.82rem] font-semibold text-slate-700 group-hover/item:text-brand-600 transition-colors">{s.label}</span>
+                        <span className="block text-[0.72rem] text-slate-400 leading-snug">{s.desc}</span>
+                      </div>
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>
@@ -243,11 +269,17 @@ function Hero() {
               <div className="flex flex-col gap-1">
                 {[
                   { label: "Hikayemiz", href: "/hikayemiz" },
-                  { label: "İş Birlikleri", href: "/is-birlikleri" },
-                  { label: "İçeriklerimiz", href: "/iceriklerimiz" },
-                  { label: "Kurslarımız", href: "/kurslarimiz" },
+                  { label: "\u0130\u015F Birlikleri", href: "/is-birlikleri" },
+                  { label: "Ba\u015Far\u0131lar", href: "/basarilar" },
+                  { label: "Ar\u015Fiv", href: "/arsiv" },
+                  { label: "Kurslar\u0131m\u0131z", href: "/kurslarimiz" },
+                  { label: "\u00D6\u011Frenciler \u0130\u00E7in", href: "/ogrenciler-icin" },
+                  { label: "\u00D6\u011Fretmenler \u0130\u00E7in", href: "/ogretmenler-icin" },
+                  { label: "Kurumlar \u0130\u00E7in", href: "/kurumlar-icin" },
+                  { label: "Aileler \u0130\u00E7in", href: "/aileler-icin" },
+                  { label: "SSS", href: "/sss" },
                   { label: "Blog", href: "/blog" },
-                  { label: "İletişim", href: "/contact" },
+                  { label: "\u0130leti\u015Fim", href: "/contact" },
                 ].map((l) => (
                   <a key={l.label} href={l.href} className="px-4 py-3 text-sm font-semibold text-white/70 rounded-xl hover:bg-white/10 transition-all">{l.label}</a>
                 ))}
@@ -1695,11 +1727,13 @@ function Footer() {
               {[
                 { label: "Ana Sayfa", href: "/" },
                 { label: "Hikayemiz", href: "/hikayemiz" },
-                { label: "Kurslarımız", href: "/kurslarimiz" },
-                { label: "İçeriklerimiz", href: "/iceriklerimiz" },
-                { label: "İş Birlikleri", href: "/is-birlikleri" },
+                { label: "Kurslar\u0131m\u0131z", href: "/kurslarimiz" },
+                { label: "\u0130\u015F Birlikleri", href: "/is-birlikleri" },
+                { label: "Ba\u015Far\u0131lar", href: "/basarilar" },
+                { label: "Ar\u015Fiv", href: "/arsiv" },
+                { label: "SSS", href: "/sss" },
                 { label: "Blog", href: "/blog" },
-                { label: "İletişim", href: "/contact" },
+                { label: "\u0130leti\u015Fim", href: "/contact" },
               ].map((l, j) => (
                 <li key={j}><a href={l.href} className="text-[0.8rem] hover:text-[#F5C518] transition-colors">{l.label}</a></li>
               ))}
@@ -1711,11 +1745,11 @@ function Footer() {
             <h4 className="font-display font-bold text-[0.82rem] text-white mb-4 tracking-wide">Platform</h4>
             <ul className="space-y-2.5">
               {[
-                { label: "Müfredat", href: "/iceriklerimiz" },
-                { label: "Video Dersler", href: "/iceriklerimiz" },
-                { label: "Kurslarımız", href: "/kurslarimiz" },
-                { label: "Blog", href: "/blog" },
-                { label: "İş Birlikleri", href: "/is-birlikleri" },
+                { label: "\u00D6\u011Frenciler \u0130\u00E7in", href: "/ogrenciler-icin" },
+                { label: "\u00D6\u011Fretmenler \u0130\u00E7in", href: "/ogretmenler-icin" },
+                { label: "Kurumlar \u0130\u00E7in", href: "/kurumlar-icin" },
+                { label: "Aileler \u0130\u00E7in", href: "/aileler-icin" },
+                { label: "\u0130\u015F Birlikleri", href: "/is-birlikleri" },
               ].map((l, j) => (
                 <li key={j}><a href={l.href} className="text-[0.8rem] hover:text-[#F5C518] transition-colors">{l.label}</a></li>
               ))}
