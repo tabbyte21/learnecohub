@@ -1,3 +1,7 @@
 node_modules/
 .next/
 nul
+.env
+*.db
+/app/generated/prisma
+tsconfig.tsbuildinfo

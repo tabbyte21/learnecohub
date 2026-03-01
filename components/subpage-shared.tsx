@@ -63,6 +63,25 @@ export function Counter({ target, suffix = "" }: { target: number; suffix?: stri
   return <span ref={ref}>{count}{suffix}</span>;
 }
 
+const LOGO_URL = "https://learnecohub.com/wp-content/uploads/2025/03/logo-3-e1749328376385.png";
+
+/* ═══════════════════════════════════════
+   ICON RESOLVER
+   ═══════════════════════════════════════ */
+const navIconMap: Record<string, React.ElementType> = {
+  BookOpen, Users, Play, GraduationCap, BarChart3, Globe, Heart,
+  ArrowRight, CheckCircle2, Sparkles, ChevronRight, ChevronDown, Star, Menu, X,
+  Zap, Target, TrendingUp, Award, Clock, Download, MessageCircle,
+  Layers, Monitor, Headphones, PenTool, FileText, Video, Gamepad2,
+  Puzzle, Trophy, Flame, Shield, CircleCheck, Lock, Crown, Rocket,
+  Phone, Mail, MapPin,
+};
+
+function resolveIcon(name?: string | null): React.ElementType {
+  if (!name) return Sparkles;
+  return navIconMap[name] || Sparkles;
+}
+
 /* ═══════════════════════════════════════
    SUBPAGE NAVBAR
    ═══════════════════════════════════════ */
@@ -107,71 +126,108 @@ function NavDropdown({ label, href, active, sub, variant = "light" }: {
 export function SubpageNavbar({ active }: { active: string }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [menuItems, setMenuItems] = useState<any[]>([]);
+
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", fn, { passive: true });
     return () => window.removeEventListener("scroll", fn);
   }, []);
-  const plainLinks = [
-    { label: "Ana Sayfa", href: "/" },
-    { label: "Blog", href: "/blog" },
-    { label: "İletişim", href: "/contact" },
-  ];
-  const mobileLinks = [
-    { label: "Ana Sayfa", href: "/" },
-    { label: "Hikayemiz", href: "/hikayemiz" },
-    { label: "\u0130\u015F Birlikleri", href: "/is-birlikleri" },
-    { label: "Ba\u015Far\u0131lar", href: "/basarilar" },
-    { label: "Kurslar\u0131m\u0131z", href: "/kurslarimiz" },
-    { label: "\u00D6\u011Frenciler \u0130\u00E7in", href: "/ogrenciler-icin" },
-    { label: "\u00D6\u011Fretmenler \u0130\u00E7in", href: "/ogretmenler-icin" },
-    { label: "Kurumlar \u0130\u00E7in", href: "/kurumlar-icin" },
-    { label: "Aileler \u0130\u00E7in", href: "/aileler-icin" },
-    { label: "Ar\u015Fiv", href: "/arsiv" },
-    { label: "SSS", href: "/sss" },
-    { label: "Blog", href: "/blog" },
-    { label: "\u0130leti\u015Fim", href: "/contact" },
-  ];
+
+  useEffect(() => {
+    fetch("/api/menu")
+      .then((r) => r.ok ? r.json() : [])
+      .then((data) => { if (Array.isArray(data)) setMenuItems(data); })
+      .catch(() => {});
+  }, []);
+
+  // Menü öğelerini ayır: normal linkler ve butonlar
+  const navLinks = menuItems.filter((m: any) => !m.isButton);
+  const buttons = menuItems.filter((m: any) => m.isButton);
+
+  // Mobil menü: tüm öğeleri düz liste olarak göster
+  const mobileLinks: { label: string; href: string }[] = [];
+  navLinks.forEach((item: any) => {
+    if (item.url) mobileLinks.push({ label: item.label, href: item.url });
+    if (item.children?.length) {
+      item.children.forEach((child: any) => {
+        if (child.url) mobileLinks.push({ label: child.label, href: child.url });
+      });
+    }
+  });
+
   return (
     <nav className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? "nav-scrolled py-3" : "bg-white/90 backdrop-blur-xl border-b border-slate-200 py-3"}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <a href="/" className="flex items-center gap-2.5 group">
-          <img src="https://learnecohub.com/wp-content/uploads/2025/03/logo-3-e1749328376385.png" alt="LearnecoHub" className="h-10 w-auto" />
+          <img src={LOGO_URL} alt="LearnecoHub" className="h-10 w-auto" />
         </a>
-        <div className="hidden md:flex items-center gap-1">
-          <a href="/" className={`px-4 py-2 text-[0.85rem] font-semibold rounded-xl transition-all ${active === "Ana Sayfa" ? "text-brand-600 bg-brand-50" : "text-slate-500 hover:text-brand-600 hover:bg-brand-50"}`}>Ana Sayfa</a>
-          <NavDropdown label="Hikayemiz" href="/hikayemiz" active={active} sub={[
-            { label: "\u0130\u015F Birlikleri", href: "/is-birlikleri", icon: Users, desc: "Kurumsal ortakl\u0131klar" },
-            { label: "Ba\u015Far\u0131lar", href: "/basarilar", icon: Trophy, desc: "Rozet ve ba\u015Far\u0131 sistemi" },
-            { label: "Ar\u015Fiv", href: "/arsiv", icon: Layers, desc: "Kaynak k\u00FCt\u00FCphanesi" },
-          ]} />
-          <NavDropdown label="Hizmetlerimiz" href="/iceriklerimiz" active={active} sub={[
-            { label: "Kurslar\u0131m\u0131z", href: "/kurslarimiz", icon: GraduationCap, desc: "Canl\u0131 grup dersleri" },
-            { label: "\u00D6\u011Frenciler \u0130\u00E7in", href: "/ogrenciler-icin", icon: Sparkles, desc: "E\u011Flenceli \u00F6\u011Frenme deneyimi" },
-            { label: "\u00D6\u011Fretmenler \u0130\u00E7in", href: "/ogretmenler-icin", icon: BookOpen, desc: "Haz\u0131r m\u00FCfredat ve ara\u00E7lar" },
-            { label: "Kurumlar \u0130\u00E7in", href: "/kurumlar-icin", icon: Globe, desc: "Kurumsal \u00E7\u00F6z\u00FCmler" },
-            { label: "Aileler \u0130\u00E7in", href: "/aileler-icin", icon: Heart, desc: "Aile rehberli\u011Fi" },
-          ]} />
-          <a href="/blog" className={`px-4 py-2 text-[0.85rem] font-semibold rounded-xl transition-all ${active === "Blog" ? "text-brand-600 bg-brand-50" : "text-slate-500 hover:text-brand-600 hover:bg-brand-50"}`}>Blog</a>
-          <a href="/contact" className={`px-4 py-2 text-[0.85rem] font-semibold rounded-xl transition-all ${active === "İletişim" ? "text-brand-600 bg-brand-50" : "text-slate-500 hover:text-brand-600 hover:bg-brand-50"}`}>İletişim</a>
+        <div className="hidden lg:flex items-center gap-1">
+          {navLinks.map((item: any) => {
+            if (item.children?.length > 0) {
+              return (
+                <NavDropdown
+                  key={item.id}
+                  label={item.label}
+                  href={item.url || "#"}
+                  active={active}
+                  sub={item.children.map((c: any) => ({
+                    label: c.label,
+                    href: c.url || "#",
+                    icon: resolveIcon(c.icon),
+                    desc: c.description || "",
+                  }))}
+                />
+              );
+            }
+            return (
+              <a
+                key={item.id}
+                href={item.url || "#"}
+                className={`px-3 py-2 text-[0.82rem] font-semibold rounded-xl transition-all ${
+                  item.label === active ? "text-brand-600 bg-brand-50" : "text-slate-500 hover:text-brand-600 hover:bg-brand-50"
+                }`}
+              >
+                {item.label}
+              </a>
+            );
+          })}
         </div>
-        <div className="hidden md:flex items-center gap-3">
-          <a href="https://lms.learnecohub.com" className="text-[0.85rem] font-bold text-slate-600 hover:text-brand-600 transition-colors px-4 py-2">Giriş Yap</a>
-          <a href="/contact" className="btn-3d btn-3d-brand !py-2.5 !px-5 !text-[0.85rem]">Hemen Başla</a>
+        <div className="hidden lg:flex items-center gap-3">
+          {buttons.map((btn: any) => (
+            btn.buttonStyle === "outline" ? (
+              <a key={btn.id} href={btn.url || "#"} {...(btn.openInNew ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="text-[0.82rem] font-bold text-slate-600 hover:text-brand-600 transition-colors px-3 py-2 rounded-xl border border-slate-200 hover:border-brand-200">
+                {btn.label}
+              </a>
+            ) : (
+              <a key={btn.id} href={btn.url || "#"} {...(btn.openInNew ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="btn-3d btn-3d-brand !py-2.5 !px-5 !text-[0.82rem]">
+                {btn.label}
+              </a>
+            )
+          ))}
         </div>
-        <button onClick={() => setOpen(!open)} className="md:hidden w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600">
+        <button onClick={() => setOpen(!open)} className="lg:hidden w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600">
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
       {open && (
-        <div className="md:hidden absolute top-full inset-x-0 bg-white/95 backdrop-blur-xl border-b border-slate-200 p-6 shadow-lg">
+        <div className="lg:hidden absolute top-full inset-x-0 bg-white/95 backdrop-blur-xl border-b border-slate-200 p-6 shadow-lg max-h-[80vh] overflow-y-auto">
           <div className="flex flex-col gap-1">
             {mobileLinks.map((l) => (
-              <a key={l.label} href={l.href} onClick={() => setOpen(false)} className={`px-4 py-3 text-sm font-semibold rounded-xl transition-all ${l.label === active ? "text-brand-600 bg-brand-50" : "text-slate-600 hover:bg-brand-50"}`}>{l.label}</a>
+              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className={`px-4 py-3 text-sm font-semibold rounded-xl transition-all ${l.label === active ? "text-brand-600 bg-brand-50" : "text-slate-600 hover:bg-brand-50"}`}>{l.label}</a>
             ))}
             <div className="border-t border-slate-100 pt-4 mt-2 flex flex-col gap-2">
-              <a href="https://lms.learnecohub.com" className="px-4 py-3 text-sm font-bold text-slate-600">Giriş Yap</a>
-              <a href="/contact" className="btn-3d btn-3d-brand justify-center">Hemen Başla</a>
+              {buttons.map((btn: any) => (
+                btn.buttonStyle === "outline" ? (
+                  <a key={btn.id} href={btn.url || "#"} {...(btn.openInNew ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="px-4 py-3 text-sm font-bold text-slate-600 border border-slate-200 rounded-xl text-center">
+                    {btn.label}
+                  </a>
+                ) : (
+                  <a key={btn.id} href={btn.url || "#"} {...(btn.openInNew ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="btn-3d btn-3d-brand justify-center">
+                    {btn.label}
+                  </a>
+                )
+              ))}
             </div>
           </div>
         </div>
@@ -289,7 +345,9 @@ export function SubpageHero({
 /* ═══════════════════════════════════════
    FINAL CTA
    ═══════════════════════════════════════ */
-export function FinalCTA() {
+export function FinalCTA({ data }: { data?: any }) {
+  const d = data || {};
+  const badges = d.badges?.length ? d.badges : [{ text: "Ücretsiz başlangıç" }, { text: "Kredi kartı gerekmiyor" }, { text: "Anında erişim" }];
   return (
     <Section>
       <section className="py-24 bg-[#E8F4FD] relative overflow-hidden">
@@ -303,24 +361,28 @@ export function FinalCTA() {
             <div className="absolute bottom-0 left-0 w-56 h-56 bg-mint-500/8 rounded-full blur-3xl" />
             <div className="relative z-10 p-10 sm:p-14 text-center">
               <div className="flex items-center justify-center mx-auto mb-6">
-                <img src="https://learnecohub.com/wp-content/uploads/2025/03/logo-3-e1749328376385.png" alt="LearnecoHub" className="h-8 w-auto brightness-0 invert" />
+                <img src={d.logo || LOGO_URL} alt="LearnecoHub" className="h-8 w-auto brightness-0 invert" />
               </div>
-              <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white mb-4 tracking-tight">
-                Size nasıl <span className="text-[#F5C518]">yardımcı</span> olabiliriz?
-              </h2>
+              {d.title ? (
+                <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white mb-4 tracking-tight" dangerouslySetInnerHTML={{ __html: d.title }} />
+              ) : (
+                <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white mb-4 tracking-tight">
+                  Size nasıl <span className="text-[#F5C518]">yardımcı</span> olabiliriz?
+                </h2>
+              )}
               <p className="text-slate-400 text-[0.95rem] leading-relaxed max-w-xl mx-auto mb-9">
-                Akademik başarıyı artıran, sosyal-duygusal becerileri güçlendiren bilimsel yöntemlerimizi keşfedin. Çocuğunuzu en iyi nasıl destekleyebileceğinizi öğrenin.
+                {d.description || "Akademik başarıyı artıran, sosyal-duygusal becerileri güçlendiren bilimsel yöntemlerimizi keşfedin. Çocuğunuzu en iyi nasıl destekleyebileceğinizi öğrenin."}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-7">
-                <a href="/contact" className="btn-3d btn-3d-mint text-base">Hemen Başla <ArrowRight className="w-5 h-5" /></a>
-                <a href="tel:08503023600" className="btn-3d btn-3d-gold text-base">
-                  <Phone className="w-4 h-4" /> 0850 302 36 00
+                <a href={d.cta?.href || "/iletisim"} className="btn-3d btn-3d-mint text-base">{d.cta?.label || "Hemen Başla"} <ArrowRight className="w-5 h-5" /></a>
+                <a href={d.phone?.href || "tel:+908503023600"} className="btn-3d btn-3d-gold text-base">
+                  <Phone className="w-4 h-4" /> {d.phone?.label || "0850 302 36 00"}
                 </a>
               </div>
               <div className="flex flex-wrap items-center justify-center gap-5 text-[0.78rem] text-white/40">
-                {["Ücretsiz başlangıç", "Kredi kartı gerekmiyor", "Anında erişim"].map((t, i) => (
+                {badges.map((b: any, i: number) => (
                   <span key={i} className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#2ECC71]" />{t}
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#2ECC71]" />{typeof b === "string" ? b : b.text}
                   </span>
                 ))}
               </div>
@@ -335,91 +397,111 @@ export function FinalCTA() {
 /* ═══════════════════════════════════════
    FOOTER
    ═══════════════════════════════════════ */
-export function SubpageFooter() {
+const iconMap: Record<string, any> = { Facebook, Instagram, Youtube, Linkedin };
+
+export function SubpageFooter({ data }: { data?: any }) {
+  const f = data || {};
+  const logo = f.logo || LOGO_URL;
+  const desc = f.description || "Çocuklar ve gençler için sosyal becerileri öğrenmenin en kolay yolu. Hazırlık gerekmeden hemen kullanabileceğiniz dijital müfredat.";
+  const socials = f.socials?.length ? f.socials : [
+    { icon: "Facebook", href: "https://www.facebook.com/learnecohub" },
+    { icon: "Instagram", href: "https://www.instagram.com/learnecohub" },
+    { icon: "Youtube", href: "https://www.youtube.com/@learnecohub" },
+    { icon: "Linkedin", href: "https://www.linkedin.com/company/learnecohub" },
+  ];
+  const menuLinks = f.menuLinks?.length ? f.menuLinks : [
+    { label: "Ana Sayfa", href: "/" },
+    { label: "Misyonumuz", href: "/misyonumuz" },
+    { label: "Ekibimiz", href: "/ekibimiz" },
+    { label: "Platform", href: "/platform" },
+    { label: "Blog", href: "/blog" },
+    { label: "SSS", href: "/sss" },
+    { label: "İletişim", href: "/iletisim" },
+    { label: "Demo Talep Et", href: "/demo" },
+  ];
+  const col2Links = f.col2Links?.length ? f.col2Links : [
+    { label: "Aileler İçin", href: "/aileler-icin" },
+    { label: "Profesyoneller İçin", href: "/profesyoneller-icin" },
+    { label: "Okullar İçin", href: "/okullar-icin" },
+    { label: "Kurumlar İçin", href: "/kurumlar-icin" },
+    { label: "Başarı Hikayeleri", href: "/basari-hikayeleri" },
+  ];
+  const companyName = f.companyName || "Learneco Eğitim ve Danışmanlık";
+  const address = f.address || "İstanbul, Başakşehir";
+  const phone = f.phone || "0850 302 36 00";
+  const email = f.email || "info@learnecohub.com";
+  const hours = f.hours || "Pazartesi - Pazar / 09.00 - 21.00";
+  const copyright = f.copyright || `© ${new Date().getFullYear()} LearnecoHub. Tüm hakları saklıdır.`;
+  const legalLinks = f.legalLinks?.length ? f.legalLinks : [
+    { label: "Gizlilik Politikası", href: "/gizlilik-politikasi" },
+    { label: "Kullanım Şartları", href: "/kullanim-sartlari" },
+    { label: "KVKK", href: "/kvkk" },
+  ];
+
   return (
     <footer className="bg-[#1A1A2E] text-white/50 pt-16 pb-8 relative footer-glow">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
           <div className="lg:col-span-1">
             <a href="/" className="flex items-center gap-2.5 mb-4">
-              <img src="https://learnecohub.com/wp-content/uploads/2025/03/logo-3-e1749328376385.png" alt="LearnecoHub" className="h-9 w-auto" />
+              <img src={logo} alt="LearnecoHub" className="h-9 w-auto" />
             </a>
-            <p className="text-[0.82rem] leading-relaxed max-w-xs mb-5">
-              Çocuklar ve gençler için sosyal becerileri öğrenmenin en kolay yolu. Hazırlık gerekmeden hemen kullanabileceğiniz dijital müfredat.
-            </p>
+            <p className="text-[0.82rem] leading-relaxed max-w-xs mb-5">{desc}</p>
             <div className="flex items-center gap-2.5">
-              {[
-                { icon: Facebook, label: "Fb", href: "https://facebook.com" },
-                { icon: Instagram, label: "Ig", href: "https://instagram.com" },
-                { icon: Youtube, label: "Yt", href: "https://youtube.com" },
-                { icon: Linkedin, label: "Li", href: "https://linkedin.com" },
-              ].map((s, i) => (
-                <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-xl bg-white/5 border border-white/8 flex items-center justify-center text-white/30 hover:bg-[#F5C518]/15 hover:text-[#F5C518] hover:border-[#F5C518]/30 transition-all">
-                  <s.icon className="w-3.5 h-3.5" />
-                </a>
-              ))}
+              {socials.map((s: any, i: number) => {
+                const Icon = iconMap[s.icon] || Globe;
+                return (
+                  <a key={i} href={s.href || "#"} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-xl bg-white/5 border border-white/8 flex items-center justify-center text-white/30 hover:bg-[#F5C518]/15 hover:text-[#F5C518] hover:border-[#F5C518]/30 transition-all">
+                    <Icon className="w-3.5 h-3.5" />
+                  </a>
+                );
+              })}
             </div>
           </div>
           <div>
-            <h4 className="font-display font-bold text-[0.82rem] text-white mb-4 tracking-wide">Site Menü</h4>
+            <h4 className="font-display font-bold text-[0.82rem] text-white mb-4 tracking-wide">{f.menuTitle || "Site Menü"}</h4>
             <ul className="space-y-2.5">
-              {[
-                { label: "Ana Sayfa", href: "/" },
-                { label: "Hikayemiz", href: "/hikayemiz" },
-                { label: "Kurslar\u0131m\u0131z", href: "/kurslarimiz" },
-                { label: "\u0130\u015F Birlikleri", href: "/is-birlikleri" },
-                { label: "Ba\u015Far\u0131lar", href: "/basarilar" },
-                { label: "Ar\u015Fiv", href: "/arsiv" },
-                { label: "SSS", href: "/sss" },
-                { label: "Blog", href: "/blog" },
-                { label: "\u0130leti\u015Fim", href: "/contact" },
-              ].map((l, j) => (
-                <li key={j}><a href={l.href} className="text-[0.8rem] hover:text-[#F5C518] transition-colors">{l.label}</a></li>
+              {menuLinks.map((l: any, j: number) => (
+                <li key={j}><a href={l.href || "#"} className="text-[0.8rem] hover:text-[#F5C518] transition-colors">{l.label}</a></li>
               ))}
             </ul>
           </div>
           <div>
-            <h4 className="font-display font-bold text-[0.82rem] text-white mb-4 tracking-wide">Platform</h4>
+            <h4 className="font-display font-bold text-[0.82rem] text-white mb-4 tracking-wide">{f.col2Title || "Çözümlerimiz"}</h4>
             <ul className="space-y-2.5">
-              {[
-                { label: "\u00D6\u011Frenciler \u0130\u00E7in", href: "/ogrenciler-icin" },
-                { label: "\u00D6\u011Fretmenler \u0130\u00E7in", href: "/ogretmenler-icin" },
-                { label: "Kurumlar \u0130\u00E7in", href: "/kurumlar-icin" },
-                { label: "Aileler \u0130\u00E7in", href: "/aileler-icin" },
-                { label: "\u0130\u015F Birlikleri", href: "/is-birlikleri" },
-              ].map((l, j) => (
-                <li key={j}><a href={l.href} className="text-[0.8rem] hover:text-[#F5C518] transition-colors">{l.label}</a></li>
+              {col2Links.map((l: any, j: number) => (
+                <li key={j}><a href={l.href || "#"} className="text-[0.8rem] hover:text-[#F5C518] transition-colors">{l.label}</a></li>
               ))}
             </ul>
           </div>
           <div>
-            <h4 className="font-display font-bold text-[0.82rem] text-white mb-4 tracking-wide">Learneco Eğitim ve Danışmanlık</h4>
+            <h4 className="font-display font-bold text-[0.82rem] text-white mb-4 tracking-wide">{companyName}</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#F5C518] flex-shrink-0 mt-0.5" />
-                <span className="text-[0.8rem]">İstanbul, Başakşehir</span>
+                <span className="text-[0.8rem]">{address}</span>
               </li>
               <li className="flex items-start gap-2.5">
                 <Phone className="w-4 h-4 text-[#F5C518] flex-shrink-0 mt-0.5" />
-                <a href="tel:08503023600" className="text-[0.8rem] hover:text-[#F5C518] transition-colors">0850 302 36 00</a>
+                <a href={`tel:${phone.replace(/\s/g, "")}`} className="text-[0.8rem] hover:text-[#F5C518] transition-colors">{phone}</a>
               </li>
               <li className="flex items-start gap-2.5">
                 <Mail className="w-4 h-4 text-[#F5C518] flex-shrink-0 mt-0.5" />
-                <a href="mailto:info@learnecohub.com" className="text-[0.8rem] hover:text-[#F5C518] transition-colors">info@learnecohub.com</a>
+                <a href={`mailto:${email}`} className="text-[0.8rem] hover:text-[#F5C518] transition-colors">{email}</a>
               </li>
               <li className="flex items-start gap-2.5">
                 <Clock className="w-4 h-4 text-[#F5C518] flex-shrink-0 mt-0.5" />
-                <span className="text-[0.8rem]">Pazartesi - Pazar / 09.00 - 21.00</span>
+                <span className="text-[0.8rem]">{hours}</span>
               </li>
             </ul>
           </div>
         </div>
         <div className="border-t border-white/8 pt-7 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[0.72rem] text-white/25">&copy; 2025 LearnecoHub. Tüm hakları saklıdır.</p>
+          <p className="text-[0.72rem] text-white/25">{copyright}</p>
           <div className="flex items-center gap-5 text-[0.72rem] text-white/25">
-            <a href="#" className="hover:text-white/50 transition-colors">Gizlilik Politikası</a>
-            <a href="#" className="hover:text-white/50 transition-colors">Kullanım Şartları</a>
-            <a href="#" className="hover:text-white/50 transition-colors">KVKK</a>
+            {legalLinks.map((l: any, i: number) => (
+              <a key={i} href={l.href || "#"} className="hover:text-white/50 transition-colors">{l.label}</a>
+            ))}
           </div>
         </div>
       </div>
