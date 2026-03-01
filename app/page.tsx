@@ -169,7 +169,7 @@ function Navbar({ menuItems }: { menuItems: any[] }) {
     <nav className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? "nav-scrolled py-3 opacity-100 translate-y-0" : "bg-transparent py-5 opacity-0 -translate-y-4 pointer-events-none"}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <a href="/" className="flex items-center gap-2.5 group">
-          <img src="https://learnecohub.com/wp-content/uploads/2025/03/logo-3-e1749328376385.png" alt="LearnecoHub" className="h-10 w-auto" />
+          <img src="/logo.png" alt="LearnecoHub" className="h-10 w-auto" />
         </a>
         <div className="hidden lg:flex items-center gap-1">
           {navLinks.map((item: any) =>
@@ -292,7 +292,7 @@ function Hero({ data, menuItems }: { data?: any; menuItems: any[] }) {
         {/* Hero Nav */}
         <div className="relative z-20 max-w-7xl w-full mx-auto px-6 sm:px-8 pt-5 pb-3 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2.5 group">
-            <img src="https://learnecohub.com/wp-content/uploads/2025/03/logo-3-e1749328376385.png" alt="LearnecoHub" className="h-10 w-auto brightness-0 invert" />
+            <img src="/logo.png" alt="LearnecoHub" className="h-10 w-auto brightness-0 invert" />
           </a>
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((item: any) =>
@@ -796,11 +796,11 @@ function PianoShowcase({ data }: { data?: any }) {
   const pianoDesc = d.description || "Her tuşa basın, farklı bir öğrenme deneyimini keşfedin.";
 
   const defaultKeys = [
-    { title: "Tanıtım", desc: "LearnecoHub platformunu yakından tanıyın", src: "https://learnecohub.com/wp-content/uploads/2025/07/Tanitim-Videosu-Guncel.mp4" },
-    { title: "Etkileşimli", desc: "Hikayeleştirilmiş animasyon destekli içerikler", src: "https://learnecohub.com/wp-content/uploads/2025/07/Etkilesimli-Video-Tanitim-1.mp4" },
-    { title: "Güvenlik", desc: "Çocuklarınız için güvenli dijital ortam", src: "https://learnecohub.com/wp-content/uploads/2025/07/Web-Sitesi-Guvenlik-2.mp4" },
-    { title: "Empati", desc: "Empati becerilerini geliştiren video dersler", src: "https://learnecohub.com/wp-content/uploads/2025/07/Tanitim-Videosu-Guncel.mp4" },
-    { title: "Duygular", desc: "Duyguları tanıma ve yönetme stratejileri", src: "https://learnecohub.com/wp-content/uploads/2025/07/Etkilesimli-Video-Tanitim-1.mp4" },
+    { title: "Tanıtım", desc: "LearnecoHub platformunu yakından tanıyın", src: "https://learnecohub.com/.old-wp/wp-content/uploads/2025/07/Tanitim-Videosu-Guncel.mp4" },
+    { title: "Etkileşimli", desc: "Hikayeleştirilmiş animasyon destekli içerikler", src: "https://learnecohub.com/.old-wp/wp-content/uploads/2025/07/Etkilesimli-Video-Tanitim-1.mp4" },
+    { title: "Güvenlik", desc: "Çocuklarınız için güvenli dijital ortam", src: "https://learnecohub.com/.old-wp/wp-content/uploads/2025/07/Web-Sitesi-Guvenlik-2.mp4" },
+    { title: "Empati", desc: "Empati becerilerini geliştiren video dersler", src: "https://learnecohub.com/.old-wp/wp-content/uploads/2025/07/Tanitim-Videosu-Guncel.mp4" },
+    { title: "Duygular", desc: "Duyguları tanıma ve yönetme stratejileri", src: "https://learnecohub.com/.old-wp/wp-content/uploads/2025/07/Etkilesimli-Video-Tanitim-1.mp4" },
   ];
 
   const keys: typeof defaultKeys = d.items?.length ? d.items.map((item: any, i: number) => ({
@@ -1061,12 +1061,12 @@ function VideoShowcase({ data }: { data?: any }) {
   const vsDesc = d.description || "Yaş gruplarına özel, animasyon destekli ve oyunlaştırılmış video içeriklerimizi keşfedin.";
   const accentColors = ["#1B3A7B", "#2ECC71", "#F5C518", "#7F63CB", "#EE7A45", "#1B3A7B"];
   const defaultVideos = [
-    { title: "Tanıtım Videosu", desc: "LearnecoHub platformunun kapsamlı sosyal beceri müfredatını ve öğrenme deneyimini keşfedin.", accent: "#1B3A7B", tabColor: "#1B3A7B", src: "https://learnecohub.com/wp-content/uploads/2025/07/Tanitim-Videosu-Guncel.mp4" },
-    { title: "Etkileşimli Video", desc: "Hikayeleştirilmiş, animasyon destekli ve oyunlaştırılmış etkileşimli video içeriklerimize göz atın.", accent: "#2ECC71", tabColor: "#2ECC71", src: "https://learnecohub.com/wp-content/uploads/2025/07/Etkilesimli-Video-Tanitim-1.mp4" },
-    { title: "Platform Güvenliği", desc: "Çocuklarınız için güvenli ve kontrollü bir dijital öğrenme ortamı sunuyoruz.", accent: "#F5C518", tabColor: "#F5C518", src: "https://learnecohub.com/wp-content/uploads/2025/07/Web-Sitesi-Guvenlik-2.mp4" },
-    { title: "Empati Gelişimi", desc: "Çocukların empati becerilerini hikayeler ve interaktif senaryolarla geliştiren video dersler.", accent: "#7F63CB", tabColor: "#7F63CB", src: "https://learnecohub.com/wp-content/uploads/2025/07/Tanitim-Videosu-Guncel.mp4" },
-    { title: "Duygu Yönetimi", desc: "Öfke, kaygı ve üzüntü gibi duyguları tanıma ve yönetme stratejilerini öğreten içerikler.", accent: "#EE7A45", tabColor: "#EE7A45", src: "https://learnecohub.com/wp-content/uploads/2025/07/Etkilesimli-Video-Tanitim-1.mp4" },
-    { title: "Sosyal Beceriler", desc: "Arkadaşlık kurma, iş birliği ve iletişim becerilerini destekleyen animasyonlu dersler.", accent: "#1B3A7B", tabColor: "#1B3A7B", src: "https://learnecohub.com/wp-content/uploads/2025/07/Web-Sitesi-Guvenlik-2.mp4" },
+    { title: "Tanıtım Videosu", desc: "LearnecoHub platformunun kapsamlı sosyal beceri müfredatını ve öğrenme deneyimini keşfedin.", accent: "#1B3A7B", tabColor: "#1B3A7B", src: "https://learnecohub.com/.old-wp/wp-content/uploads/2025/07/Tanitim-Videosu-Guncel.mp4" },
+    { title: "Etkileşimli Video", desc: "Hikayeleştirilmiş, animasyon destekli ve oyunlaştırılmış etkileşimli video içeriklerimize göz atın.", accent: "#2ECC71", tabColor: "#2ECC71", src: "https://learnecohub.com/.old-wp/wp-content/uploads/2025/07/Etkilesimli-Video-Tanitim-1.mp4" },
+    { title: "Platform Güvenliği", desc: "Çocuklarınız için güvenli ve kontrollü bir dijital öğrenme ortamı sunuyoruz.", accent: "#F5C518", tabColor: "#F5C518", src: "https://learnecohub.com/.old-wp/wp-content/uploads/2025/07/Web-Sitesi-Guvenlik-2.mp4" },
+    { title: "Empati Gelişimi", desc: "Çocukların empati becerilerini hikayeler ve interaktif senaryolarla geliştiren video dersler.", accent: "#7F63CB", tabColor: "#7F63CB", src: "https://learnecohub.com/.old-wp/wp-content/uploads/2025/07/Tanitim-Videosu-Guncel.mp4" },
+    { title: "Duygu Yönetimi", desc: "Öfke, kaygı ve üzüntü gibi duyguları tanıma ve yönetme stratejilerini öğreten içerikler.", accent: "#EE7A45", tabColor: "#EE7A45", src: "https://learnecohub.com/.old-wp/wp-content/uploads/2025/07/Etkilesimli-Video-Tanitim-1.mp4" },
+    { title: "Sosyal Beceriler", desc: "Arkadaşlık kurma, iş birliği ve iletişim becerilerini destekleyen animasyonlu dersler.", accent: "#1B3A7B", tabColor: "#1B3A7B", src: "https://learnecohub.com/.old-wp/wp-content/uploads/2025/07/Web-Sitesi-Guvenlik-2.mp4" },
   ];
   const videos: typeof defaultVideos = d.items?.length ? d.items.map((item: any, i: number) => ({
     title: item.title || defaultVideos[i]?.title || "",
@@ -2011,7 +2011,7 @@ function FinalCTA({ data }: { data?: any }) {
             <div className="absolute bottom-0 left-0 w-56 h-56 bg-mint-500/8 rounded-full blur-3xl" />
             <div className="relative z-10 p-10 sm:p-14 text-center">
               <div className="flex items-center justify-center mx-auto mb-6">
-                <img src={d.logo || "https://learnecohub.com/wp-content/uploads/2025/03/logo-3-e1749328376385.png"} alt="LearnecoHub" className="h-8 w-auto brightness-0 invert" />
+                <img src={d.logo || "/logo.png"} alt="LearnecoHub" className="h-8 w-auto brightness-0 invert" />
               </div>
               <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white mb-4 tracking-tight" dangerouslySetInnerHTML={{ __html: ctaTitle }} />
               <p className="text-slate-400 text-[0.95rem] leading-relaxed max-w-xl mx-auto mb-9">
@@ -2043,7 +2043,7 @@ function FinalCTA({ data }: { data?: any }) {
    ═══════════════════════════════════════ */
 function Footer({ data }: { data?: any }) {
   const f = data || {};
-  const logo = f.logo || "https://learnecohub.com/wp-content/uploads/2025/03/logo-3-e1749328376385.png";
+  const logo = f.logo || "/logo.png";
   const desc = f.description || "Çocuklar ve gençler için sosyal becerileri öğrenmenin en kolay yolu. Hazırlık gerekmeden hemen kullanabileceğiniz dijital müfredat.";
   const socials = f.socials?.length ? f.socials : [
     { platform: "facebook", href: "https://www.facebook.com/learnecohub" },

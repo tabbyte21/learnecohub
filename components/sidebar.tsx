@@ -32,7 +32,7 @@ export function AdminSidebar({ active }: { active: string }) {
         {!collapsed && (
           <a href="/admin" className="flex items-center gap-2">
             <img
-              src="https://learnecohub.com/wp-content/uploads/2025/03/logo-3-e1749328376385.png"
+              src="/logo.png"
               alt="LearnecoHub"
               className="h-7 w-auto"
             />

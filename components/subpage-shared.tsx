@@ -63,7 +63,7 @@ export function Counter({ target, suffix = "" }: { target: number; suffix?: stri
   return <span ref={ref}>{count}{suffix}</span>;
 }
 
-const LOGO_URL = "https://learnecohub.com/wp-content/uploads/2025/03/logo-3-e1749328376385.png";
+const LOGO_URL = "/logo.png";
 
 /* ═══════════════════════════════════════
    ICON RESOLVER

@@ -664,7 +664,7 @@ export default function KurumlarIcinPage() {
             loop
             autoPlay
           >
-            <source src="https://learnecohub.com/wp-content/uploads/2025/07/Tanitim-Videosu-Guncel.mp4" type="video/mp4" />
+            <source src="https://learnecohub.com/.old-wp/wp-content/uploads/2025/07/Tanitim-Videosu-Guncel.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10 pointer-events-none" />
         </div>
