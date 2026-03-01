@@ -508,7 +508,7 @@ function MaterialsScrollSection({ data }: { data: any }) {
    ═══════════════════════════════════════ */
 function VideoShowcaseSection({ data }: { data: any }) {
   const [playingIdx, setPlayingIdx] = useState<number | null>(null);
-  const videos = data.videos || [];
+  const videos = data.items || data.videos || [];
   return (
     <Section>
       <section className="py-24 bg-[#E8F4FD] relative overflow-hidden">
@@ -528,6 +528,8 @@ function VideoShowcaseSection({ data }: { data: any }) {
             {videos.map((v: any, i: number) => {
               const isPlaying = playingIdx === i;
               const color = v.color || "#1B3A7B";
+              const youtubeId = v.youtubeId || v.videoId;
+              const thumbnail = youtubeId ? `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg` : "";
               return (
                 <div key={i} className={`anim d${i <= 2 ? i + 1 : 3} group relative`}>
                   <div className="relative bg-white rounded-xl overflow-hidden transition-all duration-300 group-hover:-translate-y-1" style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04)" }}>
@@ -541,28 +543,24 @@ function VideoShowcaseSection({ data }: { data: any }) {
                       <div className="absolute top-0 bottom-0 left-10 w-[1px] bg-red-300/40 z-20 pointer-events-none" />
                       <div className="relative mx-4 mt-4 mb-0 rounded-lg overflow-hidden border border-slate-200/60" style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
                         <div className="relative aspect-video">
-                          <video
-                            src={v.videoUrl}
-                            className="w-full h-full object-cover"
-                            muted loop playsInline
-                            ref={(el) => {
-                              if (el) {
-                                if (isPlaying) { el.play().catch(() => {}); }
-                                else { el.pause(); el.currentTime = 0; }
-                              }
-                            }}
-                          />
-                          {!isPlaying && (
-                            <button onClick={() => setPlayingIdx(i)} className="absolute inset-0 bg-black/20 flex items-center justify-center group/play cursor-pointer transition-colors hover:bg-black/30" aria-label="Videoyu oynat" type="button">
-                              <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-xl transition-transform group-hover/play:scale-110">
-                                <Play className="w-6 h-6 ml-0.5" style={{ color }} />
-                              </div>
-                            </button>
-                          )}
-                          {isPlaying && (
-                            <button onClick={() => setPlayingIdx(null)} className="absolute top-2 right-2 w-8 h-8 rounded-full bg-black/40 flex items-center justify-center text-white/80 hover:bg-black/60 transition-colors z-10 cursor-pointer" aria-label="Durdur" type="button">
-                              <span className="text-xs font-bold">✕</span>
-                            </button>
+                          {isPlaying && youtubeId ? (
+                            <iframe
+                              className="absolute inset-0 w-full h-full"
+                              src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`}
+                              title={v.title}
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              referrerPolicy="strict-origin-when-cross-origin"
+                              allowFullScreen
+                            />
+                          ) : (
+                            <>
+                              {thumbnail && <img src={thumbnail} alt={v.title} className="absolute inset-0 w-full h-full object-cover" />}
+                              <button onClick={() => setPlayingIdx(i)} className="absolute inset-0 bg-black/20 flex items-center justify-center group/play cursor-pointer transition-colors hover:bg-black/30" aria-label="Videoyu oynat" type="button">
+                                <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-xl transition-transform group-hover/play:scale-110">
+                                  <Play className="w-6 h-6 ml-0.5" style={{ color }} />
+                                </div>
+                              </button>
+                            </>
                           )}
                         </div>
                       </div>
@@ -829,9 +827,10 @@ function PricingSection({ data }: { data: any }) {
           <div className="grid lg:grid-cols-3 gap-5">
             {plans.map((p: any, i: number) => {
               const cls = `card-3d-${p.cardClass || "brand"}`;
+              const isPopular = p.popular === true || p.popular === "true";
               return (
-                <div key={i} className={`anim d${i + 1} card-3d ${cls} p-7 relative flex flex-col ${p.popular ? "ring-2 ring-mint-400 ring-offset-2" : ""}`}>
-                  {p.popular && (
+                <div key={i} className={`anim d${i + 1} card-3d ${cls} p-7 relative flex flex-col ${isPopular ? "ring-2 ring-mint-400 ring-offset-2" : ""}`}>
+                  {isPopular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                       <span className="tag bg-mint-500 text-white font-bold">{data.popularLabel || "En Popüler"}</span>
                     </div>
@@ -839,14 +838,14 @@ function PricingSection({ data }: { data: any }) {
                   <h3 className="font-display text-xl font-extrabold text-slate-800 mb-1">{p.title}</h3>
                   <p className="text-[0.82rem] text-slate-400 font-medium mb-5">{p.subtitle}</p>
                   <ul className="space-y-3 mb-7 flex-1">
-                    {(p.features || []).map((f: string, j: number) => (
+                    {(typeof p.features === "string" ? p.features.split("\n").filter(Boolean) : (p.features || [])).map((f: string, j: number) => (
                       <li key={j} className="flex items-start gap-2.5 text-[0.84rem] text-slate-600">
                         <CheckCircle2 className="w-4 h-4 text-mint-500 flex-shrink-0 mt-0.5" />
                         <span>{f}</span>
                       </li>
                     ))}
                   </ul>
-                  <a href={p.ctaHref || p.href || "/iletisim"} className={`btn-3d ${p.popular ? "btn-3d-mint" : "btn-3d-white"} w-full justify-center`}>
+                  <a href={p.ctaHref || p.href || "/iletisim"} className={`btn-3d ${isPopular ? "btn-3d-mint" : "btn-3d-white"} w-full justify-center`}>
                     {p.cta || "Detaylı Bilgi Al"} <ArrowRight className="w-4 h-4" />
                   </a>
                 </div>
@@ -1062,19 +1061,18 @@ function PianoShowcaseSection({ data }: { data: any }) {
   const [activeIdx, setActiveIdx] = useState(0);
   const [pressedIdx, setPressedIdx] = useState<number | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
   const d = data || {};
   const pianoTitle = d.title || 'Platformumuzu <span class="text-gradient">keşfedin</span>';
   const pianoDesc = d.description || "Her tuşa basın, farklı bir öğrenme deneyimini keşfedin.";
   const defaultKeys = [
-    { title: "Tanıtım", desc: "Platformu tanıyın", src: "" },
-    { title: "Etkileşimli", desc: "Animasyon içerikler", src: "" },
-    { title: "Güvenlik", desc: "Güvenli ortam", src: "" },
+    { title: "Tanıtım", desc: "Platformu tanıyın", youtubeId: "" },
+    { title: "Etkileşimli", desc: "Animasyon içerikler", youtubeId: "" },
+    { title: "Güvenlik", desc: "Güvenli ortam", youtubeId: "" },
   ];
   const keys: typeof defaultKeys = d.items?.length ? d.items.map((item: any, i: number) => ({
     title: item.title || defaultKeys[i]?.title || "",
     desc: item.description || item.desc || defaultKeys[i]?.desc || "",
-    src: item.src || item.url || defaultKeys[i]?.src || "",
+    youtubeId: item.youtubeId || defaultKeys[i]?.youtubeId || "",
   })) : defaultKeys;
 
   const handleKeyClick = (idx: number) => {
@@ -1083,9 +1081,8 @@ function PianoShowcaseSection({ data }: { data: any }) {
     if (idx === activeIdx) return;
     setActiveIdx(idx);
     setIsPlaying(false);
-    if (videoRef.current) { videoRef.current.pause(); videoRef.current.currentTime = 0; }
   };
-  const handlePlay = () => { if (videoRef.current) { videoRef.current.play(); setIsPlaying(true); } };
+  const handlePlay = () => { setIsPlaying(true); };
   const blackKeyPositions = keys.length <= 2 ? [] : Array.from({ length: keys.length - 1 }, (_, i) => i).filter((i) => { const mod = i % 7; return mod !== 2 && mod !== 6; });
   const whiteKeyH = 100 / keys.length;
 
@@ -1141,20 +1138,34 @@ function PianoShowcaseSection({ data }: { data: any }) {
                 {/* Video Player */}
                 <div className="flex-1 relative bg-[#0A0F1C] flex flex-col">
                   <div className="relative flex-1 min-h-[260px]">
-                    <video ref={videoRef} key={keys[activeIdx]?.src} src={keys[activeIdx]?.src} className="absolute inset-0 w-full h-full object-cover" onEnded={() => setIsPlaying(false)} playsInline />
-                    {!isPlaying && (
-                      <div className="absolute inset-0 flex items-center justify-center cursor-pointer group/play" onClick={handlePlay}>
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#0A0F1C]/60 via-[#0A0F1C]/20 to-[#0A0F1C]/70" />
-                        <div className="relative z-10 flex flex-col items-center gap-4">
-                          <div className="rounded-full flex items-center justify-center transition-all duration-300 group-hover/play:scale-110" style={{ width: 72, height: 72, background: "rgba(255,255,255,0.95)", boxShadow: "0 8px 32px rgba(0,0,0,0.3)" }}>
-                            <Play className="w-7 h-7 text-[#1B3A7B] ml-1" fill="#1B3A7B" />
-                          </div>
-                          <div className="text-center">
-                            <p className="text-white font-display font-bold text-[0.95rem]">{keys[activeIdx]?.title}</p>
-                            <p className="text-white/45 text-[0.78rem] mt-0.5 max-w-[280px]">{keys[activeIdx]?.desc}</p>
+                    {isPlaying && keys[activeIdx]?.youtubeId ? (
+                      <iframe
+                        key={keys[activeIdx]?.youtubeId}
+                        className="absolute inset-0 w-full h-full"
+                        src={`https://www.youtube.com/embed/${keys[activeIdx].youtubeId}?autoplay=1&rel=0`}
+                        title={keys[activeIdx]?.title}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <>
+                        {keys[activeIdx]?.youtubeId && (
+                          <img src={`https://img.youtube.com/vi/${keys[activeIdx].youtubeId}/maxresdefault.jpg`} alt={keys[activeIdx]?.title} className="absolute inset-0 w-full h-full object-cover" />
+                        )}
+                        <div className="absolute inset-0 flex items-center justify-center cursor-pointer group/play" onClick={handlePlay}>
+                          <div className="absolute inset-0 bg-gradient-to-br from-[#0A0F1C]/60 via-[#0A0F1C]/20 to-[#0A0F1C]/70" />
+                          <div className="relative z-10 flex flex-col items-center gap-4">
+                            <div className="rounded-full flex items-center justify-center transition-all duration-300 group-hover/play:scale-110" style={{ width: 72, height: 72, background: "rgba(255,255,255,0.95)", boxShadow: "0 8px 32px rgba(0,0,0,0.3)" }}>
+                              <Play className="w-7 h-7 text-[#1B3A7B] ml-1" fill="#1B3A7B" />
+                            </div>
+                            <div className="text-center">
+                              <p className="text-white font-display font-bold text-[0.95rem]">{keys[activeIdx]?.title}</p>
+                              <p className="text-white/45 text-[0.78rem] mt-0.5 max-w-[280px]">{keys[activeIdx]?.desc}</p>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </>
                     )}
                     <div className="absolute top-4 left-4 z-10 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-black/40 backdrop-blur-sm">
                       <div className="w-1.5 h-1.5 rounded-full bg-[#2ECC71] animate-pulse" />
