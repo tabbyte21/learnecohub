@@ -41,7 +41,7 @@ function CustomHero() {
         >
           <a href="/" className="transition-colors hover:opacity-80">Ana Sayfa</a>
           <ChevronRight className="w-3.5 h-3.5" />
-          <span style={{ color: "rgba(255,255,255,0.9)" }}>Aileler {"İç"}in</span>
+          <span style={{ color: "rgba(255,255,255,0.9)" }}>Aileler İçin</span>
         </div>
 
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
@@ -57,14 +57,14 @@ function CustomHero() {
                   backdropFilter: "blur(8px)",
                 }}
               >
-                <Heart className="w-3.5 h-3.5" /> A{"İ"}LELER {"İÇİ"}N
+                <Heart className="w-3.5 h-3.5" /> AİLELER İÇİN
               </span>
             </div>
 
             {/* Title */}
             <h1 className="font-display text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-extrabold leading-[1.08] tracking-tight mb-4 text-white">
-              {"Ç"}ocu{"ğ"}unuzun gelece{"ğ"}ine{" "}
-              <span style={{ color: "#F5C518" }}>birlikte yat{"ı"}r{"ı"}m yap{"ı"}n.</span>
+              Çocuğunuzun geleceğine{" "}
+              <span style={{ color: "#F5C518" }}>birlikte yatırım yapın.</span>
             </h1>
 
             {/* Description */}
@@ -72,8 +72,8 @@ function CustomHero() {
               className="text-[0.95rem] leading-relaxed max-w-lg mb-6"
               style={{ color: "rgba(255,255,255,0.7)" }}
             >
-              Sosyal-duygusal geli{"ş"}im alan{"ı"}nda bilimsel y{"ö"}ntemlerle tasarlanm{"ış"} m{"ü"}fredat,
-              uzman rehberli{"ğ"}i ve aile kat{"ı"}l{"ı"}ml{"ı"} programlarla {"ç"}ocu{"ğ"}unuzun yan{"ı"}nday{"ı"}z.
+              Sosyal-duygusal gelişim alanında bilimsel yöntemlerle tasarlanmış müfredat,
+              uzman rehberliği ve aile katılımlı programlarla çocuğunuzun yanındayız.
             </p>
 
             {/* Mini highlights */}
@@ -148,7 +148,7 @@ function CustomHero() {
                   <div className="w-full h-20 rounded-sm bg-[#ECFBF2] flex items-center justify-center">
                     <Smile className="w-8 h-8 text-[#2ECC71]/30" />
                   </div>
-                  <p className="text-[0.6rem] text-center text-slate-400 mt-1.5 font-semibold">{"Ö"}z G{"ü"}ven</p>
+                  <p className="text-[0.6rem] text-center text-slate-400 mt-1.5 font-semibold">Öz Güven</p>
                 </div>
 
                 {/* Polaroid 3 - spanning full width */}
@@ -169,7 +169,7 @@ function CustomHero() {
                 className="absolute -bottom-3 -right-3 w-16 h-16 rounded-full border-2 border-dashed border-[#2ECC71]/40 flex items-center justify-center bg-white/80"
                 style={{ transform: "rotate(-15deg)" }}
               >
-                <span className="text-[0.55rem] font-extrabold text-[#2ECC71]/60 uppercase">Onayl{"ı"}</span>
+                <span className="text-[0.55rem] font-extrabold text-[#2ECC71]/60 uppercase">Onaylı</span>
               </div>
 
               {/* Photo corner top-left */}
@@ -277,12 +277,12 @@ function SunuyoruzSection() {
               </span>
             </div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight">
-              Aileniz {"İç"}in Ne{" "}
+              Aileniz İçin Ne{" "}
               <span className="highlight">Sunuyoruz?</span>
             </h2>
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
-              {"Ç"}ocu{"ğ"}unuzun sosyal-duygusal geli{"ş"}imini bilimsel y{"ö"}ntemlerle destekleyin,
-              her ad{"ı"}m{"ı"}n{"ı"} birlikte takip edin.
+              Çocuğunuzun sosyal-duygusal gelişimini bilimsel yöntemlerle destekleyin,
+              her adımını birlikte takip edin.
             </p>
           </div>
 
@@ -386,7 +386,7 @@ function SunuyoruzSection() {
               style={{ borderColor: "#EE7A45" + "50", transform: "rotate(12deg)" }}
             >
               <div className="text-center">
-                <span className="block text-[0.5rem] font-extrabold uppercase" style={{ color: "#EE7A45" + "70" }}>G{"ü"}venli</span>
+                <span className="block text-[0.5rem] font-extrabold uppercase" style={{ color: "#EE7A45" + "70" }}>Güvenli</span>
                 <span className="block text-[0.45rem] font-bold" style={{ color: "#EE7A45" + "50" }}>2025</span>
               </div>
             </div>
@@ -457,15 +457,15 @@ function RehberlikSection() {
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="anim">
               <span className="tag bg-gold-100 text-gold-700 mb-4">
-                <BookOpen className="w-3.5 h-3.5" /> REHBERL{"İ"}K PROGRAMI
+                <BookOpen className="w-3.5 h-3.5" /> REHBERLİK PROGRAMI
               </span>
             </div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight">
               Aile Rehberlik{" "}
-              <span className="highlight">Program{"ı"}</span>
+              <span className="highlight">Programı</span>
             </h2>
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
-              D{"ö"}rt ad{"ı"}mda {"ç"}ocu{"ğ"}unuzun geli{"ş"}imini birlikte planl{"ı"}yor, uyguluyoruz ve {"ö"}l{"çü"}yoruz.
+              Dört adımda çocuğunuzun gelişimini birlikte planlıyor, uyguluyoruz ve ölçüyoruz.
             </p>
           </div>
 
@@ -611,15 +611,15 @@ function TestimonialsSection() {
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="anim">
               <span className="tag bg-blue-100 text-blue-700 mb-4">
-                <Star className="w-3.5 h-3.5" /> A{"İ"}LELER NE D{"İ"}YOR?
+                <Star className="w-3.5 h-3.5" /> AİLELER NE DİYOR?
               </span>
             </div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight">
               Ailelerden{" "}
-              <span className="text-gradient">Ger{"ç"}ek Yorumlar</span>
+              <span className="text-gradient">Gerçek Yorumlar</span>
             </h2>
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
-              LearnecoHub ailesinin {"ü"}yelerinden ilham verici deneyimler.
+              LearnecoHub ailesinin üyelerinden ilham verici deneyimler.
             </p>
           </div>
 
@@ -736,7 +736,7 @@ function TestimonialsSection() {
               style={{ borderColor: "#F5C518" + "40", transform: "rotate(-10deg)" }}
             >
               <span className="text-[0.5rem] font-extrabold uppercase" style={{ color: "#F5C518" + "70" }}>
-                5 Y{"ı"}ld{"ı"}z
+                5 Yıldız
               </span>
             </div>
           </div>
@@ -811,7 +811,7 @@ function RakamlarSection() {
               <span className="highlight">LearnecoHub</span>
             </h2>
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
-              Binlerce ailenin g{"ü"}vendi{"ğ"}i, uzmanlar taraf{"ı"}ndan desteklenen bir platform.
+              Binlerce ailenin güvendiği, uzmanlar tarafından desteklenen bir platform.
             </p>
           </div>
 

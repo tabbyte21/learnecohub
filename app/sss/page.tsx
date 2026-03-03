@@ -140,10 +140,10 @@ function GeneralFAQ() {
               </span>
             </div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight">
-              En {"ç"}ok sorulan <span className="highlight">sorular</span>
+              En çok sorulan <span className="highlight">sorular</span>
             </h2>
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
-              LearnecoHub hakk{"ı"}nda merak etti{"ğ"}iniz her {"ş"}eyin cevab{"ı"} burada. Sorular{"ı"}n{"ı"}za yan{"ı"}t bulamad{"ı"}ysan{"ı"}z bizimle ileti{"ş"}ime ge{"ç"}ebilirsiniz.
+              LearnecoHub hakkında merak ettiğiniz her şeyin cevabı burada. Sorularınıza yanıt bulamadıysanız bizimle iletişime geçebilirsiniz.
             </p>
           </div>
 
@@ -268,14 +268,14 @@ function ParentFAQ() {
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="anim">
               <span className="tag bg-gold-100 text-gold-700 mb-4">
-                <Users className="w-3.5 h-3.5" /> EBEVEYNLER {"İÇİ"}N
+                <Users className="w-3.5 h-3.5" /> EBEVEYNLER İÇİN
               </span>
             </div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight">
-              Aileler i{"ç"}in <span className="highlight">rehber</span>
+              Aileler için <span className="highlight">rehber</span>
             </h2>
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
-              {"Ç"}ocu{"ğ"}unuzun {"öğ"}renme s{"ü"}recinde ailelerin en {"ç"}ok merak etti{"ğ"}i konular ve cevaplar{"ı"}.
+              Çocuğunuzun öğrenme sürecinde ailelerin en çok merak ettiği konular ve cevapları.
             </p>
           </div>
 
@@ -371,7 +371,7 @@ function ParentFAQ() {
                       {/* Click hint */}
                       {!isOpen && (
                         <span className="inline-block mt-3 text-[0.7rem] font-bold uppercase tracking-wider" style={{ color: faq.color + "90" }}>
-                          Devam{"ı"}n{"ı"} oku
+                          Devamını oku
                         </span>
                       )}
                     </div>
@@ -413,7 +413,7 @@ function CorporateFAQ() {
               Kurumsal <span className="highlight">sorular</span>
             </h2>
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
-              Okullar ve kurumlar i{"ç"}in {"ö"}zel {"çö"}z{"ü"}mlerimiz hakk{"ı"}nda s{"ı"}k{"ç"}a sorulan sorular.
+              Okullar ve kurumlar için özel çözümlerimiz hakkında sıkça sorulan sorular.
             </p>
           </div>
 

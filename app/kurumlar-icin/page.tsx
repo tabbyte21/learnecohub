@@ -32,11 +32,11 @@ function NedenSection() {
               </span>
             </div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight">
-              Kurumunuz {"İç"}in{" "}
+              Kurumunuz İçin{" "}
               <span className="highlight">Neden LearnecoHub?</span>
             </h2>
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
-              {"Ç"}al{"ış"}anlar{"ı"}n{"ı"}z{"ı"}n {"ç"}ocuklar{"ı"}na yat{"ı"}r{"ı"}m yapmak, kurumsal de{"ğ"}erinize yat{"ı"}r{"ı"}m yapmakt{"ı"}r.
+              Çalışanlarınızın çocuklarına yatırım yapmak, kurumsal değerinize yatırım yapmaktır.
             </p>
           </div>
 
@@ -61,18 +61,18 @@ function NedenSection() {
                   {/* Badge */}
                   <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-sm mb-6">
                     <Building2 className="w-3.5 h-3.5 text-[#F5C518]" />
-                    <span className="text-[0.72rem] font-bold text-white/90 uppercase tracking-wide">De{"ğ"}er {"Ö"}nerisi</span>
+                    <span className="text-[0.72rem] font-bold text-white/90 uppercase tracking-wide">Değer Önerisi</span>
                   </div>
 
                   <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-white mb-4 leading-tight">
-                    {"Ç"}al{"ış"}anlar{"ı"}n{"ı"}z{"ı"}n ailelerine sundu{"ğ"}unuz{" "}
-                    <span className="text-[#F5C518]">e{"ş"}siz bir yan hak</span>
+                    Çalışanlarınızın ailelerine sunduğunuz{" "}
+                    <span className="text-[#F5C518]">eşsiz bir yan hak</span>
                   </h3>
 
                   <p className="text-white/70 text-[0.92rem] leading-[1.85] mb-6 max-w-lg">
-                    LearnecoHub, kurumsal {"ş"}irketlerle i{"ş"} birli{"ğ"}i yaparak {"ç"}al{"ış"}an {"ç"}ocuklar{"ı"}n{"ı"}n
-                    sosyal-duygusal geli{"ş"}imini destekliyor. Bilimsel y{"ö"}ntemlerle tasarlanm{"ış"}
-                    m{"ü"}fredat{"ı"}m{"ı"}z, kurumunuzun CSR hedeflerine de{"ğ"}er katar.
+                    LearnecoHub, kurumsal şirketlerle iş birliği yaparak çalışan çocuklarının
+                    sosyal-duygusal gelişimini destekliyor. Bilimsel yöntemlerle tasarlanmış
+                    müfredatımız, kurumunuzun CSR hedeflerine değer katar.
                   </p>
 
                   {/* Mini stat pills */}
@@ -117,13 +117,13 @@ function NedenSection() {
                   Kurumsal Sosyal Sorumluluk
                 </h4>
                 <p className="text-[0.82rem] text-slate-500 leading-relaxed">
-                  {"Ç"}al{"ış"}an {"ç"}ocuklar{"ı"}na y{"ö"}nelik sosyal-duygusal geli{"ş"}im programlar{"ı"} ile toplumsal de{"ğ"}er {"ü"}retimi.
+                  Çalışan çocuklarına yönelik sosyal-duygusal gelişim programları ile toplumsal değer üretimi.
                 </p>
 
                 {/* Mini progress bar */}
                 <div className="mt-4 pt-4 border-t border-[#2ECC7120]">
                   <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[0.72rem] font-bold text-slate-400">CSR Etki Oran{"ı"}</span>
+                    <span className="text-[0.72rem] font-bold text-slate-400">CSR Etki Oranı</span>
                     <span className="text-[0.72rem] font-extrabold text-[#2ECC71]">%100</span>
                   </div>
                   <div className="w-full h-1.5 rounded-full bg-[#2ECC7115]">
@@ -151,17 +151,17 @@ function NedenSection() {
                   <Heart className="w-6 h-6 text-[#F5C518]" />
                 </div>
                 <h4 className="font-display text-lg font-extrabold text-[#d4a80e] mb-2 leading-tight">
-                  {"Ç"}al{"ış"}an Memnuniyeti
+                  Çalışan Memnuniyeti
                 </h4>
                 <p className="text-[0.82rem] text-slate-500 leading-relaxed">
-                  Aile dostu kurum k{"ü"}lt{"ü"}r{"ü"}n{"ü"} g{"üç"}lendiren, {"ç"}al{"ış"}an ba{"ğ"}l{"ı"}l{"ığı"}n{"ı"} art{"ı"}ran s{"ü"}rd{"ü"}r{"ü"}lebilir programlar.
+                  Aile dostu kurum kültürünü güçlendiren, çalışan bağlılığını artıran sürdürülebilir programlar.
                 </p>
 
                 {/* Satisfaction meter */}
                 <div className="mt-4 pt-4 border-t border-[#F5C51820]">
                   <div className="flex items-center gap-2">
                     <TrendingUp className="w-4 h-4 text-[#d4a80e]" />
-                    <span className="text-[0.72rem] font-extrabold text-[#d4a80e]">+%34 Ba{"ğ"}l{"ı"}l{"ı"}k Art{"ışı"}</span>
+                    <span className="text-[0.72rem] font-extrabold text-[#d4a80e]">+%34 Bağlılık Artışı</span>
                   </div>
                 </div>
               </div>
@@ -185,10 +185,10 @@ function NedenSection() {
                   <Sparkles className="w-6 h-6 text-[#7F63CB]" />
                 </div>
                 <h4 className="font-display text-lg font-extrabold text-[#7F63CB] mb-2 leading-tight">
-                  {"İş"}veren Markas{"ı"}
+                  İşveren Markası
                 </h4>
                 <p className="text-[0.82rem] text-slate-500 leading-relaxed">
-                  Farkl{"ı"}la{"ş"}an {"ç"}al{"ış"}an yan haklar{"ı"}yla i{"ş"}veren markan{"ı"}za g{"üç"}l{"ü"} katk{"ı"} sa{"ğ"}lay{"ı"}n.
+                  Farklılaşan çalışan yan haklarıyla işveren markanıza güçlü katkı sağlayın.
                 </p>
 
                 {/* Stars */}
@@ -219,10 +219,10 @@ function NedenSection() {
                   <Leaf className="w-6 h-6 text-[#1B3A7B]" />
                 </div>
                 <h4 className="font-display text-lg font-extrabold text-[#1B3A7B] mb-2 leading-tight">
-                  S{"ü"}rd{"ü"}r{"ü"}lebilirlik
+                  Sürdürülebilirlik
                 </h4>
                 <p className="text-[0.82rem] text-slate-500 leading-relaxed">
-                  ESG ve s{"ü"}rd{"ü"}r{"ü"}lebilirlik raporlar{"ı"}n{"ı"}za somut sosyal etki verileri ekleyin.
+                  ESG ve sürdürülebilirlik raporlarınıza somut sosyal etki verileri ekleyin.
                 </p>
               </div>
             </div>
@@ -248,7 +248,7 @@ function NedenSection() {
                   Dijital Raporlama
                 </h4>
                 <p className="text-[0.82rem] text-slate-500 leading-relaxed">
-                  Kurum {"ö"}zelinde detayl{"ı"} dijital geli{"ş"}im raporlar{"ı"} ve {"ö"}l{"çü"}lebilir sonu{"ç"}lar.
+                  Kurum özelinde detaylı dijital gelişim raporları ve ölçülebilir sonuçlar.
                 </p>
 
                 {/* Mini bar chart */}
@@ -282,10 +282,10 @@ function NedenSection() {
                   <Layers className="w-6 h-6 text-[#2ECC71]" />
                 </div>
                 <h4 className="font-display text-lg font-extrabold text-[#2ECC71] mb-2 leading-tight">
-                  {"Ö"}zel M{"ü"}fredat
+                  Özel Müfredat
                 </h4>
                 <p className="text-[0.82rem] text-slate-500 leading-relaxed">
-                  Kurumunuzun de{"ğ"}erlerine uyumlu, {"ö"}zel olarak tasarlanm{"ış"} sosyal-duygusal geli{"ş"}im m{"ü"}fredat{"ı"}.
+                  Kurumunuzun değerlerine uyumlu, özel olarak tasarlanmış sosyal-duygusal gelişim müfredatı.
                 </p>
 
                 {/* Check list */}
