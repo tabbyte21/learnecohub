@@ -105,7 +105,7 @@ function homeResolveIcon(name?: string | null): React.ElementType {
 function useMenuData() {
   const [menuItems, setMenuItems] = useState<any[]>([]);
   useEffect(() => {
-    fetch("/api/menu")
+    fetch(`/api/menu?t=${Date.now()}`)
       .then((r) => r.ok ? r.json() : [])
       .then((data) => { if (Array.isArray(data)) setMenuItems(data); })
       .catch(() => {});
@@ -224,7 +224,7 @@ function Navbar({ menuItems }: { menuItems: any[] }) {
 function PartnerLogoBand() {
   const [logos, setLogos] = useState<{ name: string; fileName: string }[]>([]);
   useEffect(() => {
-    fetch("/api/partner-logos")
+    fetch(`/api/partner-logos?t=${Date.now()}`)
       .then((r) => r.json())
       .then(setLogos)
       .catch(() => {});
@@ -2161,7 +2161,7 @@ export default function Page() {
   const [sd, setSd] = useState<Record<string, any>>({});
   const menuItems = useMenuData();
   useEffect(() => {
-    fetch("/api/pages/anasayfa")
+    fetch(`/api/pages/anasayfa?t=${Date.now()}`)
       .then((r) => r.ok ? r.json() : null)
       .then((data) => {
         if (!data?.sections) return;

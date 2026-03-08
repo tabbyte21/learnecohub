@@ -1441,7 +1441,7 @@ function PdfArchiveSection({ data }: { data: any }) {
   const folderName = data.folderName || "arsiv";
 
   useEffect(() => {
-    fetch(`/api/arsiv?folder=${folderName}`)
+    fetch(`/api/arsiv?folder=${folderName}&t=${Date.now()}`)
       .then((r) => r.json())
       .then((items) => { setFiles(items); setLoading(false); })
       .catch(() => setLoading(false));
@@ -1527,7 +1527,7 @@ function PdfArchiveSection({ data }: { data: any }) {
 function PartnerLogosSection({ data }: { data: any }) {
   const [logos, setLogos] = useState<any[]>([]);
   useEffect(() => {
-    fetch("/api/partner-logos", { cache: "no-store" })
+    fetch(`/api/partner-logos?t=${Date.now()}`)
       .then((r) => r.json())
       .then((items) => setLogos(items))
       .catch(() => {});
@@ -1626,7 +1626,7 @@ export function DynamicPage({ slug, navActive }: { slug: string; navActive: stri
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`/api/pages/${slug}`, { cache: "no-store" })
+    fetch(`/api/pages/${slug}?t=${Date.now()}`, { cache: "no-store" })
       .then((r) => {
         if (!r.ok) throw new Error("not found");
         return r.json();

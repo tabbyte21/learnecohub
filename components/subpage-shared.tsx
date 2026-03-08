@@ -135,7 +135,7 @@ export function SubpageNavbar({ active }: { active: string }) {
   }, []);
 
   useEffect(() => {
-    fetch("/api/menu")
+    fetch(`/api/menu?t=${Date.now()}`)
       .then((r) => r.ok ? r.json() : [])
       .then((data) => { if (Array.isArray(data)) setMenuItems(data); })
       .catch(() => {});
