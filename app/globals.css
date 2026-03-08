@@ -563,6 +563,19 @@ body { background-color: #ffffff; color: #1A1A2E; overflow-x: hidden; }
   animation: a4LineIn 0.4s ease-out forwards;
 }
 
+/* ─── Partner logos marquee ─── */
+.logo-marquee .animate-marquee {
+  display: flex;
+  animation: logoScroll 25s linear infinite;
+}
+.logo-marquee:hover .animate-marquee {
+  animation-play-state: paused;
+}
+@keyframes logoScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 /* ─── Reference logos marquee ─── */
 .ref-marquee-inner {
   animation: refScroll 20s linear infinite;

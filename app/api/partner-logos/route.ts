@@ -8,9 +8,13 @@ export async function GET() {
       where: { visible: true },
       orderBy: { order: "asc" },
     });
-    return NextResponse.json(logos);
+    return NextResponse.json(logos, {
+      headers: { "Cache-Control": "no-store, no-cache, must-revalidate" },
+    });
   } catch (e) {
     console.error("Partner logos fetch error:", e);
     return NextResponse.json([], { status: 200 });
   }
 }
+
+export const dynamic = "force-dynamic";

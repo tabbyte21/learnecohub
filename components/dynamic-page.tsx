@@ -1518,6 +1518,68 @@ function PdfArchiveSection({ data }: { data: any }) {
   );
 }
 
+/* ═══════════════════════════════════════
+   PARTNER LOGOS — Scrolling logo marquee
+   ═══════════════════════════════════════ */
+function PartnerLogosSection({ data }: { data: any }) {
+  const [logos, setLogos] = useState<any[]>([]);
+  useEffect(() => {
+    fetch("/api/partner-logos", { cache: "no-store" })
+      .then((r) => r.json())
+      .then((items) => setLogos(items))
+      .catch(() => {});
+  }, []);
+
+  const displayLogos = logos.length > 0 ? logos : (data.items || []);
+  if (displayLogos.length === 0) return null;
+
+  const brandColors = ["#1B3A7B", "#2ECC71", "#7F63CB", "#EE7A45", "#F5C518", "#4D7EC4"];
+  return (
+    <Section>
+      <section className="py-16 bg-white relative overflow-hidden">
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          {data.title && (
+            <div className="text-center mb-10">
+              <h2 className="anim font-display text-xl sm:text-2xl font-extrabold text-slate-800">{data.title}{data.titleHighlight && <>{" "}<span className="text-gradient">{data.titleHighlight}</span></>}</h2>
+              {data.description && <p className="anim d1 text-slate-400 text-sm mt-2">{data.description}</p>}
+            </div>
+          )}
+          <div className="relative">
+            <div className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, white, transparent)" }} />
+            <div className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, white, transparent)" }} />
+            <div className="logo-marquee overflow-hidden">
+              <div className="flex gap-6 animate-marquee">
+                {[...displayLogos, ...displayLogos].map((logo: any, i: number) => {
+                  const color = brandColors[i % brandColors.length];
+                  const name = logo.name || logo.title || "";
+                  const imgSrc = logo.fileName ? `/logos/${logo.fileName}` : logo.image;
+                  return (
+                    <div key={i} className="flex-shrink-0 w-[180px] h-[80px] rounded-xl border border-slate-100 bg-slate-50/50 flex items-center justify-center px-5 hover:border-slate-200 hover:shadow-sm transition-all">
+                      {imgSrc ? (
+                        <img
+                          src={imgSrc}
+                          alt={name}
+                          className="max-h-[48px] max-w-[140px] object-contain opacity-70 hover:opacity-100 transition-opacity"
+                          onError={(e) => {
+                            const el = e.target as HTMLImageElement;
+                            el.style.display = "none";
+                            el.nextElementSibling?.classList.remove("hidden");
+                          }}
+                        />
+                      ) : null}
+                      <span className={`font-display font-bold text-sm text-center leading-tight ${imgSrc ? "hidden" : ""}`} style={{ color }}>{name}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </Section>
+  );
+}
+
 const sectionRenderers: Record<string, (data: any) => React.ReactNode> = {
   subpage_hero: () => <></>, // Handled separately
   hero: () => <></>, // Main page hero, handled separately
@@ -1553,6 +1615,7 @@ const sectionRenderers: Record<string, (data: any) => React.ReactNode> = {
   manifesto: (data) => <ManifestoSection data={data} />,
   impact_banner: (data) => <ImpactBannerSection data={data} />,
   pdf_archive: (data) => <PdfArchiveSection data={data} />,
+  partner_logos: (data) => <PartnerLogosSection data={data} />,
 };
 
 export function DynamicPage({ slug, navActive }: { slug: string; navActive: string }) {
