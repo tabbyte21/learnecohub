@@ -169,7 +169,8 @@ function Navbar({ menuItems }: { menuItems: any[] }) {
     <nav className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? "nav-scrolled py-3 opacity-100 translate-y-0" : "bg-transparent py-5 opacity-0 -translate-y-4 pointer-events-none"}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <a href="/" className="flex items-center gap-2.5 group">
-          <img src="/logo.png" alt="LearnecoHub" className="h-10 w-auto" />
+          <img src="/logo.png" alt="LearnecoHub" className="h-10 w-auto" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden'); }} />
+          <span className="hidden font-display font-extrabold text-xl text-brand-600">Learneco<span className="text-lavender-500">Hub</span></span>
         </a>
         <div className="hidden lg:flex items-center gap-1">
           {navLinks.map((item: any) =>

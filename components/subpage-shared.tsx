@@ -160,7 +160,8 @@ export function SubpageNavbar({ active }: { active: string }) {
     <nav className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? "nav-scrolled py-3" : "bg-white/90 backdrop-blur-xl border-b border-slate-200 py-3"}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <a href="/" className="flex items-center gap-2.5 group">
-          <img src={LOGO_URL} alt="LearnecoHub" className="h-10 w-auto" />
+          <img src={LOGO_URL} alt="LearnecoHub" className="h-10 w-auto" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden'); }} />
+          <span className="hidden font-display font-extrabold text-xl text-brand-600">Learneco<span className="text-lavender-500">Hub</span></span>
         </a>
         <div className="hidden lg:flex items-center gap-1">
           {navLinks.map((item: any) => {
@@ -211,7 +212,7 @@ export function SubpageNavbar({ active }: { active: string }) {
         </button>
       </div>
       {open && (
-        <div className="lg:hidden absolute top-full inset-x-0 bg-white/95 backdrop-blur-xl border-b border-slate-200 p-6 shadow-lg max-h-[80vh] overflow-y-auto">
+        <div className="lg:hidden absolute top-full inset-x-0 bg-white/95 backdrop-blur-xl border-b border-slate-200 p-4 sm:p-6 shadow-lg max-h-[75vh] overflow-y-auto">
           <div className="flex flex-col gap-1">
             {mobileLinks.map((l) => (
               <a key={l.href} href={l.href} onClick={() => setOpen(false)} className={`px-4 py-3 text-sm font-semibold rounded-xl transition-all ${l.label === active ? "text-brand-600 bg-brand-50" : "text-slate-600 hover:bg-brand-50"}`}>{l.label}</a>
@@ -286,7 +287,7 @@ export function SubpageHero({
       <div className="absolute bottom-[-30%] left-[-5%] w-[380px] h-[380px] rounded-full blur-[100px]" style={{ background: t.orb2, opacity: d ? 0.15 : 0.12 }} />
       <div className="absolute top-[40%] left-[50%] w-[280px] h-[280px] rounded-full blur-[90px]" style={{ background: t.orb3, opacity: 0.1 }} />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-8 pb-14">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-6 sm:pt-8 pb-10 sm:pb-14">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-[0.78rem] font-semibold mb-8" style={{ color: d ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.4)" }}>
           <a href="/" className="transition-colors hover:opacity-80">Ana Sayfa</a>
@@ -294,7 +295,7 @@ export function SubpageHero({
           <span style={{ color: d ? "rgba(255,255,255,0.9)" : "rgba(0,0,0,0.7)" }}>{breadcrumb}</span>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5 sm:gap-8">
           <div className="max-w-2xl">
             {/* Tag badge */}
             <div className="flex items-center gap-3 mb-5">
@@ -359,14 +360,14 @@ export function FinalCTA({ data }: { data?: any }) {
             <div className="absolute inset-0 dots-pattern opacity-[0.04]" />
             <div className="absolute top-0 right-0 w-72 h-72 bg-brand-500/10 rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-56 h-56 bg-mint-500/8 rounded-full blur-3xl" />
-            <div className="relative z-10 p-10 sm:p-14 text-center">
+            <div className="relative z-10 p-6 sm:p-10 md:p-14 text-center">
               <div className="flex items-center justify-center mx-auto mb-6">
                 <img src={d.logo || LOGO_URL} alt="LearnecoHub" className="h-8 w-auto brightness-0 invert" />
               </div>
               {d.title ? (
-                <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white mb-4 tracking-tight" dangerouslySetInnerHTML={{ __html: d.title }} />
+                <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4 tracking-tight" dangerouslySetInnerHTML={{ __html: d.title }} />
               ) : (
-                <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white mb-4 tracking-tight">
+                <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4 tracking-tight">
                   Size nasıl <span className="text-[#F5C518]">yardımcı</span> olabiliriz?
                 </h2>
               )}
@@ -379,7 +380,7 @@ export function FinalCTA({ data }: { data?: any }) {
                   <Phone className="w-4 h-4" /> {d.phone?.label || "0850 302 36 00"}
                 </a>
               </div>
-              <div className="flex flex-wrap items-center justify-center gap-5 text-[0.78rem] text-white/40">
+              <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-[0.72rem] sm:text-[0.78rem] text-white/40">
                 {badges.map((b: any, i: number) => (
                   <span key={i} className="flex items-center gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#2ECC71]" />{typeof b === "string" ? b : b.text}

@@ -22,9 +22,16 @@ export async function GET(
       return NextResponse.json({ error: "Sayfa bulunamadi" }, { status: 404 });
     }
 
-    return NextResponse.json(page);
+    return NextResponse.json(page, {
+      headers: {
+        "Cache-Control": "no-store, no-cache, must-revalidate",
+        "CDN-Cache-Control": "no-store",
+      },
+    });
   } catch (e) {
     console.error("Page fetch error:", e);
     return NextResponse.json({ error: "Veri alinamadi" }, { status: 500 });
   }
 }
+
+export const dynamic = "force-dynamic";

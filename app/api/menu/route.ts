@@ -18,8 +18,12 @@ export async function GET() {
         .sort((a, b) => a.order - b.order),
     }));
 
-    return NextResponse.json(tree);
+    return NextResponse.json(tree, {
+      headers: { "Cache-Control": "no-store, no-cache, must-revalidate" },
+    });
   } catch {
     return NextResponse.json([], { status: 500 });
   }
 }
+
+export const dynamic = "force-dynamic";

@@ -13,9 +13,13 @@ export async function GET() {
       },
       orderBy: { title: "asc" },
     });
-    return NextResponse.json(pages);
+    return NextResponse.json(pages, {
+      headers: { "Cache-Control": "no-store, no-cache, must-revalidate" },
+    });
   } catch (e) {
     console.error("Pages fetch error:", e);
     return NextResponse.json([], { status: 200 });
   }
 }
+
+export const dynamic = "force-dynamic";

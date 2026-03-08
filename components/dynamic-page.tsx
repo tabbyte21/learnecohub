@@ -43,17 +43,139 @@ function StickyNotesSection({ data }: { data: any }) {
       <section className="py-20 bg-[#F8FAFC] relative overflow-hidden">
         <div className="absolute inset-0 dots-pattern opacity-[0.04]" />
         <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <h2 className="anim font-display text-2xl sm:text-3xl font-extrabold text-slate-800 mb-12 text-center">{data.title}</h2>
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h2 className="anim font-display text-2xl sm:text-3xl font-extrabold text-slate-800">{data.title}{data.titleHighlight && <>{" "}<span className="text-gradient">{data.titleHighlight}</span></>}</h2>
+            {data.description && <p className="anim d1 text-slate-400 text-[0.88rem] leading-relaxed mt-3">{data.description}</p>}
+          </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {data.items?.map((item: any, i: number) => {
               const Icon = getIcon(item.icon);
               const rotations = ["-1deg", "0.5deg", "-0.7deg", "1deg", "-0.3deg", "0.8deg"];
               return (
                 <div key={i} className={`anim d${(i % 6) + 1}`} style={{ transform: `rotate(${rotations[i % rotations.length]})` }}>
-                  <div className="bg-[#FFFDE7] rounded-2xl p-6 border border-[#FFF9C4] shadow-sm hover:shadow-md transition-all hover:-translate-y-1 relative">
+                  <div className="bg-[#FFFDE7] rounded-2xl p-4 sm:p-6 border border-[#FFF9C4] shadow-sm hover:shadow-md transition-all hover:-translate-y-1 relative">
                     <div className="absolute -top-2 left-6 w-6 h-3 bg-[#81D4FA]/40 rounded-b-sm" />
                     <div className={`w-10 h-10 rounded-xl ${colorClasses[item.color]?.iconBg || "bg-brand-100"} flex items-center justify-center mb-4`}>
                       <Icon className={`w-5 h-5 ${colorClasses[item.color]?.text || "text-brand-600"}`} />
+                    </div>
+                    <h3 className="font-display font-bold text-slate-800 text-sm mb-2">{item.title}</h3>
+                    <p className="text-slate-500 text-xs leading-relaxed">{item.description}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    </Section>
+  );
+}
+
+/* ── student_features: Playful gradient icon cards ── */
+function FeatureShowcaseSection({ data }: { data: any }) {
+  const hexColors: Record<string, string> = {
+    "#1B3A7B": "#4D7EC4", "#2ECC71": "#69DC9A", "#7F63CB": "#9F8AD8",
+    "#EE7A45": "#F49668", "#F5C518": "#FFDF66",
+  };
+  return (
+    <Section>
+      <section className="py-24 bg-gradient-to-b from-white via-[#F0F7FF] to-white relative overflow-hidden">
+        <div className="absolute top-10 right-[10%] w-80 h-80 bg-brand-100/30 rounded-full blur-[100px]" />
+        <div className="absolute bottom-10 left-[5%] w-60 h-60 bg-mint-100/30 rounded-full blur-[80px]" />
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <h2 className="anim font-display text-2xl sm:text-3xl font-extrabold text-slate-800">{data.title}{data.titleHighlight && <>{" "}<span className="text-gradient">{data.titleHighlight}</span></>}</h2>
+            {data.description && <p className="anim d1 text-slate-400 text-[0.88rem] leading-relaxed mt-3">{data.description}</p>}
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {data.items?.map((item: any, i: number) => {
+              const Icon = getIcon(item.icon);
+              const color = item.color || "#1B3A7B";
+              const accent = hexColors[color] || color;
+              return (
+                <div key={i} className={`anim d${(i % 6) + 1} group`}>
+                  <div className="relative bg-white rounded-2xl p-5 sm:p-6 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 overflow-hidden">
+                    <div className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl" style={{ background: `linear-gradient(90deg, ${color}, ${accent})` }} />
+                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110" style={{ background: `${color}12`, border: `1.5px solid ${color}25` }}>
+                      <Icon className="w-6 h-6" style={{ color }} />
+                    </div>
+                    <h3 className="font-display font-bold text-slate-800 text-[0.92rem] mb-2">{item.title}</h3>
+                    <p className="text-slate-500 text-xs leading-relaxed">{item.description}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    </Section>
+  );
+}
+
+/* ── teacher_tools: Dashboard-style accent-border cards ── */
+function ToolkitSection({ data }: { data: any }) {
+  return (
+    <Section>
+      <section className="py-24 bg-[#FAFBFE] relative overflow-hidden">
+        <div className="absolute inset-0 grid-overlay" />
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <h2 className="anim font-display text-2xl sm:text-3xl font-extrabold text-slate-800">{data.title}{data.titleHighlight && <>{" "}<span className="text-gradient">{data.titleHighlight}</span></>}</h2>
+            {data.description && <p className="anim d1 text-slate-400 text-[0.88rem] leading-relaxed mt-3">{data.description}</p>}
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {data.items?.map((item: any, i: number) => {
+              const Icon = getIcon(item.icon);
+              const color = item.color || "#1B3A7B";
+              return (
+                <div key={i} className={`anim d${(i % 6) + 1}`}>
+                  <div className="relative bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                    <div className="absolute left-0 top-0 bottom-0 w-1" style={{ background: color }} />
+                    <div className="p-5 pl-6 flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-lg flex-shrink-0 flex items-center justify-center" style={{ background: `${color}10` }}>
+                        <Icon className="w-5 h-5" style={{ color }} />
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="font-display font-bold text-slate-800 text-sm mb-1.5">{item.title}</h3>
+                        <p className="text-slate-500 text-xs leading-relaxed">{item.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    </Section>
+  );
+}
+
+/* ── family_features: Warm rounded cards with soft bg ── */
+function WarmCardsSection({ data }: { data: any }) {
+  const bgColors = ["#FFF7ED", "#F0FDF4", "#EFF6FF", "#FDF4FF", "#FFFBEB", "#F0F9FF"];
+  const borderColors = ["#FDBA74", "#86EFAC", "#93C5FD", "#D8B4FE", "#FDE68A", "#7DD3FC"];
+  return (
+    <Section>
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="absolute top-20 left-[8%] w-72 h-72 bg-peach-100/25 rounded-full blur-[100px]" />
+        <div className="absolute bottom-20 right-[8%] w-60 h-60 bg-gold-100/25 rounded-full blur-[80px]" />
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <h2 className="anim font-display text-2xl sm:text-3xl font-extrabold text-slate-800">{data.title}{data.titleHighlight && <>{" "}<span className="text-gradient">{data.titleHighlight}</span></>}</h2>
+            {data.description && <p className="anim d1 text-slate-400 text-[0.88rem] leading-relaxed mt-3">{data.description}</p>}
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {data.items?.map((item: any, i: number) => {
+              const Icon = getIcon(item.icon);
+              const color = item.color || "#EE7A45";
+              const bg = bgColors[i % bgColors.length];
+              const border = borderColors[i % borderColors.length];
+              return (
+                <div key={i} className={`anim d${(i % 6) + 1} group`}>
+                  <div className="rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style={{ background: bg, border: `1.5px solid ${border}60` }}>
+                    <div className="w-11 h-11 rounded-full flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 shadow-sm" style={{ background: `${color}18`, border: `2px solid ${color}30` }}>
+                      <Icon className="w-5 h-5" style={{ color }} />
                     </div>
                     <h3 className="font-display font-bold text-slate-800 text-sm mb-2">{item.title}</h3>
                     <p className="text-slate-500 text-xs leading-relaxed">{item.description}</p>
@@ -76,7 +198,7 @@ function NotebookCardsSection({ data }: { data: any }) {
     <Section>
       <section className="py-20 bg-white relative overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <h2 className="anim font-display text-2xl sm:text-3xl font-extrabold text-slate-800 mb-12 text-center">{data.title}</h2>
+          <h2 className="anim font-display text-2xl sm:text-3xl font-extrabold text-slate-800 mb-12 text-center">{data.title}{data.titleHighlight && <>{" "}<span className="text-gradient">{data.titleHighlight}</span></>}</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {data.items?.map((item: any, i: number) => {
               const Icon = getIcon(item.icon);
@@ -122,7 +244,7 @@ function ClipboardSection({ data }: { data: any }) {
                 <div className="w-10 h-10 rounded-xl bg-brand-50 flex items-center justify-center">
                   <Icon className="w-5 h-5 text-brand-600" />
                 </div>
-                <h2 className="font-display text-xl font-extrabold text-slate-800">{data.title}</h2>
+                <h2 className="font-display text-xl font-extrabold text-slate-800">{data.title}{data.titleHighlight && <>{" "}<span className="text-gradient">{data.titleHighlight}</span></>}</h2>
               </div>
               <p className="text-slate-600 text-[0.9rem] leading-relaxed">{data.content}</p>
             </div>
@@ -140,10 +262,10 @@ function StatsSection({ data }: { data: any }) {
       <section className="py-20 bg-[#F8FAFC] relative overflow-hidden">
         <div className="absolute inset-0 dots-pattern opacity-[0.04]" />
         <div className="relative z-10 max-w-5xl mx-auto px-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
             {data.items?.map((item: any, i: number) => (
-              <div key={i} className={`anim d${i + 1} ${cardColors[i % cardColors.length]} rounded-2xl p-6 text-center`}>
-                <div className="font-display text-3xl sm:text-4xl font-extrabold text-slate-800 mb-1">
+              <div key={i} className={`anim d${i + 1} ${cardColors[i % cardColors.length]} rounded-2xl p-4 sm:p-6 text-center`}>
+                <div className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-800 mb-1">
                   <Counter target={item.value} suffix={item.suffix} />
                 </div>
                 <p className="text-slate-500 text-xs font-semibold">{item.label}</p>
@@ -161,13 +283,13 @@ function BentoGridSection({ data }: { data: any }) {
     <Section>
       <section className="py-20 bg-white relative overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <h2 className="anim font-display text-2xl sm:text-3xl font-extrabold text-slate-800 mb-12 text-center">{data.title}</h2>
+          <h2 className="anim font-display text-2xl sm:text-3xl font-extrabold text-slate-800 mb-12 text-center">{data.title}{data.titleHighlight && <>{" "}<span className="text-gradient">{data.titleHighlight}</span></>}</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {data.items?.map((item: any, i: number) => {
               const Icon = getIcon(item.icon);
               const c = colorClasses[item.color] || colorClasses.brand;
               return (
-                <div key={i} className={`anim d${(i % 6) + 1} card-3d card-3d-${item.color || "brand"} rounded-2xl p-6 bg-white`}>
+                <div key={i} className={`anim d${(i % 6) + 1} card-3d card-3d-${item.color || "brand"} rounded-2xl p-4 sm:p-6 bg-white`}>
                   <div className={`w-10 h-10 rounded-xl ${c.iconBg} flex items-center justify-center mb-4`}>
                     <Icon className={`w-5 h-5 ${c.text}`} />
                   </div>
@@ -188,7 +310,7 @@ function FAQSection({ data }: { data: any }) {
     <Section>
       <section className="py-20 bg-[#F8FAFC] relative overflow-hidden">
         <div className="relative z-10 max-w-3xl mx-auto px-6">
-          <h2 className="anim font-display text-2xl sm:text-3xl font-extrabold text-slate-800 mb-10 text-center">{data.title}</h2>
+          <h2 className="anim font-display text-2xl sm:text-3xl font-extrabold text-slate-800 mb-10 text-center">{data.title}{data.titleHighlight && <>{" "}<span className="text-gradient">{data.titleHighlight}</span></>}</h2>
           <div className="space-y-3">
             {data.items?.map((item: any, i: number) => (
               <details key={i} className={`anim d${(i % 6) + 1} bg-white rounded-xl border border-slate-200 overflow-hidden group`}>
@@ -212,9 +334,18 @@ function FreeBannerSection({ data }: { data: any }) {
       <section className="py-12 bg-gradient-to-r from-[#F5C518] to-[#FFDF66] relative overflow-hidden">
         <div className="absolute inset-0 dots-pattern opacity-[0.06]" />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <h2 className="anim font-display text-xl sm:text-2xl font-extrabold text-[#1A1A2E] mb-4">{data.title}</h2>
-          {data.cta && (
+          {data.titleHighlight ? (
+            <h2 className="anim font-display text-xl sm:text-2xl font-extrabold text-[#1A1A2E] mb-4">
+              {data.title} <span className="underline decoration-[#1A1A2E]/30 underline-offset-4">{data.titleHighlight}</span>{data.titleEnd && <> {data.titleEnd}</>}
+            </h2>
+          ) : (
+            <h2 className="anim font-display text-xl sm:text-2xl font-extrabold text-[#1A1A2E] mb-4" dangerouslySetInnerHTML={{ __html: data.title }} />
+          )}
+          {data.description && <p className="anim d1 text-[#1A1A2E]/70 text-sm mb-5">{data.description}</p>}
+          {data.cta ? (
             <a href={data.cta.href} className="anim d2 btn-3d btn-3d-brand !text-sm">{data.cta.label} <ArrowRight className="w-4 h-4" /></a>
+          ) : data.buttonText && (
+            <a href={data.buttonHref || "#"} className="anim d2 btn-3d btn-3d-brand !text-sm">{data.buttonText} <ArrowRight className="w-4 h-4" /></a>
           )}
         </div>
       </section>
@@ -227,7 +358,7 @@ function ContactFormSection({ data }: { data: any }) {
     <Section>
       <section className="py-20 bg-white relative overflow-hidden">
         <div className="relative z-10 max-w-5xl mx-auto px-6">
-          <div className="grid lg:grid-cols-[1fr,360px] gap-10">
+          <div className="grid md:grid-cols-[1fr,320px] lg:grid-cols-[1fr,360px] gap-6 sm:gap-10">
             <div className="anim">
               <h2 className="font-display text-2xl font-extrabold text-slate-800 mb-6">{data.title}</h2>
               <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
@@ -278,10 +409,10 @@ function TestimonialsSection({ data }: { data: any }) {
     <Section>
       <section className="py-20 bg-white relative overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <h2 className="anim font-display text-2xl sm:text-3xl font-extrabold text-slate-800 mb-12 text-center">{data.title}</h2>
-          <div className="grid sm:grid-cols-2 gap-6">
+          <h2 className="anim font-display text-2xl sm:text-3xl font-extrabold text-slate-800 mb-12 text-center">{data.title}{data.titleHighlight && <>{" "}<span className="text-gradient">{data.titleHighlight}</span></>}</h2>
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
             {data.items?.map((item: any, i: number) => (
-              <div key={i} className={`anim d${(i % 4) + 1} bg-slate-50 rounded-2xl p-6 border border-slate-100`}>
+              <div key={i} className={`anim d${(i % 4) + 1} bg-slate-50 rounded-2xl p-4 sm:p-6 border border-slate-100`}>
                 <div className="flex items-center gap-1 mb-3">
                   {Array.from({ length: item.rating }).map((_, j) => (
                     <Star key={j} className="w-4 h-4 text-[#F5C518] fill-[#F5C518]" />
@@ -378,13 +509,13 @@ function YoutubeShowcaseSection({ data }: { data: any }) {
                 </span>
               </div>
               <h2 className="anim d1 font-display text-3xl sm:text-4xl font-extrabold text-white mb-5 tracking-tight leading-[1.12]">
-                {data.title}
+                {data.title}{data.titleHighlight && <>{" "}<span className="text-[#F5C518]">{data.titleHighlight}</span></>}
               </h2>
               {data.description && (
                 <p className="anim d2 text-white/60 text-[0.95rem] leading-[1.85] mb-8 max-w-lg">{data.description}</p>
               )}
               {data.stats && (
-                <div className="anim d3 grid grid-cols-3 gap-3 mb-8">
+                <div className="anim d3 grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
                   {data.stats.map((s: any, i: number) => {
                     const Icon = getIcon(s.icon);
                     return (
@@ -454,15 +585,15 @@ function MaterialsScrollSection({ data }: { data: any }) {
             </div>
           )}
           <div className="relative">
-            <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, white, transparent)" }} />
-            <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, white, transparent)" }} />
+            <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, white, transparent)" }} />
+            <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, white, transparent)" }} />
             <div className="material-marquee overflow-hidden">
-              <div className="material-marquee-inner flex gap-8 w-max py-12 px-10">
+              <div className="material-marquee-inner flex gap-5 sm:gap-8 w-max py-8 sm:py-12 px-4 sm:px-10">
                 {[...(data.items || []), ...(data.items || [])].map((c: any, i: number) => {
                   const Icon = getIcon(c.icon);
                   const cm = colorMap[c.color] || colorMap.brand;
                   return (
-                    <div key={i} className="a4-file group relative flex-shrink-0 w-[240px] cursor-pointer">
+                    <div key={i} className="a4-file group relative flex-shrink-0 w-[200px] sm:w-[240px] cursor-pointer">
                       <div className="relative transition-all duration-500 group-hover:-translate-y-4 group-hover:shadow-2xl" style={{ filter: "drop-shadow(0 8px 24px rgba(0,0,0,0.08))" }}>
                         <div className="relative overflow-hidden" style={{ height: "340px", background: "#ffffff", clipPath: "polygon(0 0, calc(100% - 36px) 0, 100% 36px, 100% 100%, 0 100%)", borderRadius: "14px", border: `2px solid ${cm.accent}40` }}>
                           <div className="absolute inset-0 a4-lines" style={{ "--line-color": cm.accent + "18" } as React.CSSProperties} />
@@ -524,7 +655,7 @@ function VideoShowcaseSection({ data }: { data: any }) {
             {data.description && <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">{data.description}</p>}
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
             {videos.map((v: any, i: number) => {
               const isPlaying = playingIdx === i;
               const color = v.color || "#1B3A7B";
@@ -564,7 +695,7 @@ function VideoShowcaseSection({ data }: { data: any }) {
                           )}
                         </div>
                       </div>
-                      <div className="px-5 pl-14 py-4 h-[96px]">
+                      <div className="px-4 pl-12 sm:px-5 sm:pl-14 py-3 sm:py-4 h-auto sm:h-[96px]">
                         <h3 className="font-display text-[1rem] font-extrabold text-slate-800 mb-1.5 leading-tight line-clamp-1">{v.title}</h3>
                         <p className="text-[0.82rem] text-slate-400 leading-relaxed line-clamp-2">{v.description}</p>
                       </div>
@@ -620,8 +751,8 @@ function LearningStepsSection({ data }: { data: any }) {
               const Icon = getIcon(s.icon);
               const cls = clsMap[s.color] || "card-3d-brand";
               return (
-                <div key={i} className={`anim d${Math.min(i + 1, 6)} card-3d ${cls} p-7 relative`}>
-                  <div className="absolute top-5 right-5 font-display text-5xl font-extrabold text-slate-200/40">{i + 1}</div>
+                <div key={i} className={`anim d${Math.min(i + 1, 6)} card-3d ${cls} p-5 sm:p-7 relative`}>
+                  <div className="absolute top-4 right-4 sm:top-5 sm:right-5 font-display text-4xl sm:text-5xl font-extrabold text-slate-200/40">{i + 1}</div>
                   <Icon className="w-7 h-7 mb-4 opacity-50" />
                   <h3 className="font-display text-lg font-extrabold text-slate-800 mb-2">{s.title}</h3>
                   <p className="text-[0.85rem] text-slate-500 leading-relaxed">{s.description}</p>
@@ -824,12 +955,12 @@ function PricingSection({ data }: { data: any }) {
             </h2>
             {data.description && <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">{data.description}</p>}
           </div>
-          <div className="grid lg:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {plans.map((p: any, i: number) => {
               const cls = `card-3d-${p.cardClass || "brand"}`;
               const isPopular = p.popular === true || p.popular === "true";
               return (
-                <div key={i} className={`anim d${i + 1} card-3d ${cls} p-7 relative flex flex-col ${isPopular ? "ring-2 ring-mint-400 ring-offset-2" : ""}`}>
+                <div key={i} className={`anim d${i + 1} card-3d ${cls} p-5 sm:p-7 relative flex flex-col ${isPopular ? "ring-2 ring-mint-400 ring-offset-2" : ""}`}>
                   {isPopular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                       <span className="tag bg-mint-500 text-white font-bold">{data.popularLabel || "En Popüler"}</span>
@@ -878,19 +1009,19 @@ function TeamSection({ data }: { data: any }) {
             {data.description && <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">{data.description}</p>}
           </div>
           <div className="relative">
-            <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, #ECFBF2, transparent)" }} />
-            <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, #ECFBF2, transparent)" }} />
+            <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, #ECFBF2, transparent)" }} />
+            <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, #ECFBF2, transparent)" }} />
             <div className="overflow-hidden">
-              <div className="team-marquee-inner flex gap-7 w-max py-6 px-8">
+              <div className="team-marquee-inner flex gap-4 sm:gap-7 w-max py-6 px-4 sm:px-8">
                 {[...members, ...members].map((m: any, i: number) => {
                   const color = m.color || "#1B3A7B";
                   const bgMap: Record<string, string> = { "#1B3A7B": "#EBF2FB", "#2ECC71": "#ECFBF2", "#F5C518": "#FFFBEB", "#7F63CB": "#F0EDF9", "#EE7A45": "#FEF5F0" };
                   const bg = bgMap[color] || "#EBF2FB";
                   const memberImg = m.image || m.img;
                   return (
-                    <div key={i} className="group flex-shrink-0 w-[280px] cursor-pointer team-card-wrapper">
+                    <div key={i} className="group flex-shrink-0 w-[220px] sm:w-[280px] cursor-pointer team-card-wrapper">
                       <div className="relative rounded-[1.25rem] overflow-hidden bg-white transition-all duration-500 group-hover:-translate-y-4" style={{ boxShadow: `0 4px 0 ${color}30, 0 8px 24px rgba(0,0,0,0.06)` }}>
-                        <div className="relative h-[320px] overflow-hidden" style={{ background: bg }}>
+                        <div className="relative h-[260px] sm:h-[320px] overflow-hidden" style={{ background: bg }}>
                           <img src={memberImg} alt={m.name} className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
                           <div className="absolute bottom-0 left-0 right-0 h-24" style={{ background: "linear-gradient(to top, white, transparent)" }} />
                           <div className="absolute top-0 left-0 right-0 h-1" style={{ background: color }} />
@@ -946,16 +1077,16 @@ function MaterialsSection({ data }: { data: any }) {
             </div>
           )}
           <div className="relative">
-            <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, white, transparent)" }} />
-            <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, white, transparent)" }} />
+            <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, white, transparent)" }} />
+            <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, white, transparent)" }} />
             <div className="material-marquee overflow-hidden">
-              <div className="material-marquee-inner flex gap-8 w-max py-12 px-10">
+              <div className="material-marquee-inner flex gap-5 sm:gap-8 w-max py-8 sm:py-12 px-4 sm:px-10">
                 {[...items, ...items].map((c: any, i: number) => {
                   const Icon = getIcon(c.icon);
                   const cm = colorMap[c.color] || colorMap["#1B3A7B"];
                   const lines = c.features || c.lines || [];
                   return (
-                    <div key={i} className="a4-file group relative flex-shrink-0 w-[240px] cursor-pointer">
+                    <div key={i} className="a4-file group relative flex-shrink-0 w-[200px] sm:w-[240px] cursor-pointer">
                       <div className="relative transition-all duration-500 group-hover:-translate-y-4 group-hover:shadow-2xl" style={{ filter: "drop-shadow(0 8px 24px rgba(0,0,0,0.08))" }}>
                         <div className="relative overflow-hidden" style={{ height: "340px", background: "#ffffff", clipPath: "polygon(0 0, calc(100% - 36px) 0, 100% 36px, 100% 100%, 0 100%)", borderRadius: "14px", border: `2px solid ${cm.accent}40` }}>
                           <div className="absolute inset-0 a4-lines" style={{ "--line-color": cm.accent + "18" } as React.CSSProperties} />
@@ -1006,10 +1137,10 @@ function BadgeStatsSection({ data }: { data: any }) {
       <section className="py-20 bg-[#FFFBEB] relative overflow-hidden">
         <div className="absolute inset-0 dots-pattern opacity-[0.04]" />
         <div className="relative z-10 max-w-5xl mx-auto px-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
             {(data.items || []).map((item: any, i: number) => (
-              <div key={i} className={`anim d${i + 1} ${cardColors[i % cardColors.length]} rounded-2xl p-6 text-center`}>
-                <div className="font-display text-3xl sm:text-4xl font-extrabold text-slate-800 mb-1">{item.value}</div>
+              <div key={i} className={`anim d${i + 1} ${cardColors[i % cardColors.length]} rounded-2xl p-4 sm:p-6 text-center`}>
+                <div className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-800 mb-1">{item.value}</div>
                 <p className="text-slate-500 text-xs font-semibold">{item.label}</p>
               </div>
             ))}
@@ -1100,9 +1231,9 @@ function PianoShowcaseSection({ data }: { data: any }) {
           </div>
           <div className="anim d3 relative">
             <div className="relative rounded-2xl overflow-hidden" style={{ boxShadow: "0 6px 40px rgba(26,26,46,0.16)" }}>
-              <div className="flex flex-col md:flex-row" style={{ minHeight: 440 }}>
+              <div className="flex flex-col md:flex-row" style={{ minHeight: "auto" }}>
                 {/* Piano Keyboard */}
-                <div className="md:w-[230px] lg:w-[270px] flex-shrink-0 relative select-none overflow-hidden">
+                <div className="md:w-[200px] lg:w-[270px] flex-shrink-0 relative select-none overflow-hidden h-[200px] md:h-auto" style={{ minHeight: "auto" }}>
                   <div className="relative h-full" style={{ background: "#111118" }}>
                     {keys.map((key, i) => {
                       const isActive = i === activeIdx;
@@ -1224,12 +1355,12 @@ function ManifestoSection({ data }: { data: any }) {
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 tracking-tight leading-[1.12]" dangerouslySetInnerHTML={{ __html: mfTitle }} />
           </div>
           <div className="anim d2">
-            <div className="flex justify-center gap-3 mb-8 overflow-x-auto pb-2 scrollbar-hide">
+            <div className="flex justify-start sm:justify-center gap-2 sm:gap-3 mb-8 overflow-x-auto pb-2 scrollbar-hide -mx-6 px-6 sm:mx-0 sm:px-0">
               {tabsData.map((t: any, i: number) => {
                 const active = activeTab === i;
                 const TabIcon = t.icon;
                 return (
-                  <button key={i} onClick={() => setActiveTab(i)} className="flex items-center gap-2 px-5 py-3 rounded-xl font-display font-bold text-[0.88rem] transition-all duration-300 border-2 flex-shrink-0" style={{
+                  <button key={i} onClick={() => setActiveTab(i)} className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2.5 sm:py-3 rounded-xl font-display font-bold text-[0.78rem] sm:text-[0.88rem] transition-all duration-300 border-2 flex-shrink-0 whitespace-nowrap" style={{
                     background: active ? t.color : "white", color: active ? "#fff" : "#64748B",
                     borderColor: active ? t.color : "#E2E8F0",
                     boxShadow: active ? `0 4px 0 ${t.accent}55, 0 8px 20px ${t.color}20` : "0 2px 0 #E2E8F0",
@@ -1240,7 +1371,7 @@ function ManifestoSection({ data }: { data: any }) {
                 );
               })}
             </div>
-            <div className="rounded-2xl p-8 sm:p-10 bg-white/80 backdrop-blur-sm" style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}>
+            <div className="rounded-2xl p-5 sm:p-8 md:p-10 bg-white/80 backdrop-blur-sm" style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}>
               <div className="space-y-4">
                 {(tabsData[activeTab]?.content as string || "").split("\n").filter(Boolean).map((line: string, j: number) => {
                   if (line.startsWith("• ") || line.startsWith("- ")) {
@@ -1283,14 +1414,118 @@ function ImpactBannerSection({ data }: { data: any }) {
   );
 }
 
+/* ═══════════════════════════════════════
+   PDF ARCHIVE — Downloadable PDF grid
+   ═══════════════════════════════════════ */
+interface PdfFile {
+  id: string;
+  name: string;
+  fileName: string;
+  mimeType: string;
+  size: number;
+  url: string;
+}
+
+function formatFileSize(bytes: number) {
+  if (bytes < 1024) return `${bytes} B`;
+  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
+
+function PdfArchiveSection({ data }: { data: any }) {
+  const [files, setFiles] = useState<PdfFile[]>([]);
+  const [loading, setLoading] = useState(true);
+  const folderName = data.folderName || "arsiv";
+
+  useEffect(() => {
+    fetch(`/api/arsiv?folder=${folderName}`)
+      .then((r) => r.json())
+      .then((items) => { setFiles(items); setLoading(false); })
+      .catch(() => setLoading(false));
+  }, [folderName]);
+
+  return (
+    <Section>
+      <section className="py-24 bg-[#F8FAFC] relative overflow-hidden">
+        <div className="absolute inset-0 grid-overlay" />
+        <div className="absolute top-20 left-[5%] w-72 h-72 bg-brand-200/15 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 right-[8%] w-56 h-56 bg-lavender-200/20 rounded-full blur-3xl" />
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          {data.title && (
+            <div className="text-center max-w-3xl mx-auto mb-14">
+              <h2 className="anim font-display text-3xl sm:text-4xl font-extrabold text-slate-800 mb-4 tracking-tight">{data.title}</h2>
+              {data.description && <p className="anim d1 text-slate-400 text-[0.95rem] leading-relaxed">{data.description}</p>}
+            </div>
+          )}
+
+          {loading ? (
+            <div className="flex items-center justify-center h-32">
+              <div className="w-8 h-8 border-3 border-brand-400 border-t-transparent rounded-full animate-spin" />
+            </div>
+          ) : files.length === 0 ? (
+            <div className="text-center py-12">
+              <FileText className="w-12 h-12 text-slate-300 mx-auto mb-3" />
+              <p className="text-slate-400 text-sm">Henüz arşivde dosya bulunmuyor.</p>
+            </div>
+          ) : (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {files.map((file, i) => (
+                <div key={file.id} className={`anim d${(i % 6) + 1}`}>
+                  <div className="relative bg-white rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}>
+                    {/* Notebook top bar */}
+                    <div className="h-10 flex items-center px-4 bg-gradient-to-r from-[#1B3A7B] to-[#4D7EC4]">
+                      <div className="w-5 h-5 rounded-full border-[2.5px] border-white/60 bg-transparent" />
+                      <div className="ml-auto flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-white/20">
+                        <span className="text-[0.65rem] font-bold text-white/90 uppercase tracking-wide">PDF</span>
+                      </div>
+                    </div>
+                    {/* Notebook lines bg */}
+                    <div className="relative" style={{ backgroundImage: "repeating-linear-gradient(transparent, transparent 27px, #e8e8e8 27px, #e8e8e8 28px)", backgroundPosition: "0 12px" }}>
+                      <div className="absolute top-0 bottom-0 left-10 w-[1px] bg-red-300/40 pointer-events-none" />
+                      <div className="px-4 pl-12 sm:px-6 sm:pl-14 py-4 sm:py-6">
+                        <div className="flex items-start gap-3 mb-4">
+                          <div className="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center flex-shrink-0">
+                            <FileText className="w-5 h-5 text-red-500" />
+                          </div>
+                          <div className="min-w-0">
+                            <h3 className="font-display font-bold text-slate-800 text-sm leading-tight line-clamp-2">{file.name}</h3>
+                            <p className="text-xs text-slate-400 mt-1">{formatFileSize(file.size)}</p>
+                          </div>
+                        </div>
+                        <a
+                          href={file.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          download
+                          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#1B3A7B] hover:bg-[#152D63] transition-colors"
+                          style={{ boxShadow: "0 3px 0 #11244B, 0 4px 10px rgba(27,58,123,0.2)" }}
+                        >
+                          <Download className="w-3.5 h-3.5" />
+                          İndir
+                        </a>
+                      </div>
+                    </div>
+                    {/* Bottom colored strip */}
+                    <div className="h-1.5 bg-gradient-to-r from-[#1B3A7B] to-[#4D7EC4]" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+    </Section>
+  );
+}
+
 const sectionRenderers: Record<string, (data: any) => React.ReactNode> = {
   subpage_hero: () => <></>, // Handled separately
   hero: () => <></>, // Main page hero, handled separately
   mission: (data) => <ClipboardSection data={data} />,
-  student_features: (data) => <StickyNotesSection data={data} />,
-  teacher_tools: (data) => <StickyNotesSection data={data} />,
+  student_features: (data) => <FeatureShowcaseSection data={data} />,
+  teacher_tools: (data) => <ToolkitSection data={data} />,
   school_features: (data) => <StickyNotesSection data={data} />,
-  family_features: (data) => <StickyNotesSection data={data} />,
+  family_features: (data) => <WarmCardsSection data={data} />,
   skill_areas: (data) => <NotebookCardsSection data={data} />,
   stats: (data) => <StatsSection data={data} />,
   bento_grid: (data) => <BentoGridSection data={data} />,
@@ -1317,6 +1552,7 @@ const sectionRenderers: Record<string, (data: any) => React.ReactNode> = {
   piano_showcase: (data) => <PianoShowcaseSection data={data} />,
   manifesto: (data) => <ManifestoSection data={data} />,
   impact_banner: (data) => <ImpactBannerSection data={data} />,
+  pdf_archive: (data) => <PdfArchiveSection data={data} />,
 };
 
 export function DynamicPage({ slug, navActive }: { slug: string; navActive: string }) {
@@ -1324,7 +1560,7 @@ export function DynamicPage({ slug, navActive }: { slug: string; navActive: stri
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`/api/pages/${slug}`)
+    fetch(`/api/pages/${slug}`, { cache: "no-store" })
       .then((r) => {
         if (!r.ok) throw new Error("not found");
         return r.json();
