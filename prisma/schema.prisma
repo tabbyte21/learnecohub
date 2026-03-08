@@ -47,6 +47,16 @@ model MenuItem {
   updatedAt   DateTime   @updatedAt
 }
 
+model Media {
+  id        String   @id @default(cuid())
+  name      String
+  fileName  String
+  mimeType  String   @default("image/png")
+  size      Int      @default(0)
+  folder    String   @default("general")
+  createdAt DateTime @default(now())
+}
+
 model PartnerLogo {
   id        String   @id @default(cuid())
   name      String
