@@ -61,6 +61,8 @@ model PartnerLogo {
   id        String   @id @default(cuid())
   name      String
   fileName  String
+  imageData String?
+  mimeType  String   @default("image/png")
   order     Int      @default(0)
   visible   Boolean  @default(true)
   createdAt DateTime @default(now())

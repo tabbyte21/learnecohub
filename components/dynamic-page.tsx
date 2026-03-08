@@ -1555,7 +1555,9 @@ function PartnerLogosSection({ data }: { data: any }) {
                 {[...displayLogos, ...displayLogos].map((logo: any, i: number) => {
                   const color = brandColors[i % brandColors.length];
                   const name = logo.name || logo.title || "";
-                  const imgSrc = logo.fileName ? `/logos/${logo.fileName}` : logo.image;
+                  const imgSrc = logo.imageData
+                    ? `data:${logo.mimeType || "image/png"};base64,${logo.imageData}`
+                    : logo.fileName ? `/logos/${logo.fileName}` : logo.image;
                   return (
                     <div key={i} className="flex-shrink-0 w-[180px] h-[80px] rounded-xl border border-slate-100 bg-slate-50/50 flex items-center justify-center px-5 hover:border-slate-200 hover:shadow-sm transition-all">
                       {imgSrc ? (

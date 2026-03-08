@@ -5,3 +5,5 @@ nul
 *.db
 /app/generated/prisma
 tsconfig.tsbuildinfo
+
+.vercel
