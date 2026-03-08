@@ -308,13 +308,14 @@ function BentoGridSection({ data }: { data: any }) {
 }
 
 function FAQSection({ data }: { data: any }) {
+  const questions = data.items || data.questions || [];
   return (
     <Section>
       <section className="py-20 bg-[#F8FAFC] relative overflow-hidden">
         <div className="relative z-10 max-w-3xl mx-auto px-6">
           <h2 className="anim font-display text-2xl sm:text-3xl font-extrabold text-slate-800 mb-10 text-center">{data.title}{data.titleHighlight && <>{" "}<span className="text-gradient">{data.titleHighlight}</span></>}</h2>
           <div className="space-y-3">
-            {data.items?.map((item: any, i: number) => (
+            {questions.map((item: any, i: number) => (
               <details key={i} className={`anim d${(i % 6) + 1} bg-white rounded-xl border border-slate-200 overflow-hidden group`}>
                 <summary className="px-5 py-4 cursor-pointer font-semibold text-sm text-slate-700 flex items-center justify-between hover:bg-slate-50 transition-colors list-none">
                   {item.q}
