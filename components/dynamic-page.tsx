@@ -10,7 +10,8 @@ import {
   Zap, Target, TrendingUp, Award, Clock, Download, MessageCircle,
   Layers, Monitor, Headphones, PenTool, FileText, Video, Gamepad2,
   Puzzle, Trophy, Flame, Shield, Eye, Rocket, Phone, Mail, MapPin,
-  Lock, Crown,
+  Lock, Crown, Search, Brain, Calendar, Volume2, Music, Lightbulb,
+  Palette, Compass, Activity, Briefcase,
 } from "lucide-react";
 import type { ElementType } from "react";
 
@@ -20,7 +21,8 @@ const iconMap: Record<string, ElementType> = {
   Zap, Target, TrendingUp, Award, Clock, Download, MessageCircle,
   Layers, Monitor, Headphones, PenTool, FileText, Video, Gamepad2,
   Puzzle, Trophy, Flame, Shield, Eye, Rocket, Phone, Mail, MapPin,
-  Lock, Crown,
+  Lock, Crown, Search, Brain, Calendar, Volume2, Music, Lightbulb,
+  Palette, Compass, Activity, Briefcase,
 };
 
 type HeroTheme = "brand" | "mint" | "lavender" | "gold" | "peach";

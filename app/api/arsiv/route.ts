@@ -24,9 +24,13 @@ export async function GET(req: NextRequest) {
         : `/uploads/medya/${item.fileName}`,
     }));
 
-    return NextResponse.json(result);
+    return NextResponse.json(result, {
+      headers: { "Cache-Control": "no-store, no-cache, must-revalidate" },
+    });
   } catch (e) {
     console.error("Archive fetch error:", e);
     return NextResponse.json([], { status: 200 });
   }
 }
+
+export const dynamic = "force-dynamic";

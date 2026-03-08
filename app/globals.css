@@ -102,6 +102,31 @@ body { background-color: #ffffff; color: #1A1A2E; overflow-x: hidden; }
 }
 .card-3d-white:hover { box-shadow: 0 10px 28px rgba(26, 26, 46, 0.08); transform: translateY(-4px); }
 
+/* ─── Notebook Cards (skill_areas) ─── */
+.notebook-card {
+  background: #ffffff;
+  border-radius: 0 0.75rem 0.75rem 0.75rem;
+  border: 1.5px solid #E2E8F0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.notebook-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+.notebook-tab {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.75rem 0.75rem 0 0;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  position: relative;
+  top: 1.5px;
+}
+
 /* ─── Flat Card ─── */
 .card {
   background: #ffffff;
