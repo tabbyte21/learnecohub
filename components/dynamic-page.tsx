@@ -1443,9 +1443,16 @@ function PdfArchiveSection({ data }: { data: any }) {
 
   useEffect(() => {
     fetch(`/api/arsiv?folder=${folderName}&t=${Date.now()}`)
-      .then((r) => r.json())
-      .then((items) => { setFiles(items); setLoading(false); })
-      .catch(() => setLoading(false));
+      .then((r) => {
+        if (!r.ok) throw new Error(`arsiv API ${r.status}`);
+        return r.json();
+      })
+      .then((items) => {
+        console.log("[PdfArchive] loaded", items.length, "files");
+        setFiles(Array.isArray(items) ? items : []);
+        setLoading(false);
+      })
+      .catch((e) => { console.error("[PdfArchive] fetch error:", e); setLoading(false); });
   }, [folderName]);
 
   return (
@@ -1457,7 +1464,10 @@ function PdfArchiveSection({ data }: { data: any }) {
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           {data.title && (
             <div className="text-center max-w-3xl mx-auto mb-14">
-              <h2 className="anim font-display text-3xl sm:text-4xl font-extrabold text-slate-800 mb-4 tracking-tight">{data.title}</h2>
+              <h2 className="anim font-display text-3xl sm:text-4xl font-extrabold text-slate-800 mb-4 tracking-tight">
+                {data.title}{" "}
+                {data.titleHighlight && <span className="text-[#F5C518]">{data.titleHighlight}</span>}
+              </h2>
               {data.description && <p className="anim d1 text-slate-400 text-[0.95rem] leading-relaxed">{data.description}</p>}
             </div>
           )}
