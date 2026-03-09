@@ -456,7 +456,7 @@ function TeamGridSection({ data }: { data: any }) {
                 </div>
                 <div className="p-5">
                   <h3 className="font-display font-bold text-slate-800 text-sm">{member.name}</h3>
-                  <p className="text-xs text-brand-600 font-semibold mb-2">{member.role}</p>
+                  <p className="text-xs text-brand-600 font-semibold mb-2">{member.role || member.title}</p>
                   {member.description && <p className="text-xs text-slate-500 leading-relaxed">{member.description}</p>}
                 </div>
               </div>
@@ -584,7 +584,7 @@ function MaterialsScrollSection({ data }: { data: any }) {
           {data.title && (
             <div className="text-center max-w-3xl mx-auto mb-14">
               <h2 className="anim font-display text-3xl sm:text-4xl font-extrabold text-slate-800 mb-4 tracking-tight">{data.title}</h2>
-              {data.subtitle && <p className="anim d1 text-slate-400 text-[0.95rem] leading-relaxed">{data.subtitle}</p>}
+              {(data.subtitle || data.description) && <p className="anim d1 text-slate-400 text-[0.95rem] leading-relaxed">{data.subtitle || data.description}</p>}
             </div>
           )}
           <div className="relative">
@@ -615,7 +615,7 @@ function MaterialsScrollSection({ data }: { data: any }) {
                             </div>
                           </div>
                           <div className="relative z-10 px-5 pt-4 space-y-0">
-                            {(c.lines || []).map((line: string, j: number) => (
+                            {(Array.isArray(c.lines || c.features) ? (c.lines || c.features) : (typeof (c.lines || c.features) === 'string' ? (c.lines || c.features).split('\n').filter(Boolean) : [])).map((line: string, j: number) => (
                               <div key={j} className="a4-content-line flex items-center gap-2.5 pl-5" style={{ height: "38px", animationDelay: `${j * 0.12}s` }}>
                                 <div className="w-[6px] h-[6px] rounded-full flex-shrink-0" style={{ background: cm.color }} />
                                 <span className="text-[0.8rem] text-slate-600 font-medium">{line}</span>
@@ -943,7 +943,7 @@ function LearningMapSection({ data }: { data: any }) {
    PRICING — 3 Plan Cards
    ═══════════════════════════════════════ */
 function PricingSection({ data }: { data: any }) {
-  const plans = data.plans || [];
+  const plans = data.plans || data.items || [];
   return (
     <Section>
       <section className="py-24 bg-[#ECFBF2] relative overflow-hidden">
@@ -1087,7 +1087,8 @@ function MaterialsSection({ data }: { data: any }) {
                 {[...items, ...items].map((c: any, i: number) => {
                   const Icon = getIcon(c.icon);
                   const cm = colorMap[c.color] || colorMap["#1B3A7B"];
-                  const lines = c.features || c.lines || [];
+                  const rawLines = c.features || c.lines;
+                  const lines = Array.isArray(rawLines) ? rawLines : (typeof rawLines === 'string' ? rawLines.split('\n').filter(Boolean) : []);
                   return (
                     <div key={i} className="a4-file group relative flex-shrink-0 w-[200px] sm:w-[240px] cursor-pointer">
                       <div className="relative transition-all duration-500 group-hover:-translate-y-4 group-hover:shadow-2xl" style={{ filter: "drop-shadow(0 8px 24px rgba(0,0,0,0.08))" }}>
