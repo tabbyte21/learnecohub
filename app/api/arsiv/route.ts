@@ -19,9 +19,11 @@ export async function GET(req: NextRequest) {
       fileName: item.fileName,
       mimeType: item.mimeType,
       size: item.size,
-      url: adminUrl
-        ? `${adminUrl}/uploads/medya/${item.fileName}`
-        : `/uploads/medya/${item.fileName}`,
+      url: item.imageData
+        ? `/api/medya/${item.id}`
+        : adminUrl
+          ? `${adminUrl}/uploads/medya/${item.fileName}`
+          : `/uploads/medya/${item.fileName}`,
     }));
 
     return NextResponse.json(result, {

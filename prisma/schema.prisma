@@ -51,6 +51,7 @@ model Media {
   id        String   @id @default(cuid())
   name      String
   fileName  String
+  imageData String?
   mimeType  String   @default("image/png")
   size      Int      @default(0)
   folder    String   @default("general")
