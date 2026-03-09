@@ -1560,12 +1560,12 @@ function PartnerLogosSection({ data }: { data: any }) {
                     ? `data:${logo.mimeType || "image/png"};base64,${logo.imageData}`
                     : logo.fileName ? `/logos/${logo.fileName}` : logo.image;
                   return (
-                    <div key={i} className="flex-shrink-0 w-[180px] h-[80px] rounded-xl border border-slate-100 bg-slate-50/50 flex items-center justify-center px-5 hover:border-slate-200 hover:shadow-sm transition-all">
+                    <div key={i} className="flex-shrink-0 w-[160px] h-[80px] rounded-xl border border-slate-100 bg-white flex items-center justify-center p-3 hover:border-slate-200 hover:shadow-sm transition-all">
                       {imgSrc ? (
                         <img
                           src={imgSrc}
                           alt={name}
-                          className="max-h-[48px] max-w-[140px] object-contain opacity-70 hover:opacity-100 transition-opacity"
+                          className="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity"
                           onError={(e) => {
                             const el = e.target as HTMLImageElement;
                             el.style.display = "none";
