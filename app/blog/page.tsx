@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Section, SubpageNavbar, SubpageHero, FinalCTA, SubpageFooter,
 } from "@/components/subpage-shared";
@@ -8,124 +8,88 @@ import {
   BookOpen, ArrowRight, Clock, User, Tag, Search,
   Heart, Brain, GraduationCap, Newspaper, TrendingUp,
   Sparkles, Bell, Mail, CheckCircle2, Calendar,
+  Loader2,
 } from "lucide-react";
 
 /* ─── Types ─── */
 interface BlogPost {
-  id: number;
+  id: string;
   slug: string;
   title: string;
-  excerpt: string;
-  category: string;
-  date: string;
-  readTime: string;
-  author: string;
-  accentColor: string;
-  categoryColor: string;
-  categoryBg: string;
+  excerpt: string | null;
+  content: string | null;
+  category: string | null;
+  author: string | null;
+  coverImage: string | null;
+  status: string;
+  createdAt: string;
 }
 
-/* ─── Blog Data ─── */
-const categories = [
-  { label: "Tümü", icon: Sparkles, color: "#1B3A7B", bg: "#EBF2FB", accent: "#4D7EC4" },
-  { label: "Sosyal-Duygusal Öğrenme", icon: Heart, color: "#2ECC71", bg: "#ECFBF2", accent: "#69DC9A" },
-  { label: "Ebeveyn Rehberi", icon: User, color: "#7F63CB", bg: "#F0EDF9", accent: "#9F8AD8" },
-  { label: "Eğitimci Köşesi", icon: GraduationCap, color: "#EE7A45", bg: "#FEF5F0", accent: "#F49668" },
-  { label: "Araştırmalar", icon: Brain, color: "#F5C518", bg: "#FFFBEB", accent: "#FFDF66" },
-  { label: "Haberler", icon: Newspaper, color: "#1B3A7B", bg: "#EBF2FB", accent: "#7BA0D3" },
-];
+/* ─── Category config ─── */
+const categoryConfig: Record<string, { icon: typeof Heart; color: string; bg: string; accent: string }> = {
+  "Sosyal-Duygusal Öğrenme": { icon: Heart, color: "#2ECC71", bg: "#ECFBF2", accent: "#69DC9A" },
+  "Ebeveyn Rehberi": { icon: User, color: "#7F63CB", bg: "#F0EDF9", accent: "#9F8AD8" },
+  "Eğitimci Köşesi": { icon: GraduationCap, color: "#EE7A45", bg: "#FEF5F0", accent: "#F49668" },
+  "Araştırmalar": { icon: Brain, color: "#F5C518", bg: "#FFFBEB", accent: "#FFDF66" },
+  "Haberler": { icon: Newspaper, color: "#1B3A7B", bg: "#EBF2FB", accent: "#7BA0D3" },
+};
 
-const blogPosts: BlogPost[] = [
-  {
-    id: 1,
-    slug: "cocuklarda-empati-gelistirmenin-7-etkili-yolu",
-    title: "Çocuklarda Empati Geliştirmenin 7 Etkili Yolu",
-    excerpt: "Empati, çocukların sosyal ilişkilerinin temelini oluşturur. Araştırmalar, empati becerisinin erken yaşlarda desteklenmesiyle çocukların daha sağlıklı ilişkiler kurduğunu göstermektedir. İşte bilimsel temelli 7 etkili strateji...",
-    category: "Sosyal-Duygusal Öğrenme",
-    date: "15 Şubat 2025",
-    readTime: "8 dk",
-    author: "Dr. Melih Taha Aytep",
-    accentColor: "#1B3A7B",
-    categoryColor: "#2ECC71",
-    categoryBg: "#ECFBF2",
-  },
-  {
-    id: 2,
-    slug: "dijital-cagda-sosyal-beceriler-ekran-suresi-ve-cocuk-gelisimi",
-    title: "Dijital Çağda Sosyal Beceriler: Ekran Süresi ve Çocuk Gelişimi",
-    excerpt: "Teknolojinin hayatımızın her alanına nüfuz ettiği bu dönemde, çocukların dijital dünya ile sağlıklı bir ilişki kurması büyük önem taşıyor. Ekran süresinin sosyal beceriler üzerindeki etkisini inceliyoruz...",
-    category: "Araştırmalar",
-    date: "8 Şubat 2025",
-    readTime: "12 dk",
-    author: "Dr. Kaan Mert Güven",
-    accentColor: "#2ECC71",
-    categoryColor: "#F5C518",
-    categoryBg: "#FFFBEB",
-  },
-  {
-    id: 3,
-    slug: "ogretmenler-icin-sinif-ici-sel-etkinlikleri-rehberi",
-    title: "Öğretmenler İçin Sınıf İçi SEL Etkinlikleri Rehberi",
-    excerpt: "Sosyal-duygusal öğrenme etkinliklerini sınıf ortamına entegre etmek, öğrencilerin hem akademik hem de kişisel gelişimlerini destekler. Hazırlık gerektirmeyen, uygulaması kolay 15 etkinlik önerisi...",
-    category: "Eğitimci Köşesi",
-    date: "1 Şubat 2025",
-    readTime: "10 dk",
-    author: "Kübra Demirci",
-    accentColor: "#7F63CB",
-    categoryColor: "#EE7A45",
-    categoryBg: "#FEF5F0",
-  },
-  {
-    id: 4,
-    slug: "casel-cercevesi-nedir-sosyal-duygusal-ogrenme-standartlari",
-    title: "CASEL Çerçevesi Nedir? Sosyal-Duygusal Öğrenme Standartları",
-    excerpt: "CASEL (Collaborative for Academic, Social, and Emotional Learning), sosyal-duygusal öğrenmenin dünya genelinde kabul görmüş çerçevesini sunar. Beş temel yetkinlik alanını ve uygulama önerilerini detaylıca ele alıyoruz...",
-    category: "Araştırmalar",
-    date: "25 Ocak 2025",
-    readTime: "15 dk",
-    author: "Buse Aksoy",
-    accentColor: "#F5C518",
-    categoryColor: "#F5C518",
-    categoryBg: "#FFFBEB",
-  },
-  {
-    id: 5,
-    slug: "ebeveynler-icin-duygu-koclugu-adim-adim-kilavuz",
-    title: "Ebeveynler İçin Duygu Koçluğu: Adım Adım Kılavuz",
-    excerpt: "Duygu koçluğu, ebeveynlerin çocuklarının duygusal dünyasını anlamalarına ve onlara rehberlik etmelerine yardımcı olan güçlü bir yaklaşımdır. John Gottman'ın araştırmalarına dayanan bu kılavuzla...",
-    category: "Ebeveyn Rehberi",
-    date: "18 Ocak 2025",
-    readTime: "9 dk",
-    author: "Dr. Melih Taha Aytep",
-    accentColor: "#EE7A45",
-    categoryColor: "#7F63CB",
-    categoryBg: "#F0EDF9",
-  },
-  {
-    id: 6,
-    slug: "2025te-egitim-teknolojilerinde-yeni-trendler",
-    title: "2025'te Eğitim Teknolojilerinde Yeni Trendler",
-    excerpt: "Yapay zeka destekli kişiselleştirilmiş öğrenme, artırılmış gerçeklik uygulamaları ve oyunlaştırma stratejileri... 2025 yılında eğitim teknolojilerinde öne çıkan trendleri ve LearnecoHub'ın bu dönüşümdeki rolünü keşfedin...",
-    category: "Haberler",
-    date: "10 Ocak 2025",
-    readTime: "7 dk",
-    author: "Sayid Özcan",
-    accentColor: "#1B3A7B",
-    categoryColor: "#1B3A7B",
-    categoryBg: "#EBF2FB",
-  },
-];
+const defaultCategoryStyle = { icon: Sparkles, color: "#1B3A7B", bg: "#EBF2FB", accent: "#4D7EC4" };
+
+/* ─── Accent color rotation ─── */
+const accentColors = ["#1B3A7B", "#2ECC71", "#7F63CB", "#F5C518", "#EE7A45"];
+
+function getAccentColor(index: number) {
+  return accentColors[index % accentColors.length];
+}
+
+function getCategoryStyle(category: string | null) {
+  if (!category) return defaultCategoryStyle;
+  return categoryConfig[category] || defaultCategoryStyle;
+}
+
+/* ─── Date formatter ─── */
+function formatDate(dateStr: string) {
+  const d = new Date(dateStr);
+  const months = [
+    "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
+    "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık",
+  ];
+  return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+}
 
 /* ═══════════════════════════════════════
    BLOG PAGE
    ═══════════════════════════════════════ */
 export default function BlogPage() {
   const [activeCategory, setActiveCategory] = useState("Tümü");
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(`/api/blog?t=${Date.now()}`)
+      .then((r) => r.json())
+      .then((data) => {
+        setPosts(Array.isArray(data) ? data : []);
+      })
+      .catch(() => setPosts([]))
+      .finally(() => setLoading(false));
+  }, []);
+
+  /* Build dynamic categories from DB data */
+  const dbCategories = Array.from(new Set(posts.map((p) => p.category).filter(Boolean))) as string[];
+  const categories = [
+    { label: "Tümü", icon: Sparkles, color: "#1B3A7B", bg: "#EBF2FB", accent: "#4D7EC4" },
+    ...dbCategories.map((cat) => {
+      const style = getCategoryStyle(cat);
+      return { label: cat, icon: style.icon, color: style.color, bg: style.bg, accent: style.accent };
+    }),
+  ];
 
   const filteredPosts =
     activeCategory === "Tümü"
-      ? blogPosts
-      : blogPosts.filter((p) => p.category === activeCategory);
+      ? posts
+      : posts.filter((p) => p.category === activeCategory);
 
   return (
     <main>
@@ -219,80 +183,111 @@ export default function BlogPage() {
               </div>
             </div>
 
+            {/* Loading State */}
+            {loading && (
+              <div className="text-center py-16">
+                <Loader2 className="w-10 h-10 text-slate-300 mx-auto mb-4 animate-spin" />
+                <p className="text-slate-400 text-[0.9rem]">Blog yazıları yükleniyor...</p>
+              </div>
+            )}
+
+            {/* Empty State — no posts in DB at all */}
+            {!loading && posts.length === 0 && (
+              <div className="text-center py-16">
+                <BookOpen className="w-12 h-12 text-slate-300 mx-auto mb-4" />
+                <h3 className="font-display text-xl font-bold text-slate-600 mb-2">
+                  Henüz blog yazısı yok
+                </h3>
+                <p className="text-slate-400 text-[0.9rem]">
+                  Yeni yazılar eklendiğinde burada görünecektir.
+                </p>
+              </div>
+            )}
+
             {/* Blog Posts Grid — Notebook Style */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredPosts.map((post, i) => (
-                <a
-                  key={post.id}
-                  href={"/blog/" + post.slug}
-                  className={`anim d${Math.min(i + 1, 6)} group block`}
-                >
-                  <div className="relative bg-white rounded-xl overflow-hidden transition-all duration-300 group-hover:-translate-y-1" style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04)" }}>
-                    {/* Top colored tab */}
-                    <div className="relative h-9 flex items-center px-4" style={{ background: post.accentColor }}>
-                      <div className="w-4 h-4 rounded-full border-[2px] border-white/60 bg-transparent" />
-                      <div className="ml-auto flex items-center gap-2">
-                        <span className="text-[0.6rem] font-bold text-white/70">{post.readTime}</span>
-                        <div className="px-2 py-0.5 rounded-md bg-white/20">
-                          <span className="text-[0.6rem] font-bold text-white/90 uppercase tracking-wide">{post.category}</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Lined paper area */}
-                    <div className="relative" style={{
-                      backgroundImage: "repeating-linear-gradient(transparent, transparent 27px, #e8e8e8 27px, #e8e8e8 28px)",
-                      backgroundPosition: "0 12px",
-                    }}>
-                      <div className="absolute top-0 bottom-0 left-10 w-[1px] bg-red-300/40 pointer-events-none" />
-
-                      <div className="px-5 pl-14 py-5">
-                        {/* Title */}
-                        <h3 className="font-display text-[1rem] font-extrabold text-slate-800 leading-tight mb-2.5 group-hover:text-[#1B3A7B] transition-colors line-clamp-2">
-                          {post.title}
-                        </h3>
-
-                        {/* Excerpt */}
-                        <p className="text-[0.8rem] text-slate-400 leading-relaxed mb-4 line-clamp-3">
-                          {post.excerpt}
-                        </p>
-
-                        {/* Meta row */}
-                        <div className="flex items-center gap-3 text-[0.72rem] text-slate-400 font-medium mb-3">
-                          <span className="flex items-center gap-1">
-                            <Calendar className="w-3 h-3" />
-                            {post.date}
-                          </span>
-                        </div>
-
-                        {/* Author + Read more */}
-                        <div className="flex items-center justify-between pt-3 border-t border-slate-100/80">
-                          <div className="flex items-center gap-2">
-                            <div className="w-6 h-6 rounded-full flex items-center justify-center" style={{ background: post.categoryBg }}>
-                              <User className="w-3 h-3" style={{ color: post.accentColor }} />
-                            </div>
-                            <span className="text-[0.72rem] font-semibold text-slate-500">{post.author}</span>
+            {!loading && filteredPosts.length > 0 && (
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredPosts.map((post, i) => {
+                  const accent = getAccentColor(i);
+                  const catStyle = getCategoryStyle(post.category);
+                  return (
+                    <a
+                      key={post.id}
+                      href={"/blog/" + post.slug}
+                      className={`anim d${Math.min(i + 1, 6)} group block`}
+                    >
+                      <div className="relative bg-white rounded-xl overflow-hidden transition-all duration-300 group-hover:-translate-y-1" style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04)" }}>
+                        {/* Top colored tab */}
+                        <div className="relative h-9 flex items-center px-4" style={{ background: accent }}>
+                          <div className="w-4 h-4 rounded-full border-[2px] border-white/60 bg-transparent" />
+                          <div className="ml-auto flex items-center gap-2">
+                            <span className="text-[0.6rem] font-bold text-white/70">
+                              {Math.ceil((post.content?.length || 0) / 1000)} dk
+                            </span>
+                            {post.category && (
+                              <div className="px-2 py-0.5 rounded-md bg-white/20">
+                                <span className="text-[0.6rem] font-bold text-white/90 uppercase tracking-wide">{post.category}</span>
+                              </div>
+                            )}
                           </div>
-                          <span className="inline-flex items-center gap-1 text-[0.72rem] font-bold transition-all group-hover:gap-2" style={{ color: post.accentColor }}>
-                            Oku <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
-                          </span>
                         </div>
+
+                        {/* Lined paper area */}
+                        <div className="relative" style={{
+                          backgroundImage: "repeating-linear-gradient(transparent, transparent 27px, #e8e8e8 27px, #e8e8e8 28px)",
+                          backgroundPosition: "0 12px",
+                        }}>
+                          <div className="absolute top-0 bottom-0 left-10 w-[1px] bg-red-300/40 pointer-events-none" />
+
+                          <div className="px-5 pl-14 py-5">
+                            {/* Title */}
+                            <h3 className="font-display text-[1rem] font-extrabold text-slate-800 leading-tight mb-2.5 group-hover:text-[#1B3A7B] transition-colors line-clamp-2">
+                              {post.title}
+                            </h3>
+
+                            {/* Excerpt */}
+                            <p className="text-[0.8rem] text-slate-400 leading-relaxed mb-4 line-clamp-3">
+                              {post.excerpt || ""}
+                            </p>
+
+                            {/* Meta row */}
+                            <div className="flex items-center gap-3 text-[0.72rem] text-slate-400 font-medium mb-3">
+                              <span className="flex items-center gap-1">
+                                <Calendar className="w-3 h-3" />
+                                {formatDate(post.createdAt)}
+                              </span>
+                            </div>
+
+                            {/* Author + Read more */}
+                            <div className="flex items-center justify-between pt-3 border-t border-slate-100/80">
+                              <div className="flex items-center gap-2">
+                                <div className="w-6 h-6 rounded-full flex items-center justify-center" style={{ background: catStyle.bg }}>
+                                  <User className="w-3 h-3" style={{ color: accent }} />
+                                </div>
+                                <span className="text-[0.72rem] font-semibold text-slate-500">{post.author || "Anonim"}</span>
+                              </div>
+                              <span className="inline-flex items-center gap-1 text-[0.72rem] font-bold transition-all group-hover:gap-2" style={{ color: accent }}>
+                                Oku <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Bottom torn edge */}
+                        <div className="h-2 w-full" style={{
+                          background: `linear-gradient(135deg, white 33.33%, transparent 33.33%) -6px 0, linear-gradient(225deg, white 33.33%, transparent 33.33%) -6px 0`,
+                          backgroundSize: "12px 12px",
+                          backgroundColor: accent + "18",
+                        }} />
                       </div>
-                    </div>
+                    </a>
+                  );
+                })}
+              </div>
+            )}
 
-                    {/* Bottom torn edge */}
-                    <div className="h-2 w-full" style={{
-                      background: `linear-gradient(135deg, white 33.33%, transparent 33.33%) -6px 0, linear-gradient(225deg, white 33.33%, transparent 33.33%) -6px 0`,
-                      backgroundSize: "12px 12px",
-                      backgroundColor: post.accentColor + "18",
-                    }} />
-                  </div>
-                </a>
-              ))}
-            </div>
-
-            {/* No results message */}
-            {filteredPosts.length === 0 && (
+            {/* No results for selected category */}
+            {!loading && posts.length > 0 && filteredPosts.length === 0 && (
               <div className="text-center py-16">
                 <Search className="w-12 h-12 text-slate-300 mx-auto mb-4" />
                 <h3 className="font-display text-xl font-bold text-slate-600 mb-2">
@@ -311,7 +306,7 @@ export default function BlogPage() {
             )}
 
             {/* Load More */}
-            {filteredPosts.length > 0 && (
+            {!loading && filteredPosts.length > 0 && (
               <div className="anim text-center mt-12">
                 <button className="btn-3d btn-3d-brand !text-[0.85rem]">
                   <BookOpen className="w-4 h-4" />
