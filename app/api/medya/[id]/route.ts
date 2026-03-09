@@ -39,7 +39,7 @@ export async function GET(
         "Cache-Control": "public, max-age=31536000, immutable",
         "Content-Disposition":
           media.mimeType === "application/pdf"
-            ? `inline; filename="${media.fileName}"`
+            ? `attachment; filename="${media.fileName}"`
             : "inline",
       },
     });
