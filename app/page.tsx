@@ -1471,7 +1471,7 @@ function Pricing({ data }: { data?: any }) {
     title: item.title || defaultPlans[i]?.title || "",
     subtitle: item.subtitle || defaultPlans[i]?.subtitle || "",
     cls: planClasses[i % planClasses.length],
-    features: item.features?.length ? item.features : (typeof item.features === "string" ? item.features.split("\n").filter(Boolean) : (defaultPlans[i]?.features || [])),
+    features: Array.isArray(item.features) ? item.features : (typeof item.features === "string" ? item.features.split("\n").filter(Boolean) : (defaultPlans[i]?.features || [])),
     cta: item.cta || defaultPlans[i]?.cta || "Detaylı Bilgi Al",
     ctaHref: item.ctaHref || "/iletisim",
     popular: item.popular ?? (i === 1),
