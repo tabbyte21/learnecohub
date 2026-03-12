@@ -1208,7 +1208,7 @@ function VideoShowcase({ data }: { data?: any }) {
    ═══════════════════════════════════════ */
 function LearningSteps({ data }: { data?: any }) {
   const d = data || {};
-  const lsTitle = d.title || '6 Adımda <span class="highlight">Kapsamlı Müfredat</span>';
+  const lsTitle = d.titleHighlight ? `${d.title || ''} <span class="highlight">${d.titleHighlight}</span>` : (d.title || '6 Adımda <span class="highlight">Kapsamlı Müfredat</span>');
   const lsDesc = d.description || "Tanışmadan gelişim takibine kadar, her aşamada öğrencilerinize ve ailelerine bilimsel temelli destek sağlıyoruz.";
   const stepClasses = ["card-3d-brand", "card-3d-mint", "card-3d-lavender", "card-3d-peach", "card-3d-gold", "card-3d-brand"];
   const defaultSteps = [
@@ -1219,7 +1219,8 @@ function LearningSteps({ data }: { data?: any }) {
     { num: "5", title: "Ölçme ve Geri Bildirim", desc: "Her beceri sonunda kısa değerlendirmelerle gelişim izlenir. İlerleme kişisel gelişim portfolyosuna yansır.", icon: BarChart3, cls: "card-3d-gold" },
     { num: "6", title: "Aile Katılımı", desc: "Velilere haftalık videolar, öneriler ve kolay uygulanabilir rehber materyaller sunulur. Çocuk evde de desteklenir.", icon: Heart, cls: "card-3d-brand" },
   ];
-  const steps: typeof defaultSteps = d.items?.length ? d.items.map((item: any, i: number) => ({
+  const rawSteps = d.steps || d.items || [];
+  const steps: typeof defaultSteps = rawSteps.length ? rawSteps.map((item: any, i: number) => ({
     num: String(i + 1),
     title: item.title || defaultSteps[i]?.title || "",
     desc: item.description || item.desc || defaultSteps[i]?.desc || "",
