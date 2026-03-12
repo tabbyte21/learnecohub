@@ -1471,11 +1471,11 @@ function Pricing({ data }: { data?: any }) {
     title: item.title || defaultPlans[i]?.title || "",
     subtitle: item.subtitle || defaultPlans[i]?.subtitle || "",
     cls: planClasses[i % planClasses.length],
-    features: Array.isArray(item.features) ? item.features : (typeof item.features === "string" ? item.features.split("\n").filter(Boolean) : (defaultPlans[i]?.features || [])),
+    featuresText: typeof item.features === "string" ? item.features.replace(/\n/g, ". ") : (Array.isArray(item.features) ? item.features.join(". ") : (defaultPlans[i]?.features?.join(". ") || "")),
     cta: item.cta || defaultPlans[i]?.cta || "Detaylı Bilgi Al",
     ctaHref: item.ctaHref || "/iletisim",
     popular: item.popular ?? (i === 1),
-  })) : defaultPlans;
+  })) : defaultPlans.map(p => ({ ...p, featuresText: p.features.join(". ") }));
 
   return (
     <Section>
@@ -1501,7 +1501,7 @@ function Pricing({ data }: { data?: any }) {
                 )}
                 <h3 className="font-display text-xl font-extrabold text-slate-800 mb-1">{p.title}</h3>
                 <p className="text-[0.82rem] text-slate-400 font-medium mb-4">{p.subtitle}</p>
-                <p className="text-[0.84rem] text-slate-600 leading-relaxed mb-7 flex-1">{p.features.join(". ")}.</p>
+                <p className="text-[0.84rem] text-slate-600 leading-relaxed mb-7 flex-1">{p.featuresText}</p>
                 <a href={p.ctaHref || "/iletisim"} className={`btn-3d ${p.popular ? "btn-3d-mint" : "btn-3d-white"} w-full justify-center`}>
                   {p.cta} <ArrowRight className="w-4 h-4" />
                 </a>
