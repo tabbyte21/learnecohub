@@ -796,7 +796,7 @@ function PianoShowcase({ data }: { data?: any }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const d = data || {};
-  const pianoTitle = d.title || 'Platformumuzu <span class="text-gradient">keşfedin</span>';
+  const pianoTitle = d.titleHighlight ? `${d.title || ''} <span class="text-gradient">${d.titleHighlight}</span>` : (d.title || 'Platformumuzu <span class="text-gradient">keşfedin</span>');
   const pianoDesc = d.description || "Her tuşa basın, farklı bir öğrenme deneyimini keşfedin.";
 
   const defaultKeys = [
@@ -1061,7 +1061,7 @@ function PianoShowcase({ data }: { data?: any }) {
 function VideoShowcase({ data }: { data?: any }) {
   const [playingIdx, setPlayingIdx] = useState<number | null>(null);
   const d = data || {};
-  const vsTitle = d.title || 'Hikayeleştirilmiş <span class="text-gradient">video dersler</span>';
+  const vsTitle = d.titleHighlight ? `${d.title || ''} <span class="text-gradient">${d.titleHighlight}</span>` : (d.title || 'Hikayeleştirilmiş <span class="text-gradient">video dersler</span>');
   const vsDesc = d.description || "Yaş gruplarına özel, animasyon destekli ve oyunlaştırılmış video içeriklerimizi keşfedin.";
   const accentColors = ["#1B3A7B", "#2ECC71", "#F5C518", "#7F63CB", "#EE7A45", "#1B3A7B"];
   const defaultVideos = [
@@ -1446,7 +1446,7 @@ function LearningMap({ data }: { data?: any }) {
    ═══════════════════════════════════════ */
 function Pricing({ data }: { data?: any }) {
   const d = data || {};
-  const prTitle = d.title || '<span class="highlight">Planınızı</span> seçin, hemen başlayın';
+  const prTitle = d.titleHighlight ? `<span class="highlight">${d.titleHighlight}</span> ${d.title || ''}` : (d.title || '<span class="highlight">Planınızı</span> seçin, hemen başlayın');
   const prDesc = d.description || "Herkesin öğrenme yolculuğu farklı. Size özel sosyal-duygusal gelişim planınızı seçin.";
   const planClasses = ["card-3d-brand", "card-3d-mint", "card-3d-lavender"];
   const defaultPlans = [
@@ -1466,7 +1466,8 @@ function Pricing({ data }: { data?: any }) {
       cta: "Bizimle İletişime Geçin", ctaHref: "/iletisim", popular: false,
     },
   ];
-  const plans = d.items?.length ? d.items.map((item: any, i: number) => ({
+  const rawPlans = d.plans || d.items || [];
+  const plans = rawPlans.length ? rawPlans.map((item: any, i: number) => ({
     title: item.title || defaultPlans[i]?.title || "",
     subtitle: item.subtitle || defaultPlans[i]?.subtitle || "",
     cls: planClasses[i % planClasses.length],
@@ -1525,7 +1526,7 @@ function Pricing({ data }: { data?: any }) {
    ═══════════════════════════════════════ */
 function Team({ data }: { data?: any }) {
   const d = data || {};
-  const teamTitle = d.title || 'Tutkulu Bir <span class="text-gradient">Ekiple</span> Çalışıyoruz';
+  const teamTitle = d.titleHighlight ? `${d.title || ''} <span class="text-gradient">${d.titleHighlight}</span>` : (d.title || 'Tutkulu Bir <span class="text-gradient">Ekiple</span> Çalışıyoruz');
   const teamDesc = d.description || "Her biri alanında uzman, çocukların geleceğine inanan bir ekip.";
   const teamColors = [
     { color: "#1B3A7B", bg: "#EBF2FB" },
