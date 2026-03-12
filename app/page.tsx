@@ -1501,14 +1501,14 @@ function Pricing({ data }: { data?: any }) {
                 )}
                 <h3 className="font-display text-xl font-extrabold text-slate-800 mb-1">{p.title}</h3>
                 <p className="text-[0.82rem] text-slate-400 font-medium mb-5">{p.subtitle}</p>
-                <ul className="mb-7 flex-1">
+                <div className="mb-7 flex-1 flex flex-col gap-3">
                   {p.features.map((f: string, j: number) => (
-                    <li key={j} className="flex items-start gap-2.5 text-[0.84rem] text-slate-600 py-1.5 border-b border-slate-100 last:border-0">
+                    <div key={j} className="flex items-start gap-2.5 text-[0.84rem] text-slate-600">
                       <CheckCircle2 className="w-4 h-4 text-mint-500 flex-shrink-0 mt-0.5" />
                       <span>{f}</span>
-                    </li>
+                    </div>
                   ))}
-                </ul>
+                </div>
                 <a href={p.ctaHref || "/iletisim"} className={`btn-3d ${p.popular ? "btn-3d-mint" : "btn-3d-white"} w-full justify-center`}>
                   {p.cta} <ArrowRight className="w-4 h-4" />
                 </a>
