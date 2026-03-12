@@ -613,7 +613,7 @@ function YoutubeShowcase({ data }: { data?: any }) {
    ═══════════════════════════════════════ */
 function Materials({ data }: { data?: any }) {
   const d = data || {};
-  const sectionTitle = d.title || 'Sosyal Becerileri Öğretmeyi Kolaylaştıran <span class="text-gradient">İlgi Çekici Materyaller</span>';
+  const sectionTitle = d.titleHighlight ? `${d.title || ''} <span class="text-gradient">${d.titleHighlight}</span>` : (d.title || 'Sosyal Becerileri Öğretmeyi Kolaylaştıran <span class="text-gradient">İlgi Çekici Materyaller</span>');
   const sectionDesc = d.description || "İlkokuldan liseye kadar tüm seviyelerdeki öğrencilere, 100'den fazla sosyal-duygusal beceri kazandırıyoruz. Müfredatımız animasyonlu videolar, etkileşimli beceri oyunları ve zengin araçlarla destekleniyor.";
   const defaultCards = [
     {
@@ -659,14 +659,17 @@ function Materials({ data }: { data?: any }) {
     { color: "#2ECC71", bg: "#ECFBF2", accent: "#A3EBC1" },
     { color: "#7F63CB", bg: "#F0EDF9", accent: "#BFB1E5" },
   ];
-  const cards = d.cards?.length ? d.cards.map((item: any, i: number) => {
+  const rawCards = d.cards || d.items || [];
+  const cards = rawCards.length ? rawCards.map((item: any, i: number) => {
     const mc = materialColors[i % materialColors.length];
+    const rawFeatures = item.features || item.lines;
+    const lines = Array.isArray(rawFeatures) ? rawFeatures : (typeof rawFeatures === 'string' ? rawFeatures.split('\n').filter(Boolean) : (defaultCards[i]?.lines || []));
     return {
-      icon: defaultCards[i]?.icon || Layers,
+      icon: homeResolveIcon(item.icon) || defaultCards[i]?.icon || Layers,
       label: item.label || item.title || defaultCards[i]?.label || "",
       count: item.count || defaultCards[i]?.count || "",
       color: mc.color, bg: mc.bg, accent: mc.accent,
-      lines: item.lines?.length ? item.lines : (defaultCards[i]?.lines || []),
+      lines,
     };
   }) : defaultCards;
 
