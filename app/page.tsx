@@ -732,18 +732,9 @@ function Materials({ data }: { data?: any }) {
                           </div>
                         </div>
 
-                        {/* Content lines — like handwritten notes */}
-                        <div className="relative z-10 px-5 pt-4 space-y-0">
-                          {c.lines.map((line: string, j: number) => (
-                            <div
-                              key={j}
-                              className="a4-content-line flex items-center gap-2.5 pl-5"
-                              style={{ height: "38px", animationDelay: `${j * 0.12}s` }}
-                            >
-                              <div className="w-[6px] h-[6px] rounded-full flex-shrink-0" style={{ background: c.color }} />
-                              <span className="text-[0.8rem] text-slate-600 font-medium">{line}</span>
-                            </div>
-                          ))}
+                        {/* Content description */}
+                        <div className="relative z-10 px-5 pt-4 pl-[52px]">
+                          <p className="text-[0.78rem] text-slate-500 leading-relaxed">{c.lines.join(", ")}</p>
                         </div>
 
                         {/* Bottom accent bar */}
