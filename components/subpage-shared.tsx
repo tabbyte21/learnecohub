@@ -123,6 +123,18 @@ function NavDropdown({ label, href, active, sub, variant = "light" }: {
   );
 }
 
+const hakkimizdaRewrites: Record<string, string> = {
+  "/misyonumuz": "/hakkimizda#misyonumuz",
+  "/akademik-yaklasimimiz": "/hakkimizda#akademik-yaklasimimiz",
+  "/ilkelerimiz": "/hakkimizda#ilkelerimiz",
+  "/neden-learnecohub": "/hakkimizda#neden-learnecohub",
+  "/ekibimiz": "/hakkimizda#ekibimiz",
+  "/basari-hikayeleri": "/hakkimizda#basari-hikayeleri",
+};
+function rewriteMenuUrl(url: string): string {
+  return hakkimizdaRewrites[url] || url;
+}
+
 export function SubpageNavbar({ active }: { active: string }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -148,10 +160,10 @@ export function SubpageNavbar({ active }: { active: string }) {
   // Mobil menü: tüm öğeleri düz liste olarak göster
   const mobileLinks: { label: string; href: string }[] = [];
   navLinks.forEach((item: any) => {
-    if (item.url) mobileLinks.push({ label: item.label, href: item.url });
+    if (item.url) mobileLinks.push({ label: item.label, href: rewriteMenuUrl(item.url) });
     if (item.children?.length) {
       item.children.forEach((child: any) => {
-        if (child.url) mobileLinks.push({ label: child.label, href: child.url });
+        if (child.url) mobileLinks.push({ label: child.label, href: rewriteMenuUrl(child.url) });
       });
     }
   });
@@ -174,7 +186,7 @@ export function SubpageNavbar({ active }: { active: string }) {
                   active={active}
                   sub={item.children.map((c: any) => ({
                     label: c.label,
-                    href: c.url || "#",
+                    href: rewriteMenuUrl(c.url || "#"),
                     icon: resolveIcon(c.icon),
                     desc: c.description || "",
                   }))}

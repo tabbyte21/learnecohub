@@ -102,6 +102,18 @@ function homeResolveIcon(name?: string | null): React.ElementType {
 /* ═══════════════════════════════════════
    NAVBAR (dynamic from /api/menu)
    ═══════════════════════════════════════ */
+const hakkimizdaRewrites: Record<string, string> = {
+  "/misyonumuz": "/hakkimizda#misyonumuz",
+  "/akademik-yaklasimimiz": "/hakkimizda#akademik-yaklasimimiz",
+  "/ilkelerimiz": "/hakkimizda#ilkelerimiz",
+  "/neden-learnecohub": "/hakkimizda#neden-learnecohub",
+  "/ekibimiz": "/hakkimizda#ekibimiz",
+  "/basari-hikayeleri": "/hakkimizda#basari-hikayeleri",
+};
+function rewriteMenuUrl(url: string): string {
+  return hakkimizdaRewrites[url] || url;
+}
+
 function useMenuData() {
   const [menuItems, setMenuItems] = useState<any[]>([]);
   useEffect(() => {
@@ -157,10 +169,10 @@ function Navbar({ menuItems }: { menuItems: any[] }) {
   // Mobil menü: tüm öğeleri düz liste olarak göster
   const mobileLinks: { label: string; href: string }[] = [];
   navLinks.forEach((item: any) => {
-    if (item.url) mobileLinks.push({ label: item.label, href: item.url });
+    if (item.url) mobileLinks.push({ label: item.label, href: rewriteMenuUrl(item.url) });
     if (item.children?.length) {
       item.children.forEach((child: any) => {
-        if (child.url) mobileLinks.push({ label: child.label, href: child.url });
+        if (child.url) mobileLinks.push({ label: child.label, href: rewriteMenuUrl(child.url) });
       });
     }
   });
@@ -176,7 +188,7 @@ function Navbar({ menuItems }: { menuItems: any[] }) {
           {navLinks.map((item: any) =>
             item.children?.length ? (
               <MainNavDropdown key={item.id} label={item.label} sub={item.children.map((c: any) => ({
-                label: c.label, href: c.url || "#", icon: homeResolveIcon(c.icon), desc: c.description || "",
+                label: c.label, href: rewriteMenuUrl(c.url || "#"), icon: homeResolveIcon(c.icon), desc: c.description || "",
               }))} />
             ) : (
               <a key={item.id} href={item.url || "#"} className="px-4 py-2 text-[0.85rem] font-semibold text-slate-500 hover:text-brand-600 rounded-xl hover:bg-brand-50 transition-all">{item.label}</a>
@@ -222,7 +234,7 @@ function Navbar({ menuItems }: { menuItems: any[] }) {
    PARTNER LOGO BAND
    ═══════════════════════════════════════ */
 function PartnerLogoBand() {
-  const [logos, setLogos] = useState<{ name: string; fileName: string }[]>([]);
+  const [logos, setLogos] = useState<{ name: string; fileName: string; imageData?: string | null; mimeType?: string }[]>([]);
   useEffect(() => {
     fetch(`/api/partner-logos?t=${Date.now()}`)
       .then((r) => r.json())
@@ -237,16 +249,21 @@ function PartnerLogoBand() {
     <div className="relative z-10 bg-[#F5C518] mt-auto overflow-hidden">
       <div className="py-4">
         <div className="ref-marquee-inner flex gap-12 w-max items-center">
-          {doubled.map((logo, i) => (
-            <div key={i} className="flex-shrink-0">
-              <img
-                src={`/logos/${logo.fileName}`}
-                alt={logo.name}
-                className="h-8 sm:h-9 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
-                style={{ filter: "grayscale(100%) brightness(0.3)" }}
-              />
-            </div>
-          ))}
+          {doubled.map((logo, i) => {
+            const src = logo.imageData
+              ? (logo.imageData.startsWith("data:") ? logo.imageData : `data:${logo.mimeType || "image/png"};base64,${logo.imageData}`)
+              : `/logos/${logo.fileName}`;
+            return (
+              <div key={i} className="flex-shrink-0">
+                <img
+                  src={src}
+                  alt={logo.name}
+                  className="h-8 sm:h-9 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+                  style={{ filter: "grayscale(100%) brightness(0.3)" }}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
@@ -728,7 +745,7 @@ function Materials({ data }: { data?: any }) {
                             <div className="flex items-center gap-2 mb-1">
                               <span className="text-[0.6rem] font-extrabold uppercase tracking-widest" style={{ color: c.color }}>{c.count} MATERYAL</span>
                             </div>
-                            <h4 className="font-display font-extrabold text-[1.05rem] text-slate-800 leading-tight">{c.label}</h4>
+                            <h4 className="font-display font-bold text-[0.85rem] text-slate-800 leading-tight">{c.label}</h4>
                           </div>
                         </div>
 

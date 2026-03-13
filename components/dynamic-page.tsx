@@ -27,7 +27,7 @@ const iconMap: Record<string, ElementType> = {
 
 type HeroTheme = "brand" | "mint" | "lavender" | "gold" | "peach";
 
-function getIcon(name: string): ElementType {
+export function getIcon(name: string): ElementType {
   return iconMap[name] || Sparkles;
 }
 
@@ -1596,7 +1596,7 @@ function PartnerLogosSection({ data }: { data: any }) {
   );
 }
 
-const sectionRenderers: Record<string, (data: any) => React.ReactNode> = {
+export const sectionRenderers: Record<string, (data: any) => React.ReactNode> = {
   subpage_hero: () => <></>, // Handled separately
   hero: () => <></>, // Main page hero, handled separately
   mission: (data) => <ClipboardSection data={data} />,
