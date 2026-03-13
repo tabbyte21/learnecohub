@@ -1063,13 +1063,15 @@ function VideoShowcase({ data }: { data?: any }) {
     { title: "Duygu Yönetimi", desc: "Öfke, kaygı ve üzüntü gibi duyguları tanıma ve yönetme stratejilerini öğreten içerikler.", accent: "#EE7A45", tabColor: "#EE7A45", src: "https://learnecohub.com/.old-wp/wp-content/uploads/2025/07/Etkilesimli-Video-Tanitim-1.mp4" },
     { title: "Sosyal Beceriler", desc: "Arkadaşlık kurma, iş birliği ve iletişim becerilerini destekleyen animasyonlu dersler.", accent: "#1B3A7B", tabColor: "#1B3A7B", src: "https://learnecohub.com/.old-wp/wp-content/uploads/2025/07/Web-Sitesi-Guvenlik-2.mp4" },
   ];
-  const videos: typeof defaultVideos = d.items?.length ? d.items.map((item: any, i: number) => ({
+  const videos: Array<{ title: string; desc: string; accent: string; tabColor: string; src: string; youtubeId: string; label: string }> = d.items?.length ? d.items.map((item: any, i: number) => ({
     title: item.title || defaultVideos[i]?.title || "",
     desc: item.description || item.desc || defaultVideos[i]?.desc || "",
-    accent: accentColors[i % accentColors.length],
-    tabColor: accentColors[i % accentColors.length],
+    accent: item.color || accentColors[i % accentColors.length],
+    tabColor: item.color || accentColors[i % accentColors.length],
     src: item.src || item.url || defaultVideos[i]?.src || "",
-  })) : defaultVideos;
+    youtubeId: item.youtubeId || "",
+    label: item.label || "",
+  })) : defaultVideos.map(v => ({ ...v, youtubeId: "", label: "" }));
 
   return (
     <Section>
@@ -1101,7 +1103,7 @@ function VideoShowcase({ data }: { data?: any }) {
                     <div className="relative h-10 flex items-center px-4" style={{ background: v.tabColor }}>
                       <div className="w-5 h-5 rounded-full border-[2.5px] border-white/60 bg-transparent" />
                       <div className="ml-auto flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-white/20 backdrop-blur-sm">
-                        <span className="text-[0.65rem] font-bold text-white/90 uppercase tracking-wide">Ders {i + 1}</span>
+                        <span className="text-[0.65rem] font-bold text-white/90 uppercase tracking-wide">{v.label || `Ders ${i + 1}`}</span>
                       </div>
                     </div>
 
@@ -1115,40 +1117,81 @@ function VideoShowcase({ data }: { data?: any }) {
                       {/* Video */}
                       <div className="relative mx-4 mt-4 mb-0 rounded-lg overflow-hidden border border-slate-200/60" style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
                         <div className="relative aspect-video">
-                          <video
-                            src={v.src}
-                            className="w-full h-full object-cover"
-                            muted
-                            loop
-                            playsInline
-                            ref={(el) => {
-                              if (el) {
-                                if (isPlaying) { el.play().catch(() => {}); }
-                                else { el.pause(); el.currentTime = 0; }
-                              }
-                            }}
-                          />
-                          {!isPlaying && (
-                            <button
-                              onClick={() => setPlayingIdx(i)}
-                              className="absolute inset-0 bg-black/20 flex items-center justify-center group/play cursor-pointer transition-colors hover:bg-black/30"
-                              aria-label="Videoyu oynat"
-                              type="button"
-                            >
-                              <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-xl transition-transform group-hover/play:scale-110">
-                                <Play className="w-6 h-6 ml-0.5" style={{ color: v.accent }} />
-                              </div>
-                            </button>
-                          )}
-                          {isPlaying && (
-                            <button
-                              onClick={() => setPlayingIdx(null)}
-                              className="absolute top-2 right-2 w-8 h-8 rounded-full bg-black/40 flex items-center justify-center text-white/80 hover:bg-black/60 transition-colors z-10 cursor-pointer"
-                              aria-label="Durdur"
-                              type="button"
-                            >
-                              <span className="text-xs font-bold">✕</span>
-                            </button>
+                          {v.youtubeId ? (
+                            <>
+                              {!isPlaying ? (
+                                <>
+                                  <img src={`https://img.youtube.com/vi/${v.youtubeId}/hqdefault.jpg`} alt={v.title} className="w-full h-full object-cover" />
+                                  <button
+                                    onClick={() => setPlayingIdx(i)}
+                                    className="absolute inset-0 bg-black/20 flex items-center justify-center group/play cursor-pointer transition-colors hover:bg-black/30"
+                                    aria-label="Videoyu oynat"
+                                    type="button"
+                                  >
+                                    <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-xl transition-transform group-hover/play:scale-110">
+                                      <Play className="w-6 h-6 ml-0.5" style={{ color: v.accent }} />
+                                    </div>
+                                  </button>
+                                </>
+                              ) : (
+                                <>
+                                  <iframe
+                                    className="absolute inset-0 w-full h-full"
+                                    src={`https://www.youtube.com/embed/${v.youtubeId}?autoplay=1&rel=0`}
+                                    title={v.title}
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerPolicy="strict-origin-when-cross-origin"
+                                    allowFullScreen
+                                  />
+                                  <button
+                                    onClick={() => setPlayingIdx(null)}
+                                    className="absolute top-2 right-2 w-8 h-8 rounded-full bg-black/40 flex items-center justify-center text-white/80 hover:bg-black/60 transition-colors z-10 cursor-pointer"
+                                    aria-label="Durdur"
+                                    type="button"
+                                  >
+                                    <span className="text-xs font-bold">✕</span>
+                                  </button>
+                                </>
+                              )}
+                            </>
+                          ) : (
+                            <>
+                              <video
+                                src={v.src}
+                                className="w-full h-full object-cover"
+                                muted
+                                loop
+                                playsInline
+                                ref={(el) => {
+                                  if (el) {
+                                    if (isPlaying) { el.play().catch(() => {}); }
+                                    else { el.pause(); el.currentTime = 0; }
+                                  }
+                                }}
+                              />
+                              {!isPlaying && (
+                                <button
+                                  onClick={() => setPlayingIdx(i)}
+                                  className="absolute inset-0 bg-black/20 flex items-center justify-center group/play cursor-pointer transition-colors hover:bg-black/30"
+                                  aria-label="Videoyu oynat"
+                                  type="button"
+                                >
+                                  <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-xl transition-transform group-hover/play:scale-110">
+                                    <Play className="w-6 h-6 ml-0.5" style={{ color: v.accent }} />
+                                  </div>
+                                </button>
+                              )}
+                              {isPlaying && (
+                                <button
+                                  onClick={() => setPlayingIdx(null)}
+                                  className="absolute top-2 right-2 w-8 h-8 rounded-full bg-black/40 flex items-center justify-center text-white/80 hover:bg-black/60 transition-colors z-10 cursor-pointer"
+                                  aria-label="Durdur"
+                                  type="button"
+                                >
+                                  <span className="text-xs font-bold">✕</span>
+                                </button>
+                              )}
+                            </>
                           )}
                         </div>
                       </div>
@@ -1266,7 +1309,7 @@ function LearningMap({ data }: { data?: any }) {
   }, []);
 
   const dd = data || {};
-  const mapTitle = dd.title || 'Adım adım <span class="highlight">ustalaşın</span>';
+  const mapTitle = dd.titleHighlight ? `${dd.title || ''} <span class="highlight">${dd.titleHighlight}</span>` : (dd.title || 'Adım adım <span class="highlight">ustalaşın</span>');
   const mapDesc = dd.description || "Kademeli öğrenme yoluyla sosyal becerilerde ilerleme sağlayın.";
   const nodeColors: Record<string, { bg: string; shadow: string; glow: string; ring: string }> = {
     completed_0: { bg: "#1B3A7B", shadow: "#112755", glow: "rgba(27,58,123,0.3)", ring: "rgba(27,58,123,0.15)" },
