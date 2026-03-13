@@ -690,72 +690,138 @@ function Materials({ data }: { data?: any }) {
     };
   }) : defaultCards;
 
+  // Images for the mosaic (admin can override via d.images array)
+  const defaultImages = [
+    { src: "https://img.youtube.com/vi/jwRQ9NAUJzo/hqdefault.jpg", alt: "Animasyon Video Dersi" },
+    { src: "https://img.youtube.com/vi/B0EXKrMcH_0/hqdefault.jpg", alt: "Kontrol Becerileri" },
+    { src: "https://img.youtube.com/vi/aykfpBwP-9c/hqdefault.jpg", alt: "Minnettarlık Dersi" },
+    { src: "https://img.youtube.com/vi/4RkCmwiBX0/hqdefault.jpg", alt: "Beceri Oyunları" },
+    { src: "https://img.youtube.com/vi/GcjqT6zb1Ts/hqdefault.jpg", alt: "Platform Tanıtım" },
+    { src: "https://img.youtube.com/vi/jwRQ9NAUJzo/mqdefault.jpg", alt: "Sakinleşme Egzersizi" },
+    { src: "https://img.youtube.com/vi/B0EXKrMcH_0/mqdefault.jpg", alt: "Problem Çözme" },
+    { src: "https://img.youtube.com/vi/aykfpBwP-9c/mqdefault.jpg", alt: "Duygu Yönetimi" },
+    { src: "https://img.youtube.com/vi/GcjqT6zb1Ts/mqdefault.jpg", alt: "Etkileşimli İçerik" },
+  ];
+  const images = (d.images?.length ? d.images : defaultImages) as { src: string; alt: string }[];
+
+  const ctaLabel = d.ctaLabel || "Şimdi Keşfetmeye Başlayın";
+  const ctaHref = d.ctaHref || "https://lms.learnecohub.com/login/index.php";
+
   return (
     <Section>
-      <section id="materials" className="py-24 bg-white relative overflow-hidden">
-        <div className="absolute top-20 left-[5%] w-72 h-72 bg-brand-200/15 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-[8%] w-56 h-56 bg-gold-200/20 rounded-full blur-3xl" />
-        <div className="absolute inset-0 grid-overlay" />
-        <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="anim"><span className="tag bg-brand-100 text-brand-700 mb-4"><Sparkles className="w-3.5 h-3.5" /> {d.tag || "MATERYALLER"}</span></div>
-            <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight" dangerouslySetInnerHTML={{ __html: sectionTitle }} />
-            <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
-              {sectionDesc}
-            </p>
-          </div>
+      <section id="materials" className="relative overflow-hidden" style={{ background: "#FFF8E1" }}>
+        {/* Hero-style: left content + right mosaic */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 lg:py-28">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            {/* Left content */}
+            <div className="flex-1 max-w-xl">
+              <div className="anim">
+                <span className="tag bg-brand-100 text-brand-700 mb-6"><Sparkles className="w-3.5 h-3.5" /> {d.tag || "MATERYALLER"}</span>
+              </div>
+              <h2
+                className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.8rem] font-extrabold text-slate-800 mb-6 tracking-tight leading-[1.15]"
+                dangerouslySetInnerHTML={{ __html: sectionTitle }}
+              />
+              <p className="anim d2 text-slate-500 text-[0.95rem] leading-relaxed mb-8">
+                {sectionDesc}
+              </p>
+              <div className="anim d3">
+                <a
+                  href={ctaHref}
+                  className="inline-flex items-center gap-2 btn-3d btn-3d-brand !py-3.5 !px-8 !text-[0.9rem]"
+                >
+                  {ctaLabel}
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
 
-          {/* Horizontal scrolling A4 file-icon cards */}
+            {/* Right mosaic images */}
+            <div className="flex-1 w-full max-w-2xl">
+              <div className="grid grid-cols-3 gap-3 sm:gap-4">
+                {/* Col 1 */}
+                <div className="flex flex-col gap-3 sm:gap-4 pt-8">
+                  {images.slice(0, 3).map((img, i) => (
+                    <div
+                      key={i}
+                      className="rounded-xl overflow-hidden shadow-lg"
+                      style={{ animation: `matFloat ${3 + i * 0.7}s ease-in-out infinite alternate` }}
+                    >
+                      <img src={img.src} alt={img.alt} className="w-full h-auto object-cover" loading="lazy" />
+                    </div>
+                  ))}
+                </div>
+                {/* Col 2 */}
+                <div className="flex flex-col gap-3 sm:gap-4">
+                  {images.slice(3, 6).map((img, i) => (
+                    <div
+                      key={i}
+                      className="rounded-xl overflow-hidden shadow-lg"
+                      style={{ animation: `matFloat ${3.5 + i * 0.6}s ease-in-out infinite alternate-reverse` }}
+                    >
+                      <img src={img.src} alt={img.alt} className="w-full h-auto object-cover" loading="lazy" />
+                    </div>
+                  ))}
+                </div>
+                {/* Col 3 */}
+                <div className="flex flex-col gap-3 sm:gap-4 pt-12">
+                  {images.slice(6, 9).map((img, i) => (
+                    <div
+                      key={i}
+                      className="rounded-xl overflow-hidden shadow-lg"
+                      style={{ animation: `matFloat ${2.8 + i * 0.8}s ease-in-out infinite alternate` }}
+                    >
+                      <img src={img.src} alt={img.alt} className="w-full h-auto object-cover" loading="lazy" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Floating animation keyframes */}
+        <style>{`
+          @keyframes matFloat {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-12px); }
+          }
+        `}</style>
+
+        {/* Scrolling material cards below */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 pb-20">
           <div className="relative">
-            <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, white, transparent)" }} />
-            <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, white, transparent)" }} />
+            <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, #FFF8E1, transparent)" }} />
+            <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, #FFF8E1, transparent)" }} />
             <div className="material-marquee overflow-hidden">
-              <div className="material-marquee-inner flex gap-8 w-max py-12 px-10">
+              <div className="material-marquee-inner flex gap-8 w-max py-6 px-10">
                 {[...cards, ...cards].map((c, i) => (
-                  <div key={i} className="a4-file group relative flex-shrink-0 w-[240px] cursor-pointer">
-                    {/* A4 document body */}
+                  <div key={i} className="a4-file group relative flex-shrink-0 w-[220px] cursor-pointer">
                     <div className="relative transition-all duration-500 group-hover:-translate-y-4 group-hover:shadow-2xl" style={{ filter: "drop-shadow(0 8px 24px rgba(0,0,0,0.08))" }}>
-                      {/* Main A4 page with dog-ear clip */}
                       <div
                         className="relative overflow-hidden"
                         style={{
-                          height: "340px",
+                          height: "280px",
                           background: "#ffffff",
-                          clipPath: "polygon(0 0, calc(100% - 36px) 0, 100% 36px, 100% 100%, 0 100%)",
+                          clipPath: "polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 0 100%)",
                           borderRadius: "14px",
                           border: `2px solid ${c.accent}40`,
                         }}
                       >
-                        {/* Lined paper background */}
                         <div className="absolute inset-0 a4-lines" style={{ "--line-color": c.accent + "18" } as React.CSSProperties} />
-
-                        {/* Left margin line */}
-                        <div className="absolute top-0 bottom-0 left-[42px] w-[1.5px]" style={{ background: c.color + "15" }} />
-
-                        {/* Dog-ear fold */}
-                        <div className="absolute top-0 right-0 w-[36px] h-[36px] z-10">
+                        <div className="absolute top-0 bottom-0 left-[38px] w-[1.5px]" style={{ background: c.color + "15" }} />
+                        <div className="absolute top-0 right-0 w-[32px] h-[32px] z-10">
                           <div className="absolute inset-0" style={{ background: c.bg, clipPath: "polygon(0 0, 100% 100%, 0 100%)" }} />
                           <div className="absolute inset-0" style={{ background: c.accent + "20", clipPath: "polygon(0 0, 0 100%, 100% 100%)" }} />
-                          <div className="absolute bottom-0 left-0 right-0 h-[1px]" style={{ background: c.accent + "30" }} />
                         </div>
-
-                        {/* Header strip */}
-                        <div className="relative z-10 px-5 pt-6 pb-3 flex items-end gap-3" style={{ borderBottom: `2px solid ${c.accent}25` }}>
-                          <div className="flex-1 min-w-0 pl-5">
-                            <div className="flex items-center gap-2 mb-1">
-                              <span className="text-[0.6rem] font-extrabold uppercase tracking-widest" style={{ color: c.color }}>{c.count} MATERYAL</span>
-                            </div>
-                            <h4 className="font-display font-bold text-[0.85rem] text-slate-800 leading-tight">{c.label}</h4>
-                          </div>
+                        <div className="relative z-10 px-4 pt-5 pb-2 pl-[46px]" style={{ borderBottom: `2px solid ${c.accent}25` }}>
+                          <span className="text-[0.55rem] font-extrabold uppercase tracking-widest" style={{ color: c.color }}>{c.count} MATERYAL</span>
+                          <h4 className="font-display font-bold text-[0.8rem] text-slate-800 leading-tight mt-0.5">{c.label}</h4>
                         </div>
-
-                        {/* Content description */}
-                        <div className="relative z-10 px-5 pt-4 pl-[52px]">
-                          <p className="text-[0.78rem] text-slate-500 leading-relaxed">{c.lines.join(", ")}</p>
+                        <div className="relative z-10 px-4 pt-3 pl-[46px]">
+                          <p className="text-[0.72rem] text-slate-500 leading-relaxed">{c.lines.join(", ")}</p>
                         </div>
-
-                        {/* Bottom accent bar */}
-                        <div className="absolute bottom-0 left-0 right-0 h-[6px]" style={{ background: c.color }} />
+                        <div className="absolute bottom-0 left-0 right-0 h-[5px]" style={{ background: c.color }} />
                       </div>
                     </div>
                   </div>
