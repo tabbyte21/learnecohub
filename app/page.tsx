@@ -736,55 +736,47 @@ function Materials({ data }: { data?: any }) {
               </div>
             </div>
 
-            {/* Right mosaic images */}
-            <div className="flex-1 w-full max-w-2xl">
-              <div className="grid grid-cols-3 gap-3 sm:gap-4">
-                {/* Col 1 */}
-                <div className="flex flex-col gap-3 sm:gap-4 pt-8">
-                  {images.slice(0, 3).map((img, i) => (
-                    <div
-                      key={i}
-                      className="rounded-xl overflow-hidden shadow-lg"
-                      style={{ animation: `matFloat ${3 + i * 0.7}s ease-in-out infinite alternate` }}
-                    >
-                      <img src={img.src} alt={img.alt} className="w-full h-auto object-cover" loading="lazy" />
+            {/* Right mosaic — vertical marquee columns with blur edges */}
+            <div className="flex-1 w-full max-w-2xl relative">
+              {/* Top & bottom blur masks */}
+              <div className="absolute top-0 left-0 right-0 h-28 z-20 pointer-events-none" style={{ background: "linear-gradient(to bottom, #FFF8E1, transparent)" }} />
+              <div className="absolute bottom-0 left-0 right-0 h-28 z-20 pointer-events-none" style={{ background: "linear-gradient(to top, #FFF8E1, transparent)" }} />
+
+              <div className="grid grid-cols-3 gap-3 sm:gap-4 h-[420px] sm:h-[480px] overflow-hidden">
+                {[0, 1, 2].map((col) => {
+                  const colImages = images.slice(col * 3, col * 3 + 3);
+                  const doubled = [...colImages, ...colImages, ...colImages];
+                  const direction = col % 2 === 0 ? "matScrollUp" : "matScrollDown";
+                  const speed = 18 + col * 4;
+                  return (
+                    <div key={col} className="relative overflow-hidden h-full">
+                      <div
+                        className="flex flex-col gap-3 sm:gap-4"
+                        style={{ animation: `${direction} ${speed}s linear infinite` }}
+                      >
+                        {doubled.map((img, i) => (
+                          <div key={i} className="rounded-xl overflow-hidden shadow-lg flex-shrink-0">
+                            <img src={img.src} alt={img.alt} className="w-full h-auto object-cover" loading="lazy" />
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  ))}
-                </div>
-                {/* Col 2 */}
-                <div className="flex flex-col gap-3 sm:gap-4">
-                  {images.slice(3, 6).map((img, i) => (
-                    <div
-                      key={i}
-                      className="rounded-xl overflow-hidden shadow-lg"
-                      style={{ animation: `matFloat ${3.5 + i * 0.6}s ease-in-out infinite alternate-reverse` }}
-                    >
-                      <img src={img.src} alt={img.alt} className="w-full h-auto object-cover" loading="lazy" />
-                    </div>
-                  ))}
-                </div>
-                {/* Col 3 */}
-                <div className="flex flex-col gap-3 sm:gap-4 pt-12">
-                  {images.slice(6, 9).map((img, i) => (
-                    <div
-                      key={i}
-                      className="rounded-xl overflow-hidden shadow-lg"
-                      style={{ animation: `matFloat ${2.8 + i * 0.8}s ease-in-out infinite alternate` }}
-                    >
-                      <img src={img.src} alt={img.alt} className="w-full h-auto object-cover" loading="lazy" />
-                    </div>
-                  ))}
-                </div>
+                  );
+                })}
               </div>
             </div>
           </div>
         </div>
 
-        {/* Floating animation keyframes */}
+        {/* Vertical marquee keyframes */}
         <style>{`
-          @keyframes matFloat {
+          @keyframes matScrollUp {
             0% { transform: translateY(0); }
-            100% { transform: translateY(-12px); }
+            100% { transform: translateY(-33.333%); }
+          }
+          @keyframes matScrollDown {
+            0% { transform: translateY(-33.333%); }
+            100% { transform: translateY(0); }
           }
         `}</style>
 
