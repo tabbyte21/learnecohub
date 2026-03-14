@@ -952,7 +952,7 @@ function PianoShowcase({ data }: { data?: any }) {
         <div className="absolute inset-0 grid-overlay" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-2xl mx-auto mb-14">
+          <div className="max-w-2xl mb-14">
             <div className="anim"><span className="tag bg-brand-100 text-brand-700 mb-4"><Play className="w-3.5 h-3.5" /> {d.tag || "İNTERAKTİF VİTRİN"}</span></div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight" dangerouslySetInnerHTML={{ __html: pianoTitle }} />
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">{pianoDesc}</p>
@@ -2158,6 +2158,63 @@ function Manifesto({ data }: { data?: any }) {
 }
 
 /* ═══════════════════════════════════════
+   BOTTOM PARTNER LOGOS
+   ═══════════════════════════════════════ */
+function BottomPartnerLogos() {
+  const [logos, setLogos] = useState<{ name: string; fileName: string; imageData?: string | null; mimeType?: string }[]>([]);
+  useEffect(() => {
+    fetch(`/api/partner-logos?t=${Date.now()}`)
+      .then((r) => r.json())
+      .then(setLogos)
+      .catch(() => {});
+  }, []);
+
+  if (logos.length === 0) return null;
+
+  const brandColors = ["#1B3A7B", "#2ECC71", "#7F63CB", "#EE7A45", "#F5C518", "#4D7EC4"];
+  const tripled = [...logos, ...logos, ...logos];
+
+  return (
+    <Section>
+      <section className="py-16 bg-[#FAFBFE] relative overflow-hidden">
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          <div className="text-center mb-10">
+            <h2 className="anim font-display text-xl sm:text-2xl font-extrabold text-slate-800">
+              Güvenilir <span className="text-gradient">İş Ortaklarımız</span>
+            </h2>
+            <p className="anim d1 text-slate-400 text-sm mt-2">Birlikte çalıştığımız kurum ve kuruluşlar</p>
+          </div>
+          <div className="relative">
+            <div className="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, #FAFBFE, transparent)" }} />
+            <div className="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, #FAFBFE, transparent)" }} />
+            <div className="logo-marquee overflow-hidden">
+              <div className="flex gap-8 animate-marquee items-center">
+                {tripled.map((logo, i) => {
+                  const color = brandColors[i % brandColors.length];
+                  const hasImage = logo.imageData && logo.imageData.length > 10;
+                  const src = hasImage
+                    ? (logo.imageData!.startsWith("data:") ? logo.imageData! : `data:${logo.mimeType || "image/png"};base64,${logo.imageData}`)
+                    : null;
+                  return (
+                    <div key={i} className="flex-shrink-0 w-[150px] h-[72px] rounded-xl border border-slate-100 bg-white flex items-center justify-center p-3 hover:shadow-md transition-all">
+                      {src ? (
+                        <img src={src} alt={logo.name} className="w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity" />
+                      ) : (
+                        <span className="font-display font-bold text-xs text-center leading-tight" style={{ color }}>{logo.name}</span>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </Section>
+  );
+}
+
+/* ═══════════════════════════════════════
    FINAL CTA
    ═══════════════════════════════════════ */
 function FinalCTA({ data }: { data?: any }) {
@@ -2390,6 +2447,7 @@ export default function Page() {
       <Testimonials data={sd.testimonials} />
       <FAQ data={sd.faq || sd.faq_parents} />
       <FinalCTA data={sd.final_cta} />
+      <BottomPartnerLogos />
       <Footer data={sd.footer} />
     </main>
   );
