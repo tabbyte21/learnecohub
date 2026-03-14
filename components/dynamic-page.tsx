@@ -1856,7 +1856,7 @@ export function DynamicPage({ slug, navActive }: { slug: string; navActive: stri
           const anchorId = toSlug(section.title || "");
           elements.push(<div key={section.id} id={anchorId}>{renderer(data)}</div>);
           if (cloudAfterTypes.has(section.sectionType)) {
-            elements.push(<CloudDivider key={`cloud-${section.id}`} flip={idx % 2 === 1} />);
+            elements.push(<CloudDivider key={`cloud-${section.id}`} />);
           }
         });
         return elements;
