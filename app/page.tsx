@@ -103,15 +103,20 @@ function homeResolveIcon(name?: string | null): React.ElementType {
    NAVBAR (dynamic from /api/menu)
    ═══════════════════════════════════════ */
 const hakkimizdaRewrites: Record<string, string> = {
-  "/misyonumuz": "/hakkimizda#misyonumuz",
-  "/akademik-yaklasimimiz": "/hakkimizda#akademik-yaklasimimiz",
-  "/ilkelerimiz": "/hakkimizda#ilkelerimiz",
-  "/neden-learnecohub": "/hakkimizda#neden-learnecohub",
-  "/ekibimiz": "/hakkimizda#ekibimiz",
-  "/basari-hikayeleri": "/hakkimizda#basari-hikayeleri",
+  "/misyonumuz": "/hakkimizda",
+  "/akademik-yaklasimimiz": "/hakkimizda",
+  "/ilkelerimiz": "/hakkimizda",
+  "/neden-learnecohub": "/hakkimizda",
+  "/ekibimiz": "/hakkimizda",
+  "/basari-hikayeleri": "/hakkimizda",
 };
-function rewriteMenuUrl(url: string): string {
+function rewriteMenuUrl(url: string | null | undefined): string {
+  if (!url) return "#";
   return hakkimizdaRewrites[url] || url;
+}
+function rewriteParentUrl(item: any): string {
+  if (item.label === "Hakkımızda") return "/hakkimizda";
+  return item.url || "#";
 }
 
 function useMenuData() {
@@ -126,13 +131,14 @@ function useMenuData() {
 }
 
 /* Dropdown for main page navbar (light variant) */
-function MainNavDropdown({ label, sub }: {
+function MainNavDropdown({ label, href, sub }: {
   label: string;
+  href: string;
   sub: { label: string; href: string; icon: React.ElementType; desc: string }[];
 }) {
   return (
     <div className="relative group/dd">
-      <a href="#" className="px-4 py-2 text-[0.85rem] font-semibold text-slate-500 hover:text-brand-600 rounded-xl hover:bg-brand-50 transition-all flex items-center gap-1">
+      <a href={href} className="px-4 py-2 text-[0.85rem] font-semibold text-slate-500 hover:text-brand-600 rounded-xl hover:bg-brand-50 transition-all flex items-center gap-1">
         {label}
         <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover/dd:rotate-180" />
       </a>
@@ -187,7 +193,7 @@ function Navbar({ menuItems }: { menuItems: any[] }) {
         <div className="hidden lg:flex items-center gap-1">
           {navLinks.map((item: any) =>
             item.children?.length ? (
-              <MainNavDropdown key={item.id} label={item.label} sub={item.children.map((c: any) => ({
+              <MainNavDropdown key={item.id} label={item.label} href={rewriteParentUrl(item)} sub={item.children.map((c: any) => ({
                 label: c.label, href: rewriteMenuUrl(c.url || "#"), icon: homeResolveIcon(c.icon), desc: c.description || "",
               }))} />
             ) : (
@@ -1054,7 +1060,7 @@ function PianoShowcase({ data }: { data?: any }) {
                       <iframe
                         key={keys[activeIdx].youtubeId}
                         className="absolute inset-0 w-full h-full"
-                        src={`https://www.youtube.com/embed/${keys[activeIdx].youtubeId}?autoplay=1&rel=0`}
+                        src={`https://www.youtube.com/embed/${keys[activeIdx].youtubeId}?autoplay=1&rel=0&hd=1&vq=hd1080`}
                         title={keys[activeIdx]?.title}
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         referrerPolicy="strict-origin-when-cross-origin"
@@ -1062,9 +1068,10 @@ function PianoShowcase({ data }: { data?: any }) {
                       />
                     ) : keys[activeIdx]?.youtubeId ? (
                       <img
-                        src={`https://img.youtube.com/vi/${keys[activeIdx].youtubeId}/hqdefault.jpg`}
+                        src={`https://img.youtube.com/vi/${keys[activeIdx].youtubeId}/maxresdefault.jpg`}
                         alt={keys[activeIdx]?.title}
                         className="absolute inset-0 w-full h-full object-cover"
+                        onError={(e) => { (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${keys[activeIdx].youtubeId}/hqdefault.jpg`; }}
                       />
                     ) : (
                       <video
@@ -1217,7 +1224,7 @@ function VideoShowcase({ data }: { data?: any }) {
                             <>
                               {!isPlaying ? (
                                 <>
-                                  <img src={`https://img.youtube.com/vi/${v.youtubeId}/hqdefault.jpg`} alt={v.title} className="w-full h-full object-cover" />
+                                  <img src={`https://img.youtube.com/vi/${v.youtubeId}/maxresdefault.jpg`} alt={v.title} className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${v.youtubeId}/hqdefault.jpg`; }} />
                                   <button
                                     onClick={() => setPlayingIdx(i)}
                                     className="absolute inset-0 bg-black/20 flex items-center justify-center group/play cursor-pointer transition-colors hover:bg-black/30"

@@ -124,12 +124,12 @@ function NavDropdown({ label, href, active, sub, variant = "light" }: {
 }
 
 const hakkimizdaRewrites: Record<string, string> = {
-  "/misyonumuz": "/hakkimizda#misyonumuz",
-  "/akademik-yaklasimimiz": "/hakkimizda#akademik-yaklasimimiz",
-  "/ilkelerimiz": "/hakkimizda#ilkelerimiz",
-  "/neden-learnecohub": "/hakkimizda#neden-learnecohub",
-  "/ekibimiz": "/hakkimizda#ekibimiz",
-  "/basari-hikayeleri": "/hakkimizda#basari-hikayeleri",
+  "/misyonumuz": "/hakkimizda",
+  "/akademik-yaklasimimiz": "/hakkimizda",
+  "/ilkelerimiz": "/hakkimizda",
+  "/neden-learnecohub": "/hakkimizda",
+  "/ekibimiz": "/hakkimizda",
+  "/basari-hikayeleri": "/hakkimizda",
 };
 function rewriteMenuUrl(url: string): string {
   return hakkimizdaRewrites[url] || url;
@@ -182,7 +182,7 @@ export function SubpageNavbar({ active }: { active: string }) {
                 <NavDropdown
                   key={item.id}
                   label={item.label}
-                  href={item.url || "#"}
+                  href={item.label === "Hakkımızda" ? "/hakkimizda" : (item.url || "#")}
                   active={active}
                   sub={item.children.map((c: any) => ({
                     label: c.label,
