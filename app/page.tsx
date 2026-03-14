@@ -873,11 +873,12 @@ function PianoShowcase({ data }: { data?: any }) {
     { title: "Duygular", desc: "Duyguları tanıma ve yönetme stratejileri", src: "https://learnecohub.com/.old-wp/wp-content/uploads/2025/07/Etkilesimli-Video-Tanitim-1.mp4" },
   ];
 
-  const keys: typeof defaultKeys = d.items?.length ? d.items.map((item: any, i: number) => ({
+  const keys: Array<{ title: string; desc: string; src: string; youtubeId: string }> = d.items?.length ? d.items.map((item: any, i: number) => ({
     title: item.title || defaultKeys[i]?.title || "",
     desc: item.description || item.desc || defaultKeys[i]?.desc || "",
     src: item.src || item.url || defaultKeys[i]?.src || "",
-  })) : defaultKeys;
+    youtubeId: item.youtubeId || "",
+  })) : defaultKeys.map((k) => ({ ...k, youtubeId: "" }));
 
   const handleKeyClick = (idx: number) => {
     setPressedIdx(idx);
@@ -892,7 +893,9 @@ function PianoShowcase({ data }: { data?: any }) {
   };
 
   const handlePlay = () => {
-    if (videoRef.current) {
+    if (keys[activeIdx]?.youtubeId) {
+      setIsPlaying(true);
+    } else if (videoRef.current) {
       videoRef.current.play();
       setIsPlaying(true);
     }
@@ -1047,14 +1050,32 @@ function PianoShowcase({ data }: { data?: any }) {
                 {/* ─── Video Player (Right) ─── */}
                 <div className="flex-1 relative bg-[#0A0F1C] flex flex-col">
                   <div className="relative flex-1 min-h-[260px]">
-                    <video
-                      ref={videoRef}
-                      key={keys[activeIdx]?.src}
-                      src={keys[activeIdx]?.src}
-                      className="absolute inset-0 w-full h-full object-cover"
-                      onEnded={() => setIsPlaying(false)}
-                      playsInline
-                    />
+                    {keys[activeIdx]?.youtubeId && isPlaying ? (
+                      <iframe
+                        key={keys[activeIdx].youtubeId}
+                        className="absolute inset-0 w-full h-full"
+                        src={`https://www.youtube.com/embed/${keys[activeIdx].youtubeId}?autoplay=1&rel=0`}
+                        title={keys[activeIdx]?.title}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                      />
+                    ) : keys[activeIdx]?.youtubeId ? (
+                      <img
+                        src={`https://img.youtube.com/vi/${keys[activeIdx].youtubeId}/hqdefault.jpg`}
+                        alt={keys[activeIdx]?.title}
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                    ) : (
+                      <video
+                        ref={videoRef}
+                        key={keys[activeIdx]?.src}
+                        src={keys[activeIdx]?.src}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        onEnded={() => setIsPlaying(false)}
+                        playsInline
+                      />
+                    )}
 
                     {/* Play overlay */}
                     {!isPlaying && (
