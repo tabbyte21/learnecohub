@@ -788,32 +788,32 @@ function Materials({ data }: { data?: any }) {
             <div className="material-marquee overflow-hidden">
               <div className="material-marquee-inner flex gap-8 w-max py-6 px-10">
                 {[...cards, ...cards].map((c, i) => (
-                  <div key={i} className="a4-file group relative flex-shrink-0 w-[220px] cursor-pointer">
+                  <div key={i} className="a4-file group relative flex-shrink-0 w-[300px] cursor-pointer">
                     <div className="relative transition-all duration-500 group-hover:-translate-y-4 group-hover:shadow-2xl" style={{ filter: "drop-shadow(0 8px 24px rgba(0,0,0,0.08))" }}>
                       <div
                         className="relative overflow-hidden"
                         style={{
-                          height: "280px",
+                          height: "380px",
                           background: "#ffffff",
-                          clipPath: "polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 0 100%)",
-                          borderRadius: "14px",
+                          clipPath: "polygon(0 0, calc(100% - 36px) 0, 100% 36px, 100% 100%, 0 100%)",
+                          borderRadius: "16px",
                           border: `2px solid ${c.accent}40`,
                         }}
                       >
                         <div className="absolute inset-0 a4-lines" style={{ "--line-color": c.accent + "18" } as React.CSSProperties} />
-                        <div className="absolute top-0 bottom-0 left-[38px] w-[1.5px]" style={{ background: c.color + "15" }} />
-                        <div className="absolute top-0 right-0 w-[32px] h-[32px] z-10">
+                        <div className="absolute top-0 bottom-0 left-[44px] w-[1.5px]" style={{ background: c.color + "15" }} />
+                        <div className="absolute top-0 right-0 w-[36px] h-[36px] z-10">
                           <div className="absolute inset-0" style={{ background: c.bg, clipPath: "polygon(0 0, 100% 100%, 0 100%)" }} />
                           <div className="absolute inset-0" style={{ background: c.accent + "20", clipPath: "polygon(0 0, 0 100%, 100% 100%)" }} />
                         </div>
-                        <div className="relative z-10 px-4 pt-5 pb-2 pl-[46px]" style={{ borderBottom: `2px solid ${c.accent}25` }}>
-                          <span className="text-[0.55rem] font-extrabold uppercase tracking-widest" style={{ color: c.color }}>{c.count} MATERYAL</span>
-                          <h4 className="font-display font-bold text-[0.8rem] text-slate-800 leading-tight mt-0.5">{c.label}</h4>
+                        <div className="relative z-10 px-5 pt-6 pb-3 pl-[52px]" style={{ borderBottom: `2px solid ${c.accent}25` }}>
+                          <span className="text-[0.6rem] font-extrabold uppercase tracking-widest" style={{ color: c.color }}>{c.count} MATERYAL</span>
+                          <h4 className="font-display font-bold text-[0.95rem] text-slate-800 leading-tight mt-1">{c.label}</h4>
                         </div>
-                        <div className="relative z-10 px-4 pt-3 pl-[46px]">
-                          <p className="text-[0.72rem] text-slate-500 leading-relaxed">{c.lines.join(", ")}</p>
+                        <div className="relative z-10 px-5 pt-4 pl-[52px]">
+                          <p className="text-[0.82rem] text-slate-500 leading-relaxed">{c.lines.join(", ")}</p>
                         </div>
-                        <div className="absolute bottom-0 left-0 right-0 h-[5px]" style={{ background: c.color }} />
+                        <div className="absolute bottom-0 left-0 right-0 h-[6px]" style={{ background: c.color }} />
                       </div>
                     </div>
                   </div>
