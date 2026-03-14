@@ -724,8 +724,18 @@ function Materials({ data }: { data?: any }) {
   }) : defaultCards;
 
   // Images for the mosaic (admin can override via d.images array)
-  // Admin: Sayfalar → Anasayfa → Materials section → "Sağ Taraf Resimleri" alanından düzenlenebilir
-  const images = (d.images?.length ? d.images : []) as { src: string; alt: string }[];
+  const defaultMosaicImages = [
+    { src: "/materials/katalog_page_1.png", alt: "Materyal 1" },
+    { src: "/materials/katalog_page_2.png", alt: "Materyal 2" },
+    { src: "/materials/katalog_page_3.png", alt: "Materyal 3" },
+    { src: "/materials/katalog_page_4.png", alt: "Materyal 4" },
+    { src: "/materials/katalog_page_5.png", alt: "Materyal 5" },
+    { src: "/materials/katalog_page_6.png", alt: "Materyal 6" },
+    { src: "/materials/katalog_page_7.png", alt: "Materyal 7" },
+    { src: "/materials/katalog_page_8.png", alt: "Materyal 8" },
+    { src: "/materials/katalog_page_9.png", alt: "Materyal 9" },
+  ];
+  const images = (d.images?.length ? d.images : defaultMosaicImages) as { src: string; alt: string }[];
 
   const ctaLabel = d.ctaLabel || "Şimdi Keşfetmeye Başlayın";
   const ctaHref = d.ctaHref || "https://lms.learnecohub.com/login/index.php";
@@ -766,47 +776,19 @@ function Materials({ data }: { data?: any }) {
               <div className="absolute bottom-0 left-0 right-0 h-28 z-20 pointer-events-none" style={{ background: "linear-gradient(to top, #FFF8E1, transparent)" }} />
 
               {(() => {
-                // Generate colored placeholder cards if no images from admin
-                const mosaicColors = ["#1B3A7B","#2ECC71","#7F63CB","#EE7A45","#F5C518","#4D7EC4","#69DC9A","#9F8AD8","#F49668"];
-                const mosaicIcons = [Video, Gamepad2, FileText, Monitor, Headphones, Users, PenTool, BarChart3, Layers];
-                const mosaicLabels = ["Video Dersler","Beceri Oyunları","Çalışma Sayfaları","Dijital Dersler","Sesli İçerikler","Grup Etkinlikleri","Yaratıcı Atölyeler","Değerlendirme","Modüller"];
-                const hasRealImages = images.length >= 3;
                 return (
                   <div className="grid grid-cols-3 gap-3 sm:gap-4 h-[420px] sm:h-[480px] overflow-hidden">
                     {[0, 1, 2].map((col) => {
                       const direction = col % 2 === 0 ? "matScrollUp" : "matScrollDown";
                       const speed = 18 + col * 4;
-                      if (hasRealImages) {
-                        const colImages = images.slice(col * 3, col * 3 + 3);
-                        const tripled = [...colImages, ...colImages, ...colImages];
-                        return (
-                          <div key={col} className="relative overflow-hidden h-full">
-                            <div className="flex flex-col gap-3 sm:gap-4" style={{ animation: `${direction} ${speed}s linear infinite` }}>
-                              {tripled.map((img, i) => (
-                                <div key={i} className="rounded-xl overflow-hidden shadow-lg flex-shrink-0">
-                                  <img src={img.src} alt={img.alt} className="w-full h-auto object-cover aspect-[4/3]" loading="lazy" />
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        );
-                      }
-                      // Colored placeholder cards when no images from admin
-                      const colCards = [0, 1, 2].map((j) => {
-                        const ci = col * 3 + j;
-                        const color = mosaicColors[ci % mosaicColors.length];
-                        const Icon = mosaicIcons[ci % mosaicIcons.length];
-                        const label = mosaicLabels[ci % mosaicLabels.length];
-                        return { color, Icon, label };
-                      });
-                      const tripled = [...colCards, ...colCards, ...colCards];
+                      const colImages = images.slice(col * 3, col * 3 + 3);
+                      const tripled = [...colImages, ...colImages, ...colImages];
                       return (
                         <div key={col} className="relative overflow-hidden h-full">
                           <div className="flex flex-col gap-3 sm:gap-4" style={{ animation: `${direction} ${speed}s linear infinite` }}>
-                            {tripled.map((card, i) => (
-                              <div key={i} className="rounded-xl shadow-lg flex-shrink-0 p-6 flex flex-col items-center justify-center aspect-[4/3]" style={{ background: `linear-gradient(135deg, ${card.color}20, ${card.color}40)`, border: `1.5px solid ${card.color}30` }}>
-                                <card.Icon className="w-8 h-8 mb-2" style={{ color: card.color }} />
-                                <span className="font-display font-bold text-xs text-center" style={{ color: card.color }}>{card.label}</span>
+                            {tripled.map((img, i) => (
+                              <div key={i} className="rounded-xl overflow-hidden shadow-lg flex-shrink-0">
+                                <img src={img.src} alt={img.alt} className="w-full h-auto object-cover aspect-[4/3]" loading="lazy" />
                               </div>
                             ))}
                           </div>
@@ -2389,6 +2371,7 @@ export default function Page() {
       <Navbar menuItems={menuItems} />
       <Hero data={sd.hero} menuItems={menuItems} />
       <Stats data={sd.stats} />
+      <CloudDivider />
       <YoutubeShowcase data={sd.youtube_showcase} />
       <Materials data={sd.materials_scroll || sd.materials} />
       <CloudDivider />
