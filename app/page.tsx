@@ -103,12 +103,12 @@ function homeResolveIcon(name?: string | null): React.ElementType {
    NAVBAR (dynamic from /api/menu)
    ═══════════════════════════════════════ */
 const hakkimizdaRewrites: Record<string, string> = {
-  "/misyonumuz": "/hakkimizda",
-  "/akademik-yaklasimimiz": "/hakkimizda",
-  "/ilkelerimiz": "/hakkimizda",
-  "/neden-learnecohub": "/hakkimizda",
-  "/ekibimiz": "/hakkimizda",
-  "/basari-hikayeleri": "/hakkimizda",
+  "/misyonumuz": "/hakkimizda#misyonumuz",
+  "/akademik-yaklasimimiz": "/hakkimizda#akademik-yaklasimimiz",
+  "/ilkelerimiz": "/hakkimizda#ilkelerimiz",
+  "/neden-learnecohub": "/hakkimizda#neden-learnecohub",
+  "/ekibimiz": "/hakkimizda#ekibimiz",
+  "/basari-hikayeleri": "/hakkimizda#basari-hikayeleri",
 };
 function rewriteMenuUrl(url: string | null | undefined): string {
   if (!url) return "#";
@@ -724,18 +724,8 @@ function Materials({ data }: { data?: any }) {
   }) : defaultCards;
 
   // Images for the mosaic (admin can override via d.images array)
-  const defaultImages = [
-    { src: "https://img.youtube.com/vi/jwRQ9NAUJzo/hqdefault.jpg", alt: "Animasyon Video Dersi" },
-    { src: "https://img.youtube.com/vi/B0EXKrMcH_0/hqdefault.jpg", alt: "Kontrol Becerileri" },
-    { src: "https://img.youtube.com/vi/aykfpBwP-9c/hqdefault.jpg", alt: "Minnettarlık Dersi" },
-    { src: "https://img.youtube.com/vi/4RkCmwiBX0/hqdefault.jpg", alt: "Beceri Oyunları" },
-    { src: "https://img.youtube.com/vi/GcjqT6zb1Ts/hqdefault.jpg", alt: "Platform Tanıtım" },
-    { src: "https://img.youtube.com/vi/jwRQ9NAUJzo/mqdefault.jpg", alt: "Sakinleşme Egzersizi" },
-    { src: "https://img.youtube.com/vi/B0EXKrMcH_0/mqdefault.jpg", alt: "Problem Çözme" },
-    { src: "https://img.youtube.com/vi/aykfpBwP-9c/mqdefault.jpg", alt: "Duygu Yönetimi" },
-    { src: "https://img.youtube.com/vi/GcjqT6zb1Ts/mqdefault.jpg", alt: "Etkileşimli İçerik" },
-  ];
-  const images = (d.images?.length ? d.images : defaultImages) as { src: string; alt: string }[];
+  // Admin: Sayfalar → Anasayfa → Materials section → "Sağ Taraf Resimleri" alanından düzenlenebilir
+  const images = (d.images?.length ? d.images : []) as { src: string; alt: string }[];
 
   const ctaLabel = d.ctaLabel || "Şimdi Keşfetmeye Başlayın";
   const ctaHref = d.ctaHref || "https://lms.learnecohub.com/login/index.php";
@@ -775,28 +765,57 @@ function Materials({ data }: { data?: any }) {
               <div className="absolute top-0 left-0 right-0 h-28 z-20 pointer-events-none" style={{ background: "linear-gradient(to bottom, #FFF8E1, transparent)" }} />
               <div className="absolute bottom-0 left-0 right-0 h-28 z-20 pointer-events-none" style={{ background: "linear-gradient(to top, #FFF8E1, transparent)" }} />
 
-              <div className="grid grid-cols-3 gap-3 sm:gap-4 h-[420px] sm:h-[480px] overflow-hidden">
-                {[0, 1, 2].map((col) => {
-                  const colImages = images.slice(col * 3, col * 3 + 3);
-                  const doubled = [...colImages, ...colImages, ...colImages];
-                  const direction = col % 2 === 0 ? "matScrollUp" : "matScrollDown";
-                  const speed = 18 + col * 4;
-                  return (
-                    <div key={col} className="relative overflow-hidden h-full">
-                      <div
-                        className="flex flex-col gap-3 sm:gap-4"
-                        style={{ animation: `${direction} ${speed}s linear infinite` }}
-                      >
-                        {doubled.map((img, i) => (
-                          <div key={i} className="rounded-xl overflow-hidden shadow-lg flex-shrink-0">
-                            <img src={img.src} alt={img.alt} className="w-full h-auto object-cover" loading="lazy" />
+              {(() => {
+                // Generate colored placeholder cards if no images from admin
+                const mosaicColors = ["#1B3A7B","#2ECC71","#7F63CB","#EE7A45","#F5C518","#4D7EC4","#69DC9A","#9F8AD8","#F49668"];
+                const mosaicIcons = [Video, Gamepad2, FileText, Monitor, Headphones, Users, PenTool, BarChart3, Layers];
+                const mosaicLabels = ["Video Dersler","Beceri Oyunları","Çalışma Sayfaları","Dijital Dersler","Sesli İçerikler","Grup Etkinlikleri","Yaratıcı Atölyeler","Değerlendirme","Modüller"];
+                const hasRealImages = images.length >= 3;
+                return (
+                  <div className="grid grid-cols-3 gap-3 sm:gap-4 h-[420px] sm:h-[480px] overflow-hidden">
+                    {[0, 1, 2].map((col) => {
+                      const direction = col % 2 === 0 ? "matScrollUp" : "matScrollDown";
+                      const speed = 18 + col * 4;
+                      if (hasRealImages) {
+                        const colImages = images.slice(col * 3, col * 3 + 3);
+                        const tripled = [...colImages, ...colImages, ...colImages];
+                        return (
+                          <div key={col} className="relative overflow-hidden h-full">
+                            <div className="flex flex-col gap-3 sm:gap-4" style={{ animation: `${direction} ${speed}s linear infinite` }}>
+                              {tripled.map((img, i) => (
+                                <div key={i} className="rounded-xl overflow-hidden shadow-lg flex-shrink-0">
+                                  <img src={img.src} alt={img.alt} className="w-full h-auto object-cover aspect-[4/3]" loading="lazy" />
+                                </div>
+                              ))}
+                            </div>
                           </div>
-                        ))}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+                        );
+                      }
+                      // Colored placeholder cards when no images from admin
+                      const colCards = [0, 1, 2].map((j) => {
+                        const ci = col * 3 + j;
+                        const color = mosaicColors[ci % mosaicColors.length];
+                        const Icon = mosaicIcons[ci % mosaicIcons.length];
+                        const label = mosaicLabels[ci % mosaicLabels.length];
+                        return { color, Icon, label };
+                      });
+                      const tripled = [...colCards, ...colCards, ...colCards];
+                      return (
+                        <div key={col} className="relative overflow-hidden h-full">
+                          <div className="flex flex-col gap-3 sm:gap-4" style={{ animation: `${direction} ${speed}s linear infinite` }}>
+                            {tripled.map((card, i) => (
+                              <div key={i} className="rounded-xl shadow-lg flex-shrink-0 p-6 flex flex-col items-center justify-center aspect-[4/3]" style={{ background: `linear-gradient(135deg, ${card.color}20, ${card.color}40)`, border: `1.5px solid ${card.color}30` }}>
+                                <card.Icon className="w-8 h-8 mb-2" style={{ color: card.color }} />
+                                <span className="font-display font-bold text-xs text-center" style={{ color: card.color }}>{card.label}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              })()}
             </div>
           </div>
         </div>
