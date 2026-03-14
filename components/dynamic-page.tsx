@@ -1713,6 +1713,31 @@ function PartnerLogosSection({ data }: { data: any }) {
   );
 }
 
+/* ═══════════════════════════════════════
+   CLOUD DIVIDER — animated transition strip
+   ═══════════════════════════════════════ */
+function CloudDivider({ flip = false }: { flip?: boolean }) {
+  return (
+    <div className={`relative z-30 overflow-hidden pointer-events-none h-16 sm:h-24 -my-8 sm:-my-12 ${flip ? "rotate-180" : ""}`}>
+      <div className="cloud-scroll-wrap flex">
+        <div className="flex flex-shrink-0">
+          {Array.from({ length: 30 }).map((_, i) => (
+            <img key={`a${i}`} src="/bulut.png" alt="" className="h-16 sm:h-24 w-auto flex-shrink-0" draggable={false} />
+          ))}
+        </div>
+        <div className="flex flex-shrink-0">
+          {Array.from({ length: 30 }).map((_, i) => (
+            <img key={`b${i}`} src="/bulut.png" alt="" className="h-16 sm:h-24 w-auto flex-shrink-0" draggable={false} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Section types after which a cloud divider should appear
+const cloudAfterTypes = new Set(["stats", "manifesto", "teacher_tools", "badge_stats"]);
+
 export const sectionRenderers: Record<string, (data: any) => React.ReactNode> = {
   subpage_hero: () => <></>, // Handled separately
   hero: () => <></>, // Main page hero, handled separately
@@ -1811,20 +1836,23 @@ export function DynamicPage({ slug, navActive }: { slug: string; navActive: stri
       )}
       {(() => {
         const typeCounters: Record<string, number> = {};
-        return sections
-          .filter((s: any) => s.sectionType !== "subpage_hero" && s.sectionType !== "footer")
-          .map((section: any, idx: number) => {
-            const renderer = sectionRenderers[section.sectionType];
-            if (!renderer) return null;
-            let data: any = {};
-            try { data = JSON.parse(section.content); } catch {}
-            // Pass variant index for repeated section types
-            const typeCount = typeCounters[section.sectionType] || 0;
-            typeCounters[section.sectionType] = typeCount + 1;
-            data.__variant = typeCount;
-            data.__sectionIndex = idx;
-            return <div key={section.id}>{renderer(data)}</div>;
-          });
+        const filtered = sections.filter((s: any) => s.sectionType !== "subpage_hero" && s.sectionType !== "footer");
+        const elements: React.ReactNode[] = [];
+        filtered.forEach((section: any, idx: number) => {
+          const renderer = sectionRenderers[section.sectionType];
+          if (!renderer) return;
+          let data: any = {};
+          try { data = JSON.parse(section.content); } catch {}
+          const typeCount = typeCounters[section.sectionType] || 0;
+          typeCounters[section.sectionType] = typeCount + 1;
+          data.__variant = typeCount;
+          data.__sectionIndex = idx;
+          elements.push(<div key={section.id}>{renderer(data)}</div>);
+          if (cloudAfterTypes.has(section.sectionType)) {
+            elements.push(<CloudDivider key={`cloud-${section.id}`} flip={idx % 2 === 1} />);
+          }
+        });
+        return elements;
       })()}
       <SubpageFooter data={footerData} />
     </>

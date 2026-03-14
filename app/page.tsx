@@ -1657,12 +1657,7 @@ function Pricing({ data }: { data?: any }) {
           </div>
           <div className="grid lg:grid-cols-3 gap-5">
             {plans.map((p: any, i: number) => (
-              <div key={i} className={`anim d${i + 1} card-3d ${p.cls} p-7 relative flex flex-col ${p.popular ? "ring-2 ring-mint-400 ring-offset-2" : ""}`}>
-                {p.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="tag bg-mint-500 text-white font-bold">{d.popularLabel || "En Popüler"}</span>
-                  </div>
-                )}
+              <div key={i} className={`anim d${i + 1} card-3d ${p.cls} p-7 relative flex flex-col`}>
                 <h3 className="font-display text-xl font-extrabold text-slate-800 mb-1">{p.title}</h3>
                 <p className="text-[0.82rem] text-slate-400 font-medium mb-4">{p.subtitle}</p>
                 <ul className="space-y-2.5 mb-7 flex-1">
@@ -1673,7 +1668,7 @@ function Pricing({ data }: { data?: any }) {
                     </li>
                   ))}
                 </ul>
-                <a href={p.ctaHref || "/iletisim"} className={`btn-3d ${p.popular ? "btn-3d-mint" : "btn-3d-white"} w-full justify-center`}>
+                <a href={p.ctaHref || "/iletisim"} className="btn-3d btn-3d-white w-full justify-center">
                   {p.cta} <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
@@ -2381,6 +2376,7 @@ export default function Page() {
       <FreeBanner data={sd.free_banner} />
       <PianoShowcase data={sd.piano_showcase} />
       <VideoShowcase data={sd.video_showcase} />
+      <CloudDivider />
       <LearningSteps data={sd.learning_steps} />
       <LearningMap data={sd.learning_map} />
       <CloudDivider />
