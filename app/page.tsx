@@ -237,6 +237,28 @@ function Navbar({ menuItems }: { menuItems: any[] }) {
 }
 
 /* ═══════════════════════════════════════
+   CLOUD DIVIDER
+   ═══════════════════════════════════════ */
+function CloudDivider({ flip = false }: { flip?: boolean }) {
+  return (
+    <div className={`relative z-30 overflow-hidden pointer-events-none h-16 sm:h-24 -my-8 sm:-my-12 ${flip ? "rotate-180" : ""}`}>
+      <div className="cloud-scroll-wrap flex">
+        <div className="flex flex-shrink-0">
+          {Array.from({ length: 30 }).map((_, i) => (
+            <img key={`a${i}`} src="/bulut.png" alt="" className="h-16 sm:h-24 w-auto flex-shrink-0" draggable={false} />
+          ))}
+        </div>
+        <div className="flex flex-shrink-0">
+          {Array.from({ length: 30 }).map((_, i) => (
+            <img key={`b${i}`} src="/bulut.png" alt="" className="h-16 sm:h-24 w-auto flex-shrink-0" draggable={false} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════
    PARTNER LOGO BAND
    ═══════════════════════════════════════ */
 function PartnerLogoBand() {
@@ -244,8 +266,8 @@ function PartnerLogoBand() {
   useEffect(() => {
     fetch(`/api/partner-logos?t=${Date.now()}`)
       .then((r) => r.json())
-      .then(setLogos)
-      .catch(() => {});
+      .then((data) => { console.log("[PartnerLogoBand] loaded", data.length, "logos"); setLogos(data); })
+      .catch((e) => console.error("[PartnerLogoBand] error:", e));
   }, []);
 
   if (logos.length === 0) return null;
@@ -256,17 +278,22 @@ function PartnerLogoBand() {
       <div className="py-4">
         <div className="ref-marquee-inner flex gap-12 w-max items-center">
           {doubled.map((logo, i) => {
-            const src = logo.imageData
-              ? (logo.imageData.startsWith("data:") ? logo.imageData : `data:${logo.mimeType || "image/png"};base64,${logo.imageData}`)
-              : `/logos/${logo.fileName}`;
+            const hasImage = logo.imageData && logo.imageData.length > 10;
+            const src = hasImage
+              ? (logo.imageData!.startsWith("data:") ? logo.imageData! : `data:${logo.mimeType || "image/png"};base64,${logo.imageData}`)
+              : null;
             return (
-              <div key={i} className="flex-shrink-0">
-                <img
-                  src={src}
-                  alt={logo.name}
-                  className="h-8 sm:h-9 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
-                  style={{ filter: "grayscale(100%) brightness(0.3)" }}
-                />
+              <div key={i} className="flex-shrink-0 flex items-center gap-2">
+                {src ? (
+                  <img
+                    src={src}
+                    alt={logo.name}
+                    className="h-8 sm:h-9 w-auto object-contain"
+                    style={{ filter: "brightness(0) invert(0.15)" }}
+                  />
+                ) : (
+                  <span className="font-display font-extrabold text-sm text-[#1A1A2E]/60 whitespace-nowrap tracking-wide uppercase">{logo.name}</span>
+                )}
               </div>
             );
           })}
@@ -1608,11 +1635,11 @@ function Pricing({ data }: { data?: any }) {
     title: item.title || defaultPlans[i]?.title || "",
     subtitle: item.subtitle || defaultPlans[i]?.subtitle || "",
     cls: planClasses[i % planClasses.length],
-    featuresText: typeof item.features === "string" ? item.features.replace(/\n/g, ". ") : (Array.isArray(item.features) ? item.features.join(". ") : (defaultPlans[i]?.features?.join(". ") || "")),
+    features: typeof item.features === "string" ? item.features.split("\n").filter(Boolean) : (Array.isArray(item.features) ? item.features : (defaultPlans[i]?.features || [])),
     cta: item.cta || defaultPlans[i]?.cta || "Detaylı Bilgi Al",
     ctaHref: item.ctaHref || "/iletisim",
     popular: item.popular ?? (i === 1),
-  })) : defaultPlans.map(p => ({ ...p, featuresText: p.features.join(". ") }));
+  })) : defaultPlans.map(p => ({ ...p }));
 
   return (
     <Section>
@@ -1638,7 +1665,14 @@ function Pricing({ data }: { data?: any }) {
                 )}
                 <h3 className="font-display text-xl font-extrabold text-slate-800 mb-1">{p.title}</h3>
                 <p className="text-[0.82rem] text-slate-400 font-medium mb-4">{p.subtitle}</p>
-                <p className="text-[0.84rem] text-slate-600 leading-relaxed mb-7 flex-1">{p.featuresText}</p>
+                <ul className="space-y-2.5 mb-7 flex-1">
+                  {(p.features || []).map((f: string, fi: number) => (
+                    <li key={fi} className="flex items-start gap-2.5 text-[0.82rem] text-slate-600 leading-relaxed">
+                      <CheckCircle2 className="w-4 h-4 text-mint-500 flex-shrink-0 mt-0.5" />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
                 <a href={p.ctaHref || "/iletisim"} className={`btn-3d ${p.popular ? "btn-3d-mint" : "btn-3d-white"} w-full justify-center`}>
                   {p.cta} <ArrowRight className="w-4 h-4" />
                 </a>
@@ -2343,14 +2377,17 @@ export default function Page() {
       <Stats data={sd.stats} />
       <YoutubeShowcase data={sd.youtube_showcase} />
       <Materials data={sd.materials_scroll || sd.materials} />
+      <CloudDivider />
       <FreeBanner data={sd.free_banner} />
       <PianoShowcase data={sd.piano_showcase} />
       <VideoShowcase data={sd.video_showcase} />
       <LearningSteps data={sd.learning_steps} />
       <LearningMap data={sd.learning_map} />
+      <CloudDivider />
       <Pricing data={sd.pricing} />
       <Manifesto data={sd.manifesto} />
       <Team data={sd.team || sd.team_grid} />
+      <CloudDivider flip />
       <ImpactBanner data={sd.impact_banner} />
       <Testimonials data={sd.testimonials} />
       <FAQ data={sd.faq || sd.faq_parents} />
