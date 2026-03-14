@@ -1684,7 +1684,7 @@ function PartnerLogosSection({ data }: { data: any }) {
                   const color = brandColors[i % brandColors.length];
                   const name = logo.name || logo.title || "";
                   const imgSrc = logo.imageData
-                    ? `data:${logo.mimeType || "image/png"};base64,${logo.imageData}`
+                    ? (logo.imageData.startsWith("data:") ? logo.imageData : `data:${logo.mimeType || "image/png"};base64,${logo.imageData}`)
                     : logo.fileName ? `/logos/${logo.fileName}` : logo.image;
                   return (
                     <div key={i} className="flex-shrink-0 w-[160px] h-[80px] rounded-xl border border-slate-100 bg-white flex items-center justify-center p-3 hover:border-slate-200 hover:shadow-sm transition-all">
@@ -1838,6 +1838,12 @@ export function DynamicPage({ slug, navActive }: { slug: string; navActive: stri
         const typeCounters: Record<string, number> = {};
         const filtered = sections.filter((s: any) => s.sectionType !== "subpage_hero" && s.sectionType !== "footer");
         const elements: React.ReactNode[] = [];
+        // Generate anchor slug from section title
+        const toSlug = (title: string) =>
+          title.toLowerCase()
+            .replace(/ş/g,"s").replace(/ç/g,"c").replace(/ğ/g,"g").replace(/ü/g,"u").replace(/ö/g,"o").replace(/ı/g,"i")
+            .replace(/İ/g,"i").replace(/Ş/g,"s").replace(/Ç/g,"c").replace(/Ğ/g,"g").replace(/Ü/g,"u").replace(/Ö/g,"o")
+            .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
         filtered.forEach((section: any, idx: number) => {
           const renderer = sectionRenderers[section.sectionType];
           if (!renderer) return;
@@ -1847,7 +1853,8 @@ export function DynamicPage({ slug, navActive }: { slug: string; navActive: stri
           typeCounters[section.sectionType] = typeCount + 1;
           data.__variant = typeCount;
           data.__sectionIndex = idx;
-          elements.push(<div key={section.id}>{renderer(data)}</div>);
+          const anchorId = toSlug(section.title || "");
+          elements.push(<div key={section.id} id={anchorId}>{renderer(data)}</div>);
           if (cloudAfterTypes.has(section.sectionType)) {
             elements.push(<CloudDivider key={`cloud-${section.id}`} flip={idx % 2 === 1} />);
           }
