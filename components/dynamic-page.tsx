@@ -75,31 +75,148 @@ function StickyNotesSection({ data }: { data: any }) {
 
 /* ── student_features: Playful gradient icon cards ── */
 function FeatureShowcaseSection({ data }: { data: any }) {
+  const variant = data.__variant || 0;
   const hexColors: Record<string, string> = {
     "#1B3A7B": "#4D7EC4", "#2ECC71": "#69DC9A", "#7F63CB": "#9F8AD8",
     "#EE7A45": "#F49668", "#F5C518": "#FFDF66",
   };
+
+  /* ── Variant 0: Classic card grid with top accent bar ── */
+  if (variant === 0) {
+    return (
+      <Section>
+        <section className="py-24 bg-gradient-to-b from-white via-[#F0F7FF] to-white relative overflow-hidden">
+          <div className="absolute top-10 right-[10%] w-80 h-80 bg-brand-100/30 rounded-full blur-[100px]" />
+          <div className="absolute bottom-10 left-[5%] w-60 h-60 bg-mint-100/30 rounded-full blur-[80px]" />
+          <div className="relative z-10 max-w-7xl mx-auto px-6">
+            <div className="text-center max-w-3xl mx-auto mb-14">
+              <h2 className="anim font-display text-2xl sm:text-3xl font-extrabold text-slate-800">{data.title}{data.titleHighlight && <>{" "}<span className="text-gradient">{data.titleHighlight}</span></>}</h2>
+              {data.description && <p className="anim d1 text-slate-400 text-[0.88rem] leading-relaxed mt-3">{data.description}</p>}
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {data.items?.map((item: any, i: number) => {
+                const Icon = getIcon(item.icon);
+                const color = item.color || "#1B3A7B";
+                const accent = hexColors[color] || color;
+                return (
+                  <div key={i} className={`anim d${(i % 6) + 1} group`}>
+                    <div className="relative bg-white rounded-2xl p-5 sm:p-6 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 overflow-hidden">
+                      <div className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl" style={{ background: `linear-gradient(90deg, ${color}, ${accent})` }} />
+                      <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110" style={{ background: `${color}12`, border: `1.5px solid ${color}25` }}>
+                        <Icon className="w-6 h-6" style={{ color }} />
+                      </div>
+                      <h3 className="font-display font-bold text-slate-800 text-[0.92rem] mb-2">{item.title}</h3>
+                      <p className="text-slate-500 text-xs leading-relaxed">{item.description}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      </Section>
+    );
+  }
+
+  /* ── Variant 1: Dark section with glass cards ── */
+  if (variant === 1) {
+    return (
+      <Section>
+        <section className="py-24 bg-[#0F1729] relative overflow-hidden">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-600/10 rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-lavender-500/10 rounded-full blur-[100px]" />
+          <div className="absolute inset-0 grid-overlay opacity-[0.03]" />
+          <div className="relative z-10 max-w-7xl mx-auto px-6">
+            <div className="text-center max-w-3xl mx-auto mb-14">
+              <h2 className="anim font-display text-2xl sm:text-3xl font-extrabold text-white">{data.title}{data.titleHighlight && <>{" "}<span className="text-[#F5C518]">{data.titleHighlight}</span></>}</h2>
+              {data.description && <p className="anim d1 text-slate-400 text-[0.88rem] leading-relaxed mt-3">{data.description}</p>}
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {data.items?.map((item: any, i: number) => {
+                const Icon = getIcon(item.icon);
+                const color = item.color || "#4D7EC4";
+                return (
+                  <div key={i} className={`anim d${(i % 6) + 1} group`}>
+                    <div className="relative rounded-2xl p-5 sm:p-6 border border-white/[0.06] hover:border-white/[0.12] transition-all duration-300 hover:-translate-y-1.5 overflow-hidden" style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(12px)" }}>
+                      <div className="absolute inset-0 rounded-2xl" style={{ background: "linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 50%)" }} />
+                      <div className="relative z-10">
+                        <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ background: `${color}20`, border: `1px solid ${color}30` }}>
+                          <Icon className="w-5 h-5" style={{ color }} />
+                        </div>
+                        <h3 className="font-display font-bold text-white text-[0.92rem] mb-2">{item.title}</h3>
+                        <p className="text-slate-400 text-xs leading-relaxed">{item.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      </Section>
+    );
+  }
+
+  /* ── Variant 2: Warm bg with horizontal icon-left cards ── */
+  if (variant === 2) {
+    return (
+      <Section>
+        <section className="py-24 bg-gradient-to-br from-[#FFFBEB] via-[#FFF8E1] to-[#FFFDF5] relative overflow-hidden">
+          <div className="absolute top-16 right-[8%] w-72 h-72 bg-[#F5C518]/15 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 left-[5%] w-60 h-60 bg-[#EE7A45]/10 rounded-full blur-3xl" />
+          <div className="absolute inset-0 dots-pattern opacity-[0.04]" />
+          <div className="relative z-10 max-w-7xl mx-auto px-6">
+            <div className="text-center max-w-3xl mx-auto mb-14">
+              <h2 className="anim font-display text-2xl sm:text-3xl font-extrabold text-slate-800">{data.title}{data.titleHighlight && <>{" "}<span className="text-gradient">{data.titleHighlight}</span></>}</h2>
+              {data.description && <p className="anim d1 text-slate-400 text-[0.88rem] leading-relaxed mt-3">{data.description}</p>}
+            </div>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {data.items?.map((item: any, i: number) => {
+                const Icon = getIcon(item.icon);
+                const color = item.color || "#EE7A45";
+                return (
+                  <div key={i} className={`anim d${(i % 6) + 1} group`}>
+                    <div className="flex items-start gap-4 bg-white/80 backdrop-blur-sm rounded-2xl p-5 border border-[#F5C518]/20 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                      <div className="w-12 h-12 rounded-xl flex-shrink-0 flex items-center justify-center" style={{ background: `${color}15`, border: `1.5px solid ${color}25` }}>
+                        <Icon className="w-6 h-6" style={{ color }} />
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="font-display font-bold text-slate-800 text-[0.92rem] mb-1.5">{item.title}</h3>
+                        <p className="text-slate-500 text-xs leading-relaxed">{item.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      </Section>
+    );
+  }
+
+  /* ── Variant 3+: Mint bg with numbered cards ── */
   return (
     <Section>
-      <section className="py-24 bg-gradient-to-b from-white via-[#F0F7FF] to-white relative overflow-hidden">
-        <div className="absolute top-10 right-[10%] w-80 h-80 bg-brand-100/30 rounded-full blur-[100px]" />
-        <div className="absolute bottom-10 left-[5%] w-60 h-60 bg-mint-100/30 rounded-full blur-[80px]" />
+      <section className="py-24 bg-gradient-to-b from-[#ECFBF2] via-[#F0FFF6] to-[#ECFBF2] relative overflow-hidden">
+        <div className="absolute top-16 left-[8%] w-72 h-72 bg-[#2ECC71]/12 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 right-[10%] w-56 h-56 bg-[#1B3A7B]/8 rounded-full blur-3xl" />
+        <div className="absolute inset-0 grid-overlay opacity-[0.03]" />
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <h2 className="anim font-display text-2xl sm:text-3xl font-extrabold text-slate-800">{data.title}{data.titleHighlight && <>{" "}<span className="text-gradient">{data.titleHighlight}</span></>}</h2>
             {data.description && <p className="anim d1 text-slate-400 text-[0.88rem] leading-relaxed mt-3">{data.description}</p>}
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {data.items?.map((item: any, i: number) => {
               const Icon = getIcon(item.icon);
-              const color = item.color || "#1B3A7B";
-              const accent = hexColors[color] || color;
+              const color = item.color || "#2ECC71";
               return (
                 <div key={i} className={`anim d${(i % 6) + 1} group`}>
-                  <div className="relative bg-white rounded-2xl p-5 sm:p-6 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 overflow-hidden">
-                    <div className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl" style={{ background: `linear-gradient(90deg, ${color}, ${accent})` }} />
-                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110" style={{ background: `${color}12`, border: `1.5px solid ${color}25` }}>
-                      <Icon className="w-6 h-6" style={{ color }} />
+                  <div className="relative bg-white rounded-2xl p-5 sm:p-6 border border-[#2ECC71]/15 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 overflow-hidden">
+                    <div className="absolute top-4 right-4 font-display text-[2.5rem] font-black text-[#2ECC71]/[0.07] leading-none select-none">{String(i + 1).padStart(2, "0")}</div>
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style={{ background: `${color}15` }}>
+                      <Icon className="w-5 h-5" style={{ color }} />
                     </div>
                     <h3 className="font-display font-bold text-slate-800 text-[0.92rem] mb-2">{item.title}</h3>
                     <p className="text-slate-500 text-xs leading-relaxed">{item.description}</p>
@@ -229,7 +346,7 @@ function ClipboardSection({ data }: { data: any }) {
   const Icon = getIcon(data.icon);
   return (
     <Section>
-      <section className="py-20 bg-white relative overflow-hidden">
+      <section className="py-20 bg-[#FAFBFE] relative overflow-hidden">
         <div className="relative z-10 max-w-4xl mx-auto px-6">
           <div className="anim-scale bg-white rounded-2xl border-2 border-slate-200 overflow-hidden shadow-sm relative">
             <div className="bg-gradient-to-r from-slate-700 to-slate-800 px-6 py-3 flex items-center gap-2">
@@ -1692,15 +1809,23 @@ export function DynamicPage({ slug, navActive }: { slug: string; navActive: stri
           theme={(heroData.theme || "brand") as HeroTheme}
         />
       )}
-      {sections
-        .filter((s: any) => s.sectionType !== "subpage_hero" && s.sectionType !== "footer")
-        .map((section: any) => {
-          const renderer = sectionRenderers[section.sectionType];
-          if (!renderer) return null;
-          let data: any = {};
-          try { data = JSON.parse(section.content); } catch {}
-          return <div key={section.id}>{renderer(data)}</div>;
-        })}
+      {(() => {
+        const typeCounters: Record<string, number> = {};
+        return sections
+          .filter((s: any) => s.sectionType !== "subpage_hero" && s.sectionType !== "footer")
+          .map((section: any, idx: number) => {
+            const renderer = sectionRenderers[section.sectionType];
+            if (!renderer) return null;
+            let data: any = {};
+            try { data = JSON.parse(section.content); } catch {}
+            // Pass variant index for repeated section types
+            const typeCount = typeCounters[section.sectionType] || 0;
+            typeCounters[section.sectionType] = typeCount + 1;
+            data.__variant = typeCount;
+            data.__sectionIndex = idx;
+            return <div key={section.id}>{renderer(data)}</div>;
+          });
+      })()}
       <SubpageFooter data={footerData} />
     </>
   );
