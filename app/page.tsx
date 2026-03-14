@@ -2385,7 +2385,7 @@ export default function Page() {
       <Pricing data={sd.pricing} />
       <Manifesto data={sd.manifesto} />
       <Team data={sd.team || sd.team_grid} />
-      <CloudDivider flip />
+      <CloudDivider />
       <ImpactBanner data={sd.impact_banner} />
       <Testimonials data={sd.testimonials} />
       <FAQ data={sd.faq || sd.faq_parents} />
