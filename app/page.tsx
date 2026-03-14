@@ -788,7 +788,7 @@ function Materials({ data }: { data?: any }) {
                           <div className="flex flex-col gap-3 sm:gap-4" style={{ animation: `${direction} ${speed}s linear infinite` }}>
                             {tripled.map((img, i) => (
                               <div key={i} className="rounded-xl overflow-hidden shadow-lg flex-shrink-0">
-                                <img src={img.src} alt={img.alt} className="w-full h-auto object-cover aspect-[4/3]" loading="lazy" />
+                                <img src={img.src} alt={img.alt} className="w-full h-auto object-cover aspect-[3/4]" loading="lazy" />
                               </div>
                             ))}
                           </div>
