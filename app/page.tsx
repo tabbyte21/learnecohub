@@ -272,15 +272,17 @@ function PartnerLogoBand() {
 
   if (logos.length === 0) return null;
 
-  const doubled = [...logos, ...logos];
+  const copies = Math.max(4, Math.ceil(16 / logos.length));
+  const repeated = Array.from({ length: copies }, () => logos).flat();
   return (
     <div className="relative z-10 bg-[#F5C518] mt-auto overflow-hidden">
       <div className="py-4">
-        <div className="ref-marquee-inner flex gap-12 w-max items-center">
-          {doubled.map((logo, i) => {
+        <div className="ref-marquee-inner flex gap-14 w-max items-center px-4">
+          {repeated.map((logo, i) => {
             const hasImage = logo.imageData && logo.imageData.length > 10;
+            const mime = logo.mimeType || (logo.imageData?.startsWith("/9j/") ? "image/jpeg" : "image/png");
             const src = hasImage
-              ? (logo.imageData!.startsWith("data:") ? logo.imageData! : `data:${logo.mimeType || "image/png"};base64,${logo.imageData}`)
+              ? (logo.imageData!.startsWith("data:") ? logo.imageData! : `data:${mime};base64,${logo.imageData}`)
               : null;
             return (
               <div key={i} className="flex-shrink-0 flex items-center gap-2">
@@ -288,8 +290,7 @@ function PartnerLogoBand() {
                   <img
                     src={src}
                     alt={logo.name}
-                    className="h-8 sm:h-9 w-auto object-contain"
-                    style={{ filter: "brightness(0) invert(0.15)" }}
+                    className="h-9 sm:h-10 w-auto object-contain"
                   />
                 ) : (
                   <span className="font-display font-extrabold text-sm text-[#1A1A2E]/60 whitespace-nowrap tracking-wide uppercase">{logo.name}</span>
@@ -2433,7 +2434,6 @@ export default function Page() {
     <main>
       <Navbar menuItems={menuItems} />
       <Hero data={sd.hero} menuItems={menuItems} />
-      <BottomPartnerLogos />
       <Stats data={sd.stats} />
       <CloudDivider />
       <VideoShowcase data={sd.video_showcase} />
