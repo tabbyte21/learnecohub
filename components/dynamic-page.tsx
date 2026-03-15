@@ -1724,6 +1724,84 @@ function PartnerLogosSection({ data }: { data: any }) {
 /* ═══════════════════════════════════════
    CLOUD DIVIDER — animated transition strip
    ═══════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   PHOTO ALBUM — Scrolling mosaic (like Materials)
+   ═══════════════════════════════════════ */
+function PhotoAlbumSection({ data }: { data: any }) {
+  const images = (data.images || data.items || []) as { src: string; alt?: string }[];
+  if (images.length === 0) return null;
+
+  // Distribute images across 4 columns
+  const colCount = 4;
+  const cols: { src: string; alt?: string }[][] = Array.from({ length: colCount }, () => []);
+  images.forEach((img, i) => cols[i % colCount].push(img));
+
+  return (
+    <Section>
+      <section className="py-20 bg-gradient-to-b from-[#F8FAFC] to-white relative overflow-hidden">
+        <div className="absolute inset-0 dots-pattern opacity-[0.04]" />
+        <div className="absolute top-20 right-[10%] w-72 h-72 bg-brand-200/15 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-[5%] w-60 h-60 bg-mint-200/10 rounded-full blur-3xl" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          {(data.title || data.titleHighlight) && (
+            <div className="max-w-3xl mb-12">
+              {data.tag && <div className="anim"><span className="tag bg-brand-100 text-brand-700 mb-4"><Eye className="w-3.5 h-3.5" /> {data.tag}</span></div>}
+              <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight leading-[1.15]">
+                {data.title}{data.titleHighlight && <>{" "}<span className="text-gradient">{data.titleHighlight}</span></>}
+              </h2>
+              {data.description && <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">{data.description}</p>}
+            </div>
+          )}
+
+          {/* Scrolling mosaic */}
+          <div className="relative rounded-2xl overflow-hidden" style={{ height: "560px" }}>
+            {/* Fade edges */}
+            <div className="absolute top-0 left-0 right-0 h-16 z-20 pointer-events-none" style={{ background: "linear-gradient(to bottom, #F8FAFC, transparent)" }} />
+            <div className="absolute bottom-0 left-0 right-0 h-16 z-20 pointer-events-none" style={{ background: "linear-gradient(to top, white, transparent)" }} />
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 h-full">
+              {cols.map((colImgs, col) => {
+                if (colImgs.length === 0) return null;
+                const direction = col % 2 === 0 ? "albumScrollUp" : "albumScrollDown";
+                const speed = 22 + col * 3;
+                const tripled = [...colImgs, ...colImgs, ...colImgs];
+                return (
+                  <div key={col} className="relative overflow-hidden h-full">
+                    <div className="flex flex-col gap-3 sm:gap-4" style={{ animation: `${direction} ${speed}s linear infinite` }}>
+                      {tripled.map((img, i) => (
+                        <div key={i} className="rounded-xl overflow-hidden shadow-md flex-shrink-0 group">
+                          <img
+                            src={img.src}
+                            alt={img.alt || ""}
+                            className="w-full h-auto object-cover aspect-[4/5] transition-transform duration-700 group-hover:scale-105"
+                            loading="lazy"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        <style>{`
+          @keyframes albumScrollUp {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-33.333%); }
+          }
+          @keyframes albumScrollDown {
+            0% { transform: translateY(-33.333%); }
+            100% { transform: translateY(0); }
+          }
+        `}</style>
+      </section>
+    </Section>
+  );
+}
+
 function CloudDivider({ flip = false }: { flip?: boolean }) {
   return (
     <div className={`relative z-30 overflow-hidden pointer-events-none h-16 sm:h-24 -my-8 sm:-my-12 ${flip ? "rotate-180" : ""}`}>
@@ -1922,6 +2000,7 @@ export const sectionRenderers: Record<string, (data: any) => React.ReactNode> = 
   pdf_archive: (data) => <PdfArchiveSection data={data} />,
   partner_logos: (data) => <PartnerLogosSection data={data} />,
   gallery: (data) => <GallerySection data={data} />,
+  photo_album: (data) => <PhotoAlbumSection data={data} />,
 };
 
 export function DynamicPage({ slug, navActive }: { slug: string; navActive: string }) {
