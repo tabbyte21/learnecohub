@@ -517,6 +517,8 @@ body { background-color: #ffffff; color: #1A1A2E; overflow-x: hidden; }
 .cloud-scroll-wrap {
   animation: cloudDrift 60s linear infinite;
   width: max-content;
+  will-change: transform;
+  -webkit-animation: cloudDrift 60s linear infinite;
 }
 @keyframes cloudDrift {
   0% { transform: translateX(0); }
