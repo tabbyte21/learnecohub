@@ -1113,7 +1113,15 @@ function PricingSection({ data }: { data: any }) {
    TEAM — Scrolling team cards
    ═══════════════════════════════════════ */
 function TeamSection({ data }: { data: any }) {
-  const members = data.members || data.items || [];
+  const defaultMembers = [
+    { name: "Dr. Melih Taha Aytep", role: "Psikiyatri / Tıp Doktoru & Kurucu", image: "/ekip/Dr.Melih Taha AYTEP.png", color: "#1B3A7B" },
+    { name: "Derya Aydın", role: "Operasyon Yöneticisi", image: "/ekip/Derya AYDIN.png", color: "#2ECC71" },
+    { name: "Dr. Kaan Mert Güven", role: "Tıp Doktoru & Öğrenme Deneyimi Tasarımcısı", image: "/ekip/Dr.Kaan Mert GÜVEN.png", color: "#F5C518" },
+    { name: "Kübra Demirci", role: "Eğitsel İçerik & E-Öğrenme Tasarımcısı", image: "/ekip/Kübra DEMİRCİ.png", color: "#7F63CB" },
+    { name: "Sayid Özcan", role: "Eğitim Teknolojileri Yöneticisi", image: "/ekip/Sayid ÖZCAN.png", color: "#EE7A45" },
+    { name: "Buse Aksoy", role: "Psikolog & E-Öğrenme Tasarımcısı", image: "/ekip/Buse AKSOY.png", color: "#1B3A7B" },
+  ];
+  const members = data.members || data.items || defaultMembers;
   return (
     <Section>
       <section className="py-24 bg-[#ECFBF2] relative overflow-hidden">
