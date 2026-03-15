@@ -907,12 +907,13 @@ function PianoShowcase({ data }: { data?: any }) {
     { title: "Duygular", desc: "Duyguları tanıma ve yönetme stratejileri", src: "https://learnecohub.com/.old-wp/wp-content/uploads/2025/07/Etkilesimli-Video-Tanitim-1.mp4" },
   ];
 
-  const keys: Array<{ title: string; desc: string; src: string; youtubeId: string }> = d.items?.length ? d.items.map((item: any, i: number) => ({
+  const keys: Array<{ title: string; desc: string; src: string; youtubeId: string; vimeoId: string }> = d.items?.length ? d.items.map((item: any, i: number) => ({
     title: item.title || defaultKeys[i]?.title || "",
     desc: item.description || item.desc || defaultKeys[i]?.desc || "",
     src: item.src || item.url || defaultKeys[i]?.src || "",
     youtubeId: item.youtubeId || "",
-  })) : defaultKeys.map((k) => ({ ...k, youtubeId: "" }));
+    vimeoId: item.vimeoId || "",
+  })) : defaultKeys.map((k) => ({ ...k, youtubeId: "", vimeoId: "" }));
 
   const handleKeyClick = (idx: number) => {
     setPressedIdx(idx);
@@ -927,7 +928,7 @@ function PianoShowcase({ data }: { data?: any }) {
   };
 
   const handlePlay = () => {
-    if (keys[activeIdx]?.youtubeId) {
+    if (keys[activeIdx]?.vimeoId || keys[activeIdx]?.youtubeId) {
       setIsPlaying(true);
     } else if (videoRef.current) {
       videoRef.current.play();
@@ -1084,7 +1085,22 @@ function PianoShowcase({ data }: { data?: any }) {
                 {/* ─── Video Player (Right) ─── */}
                 <div className="flex-1 relative bg-[#0A0F1C] flex flex-col">
                   <div className="relative flex-1 min-h-[260px]">
-                    {keys[activeIdx]?.youtubeId && isPlaying ? (
+                    {keys[activeIdx]?.vimeoId && isPlaying ? (
+                      <iframe
+                        key={`vimeo-${keys[activeIdx].vimeoId}`}
+                        className="absolute inset-0 w-full h-full"
+                        src={`https://player.vimeo.com/video/${keys[activeIdx].vimeoId}?autoplay=1&title=0&byline=0&portrait=0&dnt=1`}
+                        title={keys[activeIdx]?.title}
+                        allow="autoplay; fullscreen; picture-in-picture"
+                        allowFullScreen
+                      />
+                    ) : keys[activeIdx]?.vimeoId ? (
+                      <img
+                        src={`https://vumbnail.com/${keys[activeIdx].vimeoId}.jpg`}
+                        alt={keys[activeIdx]?.title}
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                    ) : keys[activeIdx]?.youtubeId && isPlaying ? (
                       <iframe
                         key={keys[activeIdx].youtubeId}
                         className="absolute inset-0 w-full h-full"
@@ -1194,15 +1210,16 @@ function VideoShowcase({ data }: { data?: any }) {
     { title: "Duygu Yönetimi", desc: "Öfke, kaygı ve üzüntü gibi duyguları tanıma ve yönetme stratejilerini öğreten içerikler.", accent: "#EE7A45", tabColor: "#EE7A45", src: "https://learnecohub.com/.old-wp/wp-content/uploads/2025/07/Etkilesimli-Video-Tanitim-1.mp4" },
     { title: "Sosyal Beceriler", desc: "Arkadaşlık kurma, iş birliği ve iletişim becerilerini destekleyen animasyonlu dersler.", accent: "#1B3A7B", tabColor: "#1B3A7B", src: "https://learnecohub.com/.old-wp/wp-content/uploads/2025/07/Web-Sitesi-Guvenlik-2.mp4" },
   ];
-  const videos: Array<{ title: string; desc: string; accent: string; tabColor: string; src: string; youtubeId: string; label: string }> = d.items?.length ? d.items.map((item: any, i: number) => ({
+  const videos: Array<{ title: string; desc: string; accent: string; tabColor: string; src: string; youtubeId: string; vimeoId: string; label: string }> = d.items?.length ? d.items.map((item: any, i: number) => ({
     title: item.title || defaultVideos[i]?.title || "",
     desc: item.description || item.desc || defaultVideos[i]?.desc || "",
     accent: item.color || accentColors[i % accentColors.length],
     tabColor: item.color || accentColors[i % accentColors.length],
     src: item.src || item.url || defaultVideos[i]?.src || "",
     youtubeId: item.youtubeId || "",
+    vimeoId: item.vimeoId || "",
     label: item.label || "",
-  })) : defaultVideos.map(v => ({ ...v, youtubeId: "", label: "" }));
+  })) : defaultVideos.map(v => ({ ...v, youtubeId: "", vimeoId: "", label: "" }));
 
   return (
     <Section>
@@ -1211,9 +1228,9 @@ function VideoShowcase({ data }: { data?: any }) {
         <div className="absolute bottom-10 left-[5%] w-52 h-52 bg-mint-200/20 rounded-full blur-3xl" />
         <div className="absolute inset-0 grid-overlay" />
         <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-2xl mx-auto mb-14">
+          <div className="max-w-2xl mb-14">
             <div className="anim"><span className="tag bg-lavender-100 text-lavender-700 mb-4"><Video className="w-3.5 h-3.5" /> {d.tag || "VİDEO İÇERİKLER"}</span></div>
-            <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight" dangerouslySetInnerHTML={{ __html: vsTitle }} />
+            <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight leading-[1.15]" dangerouslySetInnerHTML={{ __html: vsTitle }} />
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
               {vsDesc}
             </p>
@@ -1248,11 +1265,11 @@ function VideoShowcase({ data }: { data?: any }) {
                       {/* Video */}
                       <div className="relative mx-4 mt-4 mb-0 rounded-lg overflow-hidden border border-slate-200/60" style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
                         <div className="relative aspect-video">
-                          {v.youtubeId ? (
+                          {(v.vimeoId || v.youtubeId) ? (
                             <>
                               {!isPlaying ? (
                                 <>
-                                  <img src={`https://img.youtube.com/vi/${v.youtubeId}/maxresdefault.jpg`} alt={v.title} className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${v.youtubeId}/hqdefault.jpg`; }} />
+                                  <img src={v.vimeoId ? `https://vumbnail.com/${v.vimeoId}.jpg` : `https://img.youtube.com/vi/${v.youtubeId}/maxresdefault.jpg`} alt={v.title} className="w-full h-full object-cover" onError={(e) => { if (v.youtubeId) (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${v.youtubeId}/hqdefault.jpg`; }} />
                                   <button
                                     onClick={() => setPlayingIdx(i)}
                                     className="absolute inset-0 bg-black/20 flex items-center justify-center group/play cursor-pointer transition-colors hover:bg-black/30"
@@ -1268,10 +1285,9 @@ function VideoShowcase({ data }: { data?: any }) {
                                 <>
                                   <iframe
                                     className="absolute inset-0 w-full h-full"
-                                    src={`https://www.youtube.com/embed/${v.youtubeId}?autoplay=1&rel=0`}
+                                    src={v.vimeoId ? `https://player.vimeo.com/video/${v.vimeoId}?autoplay=1&title=0&byline=0&portrait=0&dnt=1` : `https://www.youtube.com/embed/${v.youtubeId}?autoplay=1&rel=0`}
                                     title={v.title}
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerPolicy="strict-origin-when-cross-origin"
+                                    allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
                                     allowFullScreen
                                   />
                                   <button
@@ -1403,7 +1419,7 @@ function LearningSteps({ data }: { data?: any }) {
         <div className="absolute bottom-16 right-[5%] w-64 h-64 bg-brand-200/15 rounded-full blur-3xl" />
         <div className="absolute inset-0 grid-overlay" />
         <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="max-w-3xl mb-14">
             <div className="anim"><span className="tag bg-mint-100 text-mint-700 mb-4"><Layers className="w-3.5 h-3.5" /> {d.tag || "NASIL ÇALIŞIR"}</span></div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight" dangerouslySetInnerHTML={{ __html: lsTitle }} />
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
@@ -1479,7 +1495,7 @@ function LearningMap({ data }: { data?: any }) {
   return (
     <section id="map" className="map-section py-24" ref={containerRef}>
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center max-w-2xl mx-auto mb-14">
+        <div className="max-w-2xl mb-14">
           <span className="tag bg-lavender-100 text-lavender-700 mb-4"><Rocket className="w-3.5 h-3.5" /> {dd.tag || "ÖĞRENME YOLU"}</span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight mt-3" dangerouslySetInnerHTML={{ __html: mapTitle }} />
           <p className="text-slate-400 text-[0.95rem] leading-relaxed">
@@ -1649,7 +1665,7 @@ function Pricing({ data }: { data?: any }) {
         <div className="absolute bottom-10 left-[5%] w-56 h-56 bg-gold-200/20 rounded-full blur-3xl" />
         <div className="absolute inset-0 dots-pattern opacity-[0.06]" />
         <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-2xl mx-auto mb-14">
+          <div className="max-w-2xl mb-14">
             <div className="anim"><span className="tag bg-gold-100 text-gold-700 mb-4"><Crown className="w-3.5 h-3.5" /> {d.tag || "KURSLARIMIZ"}</span></div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight" dangerouslySetInnerHTML={{ __html: prTitle }} />
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
@@ -1721,7 +1737,7 @@ function Team({ data }: { data?: any }) {
         <div className="absolute bottom-16 left-[8%] w-60 h-60 bg-[#1B3A7B]/8 rounded-full blur-3xl" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="max-w-3xl mb-14">
             <div className="anim"><span className="tag bg-mint-100 text-mint-700 mb-4"><Users className="w-3.5 h-3.5" /> {d.tag || "EKİBİMİZ"}</span></div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight" dangerouslySetInnerHTML={{ __html: teamTitle }} />
             <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">
@@ -1850,7 +1866,7 @@ function Testimonials({ data }: { data?: any }) {
         <div className="absolute bottom-20 right-[10%] w-52 h-52 bg-gold-200/15 rounded-full blur-3xl" />
         <div className="absolute inset-0 dots-pattern opacity-[0.05]" />
         <div className="relative z-10">
-          <div className="text-center max-w-2xl mx-auto mb-14 px-6">
+          <div className="max-w-2xl mb-14 px-6">
             <div className="anim"><span className="tag bg-gold-100 text-gold-700 mb-4"><Heart className="w-3.5 h-3.5" /> {d.tag || "REFERANSLAR"}</span></div>
             <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight" dangerouslySetInnerHTML={{ __html: testTitle }} />
           </div>
@@ -2427,14 +2443,15 @@ export default function Page() {
     <main>
       <Navbar menuItems={menuItems} />
       <Hero data={sd.hero} menuItems={menuItems} />
+      <BottomPartnerLogos />
       <Stats data={sd.stats} />
       <CloudDivider />
+      <VideoShowcase data={sd.video_showcase} />
       <YoutubeShowcase data={sd.youtube_showcase} />
       <Materials data={sd.materials_scroll || sd.materials} />
       <CloudDivider />
       <FreeBanner data={sd.free_banner} />
       <PianoShowcase data={sd.piano_showcase} />
-      <VideoShowcase data={sd.video_showcase} />
       <CloudDivider />
       <LearningSteps data={sd.learning_steps} />
       <LearningMap data={sd.learning_map} />
@@ -2447,7 +2464,6 @@ export default function Page() {
       <Testimonials data={sd.testimonials} />
       <FAQ data={sd.faq || sd.faq_parents} />
       <FinalCTA data={sd.final_cta} />
-      <BottomPartnerLogos />
       <Footer data={sd.footer} />
     </main>
   );
