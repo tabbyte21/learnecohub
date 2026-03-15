@@ -1735,6 +1735,145 @@ function CloudDivider({ flip = false }: { flip?: boolean }) {
   );
 }
 
+/* ═══════════════════════════════════════
+   GALLERY — Photo & Video grid from past trainings
+   ═══════════════════════════════════════ */
+function GallerySection({ data }: { data: any }) {
+  const [activeVideo, setActiveVideo] = useState<number | null>(null);
+  const items = data.items || [];
+
+  return (
+    <Section>
+      <section className="py-24 bg-[#F8FAFC] relative overflow-hidden">
+        <div className="absolute top-16 right-[10%] w-72 h-72 bg-brand-100/30 rounded-full blur-[100px]" />
+        <div className="absolute bottom-16 left-[5%] w-60 h-60 bg-mint-100/25 rounded-full blur-[80px]" />
+        <div className="absolute inset-0 dots-pattern opacity-[0.04]" />
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          {/* Header */}
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <h2 className="anim font-display text-2xl sm:text-3xl font-extrabold text-slate-800">
+              {data.title}
+              {data.titleHighlight && (
+                <>
+                  {" "}
+                  <span className="text-gradient">{data.titleHighlight}</span>
+                </>
+              )}
+            </h2>
+            {data.description && (
+              <p className="anim d1 text-slate-400 text-[0.88rem] leading-relaxed mt-3">
+                {data.description}
+              </p>
+            )}
+          </div>
+
+          {/* Masonry-like grid */}
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 sm:gap-5 space-y-4 sm:space-y-5">
+            {items.map((item: any, i: number) => {
+              const isVideo = item.type === "video";
+              const isPlaying = activeVideo === i;
+
+              return (
+                <div
+                  key={i}
+                  className={`anim d${(i % 6) + 1} break-inside-avoid group`}
+                >
+                  <div className="relative bg-white rounded-xl overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    {isVideo ? (
+                      /* Video item */
+                      <div className="relative aspect-video">
+                        {isPlaying ? (
+                          /* Playing: show iframe */
+                          item.vimeoId ? (
+                            <iframe
+                              className="absolute inset-0 w-full h-full"
+                              src={`https://player.vimeo.com/video/${item.vimeoId}?autoplay=1&title=0&byline=0&portrait=0`}
+                              title={item.alt || "Video"}
+                              allow="autoplay; fullscreen; picture-in-picture"
+                              allowFullScreen
+                            />
+                          ) : item.youtubeId ? (
+                            <iframe
+                              className="absolute inset-0 w-full h-full"
+                              src={`https://www.youtube.com/embed/${item.youtubeId}?autoplay=1&rel=0`}
+                              title={item.alt || "Video"}
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              referrerPolicy="strict-origin-when-cross-origin"
+                              allowFullScreen
+                            />
+                          ) : null
+                        ) : (
+                          /* Thumbnail + play button */
+                          <>
+                            {item.src ? (
+                              <img
+                                src={item.src}
+                                alt={item.alt || "Video thumbnail"}
+                                className="absolute inset-0 w-full h-full object-cover"
+                              />
+                            ) : item.youtubeId ? (
+                              <img
+                                src={`https://img.youtube.com/vi/${item.youtubeId}/hqdefault.jpg`}
+                                alt={item.alt || "Video thumbnail"}
+                                className="absolute inset-0 w-full h-full object-cover"
+                              />
+                            ) : (
+                              <div className="absolute inset-0 bg-gradient-to-br from-brand-100 to-lavender-100 flex items-center justify-center">
+                                <Play className="w-12 h-12 text-brand-300" />
+                              </div>
+                            )}
+                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
+                            <button
+                              onClick={() => setActiveVideo(i)}
+                              className="absolute inset-0 flex items-center justify-center cursor-pointer"
+                              aria-label="Videoyu oynat"
+                              type="button"
+                            >
+                              <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-xl transition-transform group-hover:scale-110">
+                                <Play
+                                  className="w-6 h-6 ml-0.5 text-brand-600"
+                                  fill="currentColor"
+                                />
+                              </div>
+                            </button>
+                          </>
+                        )}
+                      </div>
+                    ) : (
+                      /* Image item */
+                      <div className="relative">
+                        {item.src ? (
+                          <img
+                            src={item.src}
+                            alt={item.alt || "Galeri"}
+                            className="w-full h-auto object-cover"
+                          />
+                        ) : (
+                          <div className="aspect-[4/3] bg-gradient-to-br from-brand-50 to-lavender-50 flex items-center justify-center">
+                            <Eye className="w-10 h-10 text-brand-200" />
+                          </div>
+                        )}
+                        {/* Hover overlay with alt text */}
+                        {item.alt && (
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                            <p className="text-white text-xs font-medium px-4 py-3 leading-relaxed">
+                              {item.alt}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    </Section>
+  );
+}
+
 // Section types after which a cloud divider should appear
 const cloudAfterTypes = new Set(["stats", "manifesto", "teacher_tools", "badge_stats"]);
 
@@ -1774,6 +1913,7 @@ export const sectionRenderers: Record<string, (data: any) => React.ReactNode> = 
   impact_banner: (data) => <ImpactBannerSection data={data} />,
   pdf_archive: (data) => <PdfArchiveSection data={data} />,
   partner_logos: (data) => <PartnerLogosSection data={data} />,
+  gallery: (data) => <GallerySection data={data} />,
 };
 
 export function DynamicPage({ slug, navActive }: { slug: string; navActive: string }) {
