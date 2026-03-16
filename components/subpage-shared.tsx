@@ -124,12 +124,12 @@ function NavDropdown({ label, href, active, sub, variant = "light" }: {
 }
 
 const hakkimizdaRewrites: Record<string, string> = {
-  "/misyonumuz": "/hakkimizda",
-  "/akademik-yaklasimimiz": "/hakkimizda",
-  "/ilkelerimiz": "/hakkimizda",
-  "/neden-learnecohub": "/hakkimizda",
-  "/ekibimiz": "/hakkimizda",
-  "/basari-hikayeleri": "/hakkimizda",
+  "/misyonumuz": "/hakkimizda#misyonumuz",
+  "/akademik-yaklasimimiz": "/hakkimizda#akademik-yaklasimimiz",
+  "/ilkelerimiz": "/hakkimizda#okullar-icin-neden-learnecohub",
+  "/neden-learnecohub": "/hakkimizda#okullar-icin-neden-learnecohub",
+  "/ekibimiz": "/hakkimizda#ekibimiz",
+  "/basari-hikayeleri": "/hakkimizda#basari-rakamlari",
 };
 function rewriteMenuUrl(url: string): string {
   return hakkimizdaRewrites[url] || url;
