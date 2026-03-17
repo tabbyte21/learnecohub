@@ -575,6 +575,7 @@ function Stats({ data }: { data?: any }) {
 function YoutubeShowcase({ data }: { data?: any }) {
   const [playing, setPlaying] = useState(false);
   const d = data || {};
+  const vimeoId = d.vimeoId || "";
   const videoId = d.videoId || "GcjqT6zb1Ts";
   const ytTitle = d.title || "Çocukları hayata";
   const ytHighlight = d.titleHighlight || "hazırlıyoruz.";
@@ -634,7 +635,7 @@ function YoutubeShowcase({ data }: { data?: any }) {
                 <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
                   {!playing ? (
                     <>
-                      <img src={d.thumbnail || `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`} alt="LearnecoHub Tanıtım Videosu" className="absolute inset-0 w-full h-full object-cover" />
+                      <img src={d.thumbnail || (vimeoId ? `https://vumbnail.com/${vimeoId}.jpg` : `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`)} alt="LearnecoHub Tanıtım Videosu" className="absolute inset-0 w-full h-full object-cover" onError={(e) => { if (!vimeoId && videoId) (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`; }} />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/15 to-transparent" />
                       <button onClick={() => setPlaying(true)} className="absolute inset-0 z-10 flex items-center justify-center group cursor-pointer">
                         <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#F5C518] flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{ boxShadow: "0 4px 0 #D4A816, 0 8px 30px rgba(245,197,24,0.4)" }}>
@@ -642,12 +643,12 @@ function YoutubeShowcase({ data }: { data?: any }) {
                         </div>
                       </button>
                       <div className="absolute bottom-4 right-4 z-10 flex items-center gap-2 px-3.5 py-2 rounded-xl bg-black/40 backdrop-blur-sm">
-                        <Youtube className="w-4 h-4 text-[#FF0000]" />
+                        <Video className="w-4 h-4 text-white" />
                         <span className="font-display font-bold text-white text-[0.78rem]">{d.playLabel || "Videoyu İzle"}</span>
                       </div>
                     </>
                   ) : (
-                    <iframe className="absolute inset-0 w-full h-full" src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`} title="LearnecoHub Tanıtım Videosu" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
+                    <iframe className="absolute inset-0 w-full h-full" src={vimeoId ? `https://player.vimeo.com/video/${vimeoId}?autoplay=1&title=0&byline=0&portrait=0&dnt=1` : `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`} title="LearnecoHub Tanıtım Videosu" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowFullScreen />
                   )}
                 </div>
               </div>
