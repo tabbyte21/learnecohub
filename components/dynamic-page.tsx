@@ -1776,6 +1776,8 @@ function PhotoAlbumSection({ data }: { data: any }) {
                             alt={img.alt || ""}
                             className="w-full h-auto object-cover aspect-[4/5] transition-transform duration-700 group-hover:scale-105"
                             loading="lazy"
+                            decoding="async"
+                            style={{ maxWidth: "400px" }}
                           />
                         </div>
                       ))}
@@ -1933,6 +1935,8 @@ function GallerySection({ data }: { data: any }) {
                             src={item.src}
                             alt={item.alt || "Galeri"}
                             className="w-full h-auto object-cover"
+                            loading="lazy"
+                            decoding="async"
                           />
                         ) : (
                           <div className="aspect-[4/3] bg-gradient-to-br from-brand-50 to-lavender-50 flex items-center justify-center">

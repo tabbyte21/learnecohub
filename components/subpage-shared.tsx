@@ -424,8 +424,7 @@ export function SubpageFooter({ data }: { data?: any }) {
   ];
   const menuLinks = f.menuLinks?.length ? f.menuLinks : [
     { label: "Ana Sayfa", href: "/" },
-    { label: "Misyonumuz", href: "/misyonumuz" },
-    { label: "Ekibimiz", href: "/ekibimiz" },
+    { label: "Hakkımızda", href: "/hakkimizda" },
     { label: "Platform", href: "/platform" },
     { label: "Blog", href: "/blog" },
     { label: "SSS", href: "/sss" },
@@ -437,7 +436,6 @@ export function SubpageFooter({ data }: { data?: any }) {
     { label: "Profesyoneller İçin", href: "/profesyoneller-icin" },
     { label: "Okullar İçin", href: "/okullar-icin" },
     { label: "Kurumlar İçin", href: "/kurumlar-icin" },
-    { label: "Başarı Hikayeleri", href: "/basari-hikayeleri" },
   ];
   const companyName = f.companyName || "Learneco Eğitim ve Danışmanlık";
   const address = f.address || "İstanbul, Başakşehir";
