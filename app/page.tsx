@@ -1018,9 +1018,9 @@ function PianoShowcase({ data }: { data?: any }) {
                             />
 
                             {/* Key label */}
-                            <div className="absolute inset-0 flex items-center pl-5 lg:pl-6 pr-14">
+                            <div className="absolute inset-0 flex items-center pl-5 lg:pl-6 pr-14" style={{ textAlign: "left" }}>
                               <span
-                                className="font-display text-[0.82rem] lg:text-[0.88rem] font-extrabold tracking-wide transition-all duration-200"
+                                className="font-display text-[0.82rem] lg:text-[0.88rem] font-extrabold tracking-wide transition-all duration-200 text-left w-full"
                                 style={{
                                   color: isActive ? "#1B3A7B" : "#78788a",
                                   letterSpacing: isActive ? "0.04em" : "0.02em",
