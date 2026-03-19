@@ -1,0 +1,2066 @@
+
+
+══════════════════════════════════════════
+PAGE: aileler-icin (Aileler İçin)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = Aileler İçin
+  .tag = AİLELER İÇİN
+  .tagIcon = Home
+  .title = Çocuğunuzun sosyal-duygusal
+  .titleHighlight = gelişimi için.
+  .description = Ebeveynler için özel tasarlanmış rehberlik ve destek programları.
+  .theme = mint
+
+--- family_features ---
+  .items[0].icon = BarChart3
+  .items[0].title = Gelişim Takibi
+  .items[0].description = Çocuğunuzun ilerlemesini detaylı raporlarla takip edin
+  .items[0].color = #1B3A7B
+  .items[1].icon = BookOpen
+  .items[1].title = Ev Etkinlikleri
+  .items[1].description = Evde birlikte yapabileceğiniz sosyal beceri aktiviteleri
+  .items[1].color = #2ECC71
+  .items[2].icon = MessageCircle
+  .items[2].title = Uzman Rehberlik
+  .items[2].description = Psikolog ve pedagoglardan kişisel rehberlik alın
+  .items[2].color = #7F63CB
+  .items[3].icon = Shield
+  .items[3].title = Güvenli Platform
+  .items[3].description = KVKK uyumlu, çocuk dostu dijital ortam
+  .items[3].color = #EE7A45
+  .items[4].icon = Heart
+  .items[4].title = Aile Birliği
+  .items[4].description = Aile içi iletişimi güçlendiren aktiviteler
+  .items[4].color = #F5C518
+  .items[5].icon = Star
+  .items[5].title = Başarı Kutlamaları
+  .items[5].description = Çocuğunuzun başarılarını birlikte kutlayın
+  .items[5].color = #1B3A7B
+
+--- faq_parents ---
+  .title = Ebeveynler İçin SSS
+  .questions[0].q = Çocuğumun gelişimini nasıl takip ederim?
+  .questions[0].a = Veli panelinizden çocuğunuzun ilerleme raporlarını ve rozet kazanımlarını görebilirsiniz.
+  .questions[1].q = Aile olarak ne yapmalıyız?
+  .questions[1].a = Her dersin sonunda ailelere özel ev etkinlikleri ve rehberlik önerileri sunulmaktadır.
+  .questions[2].q = Hangi yaş gruplarına uygun?
+  .questions[2].a = K-12 yaş grubuna yani ilkokul, ortaokul ve lise öğrencilerine hitap ediyoruz.
+  .questions[3].q = Platform güvenli mi?
+  .questions[3].a = Evet, KVKK uyumlu ve çocuk güvenliği standartlarına uygun bir platformuz.
+
+--- final_cta ---
+  .title = Çocuğunuzun <span class="text-[#F5C518]">geleceğine yatırım yapın.</span>
+  .description = Ücretsiz deneme ile hemen başlayabilirsiniz.
+  .cta.label = Ücretsiz Başla
+  .cta.href = https://lms.learnecohub.com/login/index.php
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = Ücretsiz deneme
+  .badges[1].text = Aile rehberliği dahil
+  .badges[2].text = 7/24 destek
+
+
+══════════════════════════════════════════
+PAGE: akademik-yaklasimimiz (Akademik Yaklaşımımız)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = Akademik Yaklaşımımız
+  .tag = AKADEMIK YAKLAŞIM
+  .tagIcon = GraduationCap
+  .title = Bilimsel temelli
+  .titleHighlight = öğrenme modeli.
+  .description = CASEL çerçevesine dayalı, araştırma destekli pedagojik yaklaşımımız.
+  .theme = gold
+
+--- mission ---
+  .title = Döngüsel öğrenme
+  .titleHighlight = modelimiz.
+  .description = LearnecoHub öğrenme modeli, çocukların sosyal-duygusal becerilerini sistematik bir yaklaşımla geliştirir. Her ders döngüsü tanıtım, uygulama, pekiştirme ve değerlendirme aşamalarından oluşur.
+  .checklist[0] = CASEL 5 temel yetkinlik alanına dayalı müfredat
+  .checklist[1] = Spiral öğrenme yaklaşımı ile kademeli ilerleme
+  .checklist[2] = Çoklu zeka kuramına uygun içerik çeşitliliği
+  .checklist[3] = Formative ve summative değerlendirme araçları
+  .checklist[4] = Aile-okul işbirliği modülü
+
+--- skill_areas ---
+  .title = Öğrenme Döngüsü Adımları
+  .items[0].icon = Search
+  .items[0].title = Keşfet
+  .items[0].description = Merak uyandıran hikâyeler, senaryolar ve deneyimlerle konuya ilk adımı at. Farkındalık çalışmalarıyla öğrenmeye hazırlan.
+  .items[0].color = peach
+  .items[1].icon = BookOpen
+  .items[1].title = Anla
+  .items[1].description = Animasyonlar, uzman videoları ve dijital içeriklerle becerinin teorik temelini kavra. Bilimsel çerçeveyi öğren.
+  .items[1].color = brand
+  .items[2].icon = Gamepad2
+  .items[2].title = Uygula
+  .items[2].description = Etkileşimli oyunlar, rol yapma etkinlikleri ve grup çalışmalarıyla öğrendiğin beceriyi güvenli ortamda dene.
+  .items[2].color = mint
+  .items[3].icon = Target
+  .items[3].title = Pekiştir
+  .items[3].description = Çalışma sayfaları, tekrar egzersizleri ve bireysel görevlerle beceriyi kalıcı hale getir. Tekrarla güçlendir.
+  .items[3].color = lavender
+  .items[4].icon = BarChart3
+  .items[4].title = Değerlendir
+  .items[4].description = Öz değerlendirme araçları, akran geri bildirimi ve öğretmen gözlemleriyle gelişimini ölç ve takip et.
+  .items[4].color = gold
+  .items[5].icon = Users
+  .items[5].title = Paylaş
+  .items[5].description = Öğrendiklerini arkadaşlarınla, ailenle ve çevrenle paylaş. Becerini gerçek hayata aktar ve topluma katkı sağla.
+  .items[5].color = mint
+
+--- student_features ---
+  .items[0].icon = Brain
+  .items[0].title = Deneyimsel Öğrenme
+  .items[0].description = Yaparak ve yaşayarak öğrenen çocuklar için interaktif senaryolar
+  .items[0].color = #1B3A7B
+  .items[1].icon = Users
+  .items[1].title = İşbirlikçi Öğrenme
+  .items[1].description = Grup çalışmaları ve akran öğrenme aktiviteleri
+  .items[1].color = #2ECC71
+  .items[2].icon = Gamepad2
+  .items[2].title = Oyunlaştırma
+  .items[2].description = Rozet, puan ve seviye sistemi ile motivasyon
+  .items[2].color = #F5C518
+  .items[3].icon = Video
+  .items[3].title = Hikaye Temelli Öğrenme
+  .items[3].description = Karakter odaklı video derslerle empatik bağlanma
+  .items[3].color = #EE7A45
+  .items[4].icon = BarChart3
+  .items[4].title = Veri Destekli Öğrenme
+  .items[4].description = Bireyselleştirilmiş öğrenme yolları ve ilerleme takibi
+  .items[4].color = #7F63CB
+
+--- final_cta ---
+  .title = Akademik <span class="text-[#F5C518]">yaklaşımımızı keşfet.</span>
+  .description = Bilimsel temelli müfredatımız hakkında daha fazla bilgi alın.
+  .cta.label = Demo Talep Et
+  .cta.href = /demo
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = CASEL uyumlu
+  .badges[1].text = Araştırma destekli
+  .badges[2].text = Ölçülebilir sonuçlar
+
+
+══════════════════════════════════════════
+PAGE: anasayfa (Ana Sayfa)
+══════════════════════════════════════════
+
+--- hero ---
+  .tag = K-12 Sosyal Beceri Platformu
+  .tagSecondary = Bilimsel Temelli
+  .title = Sosyal becerileri çocuklara kazandırmanın
+  .titleHighlight = en kolay yolu.
+  .description = Müfredatımız; MEB Kazanımları, CASEL Çerçevesi, OECD Sosyal ve Duygusal Beceriler ile SKH (Sürdürülebilir Kalkınma Hedefleri) ile tam uyumludur. Keşfet – Öğren – Uygula – Hayata Aktar modeliyle çocuklarınızın gelişimini destekliyoruz.
+  .cta1.text = Ücretsiz Başla
+  .cta1.href = https://lms.learnecohub.com/login/index.php
+  .cta2.text = Nasıl Çalışır?
+  .cta2.href = #öğrenme-adımları
+  .heroCards[0].title = İletişim
+  .heroCards[0].lessons = 32 Ders
+  .heroCards[0].color = #2ECC71
+  .heroCards[1].title = Empati
+  .heroCards[1].lessons = 28 Ders
+  .heroCards[1].color = #EE7A45
+  .heroCards[2].title = Öz Farkındalık
+  .heroCards[2].lessons = 18 Ders
+  .heroCards[2].color = #7F63CB
+  .heroCards[3].title = Takım Çalışması
+  .heroCards[3].lessons = 24 Ders
+  .heroCards[3].color = #F5C518
+  .heroCards[4].title = Problem Çözme
+  .heroCards[4].lessons = 20 Ders
+  .heroCards[4].color = #1B3A7B
+  .heroCards[5].title = Duygu Yönetimi
+  .heroCards[5].lessons = 22 Ders
+  .heroCards[5].color = #2ECC71
+  .checklist[0].text = Ücretsiz başlangıç
+  .checklist[1].text = Kredi kartı gerekmiyor
+  .checklist[2].text = Anında erişim
+
+--- stats ---
+  .items[0].icon = Layers
+  .items[0].suffix = +
+  .items[0].label = Dijital İçerik
+  .items[0].color = #1B3A7B
+  .items[0].bgColor = #EBF2FB
+  .items[1].icon = BookOpen
+  .items[1].suffix = +
+  .items[1].label = Sosyal-Duygusal Beceri
+  .items[1].color = #2ECC71
+  .items[1].bgColor = #ECFBF2
+  .items[2].icon = Target
+  .items[2].suffix = +
+  .items[2].label = Temel Yaşam Becerisi
+  .items[2].color = #7F63CB
+  .items[2].bgColor = #F0EDF9
+  .items[3].icon = Trophy
+  .items[3].suffix =  Yıl+
+  .items[3].label = Bilimsel Araştırma
+  .items[3].color = #EE7A45
+  .items[3].bgColor = #FEF5F0
+
+--- youtube_showcase ---
+  .title = Çocukları hayata
+  .titleHighlight = hazırlıyoruz.
+  .description = LearnecoHub, çocukların sosyal becerilerini geliştiren video dersler, interaktif oyunlar ve uzman rehberliği sunar. Platformumuz; her sınıf seviyesine uygun hazır ders planları, animasyon ve konu uzmanı anlatımıyla desteklenen etkileşimli içerikler, davranışsal video modellemeler, oyunlar ve yazdırılabilir çalışma sayfalarıyla zenginleştirilmiş bütüncül bir öğrenme deneyimi sağlar.
+  .videoId = GcjqT6zb1Ts
+  .cta.label = Platforma Giriş Yap
+  .cta.href = https://lms.learnecohub.com/login/index.php
+  .stats[0].value = 100+
+  .stats[0].label = Beceri
+  .stats[0].icon = Star
+  .stats[0].color = #4D7EC4
+  .stats[1].value = 200+
+  .stats[1].label = Video Ders
+  .stats[1].icon = Video
+  .stats[1].color = #2ECC71
+  .stats[2].value = 10K+
+  .stats[2].label = Öğrenci
+  .stats[2].icon = Users
+  .stats[2].color = #EE7A45
+
+--- materials ---
+  .title = Sosyal Becerileri Öğretmeyi Kolaylaştıran
+  .titleHighlight = İlgi Çekici Materyaller
+  .description = Hazır üniteler ve yapılandırılmış oturum planlarımız sayesinde sosyal ve duygusal becerileri öğretmek hem kolay hem de etkilidir.
+  .items[0].icon = Video
+  .items[0].title = Etkileşimli Videolar
+  .items[0].count = 200+
+  .items[0].color = #1B3A7B
+  .items[0].features[0] = Hikâye temelli animasyonlar
+  .items[0].features[1] = Karakter odaklı senaryolar
+  .items[0].features[2] = Yaş grubuna uygun içerik
+  .items[0].features[3] = İnteraktif sorular
+  .items[0].features[4] = Alt yazı desteği
+  .items[1].icon = Gamepad2
+  .items[1].title = Beceri Oyunları
+  .items[1].count = 80+
+  .items[1].color = #2ECC71
+  .items[1].features[0] = Takım oyunları
+  .items[1].features[1] = Rol yapma aktiviteleri
+  .items[1].features[2] = Dijital bulmacalar
+  .items[1].features[3] = Karar verme senaryoları
+  .items[1].features[4] = Rekabetçi olmayan yaklaşım
+  .items[2].icon = FileText
+  .items[2].title = Çalışma Sayfaları
+  .items[2].count = 500+
+  .items[2].color = #7F63CB
+  .items[2].features[0] = Yazdırılabilir aktiviteler
+  .items[2].features[1] = Boyama sayfaları
+  .items[2].features[2] = Günlük şablonları
+  .items[2].features[3] = Hikâye tamamlama
+  .items[2].features[4] = Duygu haritaları
+  .items[3].icon = Monitor
+  .items[3].title = Dijital Dersler
+  .items[3].count = 120+
+  .items[3].color = #EE7A45
+  .items[3].features[0] = Adım adım rehberlik
+  .items[3].features[1] = Görsel zengin içerik
+  .items[3].features[2] = Kendi hızında ilerleme
+  .items[3].features[3] = Tekrar imkânı
+  .items[3].features[4] = İlerleme takibi
+  .items[4].icon = Volume2
+  .items[4].title = Sesli İçerikler
+  .items[4].count = 60+
+  .items[4].color = #F5C518
+  .items[4].features[0] = Meditasyon rehberliği
+  .items[4].features[1] = Sesli hikâyeler
+  .items[4].features[2] = Rahatlama egzersizleri
+  .items[4].features[3] = Nefes teknikleri
+  .items[4].features[4] = Uyku öncesi içerikler
+  .items[5].icon = Users
+  .items[5].title = Grup Etkinlikleri
+  .items[5].count = 90+
+  .items[5].color = #1B3A7B
+  .items[5].features[0] = Sınıf içi aktiviteler
+  .items[5].features[1] = İş birliği projeleri
+  .items[5].features[2] = Tartışma rehberleri
+  .items[5].features[3] = Drama etkinlikleri
+  .items[5].features[4] = Topluluk oluşturma
+
+--- free_banner ---
+  .title = Her ay <span class="font-extrabold">ücretsiz</span> sosyal beceri materyalleri edinin.
+  .description = Her ay güncellenen ücretsiz içeriklerimizle çocuğunuzun sosyal-duygusal gelişimine destek olun.
+  .cta.label = Kayıt Ol ve İndir
+  .cta.href = /iletişim
+
+--- video_showcase ---
+  .tag = VİDEO DERSLER
+  .title = Hikâyeleştirilmiş
+  .titleHighlight = video dersler
+  .description = Yaş gruplarına özel, animasyon destekli ve oyunlaştırılmış video içeriklerimizi keşfedin.
+  .items[0].title = Tanıtım Videosu
+  .items[0].description = LearnecoHub platformunun kapsamlı sosyal beceri müfredatını ve öğrenme deneyimini keşfedin.
+  .items[0].youtubeId = GcjqT6zb1Ts
+  .items[0].color = #1B3A7B
+  .items[0].label = Tanıtım
+  .items[1].title = Etkileşimli Video
+  .items[1].description = Hikâyeleştirilmiş, animasyon destekli ve oyunlaştırılmış etkileşimli video içeriklerimize göz atın.
+  .items[1].youtubeId = GcjqT6zb1Ts
+  .items[1].color = #2ECC71
+  .items[1].label = Etkileşimli
+  .items[2].title = Platform Güvenliği
+  .items[2].description = Çocuklarınız için güvenli ve kontrollü bir dijital öğrenme ortamı sunuyoruz.
+  .items[2].youtubeId = GcjqT6zb1Ts
+  .items[2].color = #7F63CB
+  .items[2].label = Güvenlik
+
+--- learning_steps ---
+  .tag = ÖĞRENME MODELİ
+  .title = Keşfet – Öğren – Uygula
+  .titleHighlight = Hayata Aktar
+  .description = Öğrencilerimizin gelişim yolculuğunu özgün döngüsel modelimizle yapılandırıyoruz. Bu model; bilginin kalıcı bir davranışa dönüşmesini sağlar.
+  .steps[0].icon = Search
+  .steps[0].title = Keşfet
+  .steps[0].description = Öğrenciler, meditasyon ve farkındalık çalışmaları, merak uyandıran hikâyeler, senaryolar ve güçlü deneyimler aracılığıyla konuya ilk adımı atar.
+  .steps[0].color = #EE7A45
+  .steps[1].icon = BookOpen
+  .steps[1].title = Öğren
+  .steps[1].description = Yetkinlik temelli beceriler; animasyonlar, uzman videoları ve dijital içerikler aracılığıyla akademik ve bilimsel temelde öğrenir.
+  .steps[1].color = #4D7EC4
+  .steps[2].icon = Gamepad2
+  .steps[2].title = Uygula
+  .steps[2].description = Sınıf içi etkileşimli oyunlar, bireysel çalışmalar, yazdırılabilir materyaller ve iş birliğine dayalı grup etkinlikleriyle beceriyi güvenli bir ortamda deneyimler.
+  .steps[2].color = #2ECC71
+  .steps[3].icon = Heart
+  .steps[3].title = Hayata Aktar
+  .steps[3].description = Edindiği becerileri sınıf dışına taşır. Ebeveyn kitleri ve gerçek yaşam görevleriyle öğrenmeyi okuldan eve, oradan da hayata transfer eder.
+  .steps[3].color = #7F63CB
+
+--- learning_map ---
+  .tag = GELİŞİM HARİTASI
+  .title = Öğrenme Yolculuğun
+  .description = Adım adım ilerle, rozetler kazan, seviye atla!
+  .nodes[0].title = Temel Kavramlar
+  .nodes[0].status = completed
+  .nodes[1].title = İletişim Becerileri
+  .nodes[1].status = completed
+  .nodes[2].title = Empati Geliştirme
+  .nodes[2].status = current
+  .nodes[3].title = Takım Çalışması
+  .nodes[3].status = locked
+  .nodes[4].title = Problem Çözme
+  .nodes[4].status = locked
+  .nodes[5].title = Liderlik & Mezuniyet
+  .nodes[5].status = locked
+
+--- pricing ---
+  .tag = FİYATLANDIRMA
+  .title = Planınızı
+  .titleHighlight = seçin, hemen başlayın
+  .description = Her ihtiyaca uygun esnek planlar sunuyoruz.
+  .plans[0].title = Bireysel Kullanıcı
+  .plans[0].subtitle = Aileler ve Öğrenciler
+  .plans[0].cardClass = brand
+  .plans[0].features = Tüm video derslere erişim
+İnteraktif oyunlar ve aktiviteler
+Dijital rozet koleksiyonu
+İlerleme takibi ve raporlama
+Aile rehberliği içerikleri
+Yazdırılabilir çalışma sayfaları
+  .plans[0].cta = Hemen Başla
+  .plans[0].ctaHref = https://lms.learnecohub.com/login/index.php
+  .plans[1].title = Uzman Hesabı
+  .plans[1].subtitle = Öğretmenler ve Psikologlar
+  .plans[1].cardClass = mint
+  .plans[1].features = Bireysel tüm özellikler
+Öğrenci yönetim paneli
+Hazır ders planları ve üniteler
+Ölçme-değerlendirme araçları
+Sınıf içi materyaller ve posterler
+Uzman destek hattı
+Kapsamlı raporlama araçları
+Öğretmen eğitimleri
+  .plans[1].cta = Uzman Ol
+  .plans[1].ctaHref = /iletişim
+  .plans[2].title = Kurum Hesabı
+  .plans[2].subtitle = Okullar ve Organizasyonlar
+  .plans[2].cardClass = lavender
+  .plans[2].features = Uzman tüm özellikler
+Toplu lisanslama imkânı
+Kurumsal raporlama ve analitik
+Özel içerik üretimi
+Entegrasyon desteği (LMS)
+Öncelikli teknik destek
+Kurumsal eğitim programları
+  .plans[2].cta = İletişime Geç
+  .plans[2].ctaHref = /iletişim
+
+--- team ---
+  .tag = EKİBİMİZ
+  .title = Tutkulu Bir
+  .titleHighlight = Ekiple Çalışıyoruz
+  .description = Alanında uzman, deneyimli ve tutkulu ekibimizle çocukların gelişimine katkı sağlıyoruz.
+  .members[0].name = Dr. Melih Taha Aytep
+  .members[0].title = Psikiyatrist & Kurucu
+  .members[0].image = /ekip/Dr.Melih Taha AYTEP.png
+  .members[0].color = #1B3A7B
+  .members[1].name = Derya Aydın
+  .members[1].title = Operasyon Müdürü
+  .members[1].image = /ekip/Derya AYDIN.png
+  .members[1].color = #2ECC71
+  .members[2].name = Dr. Kaan Mert Güven
+  .members[2].title = Doktor & Öğrenme Tasarımcısı
+  .members[2].image = /ekip/Dr.Kaan Mert GÜVEN.png
+  .members[2].color = #7F63CB
+  .members[3].name = Kübra Demirci
+  .members[3].title = İçerik Tasarımcısı
+  .members[3].image = /ekip/Kübra DEMİRCİ.png
+  .members[3].color = #EE7A45
+  .members[4].name = Sayid Özcan
+  .members[4].title = EdTech Yöneticisi
+  .members[4].image = /ekip/Sayid ÖZCAN.png
+  .members[4].color = #F5C518
+  .members[5].name = Buse Aksoy
+  .members[5].title = Psikolog & E-Öğrenme Tasarımcısı
+  .members[5].image = /ekip/Buse AKSOY.png
+  .members[5].color = #1B3A7B
+
+--- final_cta ---
+  .title = Size nasıl <span class="text-[#F5C518]">yardımcı</span> olabiliriz?
+  .description = LearnecoHub ile çocuğunuzun sosyal-duygusal gelişimine hemen başlayabilirsiniz.
+  .cta.label = Hemen Başla
+  .cta.href = https://lms.learnecohub.com/login/index.php
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = Ücretsiz başlangıç
+  .badges[1].text = Kredi kartı gerekmiyor
+  .badges[2].text = Anında erişim
+
+
+══════════════════════════════════════════
+PAGE: arsiv (Arşiv)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = Arşiv
+  .tag = ARŞİV
+  .tagIcon = FileText
+  .title = Materyal
+  .titleHighlight = Kütüphanesi
+  .description = Eğitim materyallerimizi indirin, sınıfınızda veya evinizde kullanın. Tüm dökümanlar PDF formatında sunulmaktadır.
+  .theme = lavender
+
+--- pdf_archive ---
+  .title = İndirilebilir Materyaller
+  .description = Sosyal beceri eğitim materyallerimizi aşağıdan indirebilirsiniz. Tüm dökümanlar yazdırılabilir PDF formatındadır.
+  .folderName = arsiv
+
+--- final_cta ---
+  .title = Daha fazla materyal mi <span class="text-[#F5C518]">istiyorsunuz?</span>
+  .description = LearnecoHub platformuna kayıt olarak tüm dijital içeriklere, video derslere ve etkileşimli materyallere erişebilirsiniz.
+  .cta.label = Hemen Başla
+  .cta.href = https://lms.learnecohub.com/login/index.php
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = Ücretsiz başlangıç
+  .badges[1].text = Kredi kartı gerekmiyor
+  .badges[2].text = Anında erişim
+
+
+══════════════════════════════════════════
+PAGE: basari-hikayeleri (Başarı Hikayeleri)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = Başarı Hikayeleri
+  .tag = BAŞARI HİKAYELERİ
+  .tagIcon = Trophy
+  .title = Gerçek
+  .titleHighlight = başarı hikâyeleri.
+  .description = LearnecoHub ile hayatları değişen öğrenci, öğretmen ve kurumların hikâyeleri.
+  .theme = gold
+
+--- badge_stats ---
+  .items[0].value = 10K+
+  .items[0].label = Öğrenci
+  .items[1].value = 200+
+  .items[1].label = Okul
+  .items[2].value = 98%
+  .items[2].label = Memnuniyet
+  .items[3].value = 50+
+  .items[3].label = Kurum
+
+--- student_features ---
+  .items[0].icon = Building2
+  .items[0].title = Koç Holding
+  .items[0].description = Kurumsal sosyal sorumluluk projelerinde LearnecoHub ile işbirliği yapıyoruz.
+  .items[0].color = #1B3A7B
+  .items[1].icon = Building2
+  .items[1].title = Penta Teknoloji
+  .items[1].description = Teknoloji destekli eğitim çözümlerinde güçlü bir partner.
+  .items[1].color = #2ECC71
+  .items[2].icon = Building2
+  .items[2].title = Başakşehir Living Lab
+  .items[2].description = Inovasyon ve eğitim alanında ortak projeler yürütüyoruz.
+  .items[2].color = #7F63CB
+  .items[3].icon = Building2
+  .items[3].title = Lüleburgaz Belediyesi
+  .items[3].description = Yerel yönetimlerle birlikte çocuklara ulaşıyoruz.
+  .items[3].color = #EE7A45
+  .items[4].icon = Building2
+  .items[4].title = Kocaeli Belediyesi
+  .items[4].description = Toplumsal gelişim projelerinde işbirliği.
+  .items[4].color = #F5C518
+  .items[5].icon = Building2
+  .items[5].title = YEKUV
+  .items[5].description = Sivil toplum kuruluşları ile ortak sosyal projeler.
+  .items[5].color = #1B3A7B
+
+--- final_cta ---
+  .title = Siz de başarı <span class="text-[#F5C518]">hikayenizi yazın.</span>
+  .description = LearnecoHub ile çocukların hayatına dokunun.
+  .cta.label = Hemen Başla
+  .cta.href = https://lms.learnecohub.com/login/index.php
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = Ücretsiz başlangıç
+  .badges[1].text = Hızlı kurulum
+  .badges[2].text = Uzman destek
+
+
+══════════════════════════════════════════
+PAGE: basarilar (Başarılar)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = Başarılar
+  .tag = BAŞARILAR
+  .tagIcon = Trophy
+  .title = Dijital rozetlerle
+  .titleHighlight = motivasyon.
+  .description = Her başarı bir rozet, her rozet yeni bir motivasyon! Öğrenme yolculuğunda kazandığın rozetlerle gelişimini takip et.
+  .theme = gold
+
+--- badge_stats ---
+  .items[0].value = 50+
+  .items[0].label = Farklı Rozet
+  .items[1].value = 100+
+  .items[1].label = Görev
+  .items[2].value = 6
+  .items[2].label = Kategori
+  .items[3].value = ∞
+  .items[3].label = Motivasyon
+
+--- badge_gallery ---
+  .categories[0].title = Keşif Rozetleri
+  .categories[0].badges[0].name = Keşif Yıldızı
+  .categories[0].badges[0].icon = Star
+  .categories[0].badges[0].color = #F5C518
+  .categories[0].badges[1].name = Maceracı
+  .categories[0].badges[1].icon = Compass
+  .categories[0].badges[1].color = #2ECC71
+  .categories[0].badges[2].name = Bilgi Avcısı
+  .categories[0].badges[2].icon = Search
+  .categories[0].badges[2].color = #7F63CB
+  .categories[1].title = Empati Rozetleri
+  .categories[1].badges[0].name = Empati Ustası
+  .categories[1].badges[0].icon = Heart
+  .categories[1].badges[0].color = #EE7A45
+  .categories[1].badges[1].name = Yardım Eli
+  .categories[1].badges[1].icon = HandHeart
+  .categories[1].badges[1].color = #1B3A7B
+  .categories[1].badges[2].name = Gerçek Dost
+  .categories[1].badges[2].icon = Users
+  .categories[1].badges[2].color = #2ECC71
+  .categories[2].title = İletişim Rozetleri
+  .categories[2].badges[0].name = İletişim Şampiyonu
+  .categories[2].badges[0].icon = MessageCircle
+  .categories[2].badges[0].color = #2ECC71
+  .categories[2].badges[1].name = Aktif Dinleyici
+  .categories[2].badges[1].icon = Ear
+  .categories[2].badges[1].color = #7F63CB
+  .categories[2].badges[2].name = Hikâye Anlatıcı
+  .categories[2].badges[2].icon = Mic
+  .categories[2].badges[2].color = #F5C518
+  .categories[3].title = Liderlik Rozetleri
+  .categories[3].badges[0].name = Genç Lider
+  .categories[3].badges[0].icon = Crown
+  .categories[3].badges[0].color = #1B3A7B
+  .categories[3].badges[1].name = Takım Kaptanı
+  .categories[3].badges[1].icon = Flag
+  .categories[3].badges[1].color = #EE7A45
+  .categories[3].badges[2].name = Sorumluluk Yıldızı
+  .categories[3].badges[2].icon = Shield
+  .categories[3].badges[2].color = #7F63CB
+
+--- final_cta ---
+  .title = Rozet koleksiyonunu <span class="text-[#F5C518]">oluşturmaya başla!</span>
+  .description = Her görev tamamladığında yeni rozetler kazan ve gelişimini takip et.
+  .cta.label = Hemen Başla
+  .cta.href = https://lms.learnecohub.com/login/index.php
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = Ücretsiz başlangıç
+  .badges[1].text = 50+ rozet
+  .badges[2].text = 6 kategori
+
+
+══════════════════════════════════════════
+PAGE: blog (Blog)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = Blog
+  .tag = BLOG
+  .tagIcon = BookOpen
+  .title = Eğitim dünyasından
+  .titleHighlight = güncel yazılar.
+  .description = Sosyal-duygusal öğrenme, ebeveyn rehberliği ve eğitim trendleri hakkında uzman yazıları.
+  .theme = brand
+
+--- blog_list ---
+  .categories[0] = Tümünü Gör
+  .categories[1] = Sosyal-Duygusal Öğrenme
+  .categories[2] = Ebeveyn Rehberi
+  .categories[3] = Eğitimci Köşesi
+  .categories[4] = Araştırmalar
+  .categories[5] = Haberler
+
+--- final_cta ---
+  .title = Daha fazla içerik için <span class="text-[#F5C518]">bizi takip edin!</span>
+  .description = Sosyal-duygusal öğrenme hakkında güncel içeriklerden haberdar olun.
+  .cta.label = Platforma Giriş
+  .cta.href = https://lms.learnecohub.com/login/index.php
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = Haftalık içerik
+  .badges[1].text = Uzman yazarlar
+  .badges[2].text = Ücretsiz erişim
+
+
+══════════════════════════════════════════
+PAGE: demo (Demo Talep Et)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = Demo Talep Et
+  .tag = DEMO
+  .tagIcon = Play
+  .title = Ücretsiz
+  .titleHighlight = demo talep edin.
+  .description = LearnecoHub platformunu canlı demo ile tanıyın.
+  .theme = mint
+
+--- contact_form ---
+  .subjects[0] = Bireysel Demo
+  .subjects[1] = Okul Demosu
+  .subjects[2] = Kurum Demosu
+  .subjects[3] = Uzman Demosu
+
+--- faq ---
+  .title = Demo Hakkında
+  .questions[0].q = Demo ne kadar sürüyor?
+  .questions[0].a = Demo seansları yaklaşık 30-45 dakika sürmektedir.
+  .questions[1].q = Demo ücretsiz mi?
+  .questions[1].a = Evet, demo tamamen ücretsizdir ve herhangi bir yükümlülük içermez.
+  .questions[2].q = Demo sonrası ne olur?
+  .questions[2].a = Demo sonrasında size özel bir teklif hazırlayıp ileteceğiz.
+
+
+══════════════════════════════════════════
+PAGE: ekibimiz (Ekibimiz)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = Ekibimiz
+  .tag = EKİBİMİZ
+  .tagIcon = Users
+  .title = Tutkulu bir
+  .titleHighlight = ekiple çalışıyoruz.
+  .description = Farklı alanlardan uzmanlarla çocukların gelişimi için birlikte çalışıyoruz.
+  .theme = peach
+
+--- team ---
+  .title = Tutkulu Bir
+  .titleHighlight = Ekiple Çalışıyoruz
+  .members[0].name = Dr. Melih Taha Aytep
+  .members[0].title = Psikiyatrist / Kurucu
+  .members[0].image = /ekip/Melih.png
+  .members[0].color = #1B3A7B
+  .members[1].name = Derya Aydın
+  .members[1].title = Operasyon Müdürü
+  .members[1].image = /ekip/Derya.png
+  .members[1].color = #2ECC71
+  .members[2].name = Dr. Kaan Mert Güven
+  .members[2].title = Doktor / Öğrenme Tasarımcısı
+  .members[2].image = /ekip/Kaan.png
+  .members[2].color = #7F63CB
+  .members[3].name = Kübra Demirci
+  .members[3].title = İçerik Tasarımcısı
+  .members[3].image = /ekip/Kubra.png
+  .members[3].color = #EE7A45
+  .members[4].name = Sayid Özcan
+  .members[4].title = EdTech Yöneticisi
+  .members[4].image = /ekip/Sayid.png
+  .members[4].color = #F5C518
+  .members[5].name = Buse Aksoy
+  .members[5].title = Psikolog / E-Öğrenme Tasarımcısı
+  .members[5].image = /ekip/Buse.png
+  .members[5].color = #1B3A7B
+
+--- final_cta ---
+  .title = Ekibimizle <span class="text-[#F5C518]">tanış.</span>
+  .description = Sorularınız için bize ulaşın.
+  .cta.label = İletişime Geç
+  .cta.href = /iletişim
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = Uzman kadro
+  .badges[1].text = 7/24 destek
+  .badges[2].text = Hızlı dönüş
+
+
+══════════════════════════════════════════
+PAGE: e-kitaplar (E-kitaplar)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = E-kitaplar
+  .tag = E-KİTAPLAR
+  .tagIcon = BookOpen
+  .title = Ücretsiz
+  .titleHighlight = e-kitaplar.
+  .description = Sosyal-duygusal öğrenme konularında uzman yazarların hazırladığı e-kitaplar.
+  .theme = mint
+
+--- student_features ---
+  .items[0].icon = BookOpen
+  .items[0].title = Ebeveyn Rehberi
+  .items[0].description = Çocuğunuzun sosyal gelişimini desteklemek için kapsamlı rehber
+  .items[0].color = #1B3A7B
+  .items[1].icon = GraduationCap
+  .items[1].title = Öğretmen El Kitabı
+  .items[1].description = Sınıfta SEL uygulamaları için pratik kılavuz
+  .items[1].color = #2ECC71
+  .items[2].icon = Heart
+  .items[2].title = Empati Geliştirme
+  .items[2].description = Çocuklarda empati becerisini geliştirmenin 101 yolu
+  .items[2].color = #EE7A45
+  .items[3].icon = Brain
+  .items[3].title = Duygu Yönetimi
+  .items[3].description = Küçük yaştan itibaren duygu regülasyonu stratejileri
+  .items[3].color = #7F63CB
+
+--- free_banner ---
+  .title = Tüm e-kitaplar
+  .titleHighlight = tamamen ücretsiz.
+  .description = E-kitaplarımızı indirmek için ücretsiz üye olmanız yeterli.
+  .buttonText = Ücretsiz Üye Ol
+
+--- final_cta ---
+  .title = E-kitaplarımızı <span class="text-[#F5C518]">indirmeye başlayın.</span>
+  .description = Ücretsiz üyelik ile tüm e-kitaplara anında erişim.
+  .cta.label = Ücretsiz Üye Ol
+  .cta.href = https://lms.learnecohub.com/login/index.php
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = Ücretsiz indirme
+  .badges[1].text = PDF format
+  .badges[2].text = Uzman içeriği
+
+
+══════════════════════════════════════════
+PAGE: hikayemiz (Hikayemiz)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = Hikayemiz
+  .tag = HİKAYEMİZ
+  .tagIcon = Heart
+  .title = Merhaba, bu bizim
+  .titleHighlight = hikâyemiz.
+  .description = Biz, sosyal ve duygusal öğrenmeyi okullarda sürdürülebilir bir kültüre dönüştüren, bütünsel bir öğrenme platformuyuz.
+  .theme = brand
+
+--- mission ---
+  .title = Çocuğunuzu yaşam becerileriyle güçlendiriyoruz.
+  .content = Biz, sosyal ve duygusal öğrenmeyi okullarda sürdürülebilir bir kültüre dönüştüren, bütünsel bir öğrenme platformuyuz. Okul öncesinden lise sona kadar tüm öğrenciler için sosyal ve duygusal becerileri öğretmeyi kolaylaştıran; hazırlık gerektirmeyen, kapsamlı ve araştırma temelli bir müfredat sunuyoruz.
+
+Platformumuz; her sınıf seviyesine uygun hazır ders planları, animasyon ve konu uzmanı anlatımıyla desteklenen etkileşimli içerikler, davranışsal video modellemeler, oyunlar ve yazdırılabilir çalışma sayfalarıyla zenginleştirilmiş bütüncül bir öğrenme deneyimi sağlar.
+
+MTSS (Çok Katmanlı Destek Sistemi) çerçevesinin tüm basamaklarını destekleyen müfredatımız; tek bir öğrenciye yönelik hedefli destekten, küçük grup çalışmalarına ve tüm sınıfa yönelik öğretime kadar farklı ihtiyaçlara sorunsuz biçimde uyum sağlar.
+  .icon = Heart
+
+--- manifesto ---
+  .tag = NEDEN BİZ?
+  .title = Bütünsel Yaklaşım
+  .tabs[0].label = Bütünsel Yaklaşım
+  .tabs[0].content = Öğrenci-Öğretmen-Aile Üçgeni ile bütünsel bir gelişim modeli sunuyoruz. Sosyal ve duygusal öğrenme sadece sınıfta değil, evde ve hayatın her alanında devam eder.
+  .tabs[1].label = Sıfır Hazırlık
+  .tabs[1].content = Öğretmenler için 'Tıkla ve Başlat' kolaylığı. Hazır ders planları, materyaller ve etkinliklerle öğretmenlerimizin iş yükünü azaltıyoruz.
+  .tabs[2].label = Sürdürülebilirlik
+  .tabs[2].content = Yaşayan ve gelişen bir okul kültürü oluşturuyoruz. Platform içerisinde yer alan ölçme, değerlendirme ve raporlama araçları, sosyal ve duygusal öğrenmeyi bir ders olmaktan çıkarır; okuldan eve uzanan güçlü bir öğrenme ekosistemine dönüştürür.
+  .tabs[3].label = Bilimsel Temel
+  .tabs[3].content = Müfredatımız MEB Maarif Modeli, CASEL Çerçevesi, OECD Sosyal ve Duygusal Beceriler, SKH (Sürdürülebilir Kalkınma Hedefleri), Avrupa Birliği Yetkinlik Standartları ve Dünya Ekonomik Forum kriterlerine uyumludur.
+
+--- team ---
+  .tag = EKİBİMİZ
+  .title = Tutkulu Bir
+  .titleHighlight = Ekiple Çalışıyoruz
+  .members[0].name = Dr. Melih Taha Aytep
+  .members[0].title = Psikiyatrist & Kurucu
+  .members[0].image = /ekip/Dr.Melih Taha AYTEP.png
+  .members[0].color = #1B3A7B
+  .members[1].name = Derya Aydın
+  .members[1].title = Operasyon Müdürü
+  .members[1].image = /ekip/Derya AYDIN.png
+  .members[1].color = #2ECC71
+  .members[2].name = Dr. Kaan Mert Güven
+  .members[2].title = Doktor & Öğrenme Tasarımcısı
+  .members[2].image = /ekip/Dr.Kaan Mert GÜVEN.png
+  .members[2].color = #7F63CB
+  .members[3].name = Kübra Demirci
+  .members[3].title = İçerik Tasarımcısı
+  .members[3].image = /ekip/Kübra DEMİRCİ.png
+  .members[3].color = #EE7A45
+  .members[4].name = Sayid Özcan
+  .members[4].title = EdTech Yöneticisi
+  .members[4].image = /ekip/Sayid ÖZCAN.png
+  .members[4].color = #F5C518
+  .members[5].name = Buse Aksoy
+  .members[5].title = Psikolog & E-Öğrenme Tasarımcısı
+  .members[5].image = /ekip/Buse AKSOY.png
+  .members[5].color = #1B3A7B
+
+--- final_cta ---
+  .title = Size nasıl <span class="text-[#F5C518]">yardımcı</span> olabiliriz?
+  .description = LearnecoHub ile çocuğunuzun sosyal-duygusal gelişimine hemen başlayabilirsiniz.
+  .cta.label = Hemen Başla
+  .cta.href = https://lms.learnecohub.com/login/index.php
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = Ücretsiz başlangıç
+  .badges[1].text = Kredi kartı gerekmiyor
+  .badges[2].text = Anında erişim
+
+
+══════════════════════════════════════════
+PAGE: iletisim (İletişim)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = İletişim
+  .tag = İLETİŞİM
+  .tagIcon = Mail
+  .title = Bizimle iletişime
+  .titleHighlight = geçin.
+  .description = Sorularınız, önerileriniz veya iş birliği talepleriniz için bize ulaşın.
+  .theme = brand
+
+--- contact_form ---
+  .title = Bize Yazın
+  .submitLabel = Gönder
+  .fields[0].label = Ad Soyad
+  .fields[0].type = text
+  .fields[1].label = E-posta
+  .fields[1].type = email
+  .fields[2].label = Telefon
+  .fields[2].type = tel
+  .fields[3].label = Konu
+  .fields[3].type = text
+  .fields[4].label = Mesajınız
+  .fields[4].type = textarea
+  .contactInfo.address = İstanbul, Türkiye
+  .contactInfo.phone = 0531 952 94 96
+  .contactInfo.email = melihaytep@learneco.co
+  .contactInfo.hours = Pazartesi - Cuma: 09:00 - 18:00
+
+--- faq ---
+  .tag = SIKÇA SORULAN
+  .title = Hızlı Yanıtlar
+  .items[0].q = Demo talep edebilir miyim?
+  .items[0].a = Evet! Yukarıdaki formu doldurarak veya doğrudan bizi arayarak kurumunuz için ücretsiz demo talep edebilirsiniz.
+  .items[1].q = Yanıt süresi ne kadar?
+  .items[1].a = İletişim taleplerinize en geç 24 saat içinde yanıt veriyoruz.
+  .items[2].q = Yüz yüze görüşme yapabilir miyiz?
+  .items[2].a = Elbette! İstanbul'daki ofisimizde veya online olarak görüşme ayarlayabiliriz.
+
+
+══════════════════════════════════════════
+PAGE: ilkelerimiz (İlkelerimiz)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = İlkelerimiz
+  .tag = İLKELERİMİZ
+  .tagIcon = Shield
+  .title = Değerlere dayalı
+  .titleHighlight = eğitim.
+  .description = LearnecoHub olarak eğitim anlayışımızın temelini oluşturan ilkelerimiz.
+  .theme = lavender
+
+--- student_features ---
+  .items[0].icon = Heart
+  .items[0].title = Çocuk Merkezlilik
+  .items[0].description = Her kararda çocuğun yüksek yararını ön planda tutuyoruz
+  .items[0].color = #EE7A45
+  .items[1].icon = Shield
+  .items[1].title = Güvenlik ve Gizlilik
+  .items[1].description = KVKK uyumlu, çocuk güvenliği standartlarında platform
+  .items[1].color = #1B3A7B
+  .items[2].icon = BookOpen
+  .items[2].title = Bilimsellik
+  .items[2].description = Tüm içeriklerimiz araştırma ve kanıtlara dayanır
+  .items[2].color = #2ECC71
+  .items[3].icon = Globe
+  .items[3].title = Kapsayıcılık
+  .items[3].description = Her çocuk için erişilebilir ve kapsayıcı eğitim
+  .items[3].color = #7F63CB
+  .items[4].icon = Sparkles
+  .items[4].title = Yenilikçilik
+  .items[4].description = Teknoloji ve pedagojiyi birlikte ilerletiyoruz
+  .items[4].color = #F5C518
+  .items[5].icon = Users
+  .items[5].title = İşbirliği
+  .items[5].description = Aile, okul ve toplumla birlikte çalışıyoruz
+  .items[5].color = #1B3A7B
+
+--- final_cta ---
+  .title = İlkelerimizle <span class="text-[#F5C518]">birlikte büyüyün.</span>
+  .description = Değer odaklı eğitim anlayışımızı keşfetmek için hemen başlayabilirsiniz.
+  .cta.label = Hemen Başla
+  .cta.href = https://lms.learnecohub.com/login/index.php
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = Değer odaklı
+  .badges[1].text = Bilimsel temelli
+  .badges[2].text = Çocuk merkezli
+
+
+══════════════════════════════════════════
+PAGE: is-birlikleri (İş Birlikleri)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = İş Birlikleri
+  .tag = İŞ BİRLİKLERİ
+  .tagIcon = Globe
+  .title = Birlikte daha
+  .titleHighlight = güçlü.
+  .description = Bu kapsam sayesinde her öğrenci, sosyal ve duygusal becerilerini farklı ortamlarda deneyimleyerek geliştirir; öğrenme yalnızca sınıfta değil, yaşamın tamamında devam eder.
+  .theme = brand
+
+--- school_features ---
+  .title = Okullar İçin
+  .titleHighlight = İş Birliği Fırsatları
+  .items[0].icon = BookOpen
+  .items[0].title = Müfredat Entegrasyonu
+  .items[0].description = Okulunuzun mevcut müfredatına sorunsuz entegrasyon. Tüm sınıf seviyelerine uygun içerik.
+  .items[0].color = brand
+  .items[1].icon = BarChart3
+  .items[1].title = Okul Geneli Raporlama
+  .items[1].description = Tüm öğrenci ve sınıflar için kapsamlı gelişim raporları ve analitik.
+  .items[1].color = mint
+  .items[2].icon = Users
+  .items[2].title = Öğretmen Gelişim Programı
+  .items[2].description = Öğretmenlerinize yönelik düzenli eğitim, atölye ve sertifika programları.
+  .items[2].color = lavender
+  .items[3].icon = Award
+  .items[3].title = Okul Sertifikası
+  .items[3].description = SEL uyumlu okul sertifikası ile kurumsal prestij ve farkındalık.
+  .items[3].color = gold
+
+--- family_features ---
+  .title = Aileler İçin
+  .titleHighlight = Destek Programları
+  .items[0].icon = Home
+  .items[0].title = Ev Etkinlikleri
+  .items[0].description = Her dersin sonunda ailelere özel ev etkinlikleri ve rehberlik önerileri.
+  .items[0].color = brand
+  .items[1].icon = Eye
+  .items[1].title = Gelişim Takibi
+  .items[1].description = Veli paneli ile çocuğunuzun ilerleme raporlarını ve rozet kazanımlarını görün.
+  .items[1].color = mint
+  .items[2].icon = BookOpen
+  .items[2].title = Aile Rehberliği
+  .items[2].description = Günlük hayatta uygulanabilir sosyal beceri destekleri ve pratik ipuçları.
+  .items[2].color = lavender
+  .items[3].icon = Heart
+  .items[3].title = Aile Katılımı
+  .items[3].description = Aile katılımını güçlendiren evde uygulanabilir çalışmalar ve etkinlikler.
+  .items[3].color = gold
+
+--- final_cta ---
+  .title = İş birliği için <span class="text-[#F5C518]">iletişime geçin!</span>
+  .description = Kurumunuza özel çözümler için bizimle iletişime geçin.
+  .cta.label = İletişime Geç
+  .cta.href = /iletişim
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = Kurumsal çözümler
+  .badges[1].text = Özel fiyatlandırma
+  .badges[2].text = Entegrasyon desteği
+
+
+══════════════════════════════════════════
+PAGE: kurslarimiz (Kurslarımız)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = Kurslarımız
+  .tag = KURSLARIMIZ
+  .tagIcon = Crown
+  .title = Planınızı seçin,
+  .titleHighlight = hemen başlayın.
+  .description = Her ihtiyaca uygun esnek planlar. Bireysel kullanıcıdan kurumlara kadar herkes için sosyal-duygusal öğrenme çözümleri.
+  .theme = gold
+
+--- pricing ---
+  .tag = PLANLAR
+  .title = Size En Uygun
+  .titleHighlight = Planı Seçin
+  .plans[0].title = Bireysel Kullanıcı
+  .plans[0].subtitle = Aileler ve Öğrenciler
+  .plans[0].cardClass = brand
+  .plans[0].features = Tüm video derslere erişim
+İnteraktif oyunlar ve aktiviteler
+Dijital rozet koleksiyonu
+İlerleme takibi ve raporlama
+Aile rehberliği içerikleri
+Yazdırılabilir çalışma sayfaları
+  .plans[0].cta = Hemen Başla
+  .plans[0].ctaHref = https://lms.learnecohub.com/login/index.php
+  .plans[1].title = Uzman Hesabı
+  .plans[1].subtitle = Öğretmenler ve Psikologlar
+  .plans[1].cardClass = mint
+  .plans[1].features = Bireysel tüm özellikler
+Öğrenci yönetim paneli
+Hazır ders planları ve üniteler
+Ölçme-değerlendirme araçları
+Sınıf içi materyaller ve posterler
+Uzman destek hattı
+Kapsamlı raporlama
+Öğretmen eğitimleri
+  .plans[1].cta = Uzman Ol
+  .plans[1].ctaHref = /iletişim
+  .plans[2].title = Kurum Hesabı
+  .plans[2].subtitle = Okullar ve Organizasyonlar
+  .plans[2].cardClass = lavender
+  .plans[2].features = Uzman tüm özellikler
+Toplu lisanslama imkânı
+Kurumsal raporlama ve analitik
+Özel içerik üretimi
+LMS entegrasyon desteği
+Öncelikli teknik destek
+Kurumsal eğitim programları
+  .plans[2].cta = İletişime Geç
+  .plans[2].ctaHref = /iletişim
+
+--- learning_steps ---
+  .tag = NASIL ÇALIŞIR?
+  .title = Keşfet – Öğren – Uygula
+  .titleHighlight = Hayata Aktar
+  .steps[0].icon = Search
+  .steps[0].title = Keşfet
+  .steps[0].description = Farkındalık çalışmaları ve merak uyandıran hikâyelerle konuya ilk adımı at.
+  .steps[0].color = #EE7A45
+  .steps[1].icon = BookOpen
+  .steps[1].title = Öğren
+  .steps[1].description = Animasyonlar, uzman videoları ve dijital içeriklerle bilimsel temelde öğren.
+  .steps[1].color = #4D7EC4
+  .steps[2].icon = Gamepad2
+  .steps[2].title = Uygula
+  .steps[2].description = Etkileşimli oyunlar, çalışma sayfaları ve grup etkinlikleriyle pratik yap.
+  .steps[2].color = #2ECC71
+  .steps[3].icon = Heart
+  .steps[3].title = Hayata Aktar
+  .steps[3].description = Edindiğin becerileri gerçek yaşamda kullan, ailenle birlikte pekiştir.
+  .steps[3].color = #7F63CB
+
+--- faq ---
+  .tag = SIKÇA SORULAN
+  .title = Merak Edilenler
+  .items[0].q = Hangi yaş gruplarına hitap ediyorsunuz?
+  .items[0].a = Okul öncesinden lise sona kadar (K-12) tüm yaş gruplarına uygun içerikler sunuyoruz.
+  .items[1].q = Ücretsiz deneme var mı?
+  .items[1].a = Evet! Bireysel hesap oluşturarak ücretsiz içeriklere hemen erişebilirsiniz.
+  .items[2].q = Kurum hesabı nasıl açılır?
+  .items[2].a = İletişim sayfamızdan bize ulaşabilir, kurumunuza özel demo talep edebilirsiniz.
+  .items[3].q = İçerikler hangi dilde?
+  .items[3].a = Tüm içeriklerimiz Türkçe olarak hazırlanmıştır.
+
+--- final_cta ---
+  .title = Hemen <span class="text-[#F5C518]">başlayın!</span>
+  .description = LearnecoHub ile çocuğunuzun sosyal-duygusal gelişimine destek olun.
+  .cta.label = Platforma Giriş
+  .cta.href = https://lms.learnecohub.com/login/index.php
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = Ücretsiz başlangıç
+  .badges[1].text = Kredi kartı gerekmiyor
+  .badges[2].text = Anında erişim
+
+
+══════════════════════════════════════════
+PAGE: kurumlar-icin (Kurumlar İçin)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = Kurumlar İçin
+  .tag = KURUMLAR İÇİN
+  .tagIcon = Globe
+  .title = Kurumunuz için neden
+  .titleHighlight = LearnecoHub?
+  .description = Özel okullar için bu alanda uçtan uca çözüm sunan tek platform olarak, eğitim yolculuğunu Keşfet – Öğren – Uygula – Hayata Aktar modeliyle yapılandırıyoruz.
+  .theme = peach
+
+--- school_features ---
+  .title = Okulunuz İçin
+  .titleHighlight = Kapsamlı Çözümler
+  .items[0].icon = BookOpen
+  .items[0].title = Hazır Müfredat
+  .items[0].description = MEB, CASEL ve OECD yetkinlikleriyle uyumlu bütüncül içerik yapısı. MTSS çerçevesinin tüm basamaklarını destekler.
+  .items[0].color = brand
+  .items[1].icon = BarChart3
+  .items[1].title = Kurumsal Raporlama
+  .items[1].description = Okul geneli analitik, sınıf bazlı raporlar ve bireysel öğrenci gelişim takibi.
+  .items[1].color = mint
+  .items[2].icon = Users
+  .items[2].title = Öğretmen Eğitimleri
+  .items[2].description = Öğretmenleriniz için düzenli eğitim programları ve atölye çalışmaları.
+  .items[2].color = lavender
+  .items[3].icon = Printer
+  .items[3].title = Fiziksel Materyaller
+  .items[3].description = Yazdırılabilir çalışma sayfaları, posterler, beceri kartları ve öğrenmeyi görünür kılan sınıf materyalleri.
+  .items[3].color = gold
+  .items[4].icon = Shield
+  .items[4].title = Güvenli Platform
+  .items[4].description = KVKK uyumlu, çocuk güvenliği standartlarına uygun güvenli dijital ortam.
+  .items[4].color = peach
+  .items[5].icon = Headphones
+  .items[5].title = Öncelikli Destek
+  .items[5].description = Kurumunuza özel hesap yöneticisi ve öncelikli teknik destek hizmeti.
+  .items[5].color = brand
+
+--- bento_grid ---
+  .title = Neler Sunuyoruz?
+  .items[0].icon = Target
+  .items[0].title = MTSS Uyumlu Müfredat
+  .items[0].description = Çok Katmanlı Destek Sistemi çerçevesinin tüm basamaklarını destekleyen müfredat.
+  .items[0].color = brand
+  .items[1].icon = Layers
+  .items[1].title = Bütüncül İçerik Yapısı
+  .items[1].description = MEB, CASEL ve OECD yetkinlikleriyle uyumlu bütüncül içerik yapısı.
+  .items[1].color = mint
+  .items[2].icon = RefreshCw
+  .items[2].title = Deneyimsel Öğrenme Döngüsü
+  .items[2].description = Öğrenmeyi yapılandıran mikro üniteler ve deneyimsel öğrenme döngüsü.
+  .items[2].color = lavender
+  .items[3].icon = Video
+  .items[3].title = Uzman Video Modellemeleri
+  .items[3].description = Konu uzmanları tarafından hazırlanan video modelleme içerikleri.
+  .items[3].color = gold
+  .items[4].icon = Gamepad2
+  .items[4].title = Etkileşimli Materyaller
+  .items[4].description = Dijital ve animasyon destekli öğrenme materyalleri.
+  .items[4].color = peach
+  .items[5].icon = FileText
+  .items[5].title = Yazdırılabilir Sayfalar
+  .items[5].description = Her ay eklenen yeni içerik ve yazdırılabilir dijital çalışma sayfaları.
+  .items[5].color = brand
+  .items[6].icon = Calendar
+  .items[6].title = Oturum Planlama
+  .items[6].description = Oturum ve ders içeriği planlama araçları.
+  .items[6].color = mint
+  .items[7].icon = PieChart
+  .items[7].title = Gelişim Portfolyosu
+  .items[7].description = Kapsamlı raporlama ve gelişim portfolyosu oluşturma imkânı.
+  .items[7].color = lavender
+  .items[8].icon = ShoppingBag
+  .items[8].title = Sosyal Sorumluluk
+  .items[8].description = Sosyal sorumluluk ve 'marketplace' araçları.
+  .items[8].color = gold
+
+--- final_cta ---
+  .title = Kurumunuz için <span class="text-[#F5C518]">demo talep edin!</span>
+  .description = Okulunuza özel SEL ekosistemi oluşturmak için bizimle iletişime geçin.
+  .cta.label = Demo Talep Et
+  .cta.href = /iletişim
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = Ücretsiz demo
+  .badges[1].text = Kurumsal fiyatlandırma
+  .badges[2].text = Özel destek
+
+
+══════════════════════════════════════════
+PAGE: misyonumuz (Misyonumuz)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = Misyonumuz
+  .tag = MISYONUMUZ
+  .tagIcon = Heart
+  .title = Çocukları yaşama
+  .titleHighlight = hazırlıyoruz.
+  .description = LearnecoHub olarak sosyal-duygusal becerileri her çocuğa ulaştırmayı hedefliyoruz.
+  .theme = brand
+
+--- mission ---
+  .title = Çocuğunuzu yaşam becerileriyle
+  .titleHighlight = güçlendiriyoruz.
+  .description = LearnecoHub, çocukların sosyal-duygusal becerilerini geliştiren, bilimsel temelli bir platformdur. Amacımız her çocuğun empati, iletişim, öz farkındalık ve işbirliği gibi temel yaşam becerilerine erişebilmesidir.
+  .checklist[0] = Sosyal-duygusal becerilere dayalı müfredat
+  .checklist[1] = Okullara özel içerik ve öğretmen destek
+  .checklist[2] = Uzman tutorlar eşliğinde uygulamalar
+  .checklist[3] = Ölçme-değerlendirme ve gelişim takibi
+  .checklist[4] = Ailelere özel rehberlik
+
+--- student_features ---
+  .items[0].icon = Heart
+  .items[0].title = Empati Odaklı Eğitim
+  .items[0].description = Her çocuğun duygusal zekâsını geliştiren bilimsel yaklaşım
+  .items[0].color = #EE7A45
+  .items[1].icon = Users
+  .items[1].title = Kapsayıcı Öğrenme
+  .items[1].description = Farklı öğrenme stillerine uygun zengin içerik çeşitliliği
+  .items[1].color = #2ECC71
+  .items[2].icon = Shield
+  .items[2].title = Güvenli Ortam
+  .items[2].description = KVKK uyumlu, çocuk güvenliği öncelikli platform
+  .items[2].color = #7F63CB
+  .items[3].icon = Globe
+  .items[3].title = Erişebilirlik
+  .items[3].description = Her çocuğun sosyal becerilere ulaşabileceği demokratik platform
+  .items[3].color = #1B3A7B
+  .items[4].icon = Sparkles
+  .items[4].title = Bilimsel Temel
+  .items[4].description = CASEL çerçevesine dayalı, araştırma destekli müfredat
+  .items[4].color = #F5C518
+
+--- stats ---
+  .items[0].icon = Users
+  .items[0].suffix = +
+  .items[0].label = Öğrenci
+  .items[0].color = #1B3A7B
+  .items[0].bgColor = #EBF2FB
+  .items[1].icon = BookOpen
+  .items[1].suffix = +
+  .items[1].label = Dijital İçerik
+  .items[1].color = #2ECC71
+  .items[1].bgColor = #ECFBF2
+  .items[2].icon = GraduationCap
+  .items[2].suffix = +
+  .items[2].label = Eğitimci
+  .items[2].color = #7F63CB
+  .items[2].bgColor = #F0EDF9
+  .items[3].icon = Building2
+  .items[3].suffix = +
+  .items[3].label = Partner Kurum
+  .items[3].color = #EE7A45
+  .items[3].bgColor = #FEF5F0
+
+--- final_cta ---
+  .title = Bize <span class="text-[#F5C518]">katılın.</span>
+  .description = Çocukların geleceğini birlikte şekillendirmek için bize katılın.
+  .cta.label = Hemen Başla
+  .cta.href = https://lms.learnecohub.com/login/index.php
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = Ücretsiz başlangıç
+  .badges[1].text = Kredi kartı gerekmiyor
+  .badges[2].text = Anında erişim
+
+
+══════════════════════════════════════════
+PAGE: neden-learnecohub (Neden LearnecoHub?)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = Neden LearnecoHub?
+  .tag = NEDEN BİZ
+  .tagIcon = Zap
+  .title = Farkı
+  .titleHighlight = hissedin.
+  .description = LearnecoHub'i diğer platformlardan ayıran özellikler.
+  .theme = mint
+
+--- bento_grid ---
+  .items[0].title = Bilimsel Temelli Müfredat
+  .items[0].description = CASEL çerçevesine dayalı, 20+ yıllık araştırma birikimiyle oluşturulmuş içerikler
+  .items[0].icon = Brain
+  .items[0].color = #1B3A7B
+  .items[1].title = İnteraktif Öğrenme
+  .items[1].description = Video dersler, oyunlar ve canlı seanslarla zenginleştirilmiş deneyim
+  .items[1].icon = Gamepad2
+  .items[1].color = #2ECC71
+  .items[2].title = Bireysel İlerleme
+  .items[2].description = Her çocuğun kendi hızında ilerleyebileceği kişiselleştirilmiş yollar
+  .items[2].icon = TrendingUp
+  .items[2].color = #7F63CB
+  .items[3].title = Uzman Kadro
+  .items[3].description = Psikiyatrist, psikolog ve pedagoglardan oluşan deneyimli ekip
+  .items[3].icon = Users
+  .items[3].color = #EE7A45
+  .items[4].title = Aile Katılımı
+  .items[4].description = Ebeveynlere özel rehberlik ve ev etkinlikleri
+  .items[4].icon = Home
+  .items[4].color = #F5C518
+  .items[5].title = Ölçülebilir Sonuçlar
+  .items[5].description = Detaylı ilerleme raporları ve gelişim takibi
+  .items[5].icon = BarChart3
+  .items[5].color = #1B3A7B
+
+--- stats ---
+  .items[0].icon = Users
+  .items[0].suffix = +
+  .items[0].label = Aktif Öğrenci
+  .items[0].color = #1B3A7B
+  .items[0].bgColor = #EBF2FB
+  .items[1].icon = Star
+  .items[1].suffix = %
+  .items[1].label = Memnuniyet
+  .items[1].color = #F5C518
+  .items[1].bgColor = #FFFDE7
+  .items[2].icon = Award
+  .items[2].suffix = +
+  .items[2].label = Ödül
+  .items[2].color = #EE7A45
+  .items[2].bgColor = #FEF5F0
+  .items[3].icon = Globe
+  .items[3].suffix = +
+  .items[3].label = Şehir
+  .items[3].color = #2ECC71
+  .items[3].bgColor = #ECFBF2
+
+--- final_cta ---
+  .title = Siz de <span class="text-[#F5C518]">farkı görmeye başlayabilirsiniz.</span>
+  .description = Ücretsiz deneme ile LearnecoHub'in farkını yaşayın.
+  .cta.label = Ücretsiz Başla
+  .cta.href = https://lms.learnecohub.com/login/index.php
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = 14 gün ücretsiz
+  .badges[1].text = Kredi kartı gerekmiyor
+  .badges[2].text = Anında erişim
+
+
+══════════════════════════════════════════
+PAGE: ogrenciler-icin (Öğrenciler İçin)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = Öğrenciler İçin
+  .tag = ÖĞRENCİLER İÇİN
+  .tagIcon = Sparkles
+  .title = Eğlenceli öğrenme
+  .titleHighlight = platformu.
+  .description = Keşfet, öğren, uygula ve hayata aktar! Her öğrenci için sosyal ve duygusal gelişimi bütünsel biçimde destekleyen zengin bir öğrenme ekosistemi sunuyoruz.
+  .theme = mint
+
+--- student_features ---
+  .title = Sosyal Becerilerini
+  .titleHighlight = Eğlenerek Geliştir
+  .items[0].icon = Video
+  .items[0].title = Animasyonlu Hikâye Videoları
+  .items[0].description = Karakter odaklı, etkileyici video derslerle sosyal becerileri keşfet. Konu uzmanı anlatımıyla desteklenen etkileşimli içerikler.
+  .items[0].color = #1B3A7B
+  .items[1].icon = Gamepad2
+  .items[1].title = Etkileşimli Oyunlar
+  .items[1].description = Öğrenirken eğlendiren dijital oyunlar ve sınıf içi etkileşimli aktiviteler. Rekabetçi olmayan yaklaşımla takım çalışması.
+  .items[1].color = #2ECC71
+  .items[2].icon = Award
+  .items[2].title = Dijital Rozet Koleksiyonu
+  .items[2].description = Başarıların için ödül rozet koleksiyonu oluştur. Her kazanımda yeni rozetler ve motivasyon!
+  .items[2].color = #F5C518
+  .items[3].icon = Users
+  .items[3].title = Canlı Grup Seansları
+  .items[3].description = Arkadaşlarınla birlikte uzman eşliğinde öğrenme fırsatı. Grup çalışmaları ve iş birliği projeleri.
+  .items[3].color = #7F63CB
+  .items[4].icon = CheckCircle2
+  .items[4].title = Günlük Görevler
+  .items[4].description = Her gün yeni görevlerle gelişim. Ebeveyn kitleri ve gerçek yaşam görevleriyle öğrenmeyi hayata taşı.
+  .items[4].color = #EE7A45
+  .items[5].icon = BookOpen
+  .items[5].title = Kişisel Gelişim Portfolyosu
+  .items[5].description = Gelişimini takip et ve paylaş. Kapsamlı raporlama ve gelişim portfolyosu oluşturma imkânı.
+  .items[5].color = #1B3A7B
+
+--- skill_areas ---
+  .title = Geliştirdiğimiz
+  .titleHighlight = Beceri Alanları
+  .items[0].icon = Heart
+  .items[0].title = Empati
+  .items[0].description = Başkalarının duygularını anlama ve paylaşma becerisi
+  .items[0].color = #EE7A45
+  .items[1].icon = MessageCircle
+  .items[1].title = İletişim
+  .items[1].description = Etkili dinleme, ifade etme ve diyalog kurma
+  .items[1].color = #2ECC71
+  .items[2].icon = Brain
+  .items[2].title = Öz Farkındalık
+  .items[2].description = Kendi duygularını tanıma ve yönetme
+  .items[2].color = #7F63CB
+  .items[3].icon = Shield
+  .items[3].title = Duygusal Dayanıklılık
+  .items[3].description = Stres ve zorluklarla başa çıkma becerisi
+  .items[3].color = #F5C518
+  .items[4].icon = Crown
+  .items[4].title = Liderlik
+  .items[4].description = Sorumluluk alma ve ekibi yönlendirme
+  .items[4].color = #1B3A7B
+  .items[5].icon = Users
+  .items[5].title = Takım Çalışması
+  .items[5].description = İş birliği yapma ve ortak hedeflere ulaşma
+  .items[5].color = #2ECC71
+
+--- badge_collection ---
+  .title = Rozet Koleksiyonun
+  .items[0].name = Keşif Yıldızı
+  .items[0].type = Keşif
+  .items[1].name = Empati Ustası
+  .items[1].type = Empati
+  .items[2].name = İletişim Şampiyonu
+  .items[2].type = İletişim
+  .items[3].name = Takım Oyuncusu
+  .items[3].type = Takım
+  .items[4].name = Problem Çözücü
+  .items[4].type = Analitik
+  .items[5].name = Liderlik Rozeti
+  .items[5].type = Liderlik
+
+--- final_cta ---
+  .title = Öğrenme macerana <span class="text-[#F5C518]">hemen başla!</span>
+  .description = Eğlenceli video dersler, interaktif oyunlar ve dijital rozetlerle sosyal becerilerini geliştir.
+  .cta.label = Hemen Başla
+  .cta.href = https://lms.learnecohub.com/login/index.php
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = Ücretsiz başlangıç
+  .badges[1].text = Kredi kartı gerekmiyor
+  .badges[2].text = Anında erişim
+
+
+══════════════════════════════════════════
+PAGE: ogrenme-ekosistemi (Öğrenme Ekosistemi)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = Öğrenme Ekosistemi
+  .tag = ÖĞRENME EKOSİSTEMİ
+  .tagIcon = Layers
+  .title = Bütünsel
+  .titleHighlight = öğrenme ekosistemi.
+  .description = Öğrenci, öğretmen ve aileleri bir araya getiren kapsamlı öğrenme deneyimi.
+  .theme = brand
+
+--- learning_steps ---
+  .title = 6 Adımda
+  .titleHighlight = Kapsamlı Müfredat
+  .steps[0].icon = Target
+  .steps[0].title = Tanışma ve Değerlendirme
+  .steps[0].description = Öğrencinin mevcut beceri düzeyi belirlenir
+  .steps[0].color = #1B3A7B
+  .steps[1].icon = Video
+  .steps[1].title = Asenkron Öğrenme
+  .steps[1].description = Video dersler ve interaktif içerikler
+  .steps[1].color = #2ECC71
+  .steps[2].icon = Users
+  .steps[2].title = Canlı Grup Seansları
+  .steps[2].description = Uzman eşliğinde grup çalışmaları
+  .steps[2].color = #7F63CB
+  .steps[3].icon = PenTool
+  .steps[3].title = Uygulama ve Derinleşme
+  .steps[3].description = Pratik uygulamalar ve projeler
+  .steps[3].color = #EE7A45
+  .steps[4].icon = BarChart3
+  .steps[4].title = Ölçme ve Geri Bildirim
+  .steps[4].description = Gelişim takibi ve raporlama
+  .steps[4].color = #F5C518
+  .steps[5].icon = Heart
+  .steps[5].title = Aile Katılımı
+  .steps[5].description = Ev ortamında destekleyici aktiviteler
+  .steps[5].color = #1B3A7B
+
+--- learning_map ---
+  .nodes[0].title = Temel Kavramlar
+  .nodes[0].status = completed
+  .nodes[1].title = İletişim Becerileri
+  .nodes[1].status = completed
+  .nodes[2].title = Empati Geliştirme
+  .nodes[2].status = current
+  .nodes[3].title = Takım Çalışması
+  .nodes[3].status = locked
+  .nodes[4].title = Problem Çözme
+  .nodes[4].status = locked
+  .nodes[5].title = Mezuniyet
+  .nodes[5].status = locked
+
+--- final_cta ---
+  .title = Öğrenme <span class="text-[#F5C518]">yolculuğuna başla.</span>
+  .description = Bütünsel öğrenme ekosistemimizi keşfetmek için hemen başlayabilirsiniz.
+  .cta.label = Hemen Başla
+  .cta.href = https://lms.learnecohub.com/login/index.php
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = Kademeli ilerleme
+  .badges[1].text = Uzman rehberlik
+  .badges[2].text = Aile katılımı
+
+
+══════════════════════════════════════════
+PAGE: ogretmenler-icin (Öğretmenler İçin)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = Öğretmenler İçin
+  .tag = ÖĞRETMENLER İÇİN
+  .tagIcon = GraduationCap
+  .title = Sıfır hazırlıkla,
+  .titleHighlight = hazır dijital müfredat.
+  .description = Öğretmenlerin doğru kaynakları aramak ya da içerik üretmek için saatler harcamasına gerek kalmaz. 'Tıkla ve Başlat' kolaylığıyla sosyal-duygusal becerileri sınıfınızda uygulayın.
+  .theme = lavender
+
+--- teacher_tools ---
+  .title = Sıfır Hazırlık ile
+  .titleHighlight = Sınıfta Uygula
+  .description = Hazır üniteler ve yapılandırılmış oturum planlarımız sayesinde sosyal ve duygusal becerileri öğretmek hem kolay hem de etkilidir.
+  .items[0].icon = FileText
+  .items[0].title = Hazır Ders Planları
+  .items[0].description = MTSS çerçevesine uygun, sınıf içi aktivite planları. Sezgisel yapısı sayesinde ders planlamayı basitleştirir.
+  .items[0].color = #1B3A7B
+  .items[1].icon = Palette
+  .items[1].title = Etkinlik Materyalleri
+  .items[1].description = Yazdırılabilir çalışma kâğıtları, posterler ve sınıf materyalleri. 500+ yazdırılabilir sayfa.
+  .items[1].color = #2ECC71
+  .items[2].icon = BarChart3
+  .items[2].title = Ölçme-Değerlendirme Araçları
+  .items[2].description = Öğrenci gelişim değerlendirme, kapsamlı raporlama ve gelişim portfolyosu oluşturma imkânı.
+  .items[2].color = #7F63CB
+  .items[3].icon = Monitor
+  .items[3].title = Öğrenci Takip Paneli
+  .items[3].description = Bireysel ilerleme raporları, sınıf bazlı analitik ve detaylı gelişim grafikleri.
+  .items[3].color = #EE7A45
+  .items[4].icon = Video
+  .items[4].title = Video Modelleme İçerikleri
+  .items[4].description = Konu uzmanları tarafından hazırlanan davranışsal video modellemeler ve animasyonlu içerikler.
+  .items[4].color = #F5C518
+  .items[5].icon = BookOpen
+  .items[5].title = Uygulama Kılavuzları
+  .items[5].description = Adım adım rehberlik ve öğretmen eğitim programları. Her kazanımı adım adım yapılandıran föyler.
+  .items[5].color = #1B3A7B
+
+--- testimonials ---
+  .tag = REFERANSLAR
+  .title = Öğretmenlerimiz Ne Diyor?
+  .items[0].name = Ayşe Yılmaz
+  .items[0].role = Sınıf Öğretmeni, İstanbul
+  .items[0].quote = Hazır ders planları sayesinde sosyal beceri derslerini hiç bu kadar kolay uygulamamıştım. Öğrencilerim bayılıyor!
+  .items[1].name = Mehmet Kaya
+  .items[1].role = Rehber Öğretmen, Ankara
+  .items[1].quote = Ölçme-değerlendirme araçları ile öğrencilerimin gelişimini somut verilerle takip edebiliyorum.
+  .items[2].name = Zeynep Demir
+  .items[2].role = Okul Öncesi Öğretmeni, İzmir
+  .items[2].quote = Animasyonlu video içerikler küçük yaş grubu için harika. Çocuklar dersleri dört gözle bekliyor.
+
+--- final_cta ---
+  .title = Sınıfınızda <span class="text-[#F5C518]">fark yaratın!</span>
+  .description = Hazır müfredat, ölçme araçları ve uzman desteğiyle sosyal-duygusal öğrenmeyi sınıfınıza taşıyın.
+  .cta.label = Uzman Hesabı Oluştur
+  .cta.href = /iletişim
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = Sıfır hazırlık
+  .badges[1].text = 500+ materyal
+  .badges[2].text = Hazır ders planları
+
+
+══════════════════════════════════════════
+PAGE: okullar-icin (Okullar İçin)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = Okullar İçin
+  .tag = OKULLAR İÇİN
+  .tagIcon = School
+  .title = Okulunuza özel
+  .titleHighlight = SEL programı.
+  .description = K-12 okulları için kapsamlı sosyal-duygusal öğrenme çözümleri.
+  .theme = brand
+
+--- school_features ---
+  .items[0].icon = BookOpen
+  .items[0].title = Müfredata Entegre
+  .items[0].description = Mevcut müfredata kolayca entegre edilebilen SEL modülleri
+  .items[0].color = #1B3A7B
+  .items[1].icon = Users
+  .items[1].title = Öğretmen Eğitimi
+  .items[1].description = Öğretmenleriniz için kapsamlı SEL eğitim programı
+  .items[1].color = #2ECC71
+  .items[2].icon = BarChart3
+  .items[2].title = Kurumsal Raporlama
+  .items[2].description = Okul genelinde gelişim raporları ve analizler
+  .items[2].color = #7F63CB
+  .items[3].icon = Settings
+  .items[3].title = Özel İçerik
+  .items[3].description = Okulunuza özel içerik ve müfredat tasarımı
+  .items[3].color = #EE7A45
+  .items[4].icon = Shield
+  .items[4].title = Veri Güvenliği
+  .items[4].description = KVKK uyumlu kurumsal veri yönetimi
+  .items[4].color = #F5C518
+  .items[5].icon = Headphones
+  .items[5].title = Öncelikli Destek
+  .items[5].description = Kurumlara özel teknik ve akademik destek
+  .items[5].color = #1B3A7B
+
+--- final_cta ---
+  .title = Okulunuz için <span class="text-[#F5C518]">demo talep edin.</span>
+  .description = Okulunuza özel çözümlerimiz hakkında bilgi alın.
+  .cta.label = Demo Talep Et
+  .cta.href = /demo
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = Özel müfredat
+  .badges[1].text = Öğretmen eğitimi dahil
+  .badges[2].text = Kurumsal destek
+
+
+══════════════════════════════════════════
+PAGE: platform (Platform)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = Platform
+  .tag = PLATFORM
+  .tagIcon = Monitor
+  .title = Sosyal beceri
+  .titleHighlight = öğrenme platformu.
+  .description = İnteraktif videolar, oyunlar, canlı dersler ve daha fazlasıyla zenginleştirilmiş dijital öğrenme deneyimi.
+  .theme = mint
+
+--- bento_grid ---
+  .items[0].title = Animasyonlu Video Dersler
+  .items[0].description = Hikaye temelli, karakter odaklı interaktif video içerikler
+  .items[0].icon = Video
+  .items[0].color = #1B3A7B
+  .items[1].title = Etkileşimli Oyunlar
+  .items[1].description = Öğrenirken eğlendiren dijital beceri oyunları
+  .items[1].icon = Gamepad2
+  .items[1].color = #2ECC71
+  .items[2].title = Dijital Rozet Sistemi
+  .items[2].description = Başarıları ödüllendiren motivasyon sistemi
+  .items[2].icon = Award
+  .items[2].color = #F5C518
+  .items[3].title = Canlı Grup Seansları
+  .items[3].description = Uzman eşliğinde interaktif grup çalışmaları
+  .items[3].icon = Users
+  .items[3].color = #7F63CB
+  .items[4].title = Kişisel Portfolyo
+  .items[4].description = Öğrencinin gelişim yolculuğunu belgeleyen portfolyo
+  .items[4].icon = FolderOpen
+  .items[4].color = #EE7A45
+  .items[5].title = Detaylı Raporlama
+  .items[5].description = Aile ve öğretmenler için kapsamlı ilerleme raporları
+  .items[5].icon = BarChart3
+  .items[5].color = #1B3A7B
+
+--- stats ---
+  .items[0].icon = Video
+  .items[0].suffix = +
+  .items[0].label = Video Ders
+  .items[0].color = #1B3A7B
+  .items[0].bgColor = #EBF2FB
+  .items[1].icon = Gamepad2
+  .items[1].suffix = +
+  .items[1].label = İnteraktif Oyun
+  .items[1].color = #2ECC71
+  .items[1].bgColor = #ECFBF2
+  .items[2].icon = Award
+  .items[2].suffix = +
+  .items[2].label = Dijital Rozet
+  .items[2].color = #F5C518
+  .items[2].bgColor = #FFFDE7
+  .items[3].icon = FileText
+  .items[3].suffix = +
+  .items[3].label = Çalışma Sayfası
+  .items[3].color = #7F63CB
+  .items[3].bgColor = #F0EDF9
+
+--- free_banner ---
+  .title = Platformumuzu
+  .titleHighlight = ücretsiz
+  .titleEnd = deneyin.
+  .description = 14 gün boyunca tüm özelliklere sınırsız erişim.
+  .buttonText = Ücretsiz Başla
+
+--- final_cta ---
+  .title = Platformu <span class="text-[#F5C518]">keşfetmeye başla.</span>
+  .description = Hemen ücretsiz hesap oluşturun ve öğrenme yolculuğuna başlayın.
+  .cta.label = Ücretsiz Başla
+  .cta.href = https://lms.learnecohub.com/login/index.php
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = 14 gün ücretsiz
+  .badges[1].text = Tüm özelliklere erişim
+  .badges[2].text = Kredi kartı gerekmiyor
+
+
+══════════════════════════════════════════
+PAGE: profesyoneller-icin (Profesyoneller İçin)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = Profesyoneller İçin
+  .tag = PROFESYONELLER İÇİN
+  .tagIcon = GraduationCap
+  .title = Hazır dijital
+  .titleHighlight = müfredat.
+  .description = Öğretmenler, psikologlar ve pedagoglar için profesyonel araçlar.
+  .theme = lavender
+
+--- teacher_tools ---
+  .title = Sıfır hazırlık ile
+  .titleHighlight = sınıfta uygula.
+  .items[0].icon = FileText
+  .items[0].title = Hazır Ders Planları
+  .items[0].description = Sınıf içi aktivite planları ve müfredat
+  .items[0].color = #1B3A7B
+  .items[1].icon = Palette
+  .items[1].title = Etkinlik Materyalleri
+  .items[1].description = Yazdırılabilir çalışma kağıtları ve kaynaklar
+  .items[1].color = #2ECC71
+  .items[2].icon = BarChart3
+  .items[2].title = Ölçme Araçları
+  .items[2].description = Öğrenci gelişim değerlendirme ve raporlama
+  .items[2].color = #7F63CB
+  .items[3].icon = Monitor
+  .items[3].title = Öğrenci Takip Paneli
+  .items[3].description = Bireysel ilerleme raporları ve analizler
+  .items[3].color = #EE7A45
+  .items[4].icon = Printer
+  .items[4].title = 500+ Yazdırılabilir Sayfa
+  .items[4].description = Hazır materyaller ve çalışma yaprakları
+  .items[4].color = #F5C518
+  .items[5].icon = BookOpen
+  .items[5].title = Uygulama Kılavuzları
+  .items[5].description = Adım adım rehberlik dokümanları
+  .items[5].color = #1B3A7B
+
+--- stats ---
+  .items[0].icon = FileText
+  .items[0].suffix = +
+  .items[0].label = Ders Planı
+  .items[0].color = #1B3A7B
+  .items[0].bgColor = #EBF2FB
+  .items[1].icon = Users
+  .items[1].suffix = +
+  .items[1].label = Aktif Öğretmen
+  .items[1].color = #2ECC71
+  .items[1].bgColor = #ECFBF2
+  .items[2].icon = Star
+  .items[2].suffix = %
+  .items[2].label = Memnuniyet
+  .items[2].color = #F5C518
+  .items[2].bgColor = #FFFDE7
+  .items[3].icon = Clock
+  .items[3].suffix = +
+  .items[3].label = Saat İçerik
+  .items[3].color = #7F63CB
+  .items[3].bgColor = #F0EDF9
+
+--- final_cta ---
+  .title = Profesyonel <span class="text-[#F5C518]">araçlarımızı keşfet.</span>
+  .description = Ücretsiz deneme ile hemen başlayabilirsiniz.
+  .cta.label = Uzman Ol
+  .cta.href = https://lms.learnecohub.com/login/index.php
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = Ücretsiz deneme
+  .badges[1].text = 500+ materyal
+  .badges[2].text = Uzman destek
+
+
+══════════════════════════════════════════
+PAGE: sss (Sıkça Sorulan Sorular)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = SSS
+  .tag = SSS
+  .tagIcon = HelpCircle
+  .title = Sıkça sorulan
+  .titleHighlight = sorular.
+  .description = LearnecoHub hakkında merak ettiğiniz her şey burada. Aradığınız yanıtı bulamazsanız bize ulaşın!
+  .theme = brand
+
+--- faq ---
+  .tag = GENEL
+  .title = Genel Sorular
+  .items[0].q = LearnecoHub nedir?
+  .items[0].a = LearnecoHub, çocukların sosyal-duygusal becerilerini geliştiren bilimsel temelli bir online öğrenme platformudur. MEB Kazanımları, CASEL Çerçevesi, OECD Sosyal ve Duygusal Beceriler ile SKH (Sürdürülebilir Kalkınma Hedefleri) ile tam uyumlu müfredatımızla K-12 yaş grubuna hizmet veriyoruz.
+  .items[1].q = Hangi yaş gruplarına hitap ediyor?
+  .items[1].a = Okul öncesinden lise sona kadar (K-12) tüm yaş gruplarına hitap ediyoruz. Her sınıf seviyesine uygun içerikler ve materyaller sunuyoruz.
+  .items[2].q = Platform güvenli mi?
+  .items[2].a = Evet, KVKK uyumlu ve çocuk güvenliği standartlarına uygun bir platformuz. Tüm veriler güvenli sunucularda saklanır.
+  .items[3].q = Nasıl kayıt olunur?
+  .items[3].a = Web sitemiz üzerinden veya platformumuzdan ücretsiz hesap oluşturarak hemen başlayabilirsiniz.
+  .items[4].q = İçerikler hangi dilde sunuluyor?
+  .items[4].a = Tüm içeriklerimiz Türkçe olarak hazırlanmıştır.
+  .items[5].q = Müfredatınız hangi çerçevelere uyumlu?
+  .items[5].a = MEB Maarif Modeli, CASEL Çerçevesi, OECD Sosyal ve Duygusal Beceriler, SKH, Avrupa Birliği Yetkinlik Standartları ve Dünya Ekonomik Forum kriterlerine uyumludur.
+  .items[6].q = Ücretlendirme nasıl?
+  .items[6].a = Bireysel, Uzman ve Kurum hesabı olmak üzere 3 farklı plan sunuyoruz. Bireysel hesapla ücretsiz başlayabilirsiniz.
+  .items[7].q = Canlı dersler nasıl işliyor?
+  .items[7].a = Uzman eğitmenler eşliğinde online grup seansları şeklinde gerçekleştirilir. Düzenli aralıklarla planlanan seanslarımıza hesabınız üzerinden katılabilirsiniz.
+
+--- faq_parents ---
+  .tag = EBEVEYNLER İÇİN
+  .title = Ebeveynler İçin
+  .items[0].q = Çocuğumun gelişimini nasıl takip ederim?
+  .items[0].a = Veli panelinizden çocuğunuzun ilerleme raporlarını, rozet kazanımlarını ve gelişim grafiklerini görebilirsiniz.
+  .items[1].q = Aile olarak ne yapmalıyız?
+  .items[1].a = Her dersin sonunda ailelere özel ev etkinlikleri ve rehberlik önerileri sunulmaktadır. Günlük hayatta uygulanabilir pratik ipuçları ve ebeveyn kitleri ile çocuğunuzun gelişimini evde de destekleyebilirsiniz.
+  .items[2].q = Rozetler ve ödüller nasıl çalışıyor?
+  .items[2].a = Öğrenciler görevleri tamamladıkça dijital rozetler kazanır. Bu rozetler hem motivasyonu artırır hem de gelişim sürecini görünür kılar. 50'den fazla farklı rozet ve 6 kategori bulunmaktadır.
+  .items[3].q = Hangi cihazlardan erişebiliriz?
+  .items[3].a = Bilgisayar, tablet ve telefon üzerinden erişim mümkündür. Platformumuz tüm modern tarayıcılarda sorunsuz çalışır.
+  .items[4].q = İçerikler çocuğum için güvenli mi?
+  .items[4].a = Kesinlikle evet. Tüm içeriklerimiz çocuk gelişimi uzmanları tarafından denetlenir ve yaş grubuna uygunluk açısından kontrol edilir. KVKK uyumlu güvenli bir ortam sunuyoruz.
+  .items[5].q = Evde nasıl destek olabilirim?
+  .items[5].a = Aile katılımını güçlendiren evde uygulanabilir çalışmalar, beceri kartları ve günlük yaşam görevleri sunuyoruz. Ebeveyn rehberliği içerikleriyle çocuğunuzun gelişimine aktif katkı sağlayabilirsiniz.
+
+
+══════════════════════════════════════════
+PAGE: sinif-seviyeleri (Sınıf Seviyelerine Göre Müfredat)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = Sınıf Seviyeleri
+  .tag = SINIF SEVİYELERİ
+  .tagIcon = Layers
+  .title = Her yaşa uygun
+  .titleHighlight = müfredat.
+  .description = K-12 sınıf seviyelerine göre özelleştirilmiş sosyal-duygusal öğrenme müfredatı.
+  .theme = lavender
+
+--- skill_areas ---
+  .items[0].title = Anasınıfi (5-6 yaş)
+  .items[0].color = #2ECC71
+  .items[1].title = 1-2. Sınıf (6-8 yaş)
+  .items[1].color = #EE7A45
+  .items[2].title = 3-4. Sınıf (8-10 yaş)
+  .items[2].color = #7F63CB
+  .items[3].title = 5-6. Sınıf (10-12 yaş)
+  .items[3].color = #F5C518
+  .items[4].title = 7-8. Sınıf (12-14 yaş)
+  .items[4].color = #1B3A7B
+  .items[5].title = 9-12. Sınıf (14-18 yaş)
+  .items[5].color = #2ECC71
+
+--- student_features ---
+  .items[0].icon = Baby
+  .items[0].title = Erken Çocukluk (5-6)
+  .items[0].description = Temel duygu tanıma, paylaşma ve işbirliği becerileri
+  .items[0].color = #2ECC71
+  .items[1].icon = Smile
+  .items[1].title = İlk Yıllar (6-8)
+  .items[1].description = Empati temelleri, arkadaşlık becerileri, temel problem çözme
+  .items[1].color = #EE7A45
+  .items[2].icon = BookOpen
+  .items[2].title = Orta Çocukluk (8-10)
+  .items[2].description = Duygu yönetimi, çatışma çözme, liderlik temelleri
+  .items[2].color = #7F63CB
+  .items[3].icon = Brain
+  .items[3].title = Ön Ergenlik (10-12)
+  .items[3].description = Öz farkındalık derinleşmesi, sosyal adalet, dijital vatandaşlık
+  .items[3].color = #F5C518
+  .items[4].icon = Users
+  .items[4].title = Ergenlik (12-14)
+  .items[4].description = Kimlik geliştirme, akran baskısı, karar verme becerileri
+  .items[4].color = #1B3A7B
+  .items[5].icon = GraduationCap
+  .items[5].title = Gençlik (14-18)
+  .items[5].description = Kariyer planlama, toplumsal sorumluluk, liderlik
+  .items[5].color = #2ECC71
+
+--- final_cta ---
+  .title = Çocuğunuzun <span class="text-[#F5C518]">seviyesini seçin.</span>
+  .description = Yaş grubuna uygun müfredatımızla hemen başlayın.
+  .cta.label = Hemen Başla
+  .cta.href = https://lms.learnecohub.com/login/index.php
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = Yaşa uygun içerik
+  .badges[1].text = Kademeli ilerleme
+  .badges[2].text = Uzman onaylı
+
+
+══════════════════════════════════════════
+PAGE: ucretsiz-kaynaklar (Ücretsiz Kaynaklar ve Etkinlikler)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = Ücretsiz Kaynaklar
+  .tag = ÜCRETSİZ KAYNAKLAR
+  .tagIcon = Gift
+  .title = Ücretsiz
+  .titleHighlight = eğitim kaynakları.
+  .description = İndirilebilir materyaller, etkinlik takvimleri ve ücretsiz eğitim içerikleri.
+  .theme = gold
+
+--- materials ---
+  .title = Hemen indirin ve
+  .titleHighlight = kullanmaya başlayın
+  .items[0].icon = FileText
+  .items[0].title = Çalışma Yaprakları
+  .items[0].count = 50+
+  .items[0].color = #1B3A7B
+  .items[0].features[0] = Yaş grubuna uygun
+  .items[0].features[1] = Yazdırılabilir PDF
+  .items[0].features[2] = Öğretmen kılavuzu dahil
+  .items[1].icon = Video
+  .items[1].title = Örnek Video Dersler
+  .items[1].count = 10+
+  .items[1].color = #2ECC71
+  .items[1].features[0] = Tam uzunlukta örnekler
+  .items[1].features[1] = Farklı yaş grupları
+  .items[1].features[2] = Alt yazı desteği
+  .items[2].icon = BookOpen
+  .items[2].title = E-Rehberler
+  .items[2].count = 5+
+  .items[2].color = #7F63CB
+  .items[2].features[0] = Ebeveyn rehberliği
+  .items[2].features[1] = Öğretmen kılavuzları
+  .items[2].features[2] = SEL tanıtım
+  .items[3].icon = Calendar
+  .items[3].title = Etkinlik Şablonları
+  .items[3].count = 20+
+  .items[3].color = #EE7A45
+  .items[3].features[0] = Sınıf içi aktiviteler
+  .items[3].features[1] = Ev etkinlikleri
+  .items[3].features[2] = Grup çalışmaları
+
+--- free_banner ---
+  .title = Her ay yeni
+  .titleHighlight = ücretsiz
+  .titleEnd = kaynaklar ekleniyor.
+  .description = Ücretsiz kaynaklarımızdan haberdar olmak için bültenimize abone olun.
+  .buttonText = Abone Ol
+
+--- final_cta ---
+  .title = Daha fazlası için <span class="text-[#F5C518]">premium planları inceleyin.</span>
+  .description = 500+ içeriğe sınırsız erişim için premium planlara göz atın.
+  .cta.label = Planları İncele
+  .cta.href = https://lms.learnecohub.com/login/index.php
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = Ücretsiz indirme
+  .badges[1].text = Kayıt gerekmiyor
+  .badges[2].text = PDF format
+
+
+══════════════════════════════════════════
+PAGE: webinarlar (Webinarlar)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = Webinarlar
+  .tag = WEBINARLAR
+  .tagIcon = Video
+  .title = Canlı ve kayıtlı
+  .titleHighlight = webinarlar.
+  .description = Uzmanlarımızla sosyal-duygusal öğrenme konularında derinlemesine webinarlar.
+  .theme = brand
+
+--- student_features ---
+  .items[0].icon = Heart
+  .items[0].title = Empati Eğitimi
+  .items[0].description = Çocuklarda empati geliştirmenin yolları
+  .items[0].color = #EE7A45
+  .items[1].icon = Brain
+  .items[1].title = Duygu Yönetimi
+  .items[1].description = Çocukların duygularını yönetmeyi öğrenmesi
+  .items[1].color = #7F63CB
+  .items[2].icon = Users
+  .items[2].title = Sosyal Beceriler
+  .items[2].description = Arkadaşlık ve işbirliği becerileri
+  .items[2].color = #2ECC71
+  .items[3].icon = Shield
+  .items[3].title = Dijital Güvenlik
+  .items[3].description = Çocuklar için güvenli internet kullanımı
+  .items[3].color = #1B3A7B
+  .items[4].icon = BookOpen
+  .items[4].title = SEL Entegrasyonu
+  .items[4].description = Öğretmenler için sınıf içi SEL uygulamaları
+  .items[4].color = #F5C518
+  .items[5].icon = Home
+  .items[5].title = Aile Rehberliği
+  .items[5].description = Ebeveynler için ev ortamında destek stratejileri
+  .items[5].color = #EE7A45
+
+--- final_cta ---
+  .title = Bir sonraki <span class="text-[#F5C518]">webinarımıza katılın.</span>
+  .description = Ücretsiz webinarlarımızdan haberdar olmak için kaydolun.
+  .cta.label = Kayıt Ol
+  .cta.href = https://lms.learnecohub.com/login/index.php
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = Ücretsiz katılım
+  .badges[1].text = Canlı soru-cevap
+  .badges[2].text = Kayıt erişimi
+
+
+══════════════════════════════════════════
+PAGE: yetkinlik-alanlarimiz (Yetkinlik Alanlarımız)
+══════════════════════════════════════════
+
+--- subpage_hero ---
+  .breadcrumb = Yetkinlik Alanlarımız
+  .tag = YETKİNLİK ALANLARI
+  .tagIcon = Sparkles
+  .title = 5 temel
+  .titleHighlight = yetkinlik alanı.
+  .description = CASEL çerçevesine dayalı sosyal-duygusal öğrenme yetkinlik alanları.
+  .theme = gold
+
+--- skill_areas ---
+  .items[0].title = Öz Farkındalık
+  .items[0].color = #1B3A7B
+  .items[1].title = Öz Yönetim
+  .items[1].color = #2ECC71
+  .items[2].title = Sosyal Farkındalık
+  .items[2].color = #7F63CB
+  .items[3].title = İlişki Becerileri
+  .items[3].color = #EE7A45
+  .items[4].title = Sorumlu Karar Verme
+  .items[4].color = #F5C518
+
+--- student_features ---
+  .items[0].icon = Eye
+  .items[0].title = Öz Farkındalık
+  .items[0].description = Duyguları tanıma, güçlü yönleri bilme, özgüven geliştirme
+  .items[0].color = #1B3A7B
+  .items[1].icon = Settings
+  .items[1].title = Öz Yönetim
+  .items[1].description = Stres yönetimi, öz disiplin, hedef belirleme, motivasyon
+  .items[1].color = #2ECC71
+  .items[2].icon = Heart
+  .items[2].title = Sosyal Farkındalık
+  .items[2].description = Empati, başkalarını anlama, çeşitliliği takdir etme
+  .items[2].color = #7F63CB
+  .items[3].icon = Users
+  .items[3].title = İlişki Becerileri
+  .items[3].description = İletişim, işbirliği, çatışma çözme, yardım isteme
+  .items[3].color = #EE7A45
+  .items[4].icon = Scale
+  .items[4].title = Sorumlu Karar Verme
+  .items[4].description = Etik değerler, sonuçları düşünme, problem çözme
+  .items[4].color = #F5C518
+
+--- final_cta ---
+  .title = Yetkinlik <span class="text-[#F5C518]">yolculuğuna başla.</span>
+  .description = 5 temel yetkinlik alanında çocuğunuzun gelişimini destekleyin.
+  .cta.label = Hemen Başla
+  .cta.href = https://lms.learnecohub.com/login/index.php
+  .phone.label = 0531 952 94 96
+  .phone.href = tel:+905319529496
+  .badges[0].text = CASEL uyumlu
+  .badges[1].text = 5 yetkinlik alanı
+  .badges[2].text = Ölçülebilir gelişim

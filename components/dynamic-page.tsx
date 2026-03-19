@@ -1804,6 +1804,90 @@ function PhotoAlbumSection({ data }: { data: any }) {
   );
 }
 
+/* ═══════════════════════════════════════
+   SUCCESS STORIES — Başarı Hikayeleri
+   ═══════════════════════════════════════ */
+function SuccessStoriesSection({ data }: { data: any }) {
+  const stories = data.stories || data.items || [];
+  if (stories.length === 0) return null;
+
+  const accentColors = ["#1B3A7B", "#2ECC71", "#F5C518", "#7F63CB", "#EE7A45", "#4D7EC4"];
+  const bgColors = ["#EBF2FB", "#ECFBF2", "#FFFBEB", "#F0EDF9", "#FEF5F0", "#EBF2FB"];
+
+  return (
+    <Section>
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 grid-overlay" />
+        <div className="absolute top-20 left-[8%] w-72 h-72 bg-[#F5C518]/8 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-[10%] w-60 h-60 bg-[#1B3A7B]/6 rounded-full blur-3xl" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          {/* Header */}
+          <div className="max-w-3xl mb-16">
+            {data.tag && <div className="anim"><span className="tag bg-gold-100 text-gold-700 mb-4"><Trophy className="w-3.5 h-3.5" /> {data.tag}</span></div>}
+            <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight leading-[1.15]">
+              {data.title}{data.titleHighlight && <>{" "}<span className="text-gradient">{data.titleHighlight}</span></>}
+            </h2>
+            {data.description && <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">{data.description}</p>}
+          </div>
+
+          {/* Stories grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {stories.map((story: any, i: number) => {
+              const color = accentColors[i % accentColors.length];
+              const bg = bgColors[i % bgColors.length];
+              return (
+                <div key={i} className={`anim d${Math.min(i + 1, 6)} group`}>
+                  <div
+                    className="relative bg-white rounded-2xl overflow-hidden transition-all duration-500 group-hover:-translate-y-2"
+                    style={{ boxShadow: `0 4px 0 ${color}25, 0 8px 32px rgba(0,0,0,0.06)` }}
+                  >
+                    {/* Image */}
+                    {story.image && (
+                      <div className="relative h-[240px] overflow-hidden" style={{ background: bg }}>
+                        <img
+                          src={story.image}
+                          alt={story.title || ""}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-60" />
+                        <div className="absolute top-0 left-0 right-0 h-1" style={{ background: color }} />
+                      </div>
+                    )}
+
+                    {/* Content */}
+                    <div className="p-6 pt-4">
+                      <h3 className="font-display text-lg font-extrabold text-slate-800 mb-2 leading-tight">
+                        {story.title}
+                      </h3>
+                      <p className="text-slate-500 text-[0.85rem] leading-[1.75]">
+                        {story.description}
+                      </p>
+                      {story.author && (
+                        <div className="mt-4 pt-4 border-t border-slate-100 flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold" style={{ background: color }}>
+                            {story.author.charAt(0)}
+                          </div>
+                          <div>
+                            <p className="text-sm font-bold text-slate-700">{story.author}</p>
+                            {story.role && <p className="text-xs text-slate-400">{story.role}</p>}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    </Section>
+  );
+}
+
 function CloudDivider({ flip = false }: { flip?: boolean }) {
   return (
     <div className={`relative z-30 overflow-hidden pointer-events-none h-16 sm:h-24 -my-8 sm:-my-12 ${flip ? "rotate-180" : ""}`}>
@@ -2005,6 +2089,7 @@ export const sectionRenderers: Record<string, (data: any) => React.ReactNode> = 
   partner_logos: (data) => <PartnerLogosSection data={data} />,
   gallery: (data) => <GallerySection data={data} />,
   photo_album: (data) => <PhotoAlbumSection data={data} />,
+  success_stories: (data) => <SuccessStoriesSection data={data} />,
 };
 
 export function DynamicPage({ slug, navActive }: { slug: string; navActive: string }) {

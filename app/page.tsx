@@ -955,10 +955,10 @@ function PianoShowcase({ data }: { data?: any }) {
         <div className="absolute inset-0 grid-overlay" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <div className="max-w-2xl mb-14 text-left">
+          <div className="mb-14" style={{ textAlign: "left", maxWidth: "42rem" }}>
             <div className="anim"><span className="tag bg-brand-100 text-brand-700 mb-4"><Play className="w-3.5 h-3.5" /> {d.tag || "İNTERAKTİF VİTRİN"}</span></div>
-            <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight leading-[1.15] text-left" dangerouslySetInnerHTML={{ __html: pianoTitle }} />
-            <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed text-left">{pianoDesc}</p>
+            <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight leading-[1.15]" style={{ textAlign: "left" }} dangerouslySetInnerHTML={{ __html: pianoTitle }} />
+            <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed" style={{ textAlign: "left" }}>{pianoDesc}</p>
           </div>
 
           <div className="anim d3 relative">

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yenileniyoruz | LearnecoHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --brand: #1B3A7B;
+      --brand-light: #4D7EC4;
+      --brand-lightest: #EBF2FB;
+      --mint: #2ECC71;
+      --mint-dark: #22a75c;
+      --gold: #F5C518;
+      --lavender: #6545B0;
+      --peach: #EE7A45;
+      --dark: #1A1A2E;
+      --slate: #64748b;
+      --light: #f1f5f9;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--brand);
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Background Effects */
+    .bg-pattern {
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: 0;
+      animation: float 8s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    .orb-1 {
+      width: 400px;
+      height: 400px;
+      background: var(--lavender);
+      top: -100px;
+      right: -100px;
+      animation-delay: 0s;
+    }
+
+    .orb-2 {
+      width: 350px;
+      height: 350px;
+      background: var(--mint);
+      bottom: -80px;
+      left: -80px;
+      animation-delay: -3s;
+    }
+
+    .orb-3 {
+      width: 250px;
+      height: 250px;
+      background: var(--gold);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation-delay: -5s;
+      opacity: 0.15;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-30px) scale(1.05); }
+    }
+
+    /* Main Container */
+    .container {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    /* Logo */
+    .logo {
+      margin-bottom: 2.5rem;
+      animation: fadeDown 0.8s ease-out;
+    }
+
+    .logo img {
+      height: 56px;
+      filter: brightness(0) invert(1);
+    }
+
+    /* Main Card */
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 1.5rem;
+      padding: 3rem 2.5rem;
+      max-width: 580px;
+      width: 100%;
+      animation: fadeUp 0.8s ease-out 0.2s both;
+    }
+
+    @supports (backdrop-filter: blur(20px)) {
+      .card {
+        background: rgba(255, 255, 255, 0.07);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+    }
+
+    /* Animated Icon */
+    .icon-wrap {
+      width: 88px;
+      height: 88px;
+      margin: 0 auto 2rem;
+      background: linear-gradient(135deg, var(--gold), var(--peach));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: pulse-glow 2.5s ease-in-out infinite;
+      box-shadow: 0 8px 32px rgba(245, 197, 24, 0.3);
+    }
+
+    .icon-wrap svg {
+      width: 44px;
+      height: 44px;
+      color: #fff;
+      animation: spin-slow 4s linear infinite;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 8px 32px rgba(245, 197, 24, 0.3); transform: scale(1); }
+      50% { box-shadow: 0 12px 48px rgba(245, 197, 24, 0.5); transform: scale(1.05); }
+    }
+
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Typography */
+    .title {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .title .highlight {
+      background: linear-gradient(135deg, var(--gold), var(--peach));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    /* Features List */
+    .features {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.8);
+      animation: fadeLeft 0.5s ease-out both;
+    }
+
+    .feature:nth-child(1) { animation-delay: 0.6s; }
+    .feature:nth-child(2) { animation-delay: 0.75s; }
+    .feature:nth-child(3) { animation-delay: 0.9s; }
+
+    .feature-icon {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .feature-icon svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .feature-icon.mint { background: rgba(46, 204, 113, 0.2); color: var(--mint); }
+    .feature-icon.gold { background: rgba(245, 197, 24, 0.2); color: var(--gold); }
+    .feature-icon.lavender { background: rgba(101, 69, 176, 0.2); color: var(--lavender); }
+
+    /* CTA Button */
+    .btn-platform {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.9rem 2rem;
+      background: var(--mint);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 0 var(--mint-dark), 0 6px 20px rgba(46, 204, 113, 0.35);
+      position: relative;
+      top: 0;
+    }
+
+    .btn-platform:hover {
+      top: -2px;
+      box-shadow: 0 6px 0 var(--mint-dark), 0 10px 28px rgba(46, 204, 113, 0.45);
+    }
+
+    .btn-platform:active {
+      top: 2px;
+      box-shadow: 0 2px 0 var(--mint-dark), 0 4px 12px rgba(46, 204, 113, 0.3);
+    }
+
+    .btn-platform svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Divider */
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      border-radius: 99px;
+      margin: 1.75rem auto;
+    }
+
+    /* Contact */
+    .contact {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.6;
+    }
+
+    .contact a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.2s;
+    }
+
+    .contact a:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 2.5rem;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+      animation: fadeUp 0.8s ease-out 0.5s both;
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeLeft {
+      from { opacity: 0; transform: translateX(-16px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .container {
+        padding: 1.5rem 1rem;
+        min-height: 100dvh;
+      }
+
+      .card {
+        padding: 2rem 1.25rem;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+
+      .logo {
+        margin-bottom: 1.5rem;
+      }
+
+      .logo img {
+        height: 44px;
+      }
+
+      .title {
+        font-size: 1.5rem;
+      }
+
+      .subtitle {
+        font-size: 0.9rem;
+      }
+
+      .orb { display: none; }
+
+      .icon-wrap {
+        width: 68px;
+        height: 68px;
+        margin-bottom: 1.5rem;
+      }
+
+      .icon-wrap svg {
+        width: 34px;
+        height: 34px;
+      }
+
+      .btn-platform {
+        font-size: 0.9rem;
+        padding: 0.8rem 1.5rem;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .feature {
+        font-size: 0.85rem;
+      }
+
+      .footer {
+        margin-top: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Effects -->
+  <div class="bg-pattern"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <div class="container">
+
+    <!-- Logo -->
+    <div class="logo">
+      <img src="/logo.png" alt="LearnecoHub">
+    </div>
+
+    <!-- Main Card -->
+    <div class="card">
+
+      <!-- Animated Icon -->
+      <div class="icon-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.049.58.025 1.193-.14 1.743" />
+        </svg>
+      </div>
+
+      <h1 class="title">
+        Sitemiz <span class="highlight">Yenileniyor!</span>
+      </h1>
+
+      <p class="subtitle">
+        Sizlere daha iyi bir deneyim sunmak için çalışıyoruz.<br>
+        Çok yakında yepyeni tasarımımızla karşınızda olacağız.
+      </p>
+
+      <!-- Features -->
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon mint">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+          </div>
+          <span>Yepyeni modern tasarım</span>
+        </div>
+        <div class="feature">
+          <div class="feature-icon gold">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+          </div>
+          <span>Geliştirilmiş öğrenme deneyimi</span>
+        </div>
+        <div class="feature">
+          <div class="feature-icon lavender">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+          </div>
+          <span>Daha hızlı ve akıcı platform</span>
+        </div>
+      </div>
+
+      <!-- Platform Button -->
+      <a href="https://lms.learnecohub.com/login/index.php" class="btn-platform">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" /></svg>
+        Platforma Giriş Yap
+      </a>
+
+      <div class="divider"></div>
+
+      <p class="contact">
+        Sorularınız için: <a href="mailto:info@learnecohub.com">info@learnecohub.com</a>
+      </p>
+
+    </div>
+
+    <p class="footer">&copy; 2026 LearnecoHub. Tüm hakları saklıdır.</p>
+
+  </div>
+
+</body>
+</html>
