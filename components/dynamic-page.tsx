@@ -1865,17 +1865,6 @@ function SuccessStoriesSection({ data }: { data: any }) {
                       <p className="text-slate-500 text-[0.85rem] leading-[1.75]">
                         {story.description}
                       </p>
-                      {story.author && (
-                        <div className="mt-4 pt-4 border-t border-slate-100 flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold" style={{ background: color }}>
-                            {story.author.charAt(0)}
-                          </div>
-                          <div>
-                            <p className="text-sm font-bold text-slate-700">{story.author}</p>
-                            {story.role && <p className="text-xs text-slate-400">{story.role}</p>}
-                          </div>
-                        </div>
-                      )}
                     </div>
                   </div>
                 </div>
