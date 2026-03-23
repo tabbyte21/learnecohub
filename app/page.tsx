@@ -1148,10 +1148,7 @@ function PianoShowcase({ data }: { data?: any }) {
                           >
                             <Play className="w-7 h-7 text-[#1B3A7B] ml-1" fill="#1B3A7B" />
                           </div>
-                          <div className="text-center">
-                            <p className="text-white font-display font-bold text-[0.95rem]">{keys[activeIdx]?.title}</p>
-                            <p className="text-white/45 text-[0.78rem] mt-0.5 max-w-[280px]">{keys[activeIdx]?.desc}</p>
-                          </div>
+                          <p className="text-white font-display font-bold text-[0.95rem] text-center">{keys[activeIdx]?.title}</p>
                         </div>
                       </div>
                     )}

@@ -1877,6 +1877,91 @@ function SuccessStoriesSection({ data }: { data: any }) {
   );
 }
 
+/* ═══════════════════════════════════════
+   SCREENSHOT SHOWCASE — Platform SS'leri
+   ═══════════════════════════════════════ */
+function ScreenshotShowcaseSection({ data }: { data: any }) {
+  const items = data.items || data.screenshots || [];
+  if (items.length === 0) return null;
+
+  const accentColors = ["#1B3A7B", "#2ECC71", "#7F63CB", "#F5C518", "#EE7A45", "#4D7EC4"];
+
+  return (
+    <Section>
+      <section className="py-24 bg-[#FAFBFE] relative overflow-hidden">
+        <div className="absolute inset-0 grid-overlay" />
+        <div className="absolute top-20 right-[8%] w-72 h-72 bg-brand-200/12 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-[5%] w-60 h-60 bg-lavender-200/10 rounded-full blur-3xl" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          {/* Header */}
+          {(data.title || data.titleHighlight) && (
+            <div className="max-w-3xl mb-16">
+              {data.tag && <div className="anim"><span className="tag bg-brand-100 text-brand-700 mb-4"><Monitor className="w-3.5 h-3.5" /> {data.tag}</span></div>}
+              <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight leading-[1.15]">
+                {data.title}{data.titleHighlight && <>{" "}<span className="text-gradient">{data.titleHighlight}</span></>}
+              </h2>
+              {data.description && <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">{data.description}</p>}
+            </div>
+          )}
+
+          {/* Alternating items */}
+          <div className="space-y-20">
+            {items.map((item: any, i: number) => {
+              const isReversed = i % 2 === 1;
+              const color = accentColors[i % accentColors.length];
+              return (
+                <div key={i} className={`anim d${Math.min(i + 1, 3)} flex flex-col ${isReversed ? "lg:flex-row-reverse" : "lg:flex-row"} items-center gap-10 lg:gap-16`}>
+                  {/* Browser frame screenshot */}
+                  <div className="flex-1 w-full max-w-2xl">
+                    <div className="rounded-xl overflow-hidden" style={{ boxShadow: `0 4px 0 ${color}20, 0 12px 40px rgba(0,0,0,0.10)` }}>
+                      {/* Browser top bar */}
+                      <div className="flex items-center gap-2 px-4 py-2.5" style={{ background: "#1E1E2E" }}>
+                        <div className="flex gap-1.5">
+                          <div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
+                          <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
+                          <div className="w-3 h-3 rounded-full bg-[#28CA42]" />
+                        </div>
+                        <div className="flex-1 mx-3">
+                          <div className="bg-[#2A2A3C] rounded-md px-3 py-1 flex items-center gap-2 max-w-xs">
+                            <Lock className="w-2.5 h-2.5 text-[#28CA42]" />
+                            <span className="text-[0.65rem] text-white/40 truncate">lms.learnecohub.com</span>
+                          </div>
+                        </div>
+                      </div>
+                      {/* Screenshot image */}
+                      <div className="relative bg-white">
+                        <img
+                          src={item.image}
+                          alt={item.title || "Platform ekran görüntüsü"}
+                          className="w-full h-auto"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Text content */}
+                  <div className="flex-1 max-w-lg">
+                    <div className="w-10 h-1 rounded-full mb-5" style={{ background: color }} />
+                    <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-800 mb-4 leading-tight">
+                      {item.title}
+                    </h3>
+                    <p className="text-slate-500 text-[0.92rem] leading-[1.85]">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    </Section>
+  );
+}
+
 function CloudDivider({ flip = false }: { flip?: boolean }) {
   return (
     <div className={`relative z-30 overflow-hidden pointer-events-none h-16 sm:h-24 -my-8 sm:-my-12 ${flip ? "rotate-180" : ""}`}>
@@ -2079,6 +2164,7 @@ export const sectionRenderers: Record<string, (data: any) => React.ReactNode> = 
   gallery: (data) => <GallerySection data={data} />,
   photo_album: (data) => <PhotoAlbumSection data={data} />,
   success_stories: (data) => <SuccessStoriesSection data={data} />,
+  screenshot_showcase: (data) => <ScreenshotShowcaseSection data={data} />,
 };
 
 export function DynamicPage({ slug, navActive }: { slug: string; navActive: string }) {
