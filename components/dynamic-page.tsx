@@ -1913,8 +1913,8 @@ function ScreenshotShowcaseSection({ data }: { data: any }) {
               return (
                 <div key={i} className={`anim d${Math.min(i + 1, 3)} flex flex-col ${isReversed ? "lg:flex-row-reverse" : "lg:flex-row"} items-center gap-10 lg:gap-16`}>
                   {/* Browser frame screenshot */}
-                  <div className="flex-1 w-full max-w-2xl">
-                    <div className="rounded-xl overflow-hidden" style={{ boxShadow: `0 4px 0 ${color}20, 0 12px 40px rgba(0,0,0,0.10)` }}>
+                  <div className="w-full lg:w-[58%] flex-shrink-0">
+                    <div className="rounded-2xl overflow-hidden" style={{ boxShadow: `0 4px 0 ${color}20, 0 16px 48px rgba(0,0,0,0.12)` }}>
                       {/* Browser top bar */}
                       <div className="flex items-center gap-2 px-4 py-2.5" style={{ background: "#1E1E2E" }}>
                         <div className="flex gap-1.5">
@@ -1929,12 +1929,12 @@ function ScreenshotShowcaseSection({ data }: { data: any }) {
                           </div>
                         </div>
                       </div>
-                      {/* Screenshot image */}
+                      {/* Screenshot image — landscape */}
                       <div className="relative bg-white">
                         <img
                           src={item.image}
                           alt={item.title || "Platform ekran görüntüsü"}
-                          className="w-full h-auto"
+                          className="w-full h-auto object-cover aspect-video"
                           loading="lazy"
                           decoding="async"
                         />
@@ -1942,15 +1942,20 @@ function ScreenshotShowcaseSection({ data }: { data: any }) {
                     </div>
                   </div>
 
-                  {/* Text content */}
-                  <div className="flex-1 max-w-lg">
-                    <div className="w-10 h-1 rounded-full mb-5" style={{ background: color }} />
-                    <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-800 mb-4 leading-tight">
-                      {item.title}
-                    </h3>
-                    <p className="text-slate-500 text-[0.92rem] leading-[1.85]">
-                      {item.description}
-                    </p>
+                  {/* Text content — styled */}
+                  <div className="flex-1 min-w-0">
+                    <div className="relative p-8 sm:p-10 rounded-2xl border border-slate-100" style={{ background: `linear-gradient(135deg, ${color}08, ${color}03)` }}>
+                      <div className="absolute top-0 left-8 w-12 h-1 rounded-b-full" style={{ background: color }} />
+                      <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style={{ background: `${color}15` }}>
+                        <Monitor className="w-5 h-5" style={{ color }} />
+                      </div>
+                      <h3 className="font-display text-xl sm:text-2xl font-extrabold text-slate-800 mb-3 leading-tight">
+                        {item.title}
+                      </h3>
+                      <p className="text-slate-500 text-[0.88rem] leading-[1.85]">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
               );
