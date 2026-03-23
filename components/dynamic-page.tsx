@@ -1322,18 +1322,19 @@ function PianoShowcaseSection({ data }: { data: any }) {
   const [pressedIdx, setPressedIdx] = useState<number | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const d = data || {};
-  const pianoTitle = d.title || 'Platformumuzu <span class="text-gradient">keşfedin</span>';
+  const pianoTitle = d.titleHighlight ? `${d.title || ''} <span class="text-gradient">${d.titleHighlight}</span>` : (d.title || 'Platformumuzu <span class="text-gradient">keşfedin</span>');
   const pianoDesc = d.description || "Her tuşa basın, farklı bir öğrenme deneyimini keşfedin.";
   const defaultKeys = [
-    { title: "Tanıtım", desc: "Platformu tanıyın", youtubeId: "" },
-    { title: "Etkileşimli", desc: "Animasyon içerikler", youtubeId: "" },
-    { title: "Güvenlik", desc: "Güvenli ortam", youtubeId: "" },
+    { title: "Tanıtım", desc: "LearnecoHub platformunu yakından tanıyın" },
+    { title: "Etkileşimli", desc: "Hikayeleştirilmiş animasyon destekli içerikler" },
+    { title: "Güvenlik", desc: "Çocuklarınız için güvenli dijital ortam" },
   ];
-  const keys: typeof defaultKeys = d.items?.length ? d.items.map((item: any, i: number) => ({
+  const keys = d.items?.length ? d.items.map((item: any, i: number) => ({
     title: item.title || defaultKeys[i]?.title || "",
     desc: item.description || item.desc || defaultKeys[i]?.desc || "",
-    youtubeId: item.youtubeId || defaultKeys[i]?.youtubeId || "",
-  })) : defaultKeys;
+    vimeoId: item.vimeoId || "",
+    youtubeId: item.youtubeId || "",
+  })) : defaultKeys.map((k) => ({ ...k, vimeoId: "", youtubeId: "" }));
 
   const handleKeyClick = (idx: number) => {
     setPressedIdx(idx);
@@ -1345,6 +1346,7 @@ function PianoShowcaseSection({ data }: { data: any }) {
   const handlePlay = () => { setIsPlaying(true); };
   const blackKeyPositions = keys.length <= 2 ? [] : Array.from({ length: keys.length - 1 }, (_, i) => i).filter((i) => { const mod = i % 7; return mod !== 2 && mod !== 6; });
   const whiteKeyH = 100 / keys.length;
+  const cur = keys[activeIdx] || {};
 
   return (
     <Section>
@@ -1353,18 +1355,18 @@ function PianoShowcaseSection({ data }: { data: any }) {
         <div className="absolute bottom-16 left-[5%] w-52 h-52 bg-lavender-200/15 rounded-full blur-3xl" />
         <div className="absolute inset-0 grid-overlay" />
         <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-2xl mx-auto mb-14">
+          <div className="mb-14" style={{ textAlign: "left", maxWidth: "42rem" }}>
             <div className="anim"><span className="tag bg-brand-100 text-brand-700 mb-4"><Play className="w-3.5 h-3.5" /> {data.tag || "İNTERAKTİF VİTRİN"}</span></div>
-            <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight" dangerouslySetInnerHTML={{ __html: pianoTitle }} />
-            <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed">{pianoDesc}</p>
+            <h2 className="anim d1 font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-800 mb-4 tracking-tight leading-[1.15]" style={{ textAlign: "left" }} dangerouslySetInnerHTML={{ __html: pianoTitle }} />
+            <p className="anim d2 text-slate-400 text-[0.95rem] leading-relaxed" style={{ textAlign: "left" }}>{pianoDesc}</p>
           </div>
           <div className="anim d3 relative">
             <div className="relative rounded-2xl overflow-hidden" style={{ boxShadow: "0 6px 40px rgba(26,26,46,0.16)" }}>
-              <div className="flex flex-col md:flex-row" style={{ minHeight: "auto" }}>
+              <div className="flex flex-col md:flex-row" style={{ minHeight: 440 }}>
                 {/* Piano Keyboard */}
-                <div className="md:w-[200px] lg:w-[270px] flex-shrink-0 relative select-none overflow-hidden h-[200px] md:h-auto" style={{ minHeight: "auto" }}>
+                <div className="md:w-[230px] lg:w-[270px] flex-shrink-0 relative select-none overflow-hidden">
                   <div className="relative h-full" style={{ background: "#111118" }}>
-                    {keys.map((key, i) => {
+                    {keys.map((key: any, i: number) => {
                       const isActive = i === activeIdx;
                       const isPressed = i === pressedIdx;
                       const pushed = isPressed || (isActive && pressedIdx === i);
@@ -1374,13 +1376,16 @@ function PianoShowcaseSection({ data }: { data: any }) {
                             transitionDuration: pushed ? "60ms" : "200ms",
                             borderRadius: "0 10px 10px 0",
                             background: isActive ? "linear-gradient(90deg, #e8eeff 0%, #f0f4ff 60%, #dce6f8 100%)" : pushed ? "linear-gradient(90deg, #e0e0e0 0%, #d8d8d8 100%)" : "linear-gradient(90deg, #f8f8f8 0%, #ffffff 40%, #f5f5f5 80%, #ededed 100%)",
-                            boxShadow: pushed ? "inset 0 0 8px rgba(0,0,0,0.08)" : isActive ? "0 3px 12px rgba(27,58,123,0.15), inset 0 -4px 0 #b8cce6" : "inset 0 -5px 0 #d0d0d0, 0 2px 4px rgba(0,0,0,0.04)",
-                            transform: pushed ? "scaleX(0.98) translateX(-2px)" : "scaleX(1)",
+                            boxShadow: pushed ? "inset 0 0 8px rgba(0,0,0,0.08), 0 1px 1px rgba(0,0,0,0.05)" : isActive ? "0 3px 12px rgba(27,58,123,0.15), inset 0 -4px 0 #b8cce6, 0 1px 2px rgba(0,0,0,0.08)" : "inset 0 -5px 0 #d0d0d0, 0 2px 4px rgba(0,0,0,0.04), 0 1px 1px rgba(0,0,0,0.06)",
+                            transform: pushed ? "scaleX(0.98) translateX(-2px)" : "scaleX(1) translateX(0)",
                             transformOrigin: "left center",
+                            borderTop: "1px solid rgba(0,0,0,0.04)",
+                            borderBottom: "1px solid rgba(0,0,0,0.06)",
                             borderRight: isActive ? "4px solid #1B3A7B" : "2px solid #c8c8c8",
                           }}>
-                            <div className="absolute inset-0 flex items-center pl-5 lg:pl-6 pr-14">
-                              <span className="font-display text-[0.82rem] lg:text-[0.88rem] font-extrabold tracking-wide" style={{ color: isActive ? "#1B3A7B" : "#78788a" }}>{key.title}</span>
+                            <div className="absolute top-0 left-4 right-4 h-[1px]" style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.95), transparent)" }} />
+                            <div className="absolute inset-0 flex items-center pl-5 lg:pl-6 pr-14" style={{ textAlign: "left" }}>
+                              <span className="font-display text-[0.82rem] lg:text-[0.88rem] font-extrabold tracking-wide transition-all duration-200 text-left w-full" style={{ color: isActive ? "#1B3A7B" : "#78788a", letterSpacing: isActive ? "0.04em" : "0.02em" }}>{key.title}</span>
                             </div>
                             {isActive && <div className="absolute right-3 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full" style={{ background: "#1B3A7B", boxShadow: "0 0 8px 2px rgba(27,58,123,0.35)" }} />}
                           </div>
@@ -1389,7 +1394,9 @@ function PianoShowcaseSection({ data }: { data: any }) {
                     })}
                     {blackKeyPositions.map((pos) => (
                       <div key={`bk-${pos}`} className="absolute z-[3] pointer-events-none" style={{ right: 0, top: `${(pos + 1) * whiteKeyH - whiteKeyH * 0.2}%`, width: "42%", height: `${whiteKeyH * 0.4}%`, minHeight: 20 }}>
-                        <div className="w-full h-full rounded-l-md" style={{ background: "linear-gradient(90deg, #1e1e24, #18181e, #111116)", boxShadow: "inset 0 -3px 0 #0a0a0e, 0 3px 8px rgba(0,0,0,0.5)" }} />
+                        <div className="w-full h-full rounded-l-md relative overflow-hidden" style={{ background: "linear-gradient(90deg, #1e1e24 0%, #18181e 50%, #111116 100%)", boxShadow: "inset 0 -3px 0 #0a0a0e, 0 3px 8px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04)", borderLeft: "1px solid rgba(255,255,255,0.03)", borderTop: "1px solid rgba(255,255,255,0.02)" }}>
+                          <div className="absolute inset-x-0 top-0 h-1/3" style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.04) 0%, transparent 100%)" }} />
+                        </div>
                       </div>
                     ))}
                     <div className="absolute top-0 bottom-0 right-0 w-2 z-[4] pointer-events-none" style={{ background: "linear-gradient(90deg, transparent, rgba(0,0,0,0.15))" }} />
@@ -1398,45 +1405,36 @@ function PianoShowcaseSection({ data }: { data: any }) {
                 {/* Video Player */}
                 <div className="flex-1 relative bg-[#0A0F1C] flex flex-col">
                   <div className="relative flex-1 min-h-[260px]">
-                    {isPlaying && keys[activeIdx]?.youtubeId ? (
-                      <iframe
-                        key={keys[activeIdx]?.youtubeId}
-                        className="absolute inset-0 w-full h-full"
-                        src={`https://www.youtube.com/embed/${keys[activeIdx].youtubeId}?autoplay=1&rel=0`}
-                        title={keys[activeIdx]?.title}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        referrerPolicy="strict-origin-when-cross-origin"
-                        allowFullScreen
-                      />
-                    ) : (
-                      <>
-                        {keys[activeIdx]?.youtubeId && (
-                          <img src={`https://img.youtube.com/vi/${keys[activeIdx].youtubeId}/maxresdefault.jpg`} alt={keys[activeIdx]?.title} className="absolute inset-0 w-full h-full object-cover" />
-                        )}
-                        <div className="absolute inset-0 flex items-center justify-center cursor-pointer group/play" onClick={handlePlay}>
-                          <div className="absolute inset-0 bg-gradient-to-br from-[#0A0F1C]/60 via-[#0A0F1C]/20 to-[#0A0F1C]/70" />
-                          <div className="relative z-10 flex flex-col items-center gap-4">
-                            <div className="rounded-full flex items-center justify-center transition-all duration-300 group-hover/play:scale-110" style={{ width: 72, height: 72, background: "rgba(255,255,255,0.95)", boxShadow: "0 8px 32px rgba(0,0,0,0.3)" }}>
-                              <Play className="w-7 h-7 text-[#1B3A7B] ml-1" fill="#1B3A7B" />
-                            </div>
-                            <div className="text-center">
-                              <p className="text-white font-display font-bold text-[0.95rem]">{keys[activeIdx]?.title}</p>
-                              <p className="text-white/45 text-[0.78rem] mt-0.5 max-w-[280px]">{keys[activeIdx]?.desc}</p>
-                            </div>
+                    {cur.vimeoId && isPlaying ? (
+                      <iframe key={`vimeo-${cur.vimeoId}`} className="absolute inset-0 w-full h-full" src={`https://player.vimeo.com/video/${cur.vimeoId}?autoplay=1&title=0&byline=0&portrait=0&dnt=1`} title={cur.title} allow="autoplay; fullscreen; picture-in-picture" allowFullScreen />
+                    ) : cur.vimeoId ? (
+                      <img src={`https://vumbnail.com/${cur.vimeoId}.jpg`} alt={cur.title} className="absolute inset-0 w-full h-full object-cover" />
+                    ) : cur.youtubeId && isPlaying ? (
+                      <iframe key={cur.youtubeId} className="absolute inset-0 w-full h-full" src={`https://www.youtube.com/embed/${cur.youtubeId}?autoplay=1&rel=0&hd=1&vq=hd1080`} title={cur.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
+                    ) : cur.youtubeId ? (
+                      <img src={`https://img.youtube.com/vi/${cur.youtubeId}/maxresdefault.jpg`} alt={cur.title} className="absolute inset-0 w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${cur.youtubeId}/hqdefault.jpg`; }} />
+                    ) : null}
+                    {!isPlaying && (
+                      <div className="absolute inset-0 flex items-center justify-center cursor-pointer group/play" onClick={handlePlay}>
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#0A0F1C]/60 via-[#0A0F1C]/20 to-[#0A0F1C]/70" />
+                        <div className="relative z-10 flex flex-col items-center gap-4">
+                          <div className="rounded-full flex items-center justify-center transition-all duration-300 group-hover/play:scale-110 group-hover/play:shadow-2xl" style={{ width: 72, height: 72, background: "rgba(255,255,255,0.95)", boxShadow: "0 8px 32px rgba(0,0,0,0.3), 0 2px 8px rgba(0,0,0,0.2)" }}>
+                            <Play className="w-7 h-7 text-[#1B3A7B] ml-1" fill="#1B3A7B" />
                           </div>
+                          <p className="text-white font-display font-bold text-[0.95rem] text-center">{cur.title}</p>
                         </div>
-                      </>
+                      </div>
                     )}
                     <div className="absolute top-4 left-4 z-10 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-black/40 backdrop-blur-sm">
                       <div className="w-1.5 h-1.5 rounded-full bg-[#2ECC71] animate-pulse" />
                       <span className="text-white/70 text-[0.7rem] font-semibold">{activeIdx + 1} / {keys.length}</span>
                     </div>
                   </div>
-                  <div className="px-5 py-3.5 flex items-center justify-between" style={{ background: "linear-gradient(180deg, #0c1020, #0F1629)", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
-                    <span className="text-white/50 text-[0.75rem] font-medium truncate">{keys[activeIdx]?.desc}</span>
+                  <div className="px-5 py-3.5 flex items-center justify-between" style={{ background: "linear-gradient(180deg, #0c1020 0%, #0F1629 100%)", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+                    <span className="text-white/50 text-[0.75rem] font-medium truncate">{cur.desc}</span>
                     <div className="flex items-center gap-1 flex-shrink-0">
                       {keys.map((_: any, i: number) => (
-                        <button key={i} onClick={() => handleKeyClick(i)} className="transition-all duration-200 rounded-full" style={{ width: i === activeIdx ? 24 : 8, height: 8, background: i === activeIdx ? "#1B3A7B" : "rgba(255,255,255,0.08)" }} />
+                        <button key={i} onClick={() => handleKeyClick(i)} className="transition-all duration-200 rounded-full cursor-pointer" style={{ width: i === activeIdx ? 24 : 8, height: 8, background: i === activeIdx ? "#1B3A7B" : "rgba(255,255,255,0.08)" }} />
                       ))}
                     </div>
                   </div>
