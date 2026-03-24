@@ -395,7 +395,7 @@ export function FinalCTA({ data }: { data?: any }) {
   const badges = d.badges?.length ? d.badges : [{ text: "Ücretsiz başlangıç" }, { text: "Kredi kartı gerekmiyor" }, { text: "Anında erişim" }];
   return (
     <Section>
-      <section className="py-24 bg-[#E8F4FD] relative overflow-hidden">
+      <section className="py-16 bg-[#E8F4FD] relative overflow-hidden">
         <div className="absolute top-10 right-[15%] w-56 h-56 bg-brand-200/20 rounded-full blur-3xl" />
         <div className="absolute bottom-10 left-[10%] w-48 h-48 bg-gold-200/15 rounded-full blur-3xl" />
         <div className="absolute inset-0 dots-pattern opacity-[0.05]" />

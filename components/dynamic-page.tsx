@@ -474,6 +474,25 @@ function FreeBannerSection({ data }: { data: any }) {
 }
 
 function ContactFormSection({ data }: { data: any }) {
+  const [formData, setFormData] = useState<Record<string, string>>({});
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setSending(true);
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      setSent(true);
+      setFormData({});
+    } catch { /* ignore */ }
+    setSending(false);
+  }
+
   return (
     <Section>
       <section className="py-20 bg-white relative overflow-hidden">
@@ -481,28 +500,39 @@ function ContactFormSection({ data }: { data: any }) {
           <div className="grid md:grid-cols-[1fr,320px] lg:grid-cols-[1fr,360px] gap-6 sm:gap-10">
             <div className="anim">
               <h2 className="font-display text-2xl font-extrabold text-slate-800 mb-6">{data.title}</h2>
-              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-                {data.fields?.map((field: any, i: number) => {
-                  const label = typeof field === "string" ? field : field.label || "";
-                  const fieldType = typeof field === "string" ? undefined : field.type;
-                  const isTextarea = fieldType === "textarea" || (!fieldType && (label === "Mesaj" || label === "Not" || label.toLowerCase().includes("mesaj")));
-                  const inputType = fieldType === "email" || (!fieldType && (label.toLowerCase().includes("posta") || label.toLowerCase().includes("mail"))) ? "email"
-                    : fieldType === "tel" || (!fieldType && label.toLowerCase().includes("telefon")) ? "tel" : "text";
-                  return (
-                  <div key={i}>
-                    <label className="block text-xs font-semibold text-slate-500 mb-1.5">{label}</label>
-                    {isTextarea ? (
-                      <textarea rows={4} className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-brand-400 focus:ring-1 focus:ring-brand-400/20 resize-none" placeholder={label} />
-                    ) : (
-                      <input type={inputType} className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-brand-400 focus:ring-1 focus:ring-brand-400/20" placeholder={label} />
-                    )}
+              {sent ? (
+                <div className="text-center py-12 bg-[#ECFBF2] rounded-2xl border border-[#2ECC71]/20">
+                  <div className="w-14 h-14 rounded-full bg-[#2ECC71] flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle2 className="w-7 h-7 text-white" />
                   </div>
-                  );
-                })}
-                <button type="submit" className="btn-3d btn-3d-brand !py-3 !text-sm w-full">
-                  {data.submitLabel || "Gönder"} <ArrowRight className="w-4 h-4" />
-                </button>
-              </form>
+                  <h3 className="font-display text-lg font-bold text-slate-800 mb-1">Mesajınız Gönderildi!</h3>
+                  <p className="text-sm text-slate-500">En kısa sürede size dönüş yapacağız.</p>
+                </div>
+              ) : (
+                <form className="space-y-4" onSubmit={handleSubmit}>
+                  {data.fields?.map((field: any, i: number) => {
+                    const label = typeof field === "string" ? field : field.label || "";
+                    const key = typeof field === "string" ? field.toLowerCase() : field.key || label.toLowerCase();
+                    const fieldType = typeof field === "string" ? undefined : field.type;
+                    const isTextarea = fieldType === "textarea" || (!fieldType && (label === "Mesaj" || label === "Not" || label.toLowerCase().includes("mesaj")));
+                    const inputType = fieldType === "email" || (!fieldType && (label.toLowerCase().includes("posta") || label.toLowerCase().includes("mail"))) ? "email"
+                      : fieldType === "tel" || (!fieldType && label.toLowerCase().includes("telefon")) ? "tel" : "text";
+                    return (
+                    <div key={i}>
+                      <label className="block text-xs font-semibold text-slate-500 mb-1.5">{label}</label>
+                      {isTextarea ? (
+                        <textarea rows={4} value={formData[key] || ""} onChange={(e) => setFormData((p) => ({ ...p, [key]: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-brand-400 focus:ring-1 focus:ring-brand-400/20 resize-none" placeholder={label} />
+                      ) : (
+                        <input type={inputType} value={formData[key] || ""} onChange={(e) => setFormData((p) => ({ ...p, [key]: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-brand-400 focus:ring-1 focus:ring-brand-400/20" placeholder={label} />
+                      )}
+                    </div>
+                    );
+                  })}
+                  <button type="submit" disabled={sending} className="btn-3d btn-3d-brand !py-3 !text-sm w-full disabled:opacity-50">
+                    {sending ? "Gönderiliyor..." : (data.submitLabel || "Gönder")} <ArrowRight className="w-4 h-4" />
+                  </button>
+                </form>
+              )}
             </div>
             {data.contactInfo && (
               <div className="anim d3">
