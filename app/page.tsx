@@ -1162,9 +1162,7 @@ function PianoShowcase({ data }: { data?: any }) {
 
                   {/* Bottom bar */}
                   <div className="px-5 py-3.5 flex items-center justify-between" style={{ background: "linear-gradient(180deg, #0c1020 0%, #0F1629 100%)", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
-                    <div className="flex items-center gap-2 min-w-0">
-                      <span className="text-white/50 text-[0.75rem] font-medium truncate">{keys[activeIdx]?.desc}</span>
-                    </div>
+                    <div className="flex items-center gap-2 min-w-0" />
                     <div className="flex items-center gap-1 flex-shrink-0">
                       {keys.map((_, i) => (
                         <button

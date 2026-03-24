@@ -2226,7 +2226,30 @@ export function DynamicPage({ slug, navActive }: { slug: string; navActive: stri
           titleHighlight={heroData.titleHighlight}
           description={heroData.description}
           theme={(heroData.theme || "brand") as HeroTheme}
-        />
+        >
+          {heroData.heroImage && (
+            <div className="hidden lg:block w-full max-w-md xl:max-w-lg flex-shrink-0">
+              <div className="rounded-2xl overflow-hidden" style={{ boxShadow: "0 8px 40px rgba(0,0,0,0.15)" }}>
+                {/* Browser bar */}
+                <div className="flex items-center gap-2 px-4 py-2.5" style={{ background: "#1E1E2E" }}>
+                  <div className="flex gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#28CA42]" />
+                  </div>
+                  <div className="flex-1 mx-2">
+                    <div className="bg-[#2A2A3C] rounded-md px-3 py-1 flex items-center gap-1.5 max-w-[200px]">
+                      <span className="text-[0.6rem] text-[#28CA42]">●</span>
+                      <span className="text-[0.6rem] text-white/35 truncate">lms.learnecohub.com</span>
+                    </div>
+                  </div>
+                </div>
+                {/* Screenshot */}
+                <img src={heroData.heroImage} alt={heroData.title || ""} className="w-full h-auto" loading="eager" />
+              </div>
+            </div>
+          )}
+        </SubpageHero>
       )}
       {(() => {
         const typeCounters: Record<string, number> = {};
