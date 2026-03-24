@@ -276,6 +276,10 @@ export function SubpageHero({
   description,
   children,
   theme = "brand",
+  ctaPrimaryLabel,
+  ctaPrimaryHref = "/demo",
+  ctaSecondaryLabel,
+  ctaSecondaryHref = "/platform",
 }: {
   breadcrumb: string;
   tag: string;
@@ -285,6 +289,10 @@ export function SubpageHero({
   description: string;
   children?: ReactNode;
   theme?: HeroTheme;
+  ctaPrimaryLabel?: string;
+  ctaPrimaryHref?: string;
+  ctaSecondaryLabel?: string;
+  ctaSecondaryHref?: string;
 }) {
   const t = heroThemes[theme];
   const d = t.dark;
@@ -334,11 +342,35 @@ export function SubpageHero({
 
             {/* Description */}
             <p
-              className="text-[0.95rem] leading-relaxed max-w-lg mb-6"
+              className="text-[0.95rem] leading-relaxed max-w-lg mb-8"
               style={{ color: d ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.6)" }}
             >
               {description}
             </p>
+
+            {/* CTA Buttons */}
+            {(ctaPrimaryLabel || ctaSecondaryLabel) && (
+              <div className="flex flex-wrap items-center gap-3">
+                {ctaPrimaryLabel && (
+                  <a href={ctaPrimaryHref} className="btn-3d btn-3d-brand !py-3 !px-7 !text-[0.88rem]">
+                    {ctaPrimaryLabel} <ArrowRight className="w-4 h-4 ml-1" />
+                  </a>
+                )}
+                {ctaSecondaryLabel && (
+                  <a
+                    href={ctaSecondaryHref}
+                    className="inline-flex items-center gap-2 px-7 py-3 rounded-xl text-[0.88rem] font-bold border-2 transition-all"
+                    style={{
+                      borderColor: d ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.12)",
+                      color: d ? "#fff" : "#1A1A2E",
+                      background: d ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0.7)",
+                    }}
+                  >
+                    {ctaSecondaryLabel}
+                  </a>
+                )}
+              </div>
+            )}
           </div>
 
           {children}
