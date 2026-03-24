@@ -1431,7 +1431,7 @@ function PianoShowcaseSection({ data }: { data: any }) {
                     </div>
                   </div>
                   <div className="px-5 py-3.5 flex items-center justify-between" style={{ background: "linear-gradient(180deg, #0c1020 0%, #0F1629 100%)", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
-                    <span className="text-white/50 text-[0.75rem] font-medium truncate">{cur.desc}</span>
+                    <div />
                     <div className="flex items-center gap-1 flex-shrink-0">
                       {keys.map((_: any, i: number) => (
                         <button key={i} onClick={() => handleKeyClick(i)} className="transition-all duration-200 rounded-full cursor-pointer" style={{ width: i === activeIdx ? 24 : 8, height: 8, background: i === activeIdx ? "#1B3A7B" : "rgba(255,255,255,0.08)" }} />
