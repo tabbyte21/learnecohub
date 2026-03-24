@@ -779,8 +779,9 @@ function VideoShowcaseSection({ data }: { data: any }) {
             {videos.map((v: any, i: number) => {
               const isPlaying = playingIdx === i;
               const color = v.color || "#1B3A7B";
-              const youtubeId = v.youtubeId || v.videoId;
-              const thumbnail = youtubeId ? `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg` : "";
+              const vimeoId = v.vimeoId || "";
+              const youtubeId = v.youtubeId || v.videoId || "";
+              const thumbnail = vimeoId ? `https://vumbnail.com/${vimeoId}.jpg` : youtubeId ? `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg` : "";
               return (
                 <div key={i} className={`anim d${i <= 2 ? i + 1 : 3} group relative`}>
                   <div className="relative bg-white rounded-xl overflow-hidden transition-all duration-300 group-hover:-translate-y-1" style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04)" }}>
@@ -794,18 +795,17 @@ function VideoShowcaseSection({ data }: { data: any }) {
                       <div className="absolute top-0 bottom-0 left-10 w-[1px] bg-red-300/40 z-20 pointer-events-none" />
                       <div className="relative mx-4 mt-4 mb-0 rounded-lg overflow-hidden border border-slate-200/60" style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
                         <div className="relative aspect-video">
-                          {isPlaying && youtubeId ? (
+                          {isPlaying && (vimeoId || youtubeId) ? (
                             <iframe
                               className="absolute inset-0 w-full h-full"
-                              src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`}
+                              src={vimeoId ? `https://player.vimeo.com/video/${vimeoId}?autoplay=1&title=0&byline=0&portrait=0&dnt=1` : `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`}
                               title={v.title}
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                              referrerPolicy="strict-origin-when-cross-origin"
+                              allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
                               allowFullScreen
                             />
                           ) : (
                             <>
-                              {thumbnail && <img src={thumbnail} alt={v.title} className="absolute inset-0 w-full h-full object-cover" />}
+                              {thumbnail && <img src={thumbnail} alt={v.title} className="absolute inset-0 w-full h-full object-cover" onError={(e) => { if (youtubeId) (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`; }} />}
                               <button onClick={() => setPlayingIdx(i)} className="absolute inset-0 bg-black/20 flex items-center justify-center group/play cursor-pointer transition-colors hover:bg-black/30" aria-label="Videoyu oynat" type="button">
                                 <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-xl transition-transform group-hover/play:scale-110">
                                   <Play className="w-6 h-6 ml-0.5" style={{ color }} />
