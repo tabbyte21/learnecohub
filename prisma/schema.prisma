@@ -82,3 +82,35 @@ model BlogPost {
   status     String   @default("DRAFT")
   createdAt  DateTime @default(now())
 }
+
+// ─── Müfredat ───
+
+model Curriculum {
+  id          String               @id @default(cuid())
+  slug        String               @unique
+  title       String
+  description String?
+  heroColor   String               @default("brand")
+  heroTag     String?
+  ageRange    String?
+  duration    String?
+  level       String?
+  published   Boolean              @default(false)
+  order       Int                  @default(0)
+  createdAt   DateTime             @default(now())
+  updatedAt   DateTime             @updatedAt
+  sections    CurriculumSection[]
+}
+
+model CurriculumSection {
+  id           String     @id @default(cuid())
+  curriculumId String
+  curriculum   Curriculum @relation(fields: [curriculumId], references: [id], onDelete: Cascade)
+  sectionType  String     @default("chat_qa")
+  title        String
+  order        Int        @default(0)
+  visible      Boolean    @default(true)
+  content      String     @default("{}")
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+}
