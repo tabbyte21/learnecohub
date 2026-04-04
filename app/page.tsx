@@ -2380,8 +2380,17 @@ function Footer({ data }: { data?: any }) {
 /* ═══════════════════════════════════════
    PAGE
    ═══════════════════════════════════════ */
+// Section types after which a cloud divider is inserted
+const cloudAfterHome = new Set(["stats", "materials", "materials_scroll", "piano_showcase", "learning_map", "team", "team_grid"]);
+
+// Section types that are always pinned (not reordered with main content)
+const pinnedFirst = new Set(["hero"]);
+const pinnedLast = new Set(["final_cta", "footer"]);
+const skippedTypes = new Set(["partner_logos"]); // rendered inside Hero
+
 export default function Page() {
   const [sd, setSd] = useState<Record<string, any>>({});
+  const [sectionOrder, setSectionOrder] = useState<string[]>([]);
   const [ready, setReady] = useState(false);
   const menuItems = useMenuData();
   useEffect(() => {
@@ -2390,13 +2399,15 @@ export default function Page() {
       .then((data) => {
         if (!data?.sections) return;
         const map: Record<string, any> = {};
-        data.sections.forEach((s: any) => {
+        const sorted = [...data.sections].sort((a: any, b: any) => a.order - b.order);
+        sorted.forEach((s: any) => {
           // Use first occurrence of each sectionType (some might have duplicates)
           if (!map[s.sectionType]) {
             try { map[s.sectionType] = JSON.parse(s.content); } catch { map[s.sectionType] = {}; }
           }
         });
         setSd(map);
+        setSectionOrder(sorted.map((s: any) => s.sectionType));
         setReady(true);
       })
       .catch(() => setReady(true));
@@ -2424,29 +2435,48 @@ export default function Page() {
     );
   }
 
+  const renderSection = (type: string) => {
+    switch (type) {
+      case "stats":          return <Stats data={sd.stats} />;
+      case "video_showcase": return <VideoShowcase data={sd.video_showcase} />;
+      case "youtube_showcase": return <YoutubeShowcase data={sd.youtube_showcase} />;
+      case "materials":
+      case "materials_scroll": return <Materials data={sd.materials_scroll || sd.materials} />;
+      case "free_banner":    return <FreeBanner data={sd.free_banner} />;
+      case "piano_showcase": return <PianoShowcase data={sd.piano_showcase} />;
+      case "learning_steps": return <LearningSteps data={sd.learning_steps} />;
+      case "learning_map":   return <LearningMap data={sd.learning_map} />;
+      case "pricing":        return <Pricing data={sd.pricing} />;
+      case "manifesto":      return <Manifesto data={sd.manifesto} />;
+      case "team":
+      case "team_grid":      return <Team data={sd.team || sd.team_grid} />;
+      case "impact_banner":  return <ImpactBanner data={sd.impact_banner} />;
+      case "testimonials":   return <Testimonials data={sd.testimonials} />;
+      case "faq":
+      case "faq_parents":    return <FAQ data={sd.faq || sd.faq_parents} />;
+      default:               return null;
+    }
+  };
+
+  // Build ordered middle sections (exclude pinned first/last and skipped types)
+  const seen = new Set<string>();
+  const middleSections = sectionOrder.filter((type) => {
+    if (pinnedFirst.has(type) || pinnedLast.has(type) || skippedTypes.has(type)) return false;
+    if (seen.has(type)) return false; // deduplicate aliases
+    seen.add(type);
+    return true;
+  });
+
   return (
     <main>
       <Navbar menuItems={menuItems} />
       <Hero data={sd.hero} menuItems={menuItems} />
-      <Stats data={sd.stats} />
-      <CloudDivider />
-      <VideoShowcase data={sd.video_showcase} />
-      <YoutubeShowcase data={sd.youtube_showcase} />
-      <Materials data={sd.materials_scroll || sd.materials} />
-      <CloudDivider />
-      <FreeBanner data={sd.free_banner} />
-      <PianoShowcase data={sd.piano_showcase} />
-      <CloudDivider />
-      <LearningSteps data={sd.learning_steps} />
-      <LearningMap data={sd.learning_map} />
-      <CloudDivider />
-      <Pricing data={sd.pricing} />
-      <Manifesto data={sd.manifesto} />
-      <Team data={sd.team || sd.team_grid} />
-      <CloudDivider />
-      <ImpactBanner data={sd.impact_banner} />
-      <Testimonials data={sd.testimonials} />
-      <FAQ data={sd.faq || sd.faq_parents} />
+      {middleSections.map((type) => (
+        <div key={type}>
+          {renderSection(type)}
+          {cloudAfterHome.has(type) && <CloudDivider />}
+        </div>
+      ))}
       <FinalCTA data={sd.final_cta} />
       <Footer data={sd.footer} />
     </main>
