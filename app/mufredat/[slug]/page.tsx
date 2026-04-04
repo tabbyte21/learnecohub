@@ -92,77 +92,67 @@ export default function CurriculumDetailPage() {
       <SubpageNavbar active="mufredat" />
 
       {/* ── Curriculum Hero ── */}
-      <section className="relative overflow-hidden pt-28 pb-20" style={{ background: theme.bg }}>
+      <section className="relative overflow-hidden pt-28 pb-24" style={{ background: theme.bg }}>
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-15 blur-3xl animate-pulse"
+          <div className="absolute top-0 right-[20%] w-96 h-96 rounded-full opacity-15 blur-3xl animate-pulse"
             style={{ background: theme.accent }} />
-          <div className="absolute bottom-0 left-0 w-72 h-72 rounded-full opacity-10 blur-3xl animate-pulse"
+          <div className="absolute bottom-0 left-[10%] w-72 h-72 rounded-full opacity-10 blur-3xl animate-pulse"
             style={{ background: "#fff", animationDelay: "1s" }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-5 blur-3xl"
+            style={{ background: theme.accent }} />
         </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-6">
+        <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-white/60 text-sm mb-8">
+          <nav className="flex items-center justify-center gap-2 text-white/50 text-sm mb-8">
             <Link href="/" className="hover:text-white transition-colors">Ana Sayfa</Link>
             <ChevronRight className="w-3.5 h-3.5" />
             <Link href="/mufredat" className="hover:text-white transition-colors">Müfredatlar</Link>
             <ChevronRight className="w-3.5 h-3.5" />
-            <span className="text-white font-medium">{curriculum.title}</span>
+            <span className="text-white/80">{curriculum.title}</span>
           </nav>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              {curriculum.heroTag && (
-                <span className="inline-flex items-center gap-1.5 text-sm font-bold px-4 py-1.5 rounded-full mb-5"
-                  style={{ background: "rgba(255,255,255,0.15)", color: theme.accent }}>
-                  <GraduationCap className="w-4 h-4" />
-                  {curriculum.heroTag}
-                </span>
-              )}
-              <h1 className="font-display text-4xl sm:text-5xl font-extrabold text-white mb-5 leading-tight">
-                {curriculum.title}
-              </h1>
-              {curriculum.description && (
-                <p className="text-white/75 text-lg leading-relaxed mb-8">
-                  {curriculum.description}
-                </p>
-              )}
-              <div className="flex flex-wrap gap-3">
-                {curriculum.ageRange && (
-                  <span className="flex items-center gap-2 text-sm font-semibold text-white bg-white/15 px-4 py-2 rounded-full">
-                    <Users className="w-4 h-4" />
-                    {curriculum.ageRange}
-                  </span>
-                )}
-                {curriculum.duration && (
-                  <span className="flex items-center gap-2 text-sm font-semibold text-white bg-white/15 px-4 py-2 rounded-full">
-                    <Clock className="w-4 h-4" />
-                    {curriculum.duration}
-                  </span>
-                )}
-                {curriculum.level && (
-                  <span className="flex items-center gap-2 text-sm font-semibold text-white bg-white/15 px-4 py-2 rounded-full">
-                    <Star className="w-4 h-4" />
-                    {curriculum.level}
-                  </span>
-                )}
-              </div>
-            </div>
+          {curriculum.heroTag && (
+            <span className="inline-flex items-center gap-1.5 text-sm font-bold px-4 py-1.5 rounded-full mb-6"
+              style={{ background: "rgba(255,255,255,0.12)", color: theme.accent }}>
+              <GraduationCap className="w-4 h-4" />
+              {curriculum.heroTag}
+            </span>
+          )}
 
-            {/* Decorative card */}
-            <div className="hidden lg:block">
-              <div className="rounded-3xl p-8 text-center"
-                style={{ background: "rgba(255,255,255,0.1)", backdropFilter: "blur(8px)" }}>
-                <div className="w-20 h-20 mx-auto mb-4 rounded-2xl flex items-center justify-center"
-                  style={{ background: theme.accent }}>
-                  <BookOpen className="w-10 h-10 text-white" style={{ color: theme.bg }} />
-                </div>
-                <p className="text-white font-bold text-xl mb-1 font-display">
-                  {sections.length} Bölüm
-                </p>
-                <p className="text-white/60 text-sm">İnteraktif içerik hazır</p>
-              </div>
-            </div>
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight">
+            {curriculum.title}
+          </h1>
+
+          {curriculum.description && (
+            <p className="text-white/70 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
+              {curriculum.description}
+            </p>
+          )}
+
+          <div className="flex flex-wrap justify-center gap-3">
+            {curriculum.ageRange && (
+              <span className="flex items-center gap-2 text-sm font-semibold text-white bg-white/15 px-4 py-2 rounded-full">
+                <Users className="w-4 h-4" />
+                {curriculum.ageRange}
+              </span>
+            )}
+            {curriculum.duration && (
+              <span className="flex items-center gap-2 text-sm font-semibold text-white bg-white/15 px-4 py-2 rounded-full">
+                <Clock className="w-4 h-4" />
+                {curriculum.duration}
+              </span>
+            )}
+            {curriculum.level && (
+              <span className="flex items-center gap-2 text-sm font-semibold text-white bg-white/15 px-4 py-2 rounded-full">
+                <Star className="w-4 h-4" />
+                {curriculum.level}
+              </span>
+            )}
+            <span className="flex items-center gap-2 text-sm font-semibold text-white bg-white/15 px-4 py-2 rounded-full">
+              <BookOpen className="w-4 h-4" />
+              {sections.length} Bölüm
+            </span>
           </div>
         </div>
       </section>

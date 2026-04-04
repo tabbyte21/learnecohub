@@ -127,9 +127,9 @@ function ChatQASection({ data }: { data: any }) {
                   onClick={() => setOpenIdx(isOpen ? null : i)}
                 >
                   {/* Avatar */}
-                  <div className="w-9 h-9 rounded-full flex-shrink-0 flex items-center justify-center text-base font-bold shadow-sm"
-                    style={{ background: qBgMap[qColor] || "#EBF2FB", color: qTextMap[qColor] || "#1B3A7B" }}>
-                    🧒
+                  <div className="w-9 h-9 rounded-full flex-shrink-0 flex items-center justify-center shadow-sm"
+                    style={{ background: qBgMap[qColor] || "#EBF2FB" }}>
+                    <Users className="w-4 h-4" style={{ color: qTextMap[qColor] || "#1B3A7B" }} />
                   </div>
                   {/* Bubble */}
                   <div className="flex-1 rounded-2xl rounded-tl-sm px-5 py-4 shadow-sm border transition-all"
@@ -160,9 +160,9 @@ function ChatQASection({ data }: { data: any }) {
                       <p className="text-white/90 text-sm leading-relaxed">{item.answer}</p>
                     </div>
                     {/* Avatar */}
-                    <div className="w-9 h-9 rounded-full flex-shrink-0 flex items-center justify-center text-base shadow-sm"
+                    <div className="w-9 h-9 rounded-full flex-shrink-0 flex items-center justify-center shadow-sm"
                       style={{ background: aBgMap[aColor] || "#1B3A7B" }}>
-                      <span className="text-base">👩‍🏫</span>
+                      <GraduationCap className="w-4 h-4 text-white" />
                     </div>
                   </div>
                 </div>
