@@ -143,9 +143,9 @@ function ChatQASection({ data }: { data: any }) {
       <div className="absolute -bottom-16 -left-16 w-72 h-72 rounded-full opacity-[0.06] blur-3xl pointer-events-none"
         style={{ background: "#F5C518" }} />
 
-      <div className="relative z-10 max-w-2xl mx-auto px-6">
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-12">
           {data.tag && (
             <span className="inline-flex items-center gap-2 text-xs font-bold px-4 py-1.5 rounded-full mb-4"
               style={{ background: headerHex + "18", color: headerHex }}>
@@ -160,104 +160,106 @@ function ChatQASection({ data }: { data: any }) {
             )}
           </h2>
           {data.description && (
-            <p className="text-slate-500 text-sm mt-3 leading-relaxed">{data.description}</p>
+            <p className="text-slate-500 text-sm mt-3 leading-relaxed max-w-xl mx-auto">{data.description}</p>
           )}
         </div>
 
-        {/* ── Chat window ── */}
-        <div className="rounded-3xl overflow-hidden mb-8"
-          style={{ boxShadow: `0 24px 64px ${headerHex}20, 0 4px 16px rgba(0,0,0,0.07)`, border: "1px solid rgba(0,0,0,0.07)" }}>
+        {/* ── Two-column layout: Chat left | Questions right ── */}
+        <div className="flex flex-col lg:flex-row gap-6 items-stretch">
 
-          {/* Title bar */}
-          <div className="flex items-center gap-3 px-5 py-3.5" style={{ background: headerHex }}>
-            <div className="flex gap-1.5">
-              <div className="w-3 h-3 rounded-full bg-white/25" />
-              <div className="w-3 h-3 rounded-full bg-white/25" />
-              <div className="w-3 h-3 rounded-full bg-white/25" />
-            </div>
-            <div className="flex-1 flex items-center justify-center gap-2.5">
-              <div className="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center">
-                <GraduationCap className="w-4 h-4 text-white" />
+          {/* LEFT — Chat window */}
+          <div className="flex-1 min-w-0 rounded-3xl overflow-hidden"
+            style={{ boxShadow: `0 24px 64px ${headerHex}22, 0 4px 16px rgba(0,0,0,0.07)`, border: "1px solid rgba(0,0,0,0.07)" }}>
+
+            {/* Title bar */}
+            <div className="flex items-center gap-3 px-5 py-3.5" style={{ background: headerHex }}>
+              <div className="flex gap-1.5">
+                <div className="w-3 h-3 rounded-full bg-white/25" />
+                <div className="w-3 h-3 rounded-full bg-white/25" />
+                <div className="w-3 h-3 rounded-full bg-white/25" />
               </div>
-              <span className="text-white font-semibold text-sm">Uzman Psikolog</span>
-              <span className="flex items-center gap-1 text-white/60 text-xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block animate-pulse" />
-                Çevrimiçi
-              </span>
-            </div>
-          </div>
-
-          {/* Messages area */}
-          <div className="flex flex-col gap-4 px-5 py-6 min-h-[240px]"
-            style={{ background: `linear-gradient(180deg, ${headerHex}09 0%, #F7F9FF 100%)` }}>
-
-            {/* Question bubble — user, left */}
-            {activeItem && (
-              <div key={`q-${activeIdx}`} className="flex items-end gap-2.5 chat-left">
-                <div className="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center shadow-sm"
-                  style={{ background: qBgMap[qColor] || "#EBF2FB" }}>
-                  <Users className="w-4 h-4" style={{ color: qTextMap[qColor] || "#1B3A7B" }} />
+              <div className="flex-1 flex items-center justify-center gap-2.5">
+                <div className="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center">
+                  <GraduationCap className="w-4 h-4 text-white" />
                 </div>
-                <div className="max-w-[80%] rounded-2xl rounded-bl-sm px-4 py-3 bg-white shadow-sm"
-                  style={{ borderLeft: `3px solid ${qTextMap[qColor] || "#1B3A7B"}35` }}>
-                  <p className="font-semibold text-sm leading-relaxed text-slate-700">
-                    {activeItem.question}
-                  </p>
-                </div>
+                <span className="text-white font-semibold text-sm">Uzman Psikolog</span>
+                <span className="flex items-center gap-1 text-white/60 text-xs">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block animate-pulse" />
+                  Çevrimiçi
+                </span>
               </div>
-            )}
+            </div>
 
-            {/* Typing indicator */}
-            {chatPhase === "typing" && (
-              <div key={`typing-${activeIdx}`} className="flex items-end gap-2.5 justify-end chat-right">
-                <div className="bg-white rounded-2xl rounded-br-sm px-5 py-3.5 shadow-sm">
-                  <div className="flex gap-1.5 items-center h-4">
-                    <div className="t-dot w-2 h-2 rounded-full" style={{ background: headerHex, animationDelay: "0ms" }} />
-                    <div className="t-dot w-2 h-2 rounded-full" style={{ background: headerHex, animationDelay: "190ms" }} />
-                    <div className="t-dot w-2 h-2 rounded-full" style={{ background: headerHex, animationDelay: "380ms" }} />
+            {/* Messages area */}
+            <div className="flex flex-col gap-4 px-6 py-7 min-h-[300px] flex-1"
+              style={{ background: `linear-gradient(180deg, ${headerHex}09 0%, #F7F9FF 100%)` }}>
+
+              {/* Question bubble — user, left */}
+              {activeItem && (
+                <div key={`q-${activeIdx}`} className="flex items-end gap-3 chat-left">
+                  <div className="w-9 h-9 rounded-full flex-shrink-0 flex items-center justify-center shadow-sm"
+                    style={{ background: qBgMap[qColor] || "#EBF2FB" }}>
+                    <Users className="w-4 h-4" style={{ color: qTextMap[qColor] || "#1B3A7B" }} />
+                  </div>
+                  <div className="max-w-[82%] rounded-2xl rounded-bl-sm px-5 py-3.5 bg-white shadow-sm"
+                    style={{ borderLeft: `3px solid ${qTextMap[qColor] || "#1B3A7B"}35` }}>
+                    <p className="font-semibold text-sm leading-relaxed text-slate-700">
+                      {activeItem.question}
+                    </p>
                   </div>
                 </div>
-                <div className="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center"
-                  style={{ background: aBgMap[aColor] || headerHex }}>
-                  <GraduationCap className="w-4 h-4 text-white" />
-                </div>
-              </div>
-            )}
+              )}
 
-            {/* Answer bubble — expert, right */}
-            {chatPhase === "answer" && activeItem && (
-              <div key={`a-${activeIdx}`} className="flex items-end gap-2.5 justify-end chat-right">
-                <div className="max-w-[80%] rounded-2xl rounded-br-sm px-4 py-3 shadow-md"
-                  style={{ background: aBgMap[aColor] || headerHex }}>
-                  <p className="text-white/95 text-sm leading-relaxed">{activeItem.answer}</p>
+              {/* Typing indicator */}
+              {chatPhase === "typing" && (
+                <div key={`typing-${activeIdx}`} className="flex items-end gap-3 justify-end chat-right">
+                  <div className="bg-white rounded-2xl rounded-br-sm px-5 py-4 shadow-sm">
+                    <div className="flex gap-1.5 items-center h-4">
+                      <div className="t-dot w-2.5 h-2.5 rounded-full" style={{ background: headerHex, animationDelay: "0ms" }} />
+                      <div className="t-dot w-2.5 h-2.5 rounded-full" style={{ background: headerHex, animationDelay: "190ms" }} />
+                      <div className="t-dot w-2.5 h-2.5 rounded-full" style={{ background: headerHex, animationDelay: "380ms" }} />
+                    </div>
+                  </div>
+                  <div className="w-9 h-9 rounded-full flex-shrink-0 flex items-center justify-center"
+                    style={{ background: aBgMap[aColor] || headerHex }}>
+                    <GraduationCap className="w-4 h-4 text-white" />
+                  </div>
                 </div>
-                <div className="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center"
-                  style={{ background: aBgMap[aColor] || headerHex }}>
-                  <GraduationCap className="w-4 h-4 text-white" />
+              )}
+
+              {/* Answer bubble — expert, right */}
+              {chatPhase === "answer" && activeItem && (
+                <div key={`a-${activeIdx}`} className="flex items-end gap-3 justify-end chat-right">
+                  <div className="max-w-[82%] rounded-2xl rounded-br-sm px-5 py-3.5 shadow-md"
+                    style={{ background: aBgMap[aColor] || headerHex }}>
+                    <p className="text-white/95 text-sm leading-relaxed">{activeItem.answer}</p>
+                  </div>
+                  <div className="w-9 h-9 rounded-full flex-shrink-0 flex items-center justify-center"
+                    style={{ background: aBgMap[aColor] || headerHex }}>
+                    <GraduationCap className="w-4 h-4 text-white" />
+                  </div>
                 </div>
+              )}
+            </div>
+
+            {/* Fake input bar */}
+            <div className="flex items-center gap-3 px-4 py-3 bg-white border-t border-slate-100">
+              <div className="flex-1 h-9 rounded-full bg-slate-50 border border-slate-200 flex items-center px-4">
+                <span className="text-slate-400 text-xs select-none">Sağdan bir soru seçin...</span>
               </div>
-            )}
+              <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
+                style={{ background: headerHex }}>
+                <Send className="w-4 h-4 text-white" />
+              </div>
+            </div>
           </div>
 
-          {/* Fake input bar */}
-          <div className="flex items-center gap-3 px-4 py-3 bg-white border-t border-slate-100">
-            <div className="flex-1 h-9 rounded-full bg-slate-50 border border-slate-200 flex items-center px-4">
-              <span className="text-slate-400 text-xs select-none">Aşağıdan bir soru seçin...</span>
-            </div>
-            <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
-              style={{ background: headerHex }}>
-              <Send className="w-4 h-4 text-white" />
-            </div>
-          </div>
-        </div>
-
-        {/* ── Question chips (fixed questions) ── */}
-        {items.length > 0 && (
-          <>
-            <p className="text-center text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-4 select-none">
-              Sıkça sorulan sorular
-            </p>
-            <div className="flex flex-wrap gap-2.5 justify-center">
+          {/* RIGHT — Question list */}
+          {items.length > 0 && (
+            <div className="lg:w-80 xl:w-96 flex-shrink-0 flex flex-col gap-2.5">
+              <p className="text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-1 select-none px-1">
+                Sıkça sorulan sorular
+              </p>
               {items.map((item, i) => {
                 const col = item.questionColor || cycleColors[i % cycleColors.length];
                 const isActive = activeIdx === i;
@@ -265,10 +267,10 @@ function ChatQASection({ data }: { data: any }) {
                   <button
                     key={i}
                     onClick={() => triggerQuestion(i)}
-                    className={`px-4 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 border ${
+                    className={`w-full text-left px-5 py-4 rounded-2xl text-sm font-semibold transition-all duration-200 border leading-snug ${
                       isActive
                         ? "shadow-md -translate-y-0.5"
-                        : "bg-white border-slate-200 text-slate-600 hover:border-slate-300 hover:shadow-sm hover:-translate-y-0.5"
+                        : "bg-white/70 border-slate-200 text-slate-600 hover:bg-white hover:border-slate-300 hover:shadow-sm hover:-translate-y-0.5"
                     }`}
                     style={isActive ? {
                       background: qBgMap[col] || "#EBF2FB",
@@ -276,12 +278,24 @@ function ChatQASection({ data }: { data: any }) {
                       borderColor: (qTextMap[col] || "#1B3A7B") + "45",
                     } : {}}
                   >
-                    {item.question}
+                    <span className="flex items-start gap-3">
+                      <span className="mt-0.5 w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center text-[10px] font-bold"
+                        style={isActive
+                          ? { background: qTextMap[col] || "#1B3A7B", color: "white" }
+                          : { background: "#F1F5F9", color: "#94A3B8" }}>
+                        {i + 1}
+                      </span>
+                      {item.question}
+                    </span>
                   </button>
                 );
               })}
             </div>
-          </>
+          )}
+        </div>
+
+        {items.length === 0 && (
+          <p className="text-center text-slate-400 py-8">Henüz soru eklenmedi.</p>
         )}
       </div>
     </section>
